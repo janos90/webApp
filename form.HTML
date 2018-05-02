@@ -89,6 +89,21 @@ width:800px;
       $('input.wind').on('change', function() {
           $('input.wind').not(this).prop('checked', false);
       });
+      $('input.wind').on('change', function() {
+          $('input.wind').not(this).prop('checked', false);
+      });
+      $('input.plans').on('change', function() {
+          $('input.plans').not(this).prop('required', false);
+      });
+      $('input.engineer').on('change', function() {
+          $('input.engineer').not(this).prop('required', false);
+      });
+      $('input.wndPlans').on('change', function() {
+          $('input.wndPlans').not(this).prop('required', false);
+      });
+      $('input.specs').on('change', function() {
+          $('input.specs').not(this).prop('required', false);
+      });
    })
    function preventFormSubmit() {
    var forms = document.querySelectorAll('form');
@@ -245,11 +260,11 @@ width:800px;
 
 	<div class="uploadSection">
 		<br>
-		<h3>Upload your plan files here</h3>
-		<p>Plans: <input type="file" name="myFile1"><br></p>
-		<p>Engineer Plans: <input type="file" name="myFile2"><br></p>
-		<p>Window & Door Plans: <input type="file" name="myFile3"><br></p>
-		<p>Specifications: <input type="file" name="myFile4"><br></p>
+		<h3>Upload your plan files here. If you're not uploading a file, tick the box.</h3>
+		<p>Plans: <input type="file" name="myFile1" class="plans"><input name="myFile1checkbox" type="checkbox" class="plans"></p><br>
+		<p>Engineer Plans: <input type="file" name="myFile2" class="engineer"><input name="myFile2checkbox" type="checkbox" class="engineer"></p><br>
+		<p>Window & Door Plans: <input type="file" name="myFile3" class="wndPlans"><input name="myFile3checkbox" type="checkbox" class="wndPlans"></p><br>
+		<p>Specifications: <input type="file" name="myFile4" class="specs"><input name="myFile4checkbox" type="checkbox" class="specs"></p><br>
 	</div>
 	<br>
 	<input type="submit" value="Submit form and upload">

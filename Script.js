@@ -1,38 +1,26 @@
-
-
 function doGet(e) {
   return HtmlService.createHtmlOutputFromFile('form');
 }
-
 function getIterator() {
-  var id = "1lQeOvQ37idTJbYsL1atKgQdBF6gDhU36BayYBMt_3lA"
+  var id = "1fY-mHXQIxqW9l4sqFp2rogfd_-xD8WJNsHh7jc_phYc"
   var file = DriveApp.getFileById(id);
   return parseInt(file.getName(), 10)
 }
 function incrementIterator(jobNumber) {
-  var id = "1lQeOvQ37idTJbYsL1atKgQdBF6gDhU36BayYBMt_3lA"
+  var id = "1fY-mHXQIxqW9l4sqFp2rogfd_-xD8WJNsHh7jc_phYc"
   var file = DriveApp.getFileById(id)
   var current = jobNumber
   file.setName(jobNumber + 1)
 }
-
 function processForm(form) {
-
   try {
     var jobNumber = getIterator()
-    var parentFolderId = "1fgD9wGjkVcb9QN_q-NHhl_GBMnJI-Ble"
+    var parentFolderId = "164tjlvUV_j_70zOorp9schQER60r767M"
     var clientFolderName = form.cRep;
     var parentFolder = DriveApp.getFolderById(parentFolderId)
     var folder, folders = parentFolder.getFoldersByName(clientFolderName);
-    if (folders.hasNext()) {
-      folder = folders.next();
-    } else {
-      folder = parentFolder.createFolder(clientFolderName);
-    }
+    if (folders.hasNext()) {folder = folders.next();} else {folder = parentFolder.createFolder(clientFolderName);}
     var JobFolder = folder.createFolder("jobNumber: " + jobNumber)
-
-
-
     var valuesArray = [
       form.variable1, // Truss Layout, PS1 only
       form.variable2, // Full Buildable Layouts
@@ -76,10 +64,8 @@ function processForm(form) {
       form.variable40,
       form.variable41,
       form.variable42,  // detailing
-
     ]
     var checkedArray = []
-
     for(var i = 0; i < valuesArray.length; i++) {
       if(valuesArray[i]) {
         checkedArray.push("checked")
@@ -95,43 +81,35 @@ function processForm(form) {
     content += "<header><h4 >Note Products required for the following:</h4>  </header>  <div class='pair'>   <div class='fullWidthContainer'>   <p>Interior Doors: <input class='textbox right' value='" + form.intDoor + "' type='text' placeholder='Product' style='width: 80%;'></p>   <p>Door Hardware:  <input class='textbox right' value='" + form.doorH + "' type='text' placeholder='Product' style='width: 80%;'></p><p>Scotia: <input class='textbox right' value='" + form.scotia + "' type='text' placeholder='Product' style='width: 80%;'></p>   <p>Frames: <input class='textbox right' value='" + form.frames + form.emailBen + "' type='text' placeholder='Product' style='width: 80%;'></p>  </div>  </div>"
     content += "<header><h4 >Note below alterations to plan supplied:</h4>  </header>  <div class='pair'>   <div class='fullWidthContainer'>  <p><input class='textbox large' value='" + form.alterations + "' type='text' placeholder='Product'></p>   </div>  </div>   <footer>  <h2> PLEASE NOTE: ALL INFORMATION GIVEN ON THIS FORM SUPERCEDES THAT ON THE PLAN.</H2>   </footer>  </div> </div>"
     content += "<div class='uploadSection'>  <br>  <h3>Upload your plan files here</h3>  <input name='' type='file' name='myFile4'><br> </div> <br> <input name='' type='submit' value='Submit form and uplaod' onclick='this.value='Uploading..'; google.script.run.withSuccessHandler(fileUploaded) .uploadFiles(this.parentNode); return false;'> </form> <div id='output'></div> <script> function fileUploaded(status) { .getElementById('myForm').style.display = 'none'; document.getElementById('output').innerHTML = status; } </script> <hr></td> </tr>  </tbody> </table> <h3>&nbsp;</h3> <p>&nbsp;</p></div>"
-
-
-
     var blob = Utilities.newBlob(content, "text/html", "text.html");
     var pdf = blob.getAs("application/pdf");
     JobFolder.createFile("pdf " + form.jobName+".pdf",pdf, MimeType.PDF);
     JobFolder.createFile("html "+form.jobName+".html", content, MimeType.HTML);
-
+    var uploadableFiles = []
     var uploadedFiles = []
-    var fileRange = [form.myFile1,form.myFile2,form.myFile3,form.myFile4]
-    for( var ter = 0; ter< fileRange.length(); ter++ ){
-      if(fileRange[ter]){
-        uploadedFiles.push(fileRange[ter])
+    if(form.myFile1.value != 0){uploadableFiles.push(form.myFile1)}
+    if(form.myFile2.value != 0){uploadableFiles.push(form.myFile2)}
+    if(form.myFile3.value != 0){uploadableFiles.push(form.myFile3)}
+    if(form.myFile4.value != 0){uploadableFiles.push(form.myFile4)}
+    if(uploadableFiles.length) {
+      for( var iter = 0; iter < uploadableFiles.length; iter++) {
+        var file = uploadableFiles[iter]
+        var uploadedFile = JobFolder.createFile(file);
+        uploadedFile.setSharing(DriveApp.Access.ANYONE, DriveApp.Permission.EDIT);
+        uploadedFile.setSharing(DriveApp.Access.ANYONE_WITH_LINK, DriveApp.Permission.VIEW);
+        uploadedFiles.push(uploadedFile);
       }
     }
-    if(uploadedFiles.length){
-      for( var iter = 0; iter < uploadedFiles.length; iter++) {
-        if(uploadedFiles.length) {
-          var file = uploadedFiles[iter]
-          var uploadedFile = JobFolder.createFile(file);
-          uploadedFile.setSharing(DriveApp.Access.ANYONE, DriveApp.Permission.EDIT);
-          uploadedFile.setSharing(DriveApp.Access.ANYONE_WITH_LINK, DriveApp.Permission.VIEW);
-          uploadedFiles.push(uploadedFile);
-        }
-      }
-  }
     var output = "Job Submitted successfully, Bellow are your file Links"
-    for(var it = 0; it < uploadedFiles.length; it++) {
-      output += "<br> <a href='" + uploadedFiles[it].getUrl() + "'>Link to "+ uploadedFiles[it].getName() + "</a>";
+    if(uploadedFiles.length) {
+      for(var it = 0; it < uploadedFiles.length; it++) {
+        output += "<br> <a href='" + uploadedFiles[it].getUrl() + "'>Link to "+ uploadedFiles[it].getName() + "</a>";
+      }
     }
     incrementIterator(jobNumber)
     return output + "<br> This is the job number "+ jobNumber;
-
   } catch (error) {
-    Logger.log(error.toString())
+  Logger.log(error.toString())
     return error.toString();
   }
-
-
 }

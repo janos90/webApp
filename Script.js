@@ -87,10 +87,10 @@ function processForm(form) {
     JobFolder.createFile("html "+form.jobName+".html", content, MimeType.HTML);
     var uploadableFiles = []
     var uploadedFiles = []
-    if(form.myFile1.value != 0){uploadableFiles.push(form.myFile1)}
-    if(form.myFile2.value != 0){uploadableFiles.push(form.myFile2)}
-    if(form.myFile3.value != 0){uploadableFiles.push(form.myFile3)}
-    if(form.myFile4.value != 0){uploadableFiles.push(form.myFile4)}
+    if(!form.myFile1checkbox){uploadableFiles.push(form.myFile1)}
+    if(!form.myFile2checkbox){uploadableFiles.push(form.myFile2)}
+    if(!form.myFile3checkbox){uploadableFiles.push(form.myFile3)}
+    if(!form.myFile4checkbox){uploadableFiles.push(form.myFile4)}
     if(uploadableFiles.length) {
       for( var iter = 0; iter < uploadableFiles.length; iter++) {
         var file = uploadableFiles[iter]

@@ -104,6 +104,9 @@ width:800px;
       $('input.specs').on('change', function() {
           $('input.specs').not(this).prop('required', false);
       });
+      $('input.location').on('change', function() {
+          $('input.location').not(this).prop('checked', false);
+      });
    })
    function preventFormSubmit() {
    var forms = document.querySelectorAll('form');
@@ -145,8 +148,8 @@ width:800px;
 				<input class="textbox" name="cMobile" type="text" placeholder="Mobile">
 				<input class="textbox" required name="cRep" type="text" placeholder="Rep">
 				<input class="textbox" name="cDate" type="text" placeholder="Date">
-                <p class="row"><input name="jobLocAuckland" type="checkbox">Auckland Job</p>
-                <p class="row"><input name="jobLocWaikato" type="checkbox">Waikato Job</p>
+                <p class="row"><input class="location" name="jobLocAuckland" type="checkbox">Auckland Job</p>
+                <p class="row"><input class="location" name="jobLocWaikato" type="checkbox">Waikato Job</p>
 
 			</div>
 			<div class="checkboxContainer">
@@ -241,8 +244,6 @@ width:800px;
 			<p>Frames:         <input class="textbox right" name="frames" type="text" placeholder="Product" style="width: 80%;"></p>
 		</div>
 		</div>
-
-
 		<header>
 			<h4 >Note below alterations to plan supplied:</h4>
 		</header>

@@ -68,10 +68,17 @@ function processForm(form) {
         checkedArray.push("")
       }
     }
+    var location = []
+    if(form.jobLocAuckland) {
+    location.push("checked")
+    location.push("")
+    } else {
+        location.push("")
+    location.push("checked")
+    }
     var content
 
-content+= "<style type='text/css'> body {     text-align: -webkit-center; 	background-color: #FFfFFF;     font-family: Sans-serif; }  form { width:800px;  }  .wrapper { 	display: flex; 	flex-flow: row wrap; 	font-weight: bold; 	text-align: center;   } .header { 	flex:1; 	text-align: center; 	min-width: 600px; } .main { 	flex: 1; } .textbox { 	/* float: right; */ } .row { 	display: flex; 	flex-flow: row wrap; 	text-align: center; 	font-weight: normal; 	font-size: 14;  } .checkboxContainer { 	border: solid 3px black; 	flex-flow: wrap; 	width: 50%; 	padding: 5px;  }  .checkboxContainerheader { 	background-color: grey; 	padding: 5px }  .fullWidthContainer { 	border: solid 3px black; 	flex-flow: wrap; 	width: 100%; 	padding: 5px; }  .pair { 	display: flex;  }  .right { 	float: right;  }  .uploadSection { 	text-align: left; }  .large { 	height: 90px; 	width: 90%; }   </style> "
-
+    content+= "<style type='text/css'> body {     text-align: -webkit-center; 	background-color: #FFfFFF;     font-family: Sans-serif; }  form { width:800px;  }  .wrapper { 	display: flex; 	flex-flow: row wrap; 	font-weight: bold; 	text-align: center;   } .header { 	flex:1; 	text-align: center; 	min-width: 600px; } .main { 	flex: 1; } .textbox { 	/* float: right; */ } .row { 	display: flex; 	flex-flow: row wrap; 	text-align: center; 	font-weight: normal; 	font-size: 14;  } .checkboxContainer { 	border: solid 3px black; 	flex-flow: wrap; 	width: 50%; 	padding: 5px;  }  .checkboxContainerheader { 	background-color: grey; 	padding: 5px }  .fullWidthContainer { 	border: solid 3px black; 	flex-flow: wrap; 	width: 100%; 	padding: 5px; }  .pair { 	display: flex;  }  .right { 	float: right;  }  .uploadSection { 	text-align: left; }  .large { 	height: 90px; 	width: 90%; }   </style> "
     content += "<div align='center'> 	<p><img src='https://www.thomsonsitm.co.nz/themes/ThomsonsITM/images/logo.png' style='background-color: #000000; padding: 30px;'></p> </div> <form id='myForm' align='center' onsubmit='handleFormSubmit(this)'> 	<div class='wrapper'> 		<div class='main'> 			<header> 				<h3>Estimate Request</h3> 			</header>  			<div class='pair'> 				<div class='checkboxContainer'> 					<header>Client</header> 				<input class='textbox' required value='"
     content += form.cClient + "' type='text' placeholder='Client' > 				<input class='textbox' value='"
     content += form.cAddress + "' type='text' placeholder='Address'> 				<input class='textbox' value='"
@@ -79,15 +86,15 @@ content+= "<style type='text/css'> body {     text-align: -webkit-center; 	backg
     content += form.cMobile + "' type='text' placeholder='Mobile'> 				<input class='textbox' required value='"
     content += form.cRep + "' type='text' placeholder='Rep'> 				<input class='textbox' value='"
     content += form.cDate + "' type='text' placeholder='Date'>                 <p class='row'><input "
-    content += form.jobLocAuckland + "' type='checkbox'>Auckland Job</p>                 <p class='row'><input "
-    content += form.jobLocWaikato + "' type='checkbox'>Waikato Job</p>  			</div> 			<div class='checkboxContainer'> 				<header>Job</header> 				<input class='textbox' required value='"
+    content += location[0] + " type='checkbox'>Auckland Job</p>                 <p class='row'><input "
+    content += location[1] + " type='checkbox'>Waikato Job</p>  			</div> 			<div class='checkboxContainer'> 				<header>Job</header> 				<input class='textbox' required value='"
     content += form.jobName + "' type='text' placeholder='Job Name'> 				<input class='textbox' required value='"
     content += form.jobAddress + "' type='text' placeholder='Site Address'> 				<input class='textbox' value='"
     content += form.jobCompany + "' type='text' placeholder='Company/Branch Name'> 				<input class='textbox' value='"
     content += form.jobPrenail + "' type='text' placeholder='Est. Pre-nail Date'>  			</div> 		</div> 		<header> 			<h4 >Tick the items below required to be estimated</h4> 		</header> 		<div class='pair'>  			<div class='checkboxContainer'>  				<p class='row'><input "
-    content += checkedArray[1] + " type='checkbox'>Truss Layout, PS1 only</p> 				<p class='row'><input "
-    content += checkedArray[2] + " type='checkbox'>Full Buildable Layouts</p>         <p class='row'><input "
-    content += checkedArray[42] + " type='checkbox'>Detailing</p>         <p style='border:solid 1px black;'></p> 				<p class='row'><input "
+    content += checkedArray[0] + " type='checkbox'>Truss Layout, PS1 only</p> 				<p class='row'><input "
+    content += checkedArray[1] + " type='checkbox'>Full Buildable Layouts</p>         <p class='row'><input "
+    content += checkedArray[2] + " type='checkbox'>Detailing</p>         <p style='border:solid 1px black;'></p> 				<p class='row'><input "
     content += checkedArray[3] + " type='checkbox'>Steel Reinforcing</p> 				<p class='row'><input "
     content += checkedArray[4] + " type='checkbox'>Pre-Bent R/Steel</p> 				<p class='row'><input "
     content += checkedArray[5] + " type='checkbox'>Rib-raft</p> 				<p class='row'><input "
@@ -157,7 +164,7 @@ content+= "<style type='text/css'> body {     text-align: -webkit-center; 	backg
     incrementIterator(jobNumber)
     output += "<br> This is the job number "+ jobNumber;
     if(form.variable1 || form.variable2 || form.variable42 || form.variable9) { //email detailing
-      sendEmail(output)
+      sendEmail(content)
     } else { // email Arie
 
     }

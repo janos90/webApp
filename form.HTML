@@ -109,17 +109,18 @@ width:800px;
       });
    })
    function preventFormSubmit() {
-   var forms = document.querySelectorAll('form');
-   for (var i = 0; i < forms.length; i++) {
-   forms[i].addEventListener('submit', function(event) {
-   event.preventDefault();
-   });
-   }
+     var forms = document.querySelectorAll('form');
+       for (var i = 0; i < forms.length; i++) {
+         forms[i].addEventListener('submit', function(event) {
+         event.preventDefault();
+       });
+     }
    }
    window.addEventListener('load', preventFormSubmit);
 
    function handleFormSubmit(formObject) {
-   google.script.run.withSuccessHandler(updateUrl).processForm(formObject);
+    $('input.submission').prop( "disabled", true );
+     google.script.run.withSuccessHandler(updateUrl).processForm(formObject);
    }
    function updateUrl(url) {
      var div = document.getElementById('output');
@@ -269,7 +270,7 @@ width:800px;
 		<p>Specifications: <input type="file" name="myFile4" class="specs" required><input name="myFile4checkbox" type="checkbox" class="specs" required></p><br>
 	</div>
 	<br>
-	<input type="submit" value="Submit form and upload">
+	<input class="submission" type="submit" value="Submit form and upload">
 </form>
 <div id="output">
 	<h3>&nbsp;</h3>

@@ -128,12 +128,12 @@ function processForm(form) {
     content += checkedArray[33] + " type='checkbox'>Corrosion Zone C: Med</p> 				<p class='row'><input class='wind' "
     content += checkedArray[34] + " type='checkbox'>High Wind</p>  			</div> 			<div class='checkboxContainer'> 				<p class='row'><input class='corrosion' "
     content += checkedArray[35] + " type='checkbox'>Corrosion Zone D: High</p> 				<p class='row'><input class='wind' "
-    content += checkedArray[36] + " type='checkbox'>Very High Wind</p>  			</div> 		</div> 		<header> 			<h4 >Note Products required for the following:</h4> 		</header> 		<div class='pair'> 			<div class='fullWidthContainer'> 			<p>Interior Doors: <input class='textbox right' "
+    content += checkedArray[36] + " type='checkbox'>Very High Wind</p>  			</div> 		</div> 		<header> 			<h4 >Note Products required for the following:</h4> 		</header> 		<div class='pair'> 			<div class='fullWidthContainer'> 			<p>Interior Doors: <input class='textbox right' vlue='"
     content += form.intDoor + "' type='text' placeholder='Product' style='width: 80%;'></p> 			<p>Door Hardware:  <input class='textbox right' value='"
     content += form.doorH + "' type='text' placeholder='Product' style='width: 80%;'></p> 			<p>Scotia:         <input class='textbox right' value='"
     content += form.scotia + "' type='text' placeholder='Product' style='width: 80%;'></p> 			<p>Frames:         <input class='textbox right' value='"
     content += form.frames + "' type='text' placeholder='Product' style='width: 80%;'></p> 		</div> 		</div>       		<header> 			<h4 >Note below alterations to plan supplied:</h4> 		</header> 		<div class='pair'> 			<div class='fullWidthContainer'> 				<p><input class='textbox large' value='"
-    content += form.alterations + "' type='text' placeholder='Product'></p> 			</div> 		</div> 			<footer> 				<h2> PLEASE NOTE: ALL INFORMATION GIVEN ON THIS FORM SUPERCEDES THAT ON THE PLAN.</H2> 			</footer> 		</div> 	</div>  	<div class='uploadSection'> 		<br> 		<h3>Upload your plan files here. If you're not uploading a file, tick the box.</h3> 		<p>Plans: <input type='file' value='"
+    content += form.alterations + "' type='text' placeholder='Product'></p> 			</div> 		</div> 			<footer> 				<h2> PLEASE NOTE: ALL INFORMATION GIVEN ON THIS FORM SUPERCEDES THAT ON THE PLAN.</H2> 			</footer> 		</div> 	</div>  	<div class='uploadSection'> 		<br> 		<h3>Upload your plan files here. If you're not uploading a file, tick the box.</h3>"
 
 
     var blob = Utilities.newBlob(content, "text/html", "text.html");
@@ -164,9 +164,12 @@ function processForm(form) {
     incrementIterator(jobNumber)
     output += "<br> This is the job number "+ jobNumber;
     if(form.variable1 || form.variable2 || form.variable42 || form.variable9) { //email detailing
-      sendEmail(content)
+      sendEmail('colin@johanson.co.nz', content, output)
     } else { // email Arie
 
+    }
+    if(form.emailTo){
+      sendEmail(form.emailTo, content, output)
     }
 
     return output
@@ -175,12 +178,12 @@ function processForm(form) {
     return error.toString();
   }
 }
-function sendEmail(output) {
+function sendEmail(email, content, output) {
   GmailApp.sendEmail(
-    'thekingliveson@gmail.com',
+    email,
     'A new job has been submitted',
     '',
     {
-      htmlBody: output
+      htmlBody: content + "\n" + output
     });
 }

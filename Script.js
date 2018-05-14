@@ -139,7 +139,7 @@ function processForm(form) {
     var blob = Utilities.newBlob(content, "text/html", "text.html");
     var pdf = blob.getAs("application/pdf");
     JobFolder.createFile("pdf"+form.jobName+".pdf", pdf, MimeType.PDF);
-    JobFolder.createFile("html "+form.jobName+".html", content, MimeType.HTML);
+    var uploadedHhtml = JobFolder.createFile("html "+form.jobName+".html", content, MimeType.HTML);
     var uploadableFiles = []
     var uploadedFiles = []
     if(!form.myFile1checkbox){uploadableFiles.push(form.myFile1)}
@@ -161,6 +161,9 @@ function processForm(form) {
         output += "<br> <a href='" + uploadedFiles[it].getUrl() + "'>Link to "+ uploadedFiles[it].getName() + "</a>";
       }
     }
+
+    output += "<br> <a href='" + uploadedHhtml.getUrl() + "'>Link to Form as HTML </a>";
+
     incrementIterator(jobNumber)
     output += "<br> This is the job number "+ jobNumber;
     if(form.variable1 || form.variable2 || form.variable42 || form.variable9) { //email detailing

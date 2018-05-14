@@ -131,9 +131,10 @@ function processForm(form) {
     content += checkedArray[36] + " type='checkbox'>Very High Wind</p>  			</div> 		</div> 		<header> 			<h4 >Note Products required for the following:</h4> 		</header> 		<div class='pair'> 			<div class='fullWidthContainer'> 			<p>Interior Doors: <input class='textbox right' vlue='"
     content += form.intDoor + "' type='text' placeholder='Product' style='width: 80%;'></p> 			<p>Door Hardware:  <input class='textbox right' value='"
     content += form.doorH + "' type='text' placeholder='Product' style='width: 80%;'></p> 			<p>Scotia:         <input class='textbox right' value='"
-    content += form.scotia + "' type='text' placeholder='Product' style='width: 80%;'></p> 			<p>Frames:         <input class='textbox right' value='"
-    content += form.frames + "' type='text' placeholder='Product' style='width: 80%;'></p> 		</div> 		</div>       		<header> 			<h4 >Note below alterations to plan supplied:</h4> 		</header> 		<div class='pair'> 			<div class='fullWidthContainer'> 				<p><input class='textbox large' value='"
-    content += form.alterations + "' type='text' placeholder='Product'></p> 			</div> 		</div> 			<footer> 				<h2> PLEASE NOTE: ALL INFORMATION GIVEN ON THIS FORM SUPERCEDES THAT ON THE PLAN.</H2> 			</footer> 		</div> 	</div>  	<div class='uploadSection'> 		<br> 		<h3>Upload your plan files here. If you're not uploading a file, tick the box.</h3>"
+    content += form.scotia + "' type='text' placeholder='Product' style='width: 80%;'></p> 			<p>Skirting:         <input class='textbox right' value='"
+    content += form.skirting + "' type='text' placeholder='Product' style='width: 80%;'></p> 			<p>Architraves:         <input class='textbox right' value='"
+    content += form.architraves + "' type='text' placeholder='Product' style='width: 80%;'></p> 		</div> 		</div>       		<header> 			<h4 >Note below alterations to plan supplied:</h4> 		</header> 		<div class='pair'> 			<div class='fullWidthContainer'> 				<p><input class='textbox large' value='"
+    content += form.alterations + "' type='text' placeholder='Product'></p> 			</div> 		</div> 			<footer> 				<h2> PLEASE NOTE: ALL INFORMATION GIVEN ON THIS FORM SUPERCEDES THAT ON THE PLAN.</H2> 			</footer> 		</div> 	</div>"
 
 
     var blob = Utilities.newBlob(content, "text/html", "text.html");
@@ -166,13 +167,14 @@ function processForm(form) {
 
     incrementIterator(jobNumber)
     output += "<br> This is the job number "+ jobNumber;
-    if(form.variable1 || form.variable2 || form.variable42 || form.variable9) { //email detailing
-      sendEmail('colin@johanson.co.nz', content, output)
-    } else { // email Arie
 
+
+    if(form.variable1 || form.variable2 || form.variable42 || form.variable9) {
+      sendEmail('colin@johanson.co.nz', content, output) // email detailing if required
     }
+    sendEmail(Quotes@thomsonsitm.co.nz, content, output) // email quotes team for every quote
     if(form.emailTo){
-      sendEmail(form.emailTo, content, output)
+      sendEmail(form.emailTo, content, output) // email additional if required
     }
 
     return output

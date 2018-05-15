@@ -79,7 +79,7 @@ function processForm(form) {
     var content
 
     content+= "<style type='text/css'> body {     text-align: -webkit-center; 	background-color: #FFfFFF;     font-family: Sans-serif; }  form { width:800px;  }  .wrapper { 	display: flex; 	flex-flow: row wrap; 	font-weight: bold; 	text-align: center;   } .header { 	flex:1; 	text-align: center; 	min-width: 600px; } .main { 	flex: 1; } .textbox { 	/* float: right; */ } .row { 	display: flex; 	flex-flow: row wrap; 	text-align: center; 	font-weight: normal; 	font-size: 14;  } .checkboxContainer { 	border: solid 3px black; 	flex-flow: wrap; 	width: 50%; 	padding: 5px;  }  .checkboxContainerheader { 	background-color: grey; 	padding: 5px }  .fullWidthContainer { 	border: solid 3px black; 	flex-flow: wrap; 	width: 100%; 	padding: 5px; }  .pair { 	display: flex;  }  .right { 	float: right;  }  .uploadSection { 	text-align: left; }  .large { 	height: 90px; 	width: 90%; }   </style> "
-    content += "<div align='center'> 	<p><img src='https://www.thomsonsitm.co.nz/themes/ThomsonsITM/images/logo.png' style='background-color: #000000; padding: 30px;'></p> </div> <form id='myForm' align='center' onsubmit='handleFormSubmit(this)'> 	<div class='wrapper'> 		<div class='main'> 			<header> 				<h3>Estimate Request</h3> 			</header>  			<div class='pair'> 				<div class='checkboxContainer'> 					<header>Client</header> 				<input class='textbox' required value='"
+    content += "<form id='myForm' align='center' onsubmit='handleFormSubmit(this)'><div class='wrapper'>  <div class='main'>    <div class='headingWrapper'>      <div class='imagePair'>        <p style='padding: 10px'>          <img src='https://www.thomsonsitm.co.nz/themes/ThomsonsITM/images/logo.png' style='background-color: #000000; padding: 20px;'>          <br>          <br>Thomsons Timbers Supplies Limited        </p>	<div class='checkboxContainer'> 					<header>Client</header> 				<input class='textbox' required value='"
     content += form.cClient + "' type='text' placeholder='Client' > 				<input class='textbox' value='"
     content += form.cAddress + "' type='text' placeholder='Address'> 				<input class='textbox' value='"
     content += form.cPhone + "' type='text' placeholder='Phone'> 				<input class='textbox' value='"
@@ -131,16 +131,15 @@ function processForm(form) {
     content += checkedArray[36] + " type='checkbox'>Very High Wind</p>  			</div> 		</div> 		<header> 			<h4 >Note Products required for the following:</h4> 		</header> 		<div class='pair'> 			<div class='fullWidthContainer'> 			<p>Interior Doors: <input class='textbox right' vlue='"
     content += form.intDoor + "' type='text' placeholder='Product' style='width: 80%;'></p> 			<p>Door Hardware:  <input class='textbox right' value='"
     content += form.doorH + "' type='text' placeholder='Product' style='width: 80%;'></p> 			<p>Scotia:         <input class='textbox right' value='"
-    content += form.scotia + "' type='text' placeholder='Product' style='width: 80%;'></p> 			<p>Skirting:         <input class='textbox right' value='"
-    content += form.skirting + "' type='text' placeholder='Product' style='width: 80%;'></p> 			<p>Architraves:         <input class='textbox right' value='"
-    content += form.architraves + "' type='text' placeholder='Product' style='width: 80%;'></p> 		</div> 		</div>       		<header> 			<h4 >Note below alterations to plan supplied:</h4> 		</header> 		<div class='pair'> 			<div class='fullWidthContainer'> 				<p><input class='textbox large' value='"
-    content += form.alterations + "' type='text' placeholder='Product'></p> 			</div> 		</div> 			<footer> 				<h2> PLEASE NOTE: ALL INFORMATION GIVEN ON THIS FORM SUPERCEDES THAT ON THE PLAN.</H2> 			</footer> 		</div> 	</div>"
+    content += form.scotia + "' type='text' placeholder='Product' style='width: 80%;'></p> 			<p>Frames:         <input class='textbox right' value='"
+    content += form.frames + "' type='text' placeholder='Product' style='width: 80%;'></p> 		</div> 		</div>       		<header> 			<h4 >Note below alterations to plan supplied:</h4> 		</header> 		<div class='pair'> 			<div class='fullWidthContainer'> 				<p><input class='textbox large' value='"
+    content += form.alterations + "' type='text' placeholder='Product'></p> 			</div> 		</div> 			<footer> 				<h2> PLEASE NOTE: ALL INFORMATION GIVEN ON THIS FORM SUPERCEDES THAT ON THE PLAN.</H2> 			</footer> 		</div> 	</div>  	<div class='uploadSection'> 		<br> 		<h3>Upload your plan files here. If you're not uploading a file, tick the box.</h3>"
 
 
     var blob = Utilities.newBlob(content, "text/html", "text.html");
     var pdf = blob.getAs("application/pdf");
     JobFolder.createFile("pdf"+form.jobName+".pdf", pdf, MimeType.PDF);
-    var uploadedHhtml = JobFolder.createFile("html "+form.jobName+".html", content, MimeType.HTML);
+    JobFolder.createFile("html "+form.jobName+".html", content, MimeType.HTML);
     var uploadableFiles = []
     var uploadedFiles = []
     if(!form.myFile1checkbox){uploadableFiles.push(form.myFile1)}
@@ -162,19 +161,15 @@ function processForm(form) {
         output += "<br> <a href='" + uploadedFiles[it].getUrl() + "'>Link to "+ uploadedFiles[it].getName() + "</a>";
       }
     }
-
-    output += "<br> <a href='" + uploadedHhtml.getUrl() + "'>Link to Form as HTML </a>";
-
     incrementIterator(jobNumber)
     output += "<br> This is the job number "+ jobNumber;
+    if(form.variable1 || form.variable2 || form.variable42 || form.variable9) { //email detailing
+      sendEmail('colin@johanson.co.nz', content, output)
+    } else { // email Arie
 
-
-    if(form.variable1 || form.variable2 || form.variable42 || form.variable9) {
-      sendEmail('colin@johanson.co.nz', content, output) // email detailing if required
     }
-    sendEmail(Quotes@thomsonsitm.co.nz, content, output) // email quotes team for every quote
     if(form.emailTo){
-      sendEmail(form.emailTo, content, output) // email additional if required
+      sendEmail(form.emailTo, content, output)
     }
 
     return output

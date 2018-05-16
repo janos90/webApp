@@ -177,7 +177,7 @@ function processForm(form) {
     if(form.emailTo){
       sendEmail(form.emailTo, content, output) // email the additional
     }
-    sendEmail(Quotes@thomsonsitm.co.nz, content, output) // email the quotes team
+    sendEmail('Quotes@thomsonsitm.co.nz', content, output) // email the quotes team
 
 
     return output

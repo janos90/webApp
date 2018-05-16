@@ -169,6 +169,8 @@ function processForm(form) {
         output += "<br> <a href='" + uploadedFiles[it].getUrl() + "'>Link to "+ uploadedFiles[it].getName() + "</a>";
       }
     }
+    output += "<br> <a href='" + uploadedHhtml.getUrl() + "'>Link to form as HTML </a>";
+
     incrementIterator(jobNumber)
     output += "<br> This is the job number "+ jobNumber;
     if(form.variable1 || form.variable2 || form.variable42 || form.variable9) {
@@ -192,6 +194,6 @@ function sendEmail(email, content, output) {
     'A new job has been submitted',
     '',
     {
-      htmlBody: content + "\n" + output
+      htmlBody: output
     });
 }

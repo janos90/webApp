@@ -171,14 +171,14 @@ function processForm(form) {
     }
     incrementIterator(jobNumber)
     output += "<br> This is the job number "+ jobNumber;
-    if(form.variable1 || form.variable2 || form.variable42 || form.variable9) { //email detailing
-      sendEmail('colin@johanson.co.nz', content, output)
-    } else { // email Arie
-
+    if(form.variable1 || form.variable2 || form.variable42 || form.variable9) {
+      sendEmail('colin@johanson.co.nz', content, output) // email detailing
     }
     if(form.emailTo){
-      sendEmail(form.emailTo, content, output)
+      sendEmail(form.emailTo, content, output) // email the additional
     }
+    sendEmail(Quotes@thomsonsitm.co.nz, content, output) // email the quotes team
+
 
     return output
   } catch (error) {

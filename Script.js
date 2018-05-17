@@ -84,9 +84,9 @@ function processForm(form) {
     content += "<form id='myForm' align='center' onsubmit='handleFormSubmit(this)'>  <div class='wrapper'><div class='main'>"
     content += "<div class='headingWrapper'><div class='imagePair'>  <p style='padding: 10px'><img src='https://www.thomsonsitm.co.nz/themes/ThomsonsITM/images/logo.png' style='background-color: #000000; padding: 20px;'><br><br>Thomsons Timbers Supplies Limited  </p>  <div class='checkboxContainer'>"
     content += "<p style='color: red; text-align: left; padding-left: 9px'>Office Use only:</p>"
-    content += "<p>Frames/Trusses: <input class='textbox right' name='" + form.officeFrames + "' type='text' placeholder='Product' style='width: 60%;'></p>"
-    content += "<p>Discount Group: <input class='textbox right' name='" + form.officeDiscount + "' type='text' placeholder='Product' style='width: 60%;'></p>"
-    content += "<p>Reason: <input class='textbox right' name='" + form.officeReason + "' type='text' placeholder='Product' style='width: 60%;'></p>  </div></div>  </div>  <header><h3>Estimate Request</h3>  </header>  <div class='pair'><div class='checkboxContainer'>"
+    content += "<p>Frames/Trusses: <input class='textbox right' value='" + form.officeFrames + "' type='text' placeholder='Product' style='width: 60%;'></p>"
+    content += "<p>Discount Group: <input class='textbox right' value='" + form.officeDiscount + "' type='text' placeholder='Product' style='width: 60%;'></p>"
+    content += "<p>Reason: <input class='textbox right' value='" + form.officeReason + "' type='text' placeholder='Product' style='width: 60%;'></p>  </div></div>  </div>  <header><h3>Estimate Request</h3>  </header>  <div class='pair'><div class='checkboxContainer'>"
 
     content += "<header>Client</header><input class='textbox' required value='" + form.cClient + "' type='text' placeholder='Client' > 	<input class='textbox' value='"
     content += form.cAddress + "' type='text' placeholder='Address'> <input class='textbox' value='"

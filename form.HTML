@@ -161,9 +161,9 @@ function updateUrl(url) {
           </p>
           <div class="checkboxContainer">
             <p style="color: red; text-align: left; padding-left: 9px">Office Use only:</p>
-            <p>Frames/Trusses: <input class="textbox right" name="officeFrames" type="text" placeholder="Product" style="width: 60%;"></p>
-            <p>Discount Group: <input class="textbox right" name="officeDiscount" type="text" placeholder="Product" style="width: 60%;"></p>
-            <p>Reason: <input class="textbox right" name="officeReason" type="text" placeholder="Product" style="width: 60%;"></p>
+            <p>Frames/Trusses: <input class="textbox right" name="officeFrames" type="text" style="width: 60%;"></p>
+            <p>Discount Group: <input class="textbox right" name="officeDiscount" type="text" style="width: 60%;"></p>
+            <p>Reason: <input class="textbox right" name="officeReason" type="text" style="width: 60%;"></p>
           </div>
         </div>
       </div>
@@ -189,7 +189,11 @@ function updateUrl(url) {
           <input class="textbox" required name="jobAddress" type="text" placeholder="Site Address">
           <input class="textbox" name="jobCompany" type="text" placeholder="Company/Branch Name">
           <input class="textbox" name="jobPrenail" type="text" placeholder="Est. Pre-nail Date">
-          <input class="textbox" name="emailTo" type="text" placeholder="email a copy to">
+          <p class="row"><input class="location" name="emailArie" type="checkbox">Email to Arie</p>
+          <p class="row"><input class="location" name="emailSkip" type="checkbox">Email to Skip</p>
+          <p class="row">Email a copy to:<input class="textbox right" name="emailTo" type="text" placeholder="email a copy to" style="width: 60%; margin-left: 10px;"></p>
+
+
         </div>
       </div>
       <header>
@@ -281,7 +285,7 @@ function updateUrl(url) {
       </header>
       <div class="pair">
         <div class="fullWidthContainer">
-          <p><input class="textbox large" name="alterations" type="text" placeholder="Product"></p>
+          <p><textarea class="textbox large" name="alterations" type="text" placeholder="Product"></textarea></p>
         </div>
       </div>
       <footer>

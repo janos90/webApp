@@ -140,14 +140,17 @@ function processForm(form) {
     content += form.intDoor + "' type='text' placeholder='Product' style='width: 80%;'></p> 			<p>Door Hardware:  <input class='textbox right' value='"
     content += form.doorH + "' type='text' placeholder='Product' style='width: 80%;'></p> 			<p>Scotia:         <input class='textbox right' value='"
     content += form.scotia + "' type='text' placeholder='Product' style='width: 80%;'></p> 			<p>Frames:         <input class='textbox right' value='"
-    content += form.frames + "' type='text' placeholder='Product' style='width: 80%;'></p> 		</div> 		</div>       		<header> 			<h4 >Note below alterations to plan supplied:</h4> 		</header> 		<div class='pair'> 			<div class='fullWidthContainer'> 				<p><input class='textbox large' value='"
-    content += form.alterations + "' type='text' placeholder='Product'></p> 			</div> 		</div> 			<footer> 				<h2> PLEASE NOTE: ALL INFORMATION GIVEN ON THIS FORM SUPERCEDES THAT ON THE PLAN.</H2> 			</footer> 		</div> 	</div>  	<div class='uploadSection'> 		<br> 		<h3>Upload your plan files here. If you're not uploading a file, tick the box.</h3>"
+    content += form.frames + "' type='text' placeholder='Product' style='width: 80%;'></p> 		</div> 		</div>       		<header> 			<h4 >Note below alterations to plan supplied:</h4> 		</header> 		<div class='pair'> 			<div class='fullWidthContainer'> 				<p><textarea class='textbox large' value='"
+    content += form.alterations + "' type='text' placeholder='Product'></textarea></p> 			</div> 		</div> 			<footer> 				<h2> PLEASE NOTE: ALL INFORMATION GIVEN ON THIS FORM SUPERCEDES THAT ON THE PLAN.</H2> 			</footer> 		</div> 	</div>  	<div class='uploadSection'> 		<br> 		<h3>Upload your plan files here. If you're not uploading a file, tick the box.</h3>"
 
 
     var blob = Utilities.newBlob(content, "text/html", "text.html");
     var pdf = blob.getAs("application/pdf");
     JobFolder.createFile("pdf"+form.jobName+".pdf", pdf, MimeType.PDF);
-    JobFolder.createFile("html "+form.jobName+".html", content, MimeType.HTML);
+    var uploadedHTML = JobFolder.createFile("html "+form.jobName+".html", content, MimeType.HTML);
+    uploadedHTML.setSharing(DriveApp.Access.ANYONE, DriveApp.Permission.EDIT);
+    uploadedHTML.setSharing(DriveApp.Access.ANYONE_WITH_LINK, DriveApp.Permission.VIEW);
+
     var uploadableFiles = []
     var uploadedFiles = []
     if(!form.myFile1checkbox){uploadableFiles.push(form.myFile1)}
@@ -169,17 +172,36 @@ function processForm(form) {
         output += "<br> <a href='" + uploadedFiles[it].getUrl() + "'>Link to "+ uploadedFiles[it].getName() + "</a>";
       }
     }
-    output += "<br> <a href='" + uploadedHhtml.getUrl() + "'>Link to form as HTML </a>";
+    output += "<br> <a href='" + uploadedHTML.getUrl() + "'>Link to form as HTML </a>";
 
     incrementIterator(jobNumber)
     output += "<br> This is the job number "+ jobNumber;
+
+    var genericSubject = 'New job, number '+ jobNumber + ', has been submitted to the quotes portal by: ' + form.cRep + ' for client ' + form.cClient
+
+    var detailingSubject = 'New job, number ' + jobNumber + ', issued for: '
+    if(form.variable1){detailingSubject+= 'Truss Layout, PS1 only, '}
+    if(form.variable2){detailingSubject+= 'Full Buildable Layouts, '}
+    if(form.variable42){detailingSubject+= 'Detailing, '}
+    if(form.variable9){detailingSubject+= 'Trusses/Rafters, '}
+    detailingSubject+= 'Uploaded by: ' + form.cRep + ', '
+    detailingSubject+= 'For Client: ' + form.cClient + ', '
+
     if(form.variable1 || form.variable2 || form.variable42 || form.variable9) {
-      sendEmail('colin@johanson.co.nz', content, output) // email detailing
+      sendEmail('colin@johanson.co.nz', content, output, detailingSubject) // email detailing
     }
     if(form.emailTo){
-      sendEmail(form.emailTo, content, output) // email the additional
+      sendEmail(form.emailTo, content, output, genericSubject) // email the additional
     }
-    sendEmail('Quotes@thomsonsitm.co.nz', content, output) // email the quotes team
+    if(form.emailArie){
+      sendEmail('arie.quantifier@gmail.com', content, output, genericSubject) // email Arie
+    }
+    if(form.emailSkip){
+      sendEmail('skip@johanson.co.nz', content, output, detailingSubject) // email Skip
+    }
+
+
+    sendEmail('Quotes@thomsonsitm.co.nz', content, output, genericSubject) // email the quotes team
 
 
     return output
@@ -188,10 +210,10 @@ function processForm(form) {
     return error.toString();
   }
 }
-function sendEmail(email, content, output) {
+function sendEmail(email, content, output, subject) {
   GmailApp.sendEmail(
     email,
-    'A new job has been submitted',
+    subject,
     '',
     {
       htmlBody: output

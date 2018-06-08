@@ -189,6 +189,7 @@ function processForm(form) {
 
     if(form.variable1 || form.variable2 || form.variable42 || form.variable9) {
       sendEmail('colin@johanson.co.nz', content, output, detailingSubject) // email detailing
+      sendEmail('skip@johanson.co.nz', content, output, detailingSubject) // email skip
     }
     if(form.emailTo){
       sendEmail(form.emailTo, content, output, genericSubject) // email the additional

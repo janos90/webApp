@@ -106,7 +106,7 @@ function processForm(form) {
     content += checkedArray[3] + " type='checkbox'>Steel Reinforcing</p> <p class='row'><input "
     content += checkedArray[4] + " type='checkbox'>Pre-Bent R/Steel</p> <p class='row'><input "
     content += checkedArray[5] + " type='checkbox'>Rib-raft</p> <p class='row'><input "
-    content += checkedArray[6] + " type='checkbox'>Masonary</p> <p class='row'><input "
+    content += checkedArray[6] + " type='checkbox'>Masonry</p> <p class='row'><input "
     content += checkedArray[7] + " type='checkbox'>Concrete</p> 			</div> 			<div class='checkboxContainer'> <p class='row'><input "
     content += checkedArray[8] + " type='checkbox'>Prenail</p> <p class='row'><input "
     content += checkedArray[9] + " type='checkbox'>Trusses/Rafters</p> <p class='row'><input "

@@ -166,7 +166,7 @@ function processForm(form) {
         uploadedFiles.push(uploadedFile);
       }
     }
-    var output = "Job Submitted successfully, Bellow are your file Links"
+    var output = "Job Submitted successfully, Below are your file Links"
     if(uploadedFiles.length) {
       for(var it = 0; it < uploadedFiles.length; it++) {
         output += "<br> <a href='" + uploadedFiles[it].getUrl() + "'>Link to "+ uploadedFiles[it].getName() + "</a>";

@@ -141,7 +141,7 @@ function processForm(form) {
     content += form.doorH + "' type='text' placeholder='Product' style='width: 80%;'></p> 			<p>Scotia:         <input class='textbox right' value='"
     content += form.scotia + "' type='text' placeholder='Product' style='width: 80%;'></p> 			<p>Frames:         <input class='textbox right' value='"
     content += form.frames + "' type='text' placeholder='Product' style='width: 80%;'></p> 		</div> 		</div>       		<header> 			<h4 >Note below alterations to plan supplied:</h4> 		</header> 		<div class='pair'> 			<div class='fullWidthContainer'> 				<p><textarea class='textbox large' value='"
-    content += form.alterations + "' type='text' placeholder='Product'></textarea></p> 			</div> 		</div> 			<footer> 				<h2> PLEASE NOTE: ALL INFORMATION GIVEN ON THIS FORM SUPERCEDES THAT ON THE PLAN.</H2> 			</footer> 		</div> 	</div>  	<div class='uploadSection'> 		<br> 		<h3>Upload your plan files here. If you're not uploading a file, tick the box.</h3>"
+    content += form.alterations + "' type='text' placeholder='Alterations'></textarea></p> 			</div> 		</div> 			<footer> 				<h2> PLEASE NOTE: ALL INFORMATION GIVEN ON THIS FORM SUPERCEDES THAT ON THE PLAN.</H2> 			</footer> 		</div> 	</div>  	<div class='uploadSection'> 		<br> 		<h3>Upload your plan files here. If you're not uploading a file, tick the box.</h3>"
 
 
     var blob = Utilities.newBlob(content, "text/html", "text.html");

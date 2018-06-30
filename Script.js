@@ -138,10 +138,10 @@ function processForm(form) {
     content += checkedArray[35] + " type='checkbox'>Corrosion Zone D: High</p> 				<p class='row'><input class='wind' "
     content += checkedArray[36] + " type='checkbox'>Very High Wind</p>  			</div> 		</div> 		<header> 			<h4 >Note Products required for the following:</h4> 		</header> 		<div class='pair'> 			<div class='fullWidthContainer'> 			<p>Interior Doors: <input class='textbox right' vlue='"
     content += form.intDoor + "' type='text' placeholder='Product' style='width: 80%;'></p> 			<p>Door Hardware:  <input class='textbox right' value='"
-    content += form.doorH + "' type='text' placeholder='Product' style='width: 80%;'></p> 			<p>Scotia:         <input class='textbox right' value='"
-    content += form.scotia + "' type='text' placeholder='Product' style='width: 80%;'></p> 			<p>Frames:         <input class='textbox right' value='"
-    content += form.frames + "' type='text' placeholder='Product' style='width: 80%;'></p> 		</div> 		</div>       		<header> 			<h4 >Note below alterations to plan supplied:</h4> 		</header> 		<div class='pair'> 			<div class='fullWidthContainer'> 				<p><textarea class='textbox large' value='"
-    content += form.alterations + "' type='text' placeholder='Alterations'></textarea></p> 			</div> 		</div> 			<footer> 				<h2> PLEASE NOTE: ALL INFORMATION GIVEN ON THIS FORM SUPERCEDES THAT ON THE PLAN.</H2> 			</footer> 		</div> 	</div>  	<div class='uploadSection'> 		<br> 		<h3>Upload your plan files here. If you're not uploading a file, tick the box.</h3>"
+    content += form.doorH + "' type='text' placeholder='Product' style='width: 80%;'></p> 			<p>Skirting:         <input class='textbox right' value='"
+    content += form.skirting + "' type='text' placeholder='Product' style='width: 80%;'></p> 			<p>Architraves:         <input class='textbox right' value='"
+    content += form.architraves + "' type='text' placeholder='Product' style='width: 80%;'></p> 		</div> 		</div>       		<header> 			<h4 >Note below alterations to plan supplied:</h4> 		</header> 		<div class='pair'> 			<div class='fullWidthContainer'> 				<p><textarea class='textbox large' type='text' placeholder='Alterations'>"
+    content += form.alterations + "</textarea></p> 			</div> 		</div> 			<footer> 				<h2> PLEASE NOTE: ALL INFORMATION GIVEN ON THIS FORM SUPERCEDES THAT ON THE PLAN.</H2> 			</footer> 		</div> 	</div>  	<div class='uploadSection'> 		<br> 		<h3>Upload your plan files here. If you're not uploading a file, tick the box.</h3>"
 
 
     var blob = Utilities.newBlob(content, "text/html", "text.html");

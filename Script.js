@@ -192,17 +192,17 @@ function processForm(form) {
       sendEmail('skip@johanson.co.nz', content, output, detailingSubject) // email skip
     }
     if(form.emailTo){
-      sendEmail(form.emailTo, content, output, genericSubject) // email the additional
+      sendEmail(form.emailTo, content, output, detailingSubject) // email the additional
     }
     if(form.emailArie){
-      sendEmail('arie.quantifier@gmail.com', content, output, genericSubject) // email Arie
+      sendEmail('arie.quantifier@gmail.com', content, output, detailingSubject) // email Arie
     }
     if(form.emailSkip){
       sendEmail('skip@johanson.co.nz', content, output, detailingSubject) // email Skip
     }
 
 
-    sendEmail('Quotes@thomsonsitm.co.nz', content, output, genericSubject) // email the quotes team
+    sendEmail('Quotes@thomsonsitm.co.nz', content, output, detailingSubject) // email the quotes team
 
 
     return output

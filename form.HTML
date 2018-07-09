@@ -10,7 +10,15 @@ form {
   width:800px;
 
 }
+.adress {
+  Height: 60px;
+  width: 350px;
+  margin-left:15px;
+  word-break:break-all
 
+
+
+}
 .wrapper {
   display: flex;
   flex-flow: row wrap;
@@ -192,11 +200,10 @@ function updateUrl(url) {
         <div class="checkboxContainer">
           <header>Job</header>
           <input class="textbox" required name="jobName" type="text" placeholder="Job Name">
-          <input class="textbox" required name="jobAddress" type="text" placeholder="Site Address">
           <input class="textbox" name="jobCompany" type="text" placeholder="Company/Branch Name">
           <input class="textbox" name="jobPrenail" type="text" placeholder="Est. Pre-nail Date">
-          <p class="row"><input name="emailArie" type="checkbox">Email to Arie</p>
-          <p class="row"><input name="emailSkip" type="checkbox">Email to Skip</p>
+          <p class="row"><textarea class="textbox adress" required name="jobAddress" type="text" placeholder="Site Address"></textarea></p>
+          <p class="row"><input name="emailArie" type="checkbox">Email to Arie<input name="emailSkip" type="checkbox">Email to Skip</p>
           <p class="row">Email a copy to:<input class="textbox right" name="emailTo" type="text" placeholder="email a copy to" style="width: 60%; margin-left: 10px;"></p>
 
 

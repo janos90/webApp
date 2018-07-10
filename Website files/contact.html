@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<title>JPGnCo home</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="home.css">
+<head>
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+
+
+
+<body class="w3-content" style="max-width:1300px">
+
+  <!--Navigation bar-->
+<div id="nav-placeholder">
+</div>
+<script>
+$(function(){
+  $("#nav-placeholder").load("nav.html");
+});
+</script>
+<!--end of Navigation bar-->
+
+<div class="w3-row" id="contact">
+
+  <div class="w3 w3-teal w3-container" style="height:700px">
+    <div class="w3-padding-64 w3-padding-large">
+      <h1>Contact</h1>
+      <p class="w3-opacity">GET IN TOUCH</p>
+      <form class="w3-container w3-card w3-padding-32 w3-white" action="/action_page.php" target="_blank">
+        <div class="w3-section">
+          <label>Name</label>
+          <input class="w3-input" style="width:100%;" type="text" required name="Name">
+        </div>
+        <div class="w3-section">
+          <label>Email</label>
+          <input class="w3-input" style="width:100%;" type="text" required name="Email">
+        </div>
+        <div class="w3-section">
+          <label>Message</label>
+          <input class="w3-input" style="width:100%;" type="text" required name="Message">
+        </div>
+        <button type="submit" class="w3-button w3-teal w3-right">Send</button>
+      </form>
+    </div>
+  </div>
+</div>
+</body>

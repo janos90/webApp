@@ -10,22 +10,48 @@
 <link rel="icon" type="image/png" href="img/logo96x96.png" sizes="96x96">
   <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 </head>
+<body>
 
-<body class="w3-content" style="max-width:1300px">
-	<!--Navigation bar-->
-<div id="nav-placeholder">
-</div>
-<script>
-$(function(){
-	$("#nav-placeholder").load("nav.html");
-});
-</script>
-<!--end of Navigation bar-->
-	<ul>
-		<li>
-			<a href="jpgnco.com/hirage/84-inch.html">
-				84 inch
-			</a>
-		</li>
-	</ul>
+  <div class="main" id="home">
+
+    <!--Navigation bar-->
+    <div id="nav-placeholder">
+    </div>
+    <script>
+    $(function(){
+      $("#nav-placeholder").load("nav.html");
+    });
+    </script>
+    <!--end of Navigation bar-->
+
+    <div class="hirage-content">
+			<h1>Equipment Hire</h1>
+			<p>JPGnCo is proud to have the ability to hire out some fantastic gear for your event.</p>
+			<p>Click the links bellow to find more information and contact us to sort out bookings</p>
+
+			<div>
+				<ul class="hiringlist nopoint">
+					<a class="hiragelink" href="hirage/84-inch.html">
+						<li class="hiringlistitem">
+							<img src="img/84advert.jpg" style="height: 100%">
+								<div class="hiringitemtext">
+								<p class="hiringitemtitle">
+									84 inch touch display
+								</p>
+								<p class="hiringitemdesc">
+									<ul class="nopoint">
+									<li>This display livens up any presentation with its large and clear display.<br></li>
+									<li>The touch interface is easy to set up and encourages user interaction.<br></li>
+									<li>This will make sure that your presentation is one to remember.</li>
+								</ul>
+								</p>
+							</div>
+						</li>
+					</a>
+				</ul>
+			</div>
+    </div>
+  </div>
+
 </body>
+</html>

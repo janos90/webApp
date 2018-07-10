@@ -23,6 +23,46 @@
 	left: 50%;
 	transform: translate(-50%, -50%);
 }
+
+.hirage-content {
+	/* width: 50%; */
+	text-align: left;
+	padding: 50px
+}
+
+.hiringlist {
+	width: 100%;
+}
+
+.nopoint {
+	list-style-type: none;
+
+}
+.hiragelink {
+	color: #FFFFFF;
+text-decoration: none;
+
+}
+
+.hiringlistitem{
+	height: 150px;
+	/* width: 100%; */
+	border: 5px solid #eee;
+	padding: 10px;
+	border-radius: 5px;
+	display: flex;
+	text-align: center;
+}
+.hiringitemtext{
+	flex: auto;
+}
+.hiringitemdesc {
+	flex: auto;
+}
+
+.hiringitemtitle {
+	flex: auto;
+}
 body {
 	margin: auto;
 	font-family: Verdana,sans-serif;

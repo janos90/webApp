@@ -30,6 +30,10 @@
 	padding: 50px
 }
 
+.importer-content {
+height: 95%;
+}
+
 .hiringlist {
 	width: 100%;
 }

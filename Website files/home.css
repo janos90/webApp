@@ -121,3 +121,19 @@ h1 {
 .contact-row {
 
 }
+
+.listblock {
+	margin: 10px;
+	padding: 10px;
+	border: 3px solid white;
+	border-radius: 5px;
+}
+
+ul {
+	list-style-type: none;
+}
+
+.supportheader {
+		border-bottom: 2px solid white;
+		border-radius: 5px;
+}

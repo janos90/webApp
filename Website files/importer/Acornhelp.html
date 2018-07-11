@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Thomsons ITM importer</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="../home.css">
+<link rel="icon" type="/image/png" href="img/logo16x16.png" sizes="16x16">
+<link rel="icon" type="/image/png" href="img/logo32x32.png" sizes="32x32">
+<link rel="icon" type="/image/png" href="img/logo96x96.png" sizes="96x96">
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+<body>
+
+  <div class="main" id="home">
+
+    <!--Navigation bar-->
+    <div id="nav-placeholder">
+    </div>
+    <script>
+    $(function(){
+      $("#nav-placeholder").load("../nav.html");
+    });
+    </script>
+    <!--end of Navigation bar-->
+		<div class="importer-content" style="height: 90%; width:100%">
+			<div style="height: 5%; display: flex; display: block;;">
+				<h1>Thomsons ITM importer help </h1>
+			</div>
+			<div style="height: 90%; min-width:50%">
+				<div>
+					<br>
+					<h2 class="supportheader">Rules</h2>
+					<ul>
+						<li class=listblock>Email addresses entered into the "Emailto" field will be sent a copy of the output</li>
+						<li class=listblock>If any of the follwing are ticked, a copy of the form will be sent to colin@johanson.co.nz and skip@johanson.co.nz
+							<ul>
+								<li>"Truss Layout PS1 only"</li>
+								<li>"Full Buildable Layouts"</li>
+								<li>"Detailing"</li>
+								<li>"Trusses/Rafters"</li>
+							</ul>
+						</li>
+						<li class=listblock>
+								If "email Arie" or "email skip" are ticked, the respective people will be sent a copy of the output.
+						</li>
+					</ul>
+			</div>
+			<div>
+				<h2 class="supportheader">
+					Support
+				</h2>
+				<ul>
+					<li class=listblock>If you require support, contact <a href="mailto:juan@JPGnCo.com">juan@JPGnCo.com</a></li>
+				</ul>
+		</div>
+
+			</div>
+		</div>
+</div>
+</body>

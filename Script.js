@@ -78,9 +78,13 @@ function processForm(form) {
     }
     var content
 
-    content += "<style type='text/css'> "
-    content+= "body {  text-align: -webkit-center;  background-color: #FFfFFF;  font-family: Sans-serif;}form {  width:800px;} .wrapper {  display: flex;  flex-flow: row wrap;  font-weight: bold;  text-align: center;} .header {  flex:1;  text-align: center;  min-width: 600px;} .main {  flex: 1;} .textbox {  /* float: right; */} .row {  display: flex;  flex-flow: row wrap;  text-align: center;  font-weight: normal;  font-size: 14;} .checkboxContainer {  border: solid 3px black;  flex-flow: wrap;  width: 50%;  padding: 5px;} .checkboxContainerheader {  background-color: grey;  padding: 5px} .fullWidthContainer {  border: solid 3px black;  flex-flow: wrap;  width: 100%;  padding: 5px;} .pair {  display: flex;} .right {  float: right;} .uploadSection {  text-align: left;} .large {  height: 90px;  width: 90%;} .imagePair {  display: flex;} .imageContainer {  flex-flow: wrap;  width: 50%;  padding: 5px;}"
-    content+= " .uploadRow {  display: flex;  text-align: center;  font-weight: normal;  font-size: 14;}</style>"
+
+    content += "<style type='text/css'>"
+    content += "body {   text-align: -webkit-center;   background-color: #FFfFFF;   font-family: Sans-serif; }  form {   width:800px;  } .address {   Height: 60px;   width: 350px;   margin-left:15px;   word-break:break-all    } .wrapper {   display: flex;   flex-flow: row wrap;   font-weight: bold;   text-align: center;   } .header {   flex:1;   text-align: center;   min-width: 600px; } .main {   flex: 1; } .textbox {   /* float: right; */ } .row {   display: flex;   flex-flow: row wrap;   text-align: center;   font-weight: normal;   font-size: 14;  } .checkboxContainer {   border: solid 3px black;   flex-flow: wrap;   width: 50%;   padding: 5px;  }  .checkboxContainerheader {   background-color: grey;   padding: 5px }  .fullWidthContainer {   border: solid 3px black;   flex-flow: wrap;   width: 100%;   padding: 5px; }  .pair {   display: flex;  }  .right {   float: right;  }  .uploadSection {   text-align: left; }  .large {   height: 90px;   width: 90%; }  .imagePair {   display: flex;  "
+    content += "}  .imageContainer {   flex-flow: wrap;   width: 50%;   padding: 5px; } .uploadRow {   display: flex;   text-align: center;   font-weight: normal;   font-size: 14;  } </style> "
+
+
+
     content += "<form id='myForm' align='center' onsubmit='handleFormSubmit(this)'>  <div class='wrapper'><div class='main'>"
     content += "<div class='headingWrapper'><div class='imagePair'>  <p style='padding: 10px'><img src='https://www.thomsonsitm.co.nz/themes/ThomsonsITM/images/logo.png' style='background-color: #000000; padding: 20px;'><br><br>Thomsons Timbers Supplies Limited  </p>  <div class='checkboxContainer'>"
     content += "<p style='color: red; text-align: left; padding-left: 9px'>Office Use only:</p>"
@@ -88,18 +92,18 @@ function processForm(form) {
     content += "<p>Discount Group: <input class='textbox right' value='" + form.officeDiscount + "' type='text' placeholder='Product' style='width: 60%;'></p>"
     content += "<p>Reason: <input class='textbox right' value='" + form.officeReason + "' type='text' placeholder='Product' style='width: 60%;'></p>  </div></div>  </div>  <header><h3>Estimate Request</h3>  </header>  <div class='pair'><div class='checkboxContainer'>"
 
-    content += "<header>Client</header><input class='textbox' required value='" + form.cClient + "' type='text' placeholder='Client' > 	<input class='textbox' value='"
-    content += form.cAddress + "' type='text' placeholder='Address'> <input class='textbox' value='"
+    content += "<header>Client</header><input class='textbox' required value='" + form.cClient + "' type='text' placeholder='Client' > <input class='textbox' value='"
     content += form.cPhone + "' type='text' placeholder='Phone'> <input class='textbox' value='"
     content += form.cMobile + "' type='text' placeholder='Mobile'> <input class='textbox' required value='"
     content += form.cRep + "' type='text' placeholder='Rep'> <input class='textbox' value='"
-    content += form.cDate + "' type='text' placeholder='Date'>                 <p class='row'><input "
+    content += form.cDate + "' type='text' placeholder='Date'>   <p class='row'><textarea class='textbox adress' name='cAddress' type='text' placeholder='Client Address'>"
+    content += form.cAddress+ "</textarea></p> <p class='row'><input "
     content += location[0] + " type='checkbox'>Auckland Job</p>                 <p class='row'><input "
     content += location[1] + " type='checkbox'>Waikato Job</p>  			</div> 			<div class='checkboxContainer'> <header>Job</header> <input class='textbox' required value='"
-    content += form.jobName + "' type='text' placeholder='Job Name'> <input class='textbox' required value='"
-    content += form.jobAddress + "' type='text' placeholder='Site Address'> <input class='textbox' value='"
+    content += form.jobName + "' type='text' placeholder='Job Name'> <input class='textbox' value='"
     content += form.jobCompany + "' type='text' placeholder='Company/Branch Name'> <input class='textbox' value='"
-    content += form.jobPrenail + "' type='text' placeholder='Est. Pre-nail Date'>  			</div> 		</div> 		<header> 			<h4 >Tick the items below required to be estimated</h4> 		</header> 		<div class='pair'>  			<div class='checkboxContainer'>  <p class='row'><input "
+    content += form.jobPrenail + "' type='text' placeholder='Est. Pre-nail Date'>  <p class='row'><textarea class='textbox adress' required name='jobAddress' type='text' placeholder='Site Address'>"
+    content += form.jobAddress + "</textarea></p>	</div> 		</div> 		<header> 			<h4 >Tick the items below required to be estimated</h4> 		</header> 		<div class='pair'>  			<div class='checkboxContainer'>  <p class='row'><input "
     content += checkedArray[0] + " type='checkbox'>Truss Layout, PS1 only</p> <p class='row'><input "
     content += checkedArray[1] + " type='checkbox'>Full Buildable Layouts</p>         <p class='row'><input "
     content += checkedArray[2] + " type='checkbox'>Detailing</p>         <p style='border:solid 1px black;'></p> <p class='row'><input "

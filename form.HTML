@@ -10,7 +10,7 @@ form {
   width:800px;
 
 }
-.adress {
+.address {
   Height: 60px;
   width: 350px;
   margin-left:15px;
@@ -189,11 +189,11 @@ function updateUrl(url) {
         <div class="checkboxContainer">
           <header>Client</header>
           <input class="textbox" required name="cClient" type="text" placeholder="Client" >
-          <input class="textbox" name="cAddress" type="text" placeholder="Address">
           <input class="textbox" name="cPhone" type="text" placeholder="Phone">
           <input class="textbox" name="cMobile" type="text" placeholder="Mobile">
           <input class="textbox" required name="cRep" type="text" placeholder="Rep">
           <input class="textbox" name="cDate" type="text" placeholder="Date">
+          <p class="row"><textarea class="textbox address" name="cAddress" type="text" placeholder="Client Address"></textarea></p>
           <p class="row"><input class="location" name="jobLocAuckland" type="checkbox">Auckland Job</p>
           <p class="row"><input class="location" name="jobLocWaikato" type="checkbox">Waikato Job</p>
         </div>
@@ -202,7 +202,7 @@ function updateUrl(url) {
           <input class="textbox" required name="jobName" type="text" placeholder="Job Name">
           <input class="textbox" name="jobCompany" type="text" placeholder="Company/Branch Name">
           <input class="textbox" name="jobPrenail" type="text" placeholder="Est. Pre-nail Date">
-          <p class="row"><textarea class="textbox adress" required name="jobAddress" type="text" placeholder="Site Address"></textarea></p>
+          <p class="row"><textarea class="textbox address" required name="jobAddress" type="text" placeholder="Site Address"></textarea></p>
           <p class="row"><input name="emailArie" type="checkbox">Email to Arie<input name="emailSkip" type="checkbox">Email to Skip</p>
           <p class="row">Email a copy to:<input class="textbox right" name="emailTo" type="text" placeholder="email a copy to" style="width: 60%; margin-left: 10px;"></p>
 

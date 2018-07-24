@@ -137,3 +137,6 @@ ul {
 		border-bottom: 2px solid white;
 		border-radius: 5px;
 }
+.flexone {
+	flex: 1;
+}

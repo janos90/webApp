@@ -58,7 +58,8 @@ function processForm(form) {
       form.variable33,
       form.variable34,
       form.variable35,
-      form.variable36
+      form.variable36,
+      form.variable37
     ]
     var checkedArray = []
     for(var i = 0; i < valuesArray.length; i++) {
@@ -133,15 +134,26 @@ function processForm(form) {
     content += checkedArray[25] + " type='checkbox'>Aluminium Joinery</p> 				<p class='row'><input "
     content += checkedArray[26] + " type='checkbox'>Pergola</p> 				<p class='row'><input "
     content += checkedArray[27] + " type='checkbox'>Retaining Wall</p> 				<p class='row'><input "
-    content += checkedArray[28] + " type='checkbox'></p> 			</div> 		</div> 		<header> 			<h4 >Tick the building zones for this building</h4> 		</header> 		<div class='pair'>  			<div class='checkboxContainer'>  				<p class='row'><input class='corrosion' "
-    content += checkedArray[29] + " type='checkbox'>Corrosion Zone A: None</p> 				<p class='row'><input class='wind' "
-    content += checkedArray[30] + " type='checkbox'>Low Wind</p>  			</div> 			<div class='checkboxContainer'> 				<p class='row'><input class='corrosion' "
-    content += checkedArray[31] + " type='checkbox'>Corrosion Zone B: Low</p> 				<p class='row'><input class='wind' "
-    content += checkedArray[32] + " type='checkbox'>Medium Wind</p>  			</div> 			<div class='checkboxContainer'> 				<p class='row'><input class='corrosion' "
-    content += checkedArray[33] + " type='checkbox'>Corrosion Zone C: Med</p> 				<p class='row'><input class='wind' "
-    content += checkedArray[34] + " type='checkbox'>High Wind</p>  			</div> 			<div class='checkboxContainer'> 				<p class='row'><input class='corrosion' "
-    content += checkedArray[35] + " type='checkbox'>Corrosion Zone D: High</p> 				<p class='row'><input class='wind' "
-    content += checkedArray[36] + " type='checkbox'>Very High Wind</p>  			</div> 		</div> 		<header> 			<h4 >Note Products required for the following:</h4> 		</header> 		<div class='pair'> 			<div class='fullWidthContainer'> 			<p>Interior Doors: <input class='textbox right' vlue='"
+    content += checkedArray[28] + " type='checkbox'></p> 			</div> 		</div> 		<header> 			<h4 >Tick the building zones for this building</h4> 		</header>"
+
+    content += "<div class='pair'>	<div class='checkboxContainer'>		Wind zone"
+
+    content += "		<p class='row'><input class='wind' " + checkedArray[30] + " ' type='checkbox'>Low Wind</p>"
+    content += "		<p class='row'><input class='wind' " + checkedArray[32] + " ' type='checkbox'>Medium Wind</p>"
+    content += "		<p class='row'><input class='wind' " + checkedArray[34] + " ' type='checkbox'>High Wind</p>"
+    content += "		<p class='row'><input class='wind' " + checkedArray[36] + " ' type='checkbox'>Very High Wind</p>"
+    content += "		<p class='row'><input class='wind' " + checkedArray[37] + " ' type='checkbox'>Extra High Wind</p>"
+
+    content += "	</div>	<div class='checkboxContainer'> 		Corrosion zone"
+
+    content += "		<p class='row'><input class='corrosion' " + checkedArray[29] + " ' type='checkbox'>Corrosion Zone A: None</p>"
+    content += "		<p class='row'><input class='corrosion' " + checkedArray[31] + " ' type='checkbox'>Corrosion Zone B: Low</p>"
+    content += "		<p class='row'><input class='corrosion' " + checkedArray[33] + " ' type='checkbox'>Corrosion Zone C: Med</p>"
+    content += "		<p class='row'><input class='corrosion' " + checkedArray[35] + " ' type='checkbox'>Corrosion Zone D: High</p>"
+
+    content += "	</div></div>"
+
+    content += "<header><h4 >Note Products required for the following:</h4> 		</header> 		<div class='pair'> 			<div class='fullWidthContainer'> 			<p>Interior Doors: <input class='textbox right' vlue='"
     content += form.intDoor + "' type='text' placeholder='Product' style='width: 80%;'></p> 			<p>Door Hardware:  <input class='textbox right' value='"
     content += form.doorH + "' type='text' placeholder='Product' style='width: 80%;'></p> 			<p>Skirting:         <input class='textbox right' value='"
     content += form.skirting + "' type='text' placeholder='Product' style='width: 80%;'></p> 			<p>Architraves:         <input class='textbox right' value='"

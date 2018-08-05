@@ -71,11 +71,11 @@ function processForm(form) {
     }
     var location = []
     if(form.jobLocAuckland) {
-    location.push("checked")
-    location.push("")
+        location.push("checked")
+        location.push("")
     } else {
         location.push("")
-    location.push("checked")
+        location.push("checked")
     }
     var content
 
@@ -153,11 +153,16 @@ function processForm(form) {
 
     content += "	</div></div>"
 
-    content += "<header><h4 >Note Products required for the following:</h4> 		</header> 		<div class='pair'> 			<div class='fullWidthContainer'> 			<p>Interior Doors: <input class='textbox right' vlue='"
-    content += form.intDoor + "' type='text' placeholder='Product' style='width: 80%;'></p> 			<p>Door Hardware:  <input class='textbox right' value='"
-    content += form.doorH + "' type='text' placeholder='Product' style='width: 80%;'></p> 			<p>Skirting:         <input class='textbox right' value='"
-    content += form.skirting + "' type='text' placeholder='Product' style='width: 80%;'></p> 			<p>Architraves:         <input class='textbox right' value='"
-    content += form.architraves + "' type='text' placeholder='Product' style='width: 80%;'></p> 		</div> 		</div>       		<header> 			<h4 >Note below alterations to plan supplied:</h4> 		</header> 		<div class='pair'> 			<div class='fullWidthContainer'> 				<p><textarea class='textbox large' type='text' placeholder='Alterations'>"
+    content += "<header><h4 >Note Products required for the following:</h4> 		</header> 		<div class='pair'> 			<div class='fullWidthContainer'>"
+
+    content += "<p>Interior Doors: <input class='textbox right' value='" + form.intDoor +     "' type='text' placeholder='Product' style='width: 80%;'></p>"
+    content += "<p>Door Hardware:  <input class='textbox right' value='" + form.doorH +       "' type='text' placeholder='Product' style='width: 80%;'></p>"
+    content += "<p>Scotia:         <input class='textbox right' value='" + form.scotia +      "' type='text' placeholder='Product' style='width: 80%;'></p>"
+    content += "<p>Skirting:       <input class='textbox right' value='" + form.skirting +    "' type='text' placeholder='Product' style='width: 80%;'></p>"
+    content += 	"<p>Architraves:   <input class='textbox right' value='" + form.architraves + "' type='text' placeholder='Product' style='width: 80%;'></p> 		</div> 		</div>"
+
+
+    content += "<header><h4 >Note below alterations to plan supplied:</h4> 		</header> 		<div class='pair'> 			<div class='fullWidthContainer'> 				<p><textarea class='textbox large' type='text' placeholder='Alterations'>"
     content += form.alterations + "</textarea></p> 			</div> 		</div> 			<footer> 				<h2> PLEASE NOTE: ALL INFORMATION GIVEN ON THIS FORM SUPERCEDES THAT ON THE PLAN.</H2> 			</footer> 		</div> 	</div>  	<div class='uploadSection'> 		<br> 		<h3>Upload your plan files here. If you're not uploading a file, tick the box.</h3>"
 
 

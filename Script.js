@@ -4,7 +4,9 @@ function doGet(e) {
 function getIterator() {
   var id = "1lQeOvQ37idTJbYsL1atKgQdBF6gDhU36BayYBMt_3lA"
   var file = DriveApp.getFileById(id);
-  return parseInt(file.getName(), 10)
+  var jobNumber = parseInt(file.getName(), 10);
+  incrementIterator(jobNumber);
+  return jobNumber
 }
 function incrementIterator(jobNumber) {
   var id = "1lQeOvQ37idTJbYsL1atKgQdBF6gDhU36BayYBMt_3lA"
@@ -211,7 +213,6 @@ function processForm(form) {
     }
     output += "<br> <a href='" + uploadedHTML.getUrl() + "'>Link to form as HTML </a>";
 
-    incrementIterator(jobNumber)
     output += "<br> This is the job number "+ jobNumber;
 
     var genericSubject = 'New job, number '+ jobNumber + ', has been submitted to the quotes portal by: ' + form.cRep + ' for client ' + form.cClient

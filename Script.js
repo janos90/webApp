@@ -98,7 +98,7 @@ function processForm(form) {
     content += "<p>Discount Group:  <input class='textbox right' value='" + form.officeDiscount + "' type='text' placeholder='Product' style='width: 60%;'></p>"
     content += "<p>Reason:          <input class='textbox right' value='" + form.officeReason   + "' type='text' placeholder='Product' style='width: 60%;'></p>  </div></div>  </div>"
 
-    content += "<header><h3>Estimate Request</h3></header>"
+    content += "<header><h3>Estimate Request For Job Number " + jobNumber + "</h3></header>"
     content += "<div class='pair'><div class='checkboxContainer'>"
     content += "<header>Client</header>"
     content += "<input class='textbox' required value='" + form.cClient + "' type='text' placeholder='Client'>"

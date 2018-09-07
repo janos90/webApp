@@ -7,6 +7,10 @@
     font-family: Sans-serif;
   }
 
+  .firstCol {
+    width: 20%;
+  }
+
   form {
     width:800px;
 
@@ -15,10 +19,7 @@
     Height: 60px;
     width: 350px;
     margin-left:15px;
-    word-break:break-all
-
-
-
+    word-break:break-all;
   }
   .wrapper {
     display: flex;
@@ -138,8 +139,26 @@ $('document').ready(function() {
     $('input.engineer').css('background-color', 'red');
   });
 
+  // extra engineering upload rows
+  $('#eng1').on('change', function() {
+    $('#engrow1').show();
+  });
+  $('#eng2').on('change', function() {
+    $('#engrow2').show();
+  });
+  $('#eng3').on('change', function() {
+    $('#engrow3').show();
+  });
+  $('#eng4').on('change', function() {
+    $('#engrow4').show();
+  });
+  $('#eng5').on('change', function() {
+    $('#engrow5').show();
+  });
 
 })
+
+
 function preventFormSubmit() {
   var forms = document.querySelectorAll('form');
   for (var i = 0; i < forms.length; i++) {
@@ -303,20 +322,48 @@ function updateUrl(url) {
     <div class="uploadSection">
       <br>
       <h3>Upload your plan files here. If you're not uploading a file, tick the box.</h3>
-      <div style="display: flex;">
-        <div class="upload">
-        Plans:  <input type="file" name="myFile1" class="plans" required><br>
-        Engineer Plans: <input type="file" name="myFile2" class="engineer" required><br>
-        Window & Door Plans:<input type="file" name="myFile3" class="wndPlans" required><br>
-        Specifications:<input type="file" name="myFile4" class="specs" required><br>
-      </div>
-      <div class="noUpload">
-        <div style="text-align: right; width: 100%;">No File:<input name="myFile1checkbox" type="checkbox" class="plans" required></div>
-        <div style="text-align: right; width: 100%;">No File: <input name="myFile2checkbox" type="checkbox" class="engineer" required></div>
-        <div style="text-align: right; width: 100%;">No File:<input name="myFile3checkbox" type="checkbox" class="wndPlans" required></div>
-        <div style="text-align: right; width: 100%;">No File:<input name="myFile4checkbox" type="checkbox" class="specs" required></div>
-      </div>
-    </div>
+    <table>
+      <tr>
+        <td class='firstCol'>Plans:  </td>
+        <td><input type="file" name="myFile1" class="plans" required></td>
+        <td style="text-align: right; width: 100%;">No File:<input name="myFile1checkbox" type="checkbox" class="plans" required></td>
+      </tr>
+      <tr>
+        <td class='firstCol'>Engineer Plans: </td>
+        <td><input id='eng1' type="file" name="myFile2" class="engineer" required></td>
+        <td style="text-align: right; width: 100%;">No File: <input name="myFile2checkbox" type="checkbox" class="engineer" required></td>
+      </tr>
+      <tr hidden id='engrow1'>
+        <td class='firstCol'>Engineer Plans extra: </td>
+        <td><input id='eng2' type="file" name="myFile2extra1" class="engineer"></td>
+        <td><br></td>
+      </tr>
+      <tr hidden id='engrow2'>
+        <td class='firstCol'>Engineer Plans extra: </td>
+        <td><input id='eng3' type="file" name="myFile2extra2" class="engineer"></td>
+        <td><br></td>
+      </tr>
+      <tr hidden id='engrow3'>
+        <td class='firstCol'>Engineer Plans extra: </td>
+        <td><input id='eng4' type="file" name="myFile2extra3" class="engineer"></td>
+        <td><br></td>
+      </tr>
+      <tr hidden id='engrow4'>
+        <td class='firstCol'>Engineer Plans extra: </td>
+        <td><input id='eng5' type="file" name="myFile2extra4" class="engineer"></td>
+        <td><br></td>
+      </tr>
+      <tr>
+        <td class='firstCol'>Window & Door Plans:</td>
+        <td><input type="file" name="myFile3" class="wndPlans" required></td>
+        <td style="text-align: right; width: 100%;">No File:<input name="myFile3checkbox" type="checkbox" class="wndPlans" required></td>
+      </tr>
+      <tr>
+        <td class='firstCol'>Specifications:</td>
+        <td><input type="file" name="myFile4" class="specs" required></td>
+        <td style="text-align: right; width: 100%;">No File:<input name="myFile4checkbox" type="checkbox" class="specs" required></td>
+      </tr>
+    </table>
 
     </div>
     <br>

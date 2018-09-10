@@ -86,9 +86,6 @@ function processForm(form) {
     content += "body {   text-align: -webkit-center;   background-color: #FFfFFF;   font-family: Sans-serif; }  form {   width:800px;  } .address {   Height: 60px;   width: 350px;   margin-left:15px;   word-break:break-all    } .wrapper {   display: flex;   flex-flow: row wrap;   font-weight: bold;   text-align: center;   } .header {   flex:1;   text-align: center;   min-width: 600px; } .main {   flex: 1; } .textbox {   /* float: right; */ } .row {   display: flex;   flex-flow: row wrap;   text-align: center;  "
     content +=" font-weight: normal;   font-size: 14;  } .checkboxContainer {   border: solid 3px black;   flex-flow: wrap;   width: 50%;   padding: 5px;  }  .checkboxContainerheader {   background-color: grey;   padding: 5px }  .fullWidthContainer {   border: solid 3px black;   flex-flow: wrap;   width: 100%;   padding: 5px; }  .pair {   display: flex;  }  .right {   float: right;  }  .uploadSection {   text-align: left; }  .large {   height: 90px;   width: 90%; }  .imagePair {   display: flex;  "
     content += "}  .imageContainer {   flex-flow: wrap;   width: 50%;   padding: 5px; } .uploadRow {   display: flex;   text-align: center;   font-weight: normal;   font-size: 14;  } </style> </head>"
-
-
-
     content += "<form id='myForm' align='center' onsubmit='handleFormSubmit(this)'>  <div class='wrapper'><div class='main'>"
     content += "<div class='headingWrapper'>"
     content += "<div class='imagePair'><p style='padding: 10px'><img src='https://www.thomsonsitm.co.nz/themes/ThomsonsITM/images/logo.png' style='background-color: #000000; padding: 20px;'><br><br>Thomsons Timbers Supplies Limited  </p>  "
@@ -97,7 +94,6 @@ function processForm(form) {
     content += "<p>Frames/Trusses:  <input class='textbox right' value='" + form.officeFrames   + "' type='text' placeholder='Product' style='width: 60%;'></p>"
     content += "<p>Discount Group:  <input class='textbox right' value='" + form.officeDiscount + "' type='text' placeholder='Product' style='width: 60%;'></p>"
     content += "<p>Reason:          <input class='textbox right' value='" + form.officeReason   + "' type='text' placeholder='Product' style='width: 60%;'></p>  </div></div>  </div>"
-
     content += "<header><h3>Estimate Request For Job Number " + jobNumber + "</h3></header>"
     content += "<div class='pair'><div class='checkboxContainer'>"
     content += "<header>Client</header>"
@@ -193,7 +189,6 @@ function processForm(form) {
     var uploadableFiles = []
     var uploadedFiles = []
 
-
     if(form.myFile1.files) {if(!form.myFile1.files.length == 0){uploadableFiles.push(form.myFile1)}}
     if(form.myFile2.files) {if(!form.myFile2.files.length == 0){uploadableFiles.push(form.myFile2)}}
     if(form.myFile2extra1.files) {if(!form.myFile2extra1.files.length == 0){uploadableFiles.push(form.myFile2extra1)}}
@@ -212,6 +207,8 @@ function processForm(form) {
         uploadedFiles.push(uploadedFile);
       }
     }
+
+    // Email body (output)
     var output = "Job Submitted successfully, Below are your file Links"
     if(uploadedFiles.length) {
       for(var it = 0; it < uploadedFiles.length; it++) {
@@ -219,11 +216,11 @@ function processForm(form) {
       }
     }
     output += "<br> <a href='" + uploadedHTML.getUrl() + "'>Link to form as HTML </a>";
-
     output += "<br> This is the job number "+ jobNumber;
+    output += "<br> Job Client is "+ form.cClient;
 
+    // email subjects
     var genericSubject = 'New job, number '+ jobNumber + ', has been submitted to the quotes portal by: ' + form.cRep + ' for client ' + form.cClient
-
     var detailingSubject = 'New job, number ' + jobNumber + ', issued for: '
     if(form.variable1)  {detailingSubject+= 'Truss Layout, PS1 only, '}
     if(form.variable2)  {detailingSubject+= 'Full Buildable Layouts, '}

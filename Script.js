@@ -189,14 +189,14 @@ function processForm(form) {
     var uploadableFiles = []
     var uploadedFiles = []
 
-    if(form.myFile1.files) {if(!form.myFile1.files.length == 0){uploadableFiles.push(form.myFile1)}}
-    if(form.myFile2.files) {if(!form.myFile2.files.length == 0){uploadableFiles.push(form.myFile2)}}
-    if(form.myFile2extra1.files) {if(!form.myFile2extra1.files.length == 0){uploadableFiles.push(form.myFile2extra1)}}
-    if(form.myFile2extra2.files) {if(!form.myFile2extra2.files.length == 0){uploadableFiles.push(form.myFile2extra2)}}
-    if(form.myFile2extra3.files) {if(!form.myFile2extra3.files.length == 0){uploadableFiles.push(form.myFile2extra3)}}
-    if(form.myFile2extra4.files) {if(!form.myFile2extra4.files.length == 0){uploadableFiles.push(form.myFile2extra4)}}
-    if(form.myFile3.files) {if(!form.myFile3.files.length == 0){uploadableFiles.push(form.myFile3)}}
-    if(form.myFile4.files) {if(!form.myFile4.files.length == 0){uploadableFiles.push(form.myFile4)}}
+    if(form.myFile1.name) {uploadableFiles.push(form.myFile2)}
+    if(form.myFile2.name) {uploadableFiles.push(form.myFile2)}
+    if(form.myFile2extra1.name) {uploadableFiles.push(form.myFile2extra1)}
+    if(form.myFile2extra2.name) {uploadableFiles.push(form.myFile2extra2)}
+    if(form.myFile2extra3.name) {uploadableFiles.push(form.myFile2extra3)}
+    if(form.myFile2extra4.name) {uploadableFiles.push(form.myFile2extra4)}
+    if(form.myFile3.name) {uploadableFiles.push(form.myFile3)}
+    if(form.myFile4.name) {uploadableFiles.push(form.myFile4)}
 
     if(uploadableFiles.length) {
       for( var iter = 0; iter < uploadableFiles.length; iter++) {

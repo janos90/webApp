@@ -181,7 +181,7 @@ function processForm(form) {
 
     var blob = Utilities.newBlob(content, "text/html", "text.html");
     var pdf = blob.getAs("application/pdf");
-    var uploadedPDF = JobFolder.createFile("pdf"+form.jobName+".pdf", pdf, MimeType.PDF);
+    var uploadedPDF = DriveApp.createFile(pdf).setName("pdf "+form.jobName+".pdf");
     var uploadedHTML = JobFolder.createFile("html "+form.jobName+".html", content, MimeType.HTML);
     uploadedHTML.setSharing(DriveApp.Access.ANYONE, DriveApp.Permission.EDIT);
     uploadedHTML.setSharing(DriveApp.Access.ANYONE_WITH_LINK, DriveApp.Permission.VIEW);

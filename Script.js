@@ -181,10 +181,14 @@ function processForm(form) {
 
     var blob = Utilities.newBlob(content, "text/html", "text.html");
     var pdf = blob.getAs("application/pdf");
-    JobFolder.createFile("pdf"+form.jobName+".pdf", pdf, MimeType.PDF);
+    var uploadedPDF = JobFolder.createFile("pdf"+form.jobName+".pdf", pdf, MimeType.PDF);
     var uploadedHTML = JobFolder.createFile("html "+form.jobName+".html", content, MimeType.HTML);
     uploadedHTML.setSharing(DriveApp.Access.ANYONE, DriveApp.Permission.EDIT);
     uploadedHTML.setSharing(DriveApp.Access.ANYONE_WITH_LINK, DriveApp.Permission.VIEW);
+
+    uploadedPDF.setSharing(DriveApp.Access.ANYONE, DriveApp.Permission.EDIT);
+    uploadedPDF.setSharing(DriveApp.Access.ANYONE_WITH_LINK, DriveApp.Permission.VIEW);
+
 
     var uploadableFiles = []
     var uploadedFiles = []
@@ -216,6 +220,7 @@ function processForm(form) {
       }
     }
     output += "<br> <a href='" + uploadedHTML.getUrl() + "'>Link to form as HTML </a>";
+    output += "<br> <a href='" + uploadedPDF.getUrl() + "'>Link to form as PDF </a>";
     output += "<br> This is the job number "+ jobNumber;
     output += "<br> Job Client is "+ form.cClient;
 

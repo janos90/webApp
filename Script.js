@@ -194,7 +194,7 @@ function processForm(form) {
     var uploadableFiles = []
     var uploadedFiles = []
 
-    if(form.myFile1.name) {uploadableFiles.push(form.myFile2)}
+    if(form.myFile1.name) {uploadableFiles.push(form.myFile1)}
     if(form.myFile2.name) {uploadableFiles.push(form.myFile2)}
     if(form.myFile2extra1.name) {uploadableFiles.push(form.myFile2extra1)}
     if(form.myFile2extra2.name) {uploadableFiles.push(form.myFile2extra2)}

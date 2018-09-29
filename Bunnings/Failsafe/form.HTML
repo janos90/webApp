@@ -104,63 +104,63 @@
   }
 
   .collapsible {
-  background-color: #777;
-  color: white;
-  cursor: pointer;
-  padding: 18px;
-  width: 100%;
-  border: none;
-  text-align: left;
-  outline: none;
-  font-size: 15px;
-}
+    background-color: #777;
+    color: white;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+  }
 
-.active, .collapsible:hover {
-  background-color: #555;
-}
+  .active, .collapsible:hover {
+    background-color: #555;
+  }
+  .collapsible:after {
+    content: '\02795'; /* Unicode character for "plus" sign (+) */
+    font-size: 13px;
+    color: white;
+    float: right;
+    margin-left: 5px;
+  }
 
-.content {
-  padding: 0 18px;
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.2s ease-out;
-  background-color: #f1f1f1;
-}
-</style>
+  .active:after {
+    content: "\2796"; /* Unicode character for "minus" sign (-) */
+  }
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  .content {
+    padding: 0 18px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+    background-color: #f1f1f1;
+  }
+
+  .colContainer {
+    display: flex;
+  }
+
+  /* Create two equal columns that sits next to each other */
+  .column {
+    flex: 50%;
+    padding: 10px;
+  }
+  .borderedTableItem {
+    border: 1px solid black;
+  }
+  .borderedTable {
+    border: 1px solid black;
+    width: 100%
+  }
+  </style>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 </head>
 <script>
 $('document').ready(function() {
-  $('input.corrosion').on('change', function() {
-    $('input.corrosion').not(this).prop('checked', false);
-  });
-  $('input.wind').on('change', function() {
-    $('input.wind').not(this).prop('checked', false);
-  });
-  $('input.wind').on('change', function() {
-    $('input.wind').not(this).prop('checked', false);
-  });
-  $('input.plans').on('change', function() {
-    $('input.plans').not(this).prop('required', false);
-  });
-  $('input.engineer').on('change', function() {
-    $('input.engineer').not(this).prop('required', false);
-  });
-  $('input.wndPlans').on('change', function() {
-    $('input.wndPlans').not(this).prop('required', false);
-  });
-  $('input.specs').on('change', function() {
-    $('input.specs').not(this).prop('required', false);
-  });
-  $('input.location').on('change', function() {
-    $('input.location').not(this).prop('checked', false);
-  });
-  // detailing prevent submit unless engineering plan supplied
-  $('input.detailing').on('change', function() {
-    $('input.engineer').css('background-color', 'red');
-  });
+
 
   // extra engineering upload rows
   $('#eng1').on('change', function() {
@@ -202,87 +202,36 @@ function updateUrl(url) {
   div.innerHTML = '<p>'+url+'</p>';
   form.style.display = "none";
 }
-
-
-//collapsable
-
-    var coll = document.getElementsByClassName("collapsible");
-    var i;
-
-    for (i = 0; i < coll.length; i++) {
-      coll[i].addEventListener("click", function() {
-        this.classList.toggle("active");
-        var content = this.nextElementSibling;
-        if (content.style.maxHeight){
-          content.style.maxHeight = null;
-        } else {
-          content.style.maxHeight = content.scrollHeight + "px";
-        }
-      });
-    }
-
 </script>
+<body>
+  <form id="myForm" align="center" onsubmit="handleFormSubmit(this)">
+    <div class="wrapper">
+      <div class="main">
+        <div class="headingWrapper">
+          <div class="imagePair">
+            <p style="padding: 0px; width: 50%">
+              <img src="./capture.png" style="background-color: #fff; padding: 0px; width: 300px">
+              <br>
+              <br>Bunnings Warehouse
+            </p>
 
-<form id="myForm" align="center" onsubmit="handleFormSubmit(this)">
-  <div class="wrapper">
-    <div class="main">
-      <div class="headingWrapper">
-        <div class="imagePair">
-          <p style="padding: 0px; width: 50%">
-            <img src="./capture.png" style="background-color: #fff; padding: 0px; width: 300px">
-            <br>
-            <br>Bunnings Warehouse
-          </p>
-
+          </div>
         </div>
-      </div>
-      <header>
-        <h3>Estimate Request</h3>
-      </header>
-      <div class="pair">
+        <header>
+          <h3>Estimate Request</h3>
+        </header>
+        <div class="pair">
           <div class="checkboxContainer" style="border-right: 0px">
-          <p>Store:
-            <select name="">
-              <option value="volvo">North Auckland</option>
-              <option value="saab">East Tamaki</option>
-              <option value="fiat">Rotorua</option>
-              <option value="audi">Wellington</option>
-            </select>
-          </p>
-          <p>Store for Product Collection:
-            <select name="">
-              <option value="volvo">North Auckland</option>
-              <option value="saab">East Tamaki</option>
-              <option value="fiat">Rotorua</option>
-              <option value="audi">Wellington</option>
-            </select>
-          </p>
-        </div>
-        <div class="checkboxContainer" style="border-left: 0px">
-
-          <p>Date: <input class="textbox right" name="" type="text" style="width: 50%;"></p>
-          <p>Tender Date: <input class="textbox right" name="" type="text" style="width: 50%;"></p>
-        </div>
-      </div>
-      <button class="collapsible">Section 1: Customer's Details</button>
-      <div class="content">
-        <div class="pair">
-          <div class="checkboxContainer">
-            <p class="row">Account/Customers Name:<input class="textbox" required name="" type="text" placeholder="Account/Customers Name" ></p>
-            <p class="row">Site Address:<textarea class="textbox address" name="" type="text" placeholder="Site Address"></textarea></p>
-            <p class="row">Customers Account Number:<input class="textbox" name="" type="text" placeholder=""></p>
-            <p class="row">Price file required<input name="" type="checkbox"></p>
-            <p class="row">Account Manager:<input class="textbox" required name="" type="text" placeholder=""></p>
-
-          </div>
-          <div class="checkboxContainer">
-
-            <p class="row">Customer Contact Name:<input class="textbox" required name="" type="text" placeholder="Account/Customers Name" ></p>
-            <p class="row">Customer's Address:<textarea class="textbox address" name="" type="text" placeholder="Site Address"></textarea></p>
-            <p class="row">Customer's Phone:<input class="textbox" name="" type="text" placeholder=""></p>
-            <p class="row">BUN Job Number:<input class="textbox" name="" type="text" placeholder=""></p>
-            <p class="row">Template:
-                <select name="">
+            <p>Store:
+              <select name="">
+                <option value="volvo">North Auckland</option>
+                <option value="saab">East Tamaki</option>
+                <option value="fiat">Rotorua</option>
+                <option value="audi">Wellington</option>
+              </select>
+            </p>
+            <p>Store for Product Collection:
+              <select name="">
                 <option value="volvo">North Auckland</option>
                 <option value="saab">East Tamaki</option>
                 <option value="fiat">Rotorua</option>
@@ -290,178 +239,726 @@ function updateUrl(url) {
               </select>
             </p>
           </div>
-        </div>
-      </div>
-      <button class="collapsible">Section 2: Plan Specifications - FOR QS USE</button>
-      <div class="content">
-        <div class="pair">
-          <div class="checkboxContainer">
-            <p class="row">Account/Customers Name:<input class="textbox" required name="" type="text" placeholder="Account/Customers Name" ></p>
-            <p class="row">Site Address:<textarea class="textbox address" name="" type="text" placeholder="Site Address"></textarea></p>
-            <p class="row">Customers Account Number:<input class="textbox" name="" type="text" placeholder=""></p>
-            <p class="row">Price file required<input name="" type="checkbox"></p>
-            <p class="row">Account Manager:<input class="textbox" required name="" type="text" placeholder=""></p>
+          <div class="checkboxContainer" style="border-left: 0px">
 
-          </div>
-          <div class="checkboxContainer">
-
-            <p class="row">Customer Contact Name:<input class="textbox" required name="" type="text" placeholder="Account/Customers Name" ></p>
-            <p class="row">Customer's Address:<textarea class="textbox address" name="" type="text" placeholder="Site Address"></textarea></p>
-            <p class="row">Customer's Phone:<input class="textbox" name="" type="text" placeholder=""></p>
-            <p class="row">BUN Job Number:<input class="textbox" name="" type="text" placeholder=""></p>
-            <p class="row">Template:
-                <select name="">
-                <option value="volvo">North Auckland</option>
-                <option value="saab">East Tamaki</option>
-                <option value="fiat">Rotorua</option>
-                <option value="audi">Wellington</option>
-              </select>
-            </p>
+            <p>Date: <input class="textbox right" name="" type="text" style="width: 50%;"></p>
+            <p>Tender Date: <input class="textbox right" name="" type="text" style="width: 50%;"></p>
           </div>
         </div>
-      </div>
-      <header>
-        <h4 >Tick the items below required to be estimated</h4>
-      </header>
-      <div class="pair">
 
-        <div class="checkboxContainer">
-          <p class="row"><input class="detailing" name="" type="checkbox">Truss Layout, PS1 only</p>
-          <p class="row"><input class="detailing" name="" type="checkbox">Full Buildable Layouts</p>
-          <p class="row"><input class="detailing" name="" type="checkbox">Detailing</p>
-          <p style="border:solid 1px black;"></p>
-          <p class="row"><input name="" type="checkbox">Steel Reinforcing</p>
-          <p class="row"><input name="" type="checkbox">Pre-Bent R/Steel</p>
-          <p class="row"><input name="" type="checkbox">Rib-raft</p>
-          <p class="row"><input name="" type="checkbox">Masonry</p>
-          <p class="row"><input name="" type="checkbox">Concrete</p>
-        </div>
-        <div class="checkboxContainer">
-          <p class="row"><input name="" type="checkbox">Prenail</p>
-          <p class="row"><input class="detailing" name="" type="checkbox">Trusses/Rafters</p>
-          <p class="row"><input name="" type="checkbox">Roof Pack</p>
-          <p class="row"><input name="" type="checkbox">Random</p>
-          <p class="row"><input name="" type="checkbox">Sub-floor</p>
-          <p class="row"><input name="" type="checkbox">Mid-floor</p>
-          <p class="row"><input name="" type="checkbox">Deck</p>
-        </div>
-        <div class="checkboxContainer">
-          <p class="row"><input name="" type="checkbox">Cladding</p>
-          <p class="row"><input name="" type="checkbox">Insulation Only</p>
-          <p class="row"><input name="" type="checkbox">Insulation Installed</p>
-          <p class="row"><input name="" type="checkbox">Plasterboard</p>
-          <p class="row"><input name="" type="checkbox">Plasterboard D.T.S</p>
-          <p class="row"><input name="" type="checkbox">Internal Linings</p>
-          <p class="row"><input name="" type="checkbox">Internal Doors</p>
-        </div>
-        <div class="checkboxContainer">
-          <p class="row"><input name="" type="checkbox">Timber Fascia</p>
-          <p class="row"><input name="" type="checkbox">Marley Gutter / D.P</p>
-          <p class="row"><input name="" type="checkbox">Roofing</p>
-          <p class="row"><input name="" type="checkbox">Aluminium Joinery</p>
-          <p class="row"><input name="" type="checkbox">Pergola</p>
-          <p class="row"><input name="" type="checkbox">Retaining Wall</p>
-          <p class="row"><input name="" type="checkbox"></p>
-        </div>
-      </div>
-      <header>
-        <h4 >Tick the building zones for this building</h4>
-      </header>
-      <div class="pair">
+        <table>
+          <tr>
+            <td class='checkboxZone'>
+              <input type="checkbox" name='section1Required'></input>
+            </td>
+            <td>
+              <button type="button" class="collapsible">Section 1: Customer's Details</button>
+              <div class="content">
+                <div class="pair">
+                  <div class="checkboxContainer">
+                    <p class="row">Account/Customers Name:<input class="textbox" required name="" type="text" placeholder="Account/Customers Name" ></p>
+                    <p class="row">Site Address:<textarea class="textbox address" name="" type="text" placeholder="Site Address"></textarea></p>
+                    <p class="row">Customers Account Number:<input class="textbox" name="" type="text" placeholder=""></p>
+                    <p class="row">Price file required<input name="" type="checkbox"></p>
+                    <p class="row">Account Manager:<input class="textbox" required name="" type="text" placeholder=""></p>
 
-        <div class="checkboxContainer">
-          Wind zone
-          <p class="row"><input class="wind" name="" type="checkbox">Low Wind</p>
-          <p class="row"><input class="wind" name="" type="checkbox">Medium Wind</p>
-          <p class="row"><input class="wind" name="" type="checkbox">High Wind</p>
-          <p class="row"><input class="wind" name="" type="checkbox">Very High Wind</p>
-          <p class="row"><input class="wind" name="" type="checkbox">Extra High Wind</p>
-        </div>
-        <div class="checkboxContainer">
-          Corrosion zone
-          <p class="row"><input class="corrosion" name="" type="checkbox">Corrosion Zone A: None</p>
-          <p class="row"><input class="corrosion" name="" type="checkbox">Corrosion Zone B: Low</p>
-          <p class="row"><input class="corrosion" name="" type="checkbox">Corrosion Zone C: Med</p>
-          <p class="row"><input class="corrosion" name="" type="checkbox">Corrosion Zone D: High</p>
-        </div>
-      </div>
-      <header>
-        <h4 >Note Products required for the following:</h4>
-      </header>
-      <div class="pair">
-        <div class="fullWidthContainer">
-          <p>Interior Doors: <input class="textbox right" name="" type="text" placeholder="Product" style="width: 80%;"></p>
-          <p>Door Hardware:  <input class="textbox right" name="" type="text" placeholder="Product" style="width: 80%;"></p>
-          <p>Scotia:         <input class="textbox right" name="" type="text" placeholder="Product" style="width: 80%;"></p>
-          <p>Skirting:         <input class="textbox right" name="" type="text" placeholder="Product" style="width: 80%;"></p>
-          <p>Architraves:         <input class="textbox right" name="" type="text" placeholder="Product" style="width: 80%;"></p>
-        </div>
-      </div>
-      <header>
-        <h4 >Note below alterations to plan supplied:</h4>
-      </header>
-      <div class="pair">
-        <div class="fullWidthContainer">
-          <p><textarea class="textbox large" name="" type="text" placeholder="Alterations"></textarea></p>
-        </div>
-      </div>
-      <footer>
-        <h2> PLEASE NOTE: ALL INFORMATION GIVEN ON THIS FORM SUPERCEDES THAT ON THE PLAN.</H2>
-        </footer>
-      </div>
-    </div>
+                  </div>
+                  <div class="checkboxContainer">
 
-    <div class="uploadSection">
-      <br>
-      <h3>Upload your plan files here. If you're not uploading a file, tick the box.</h3>
-    <table>
-      <tr>
-        <td class='firstCol'>Plans:  </td>
-        <td><input type="file" name="" class="plans" required></td>
-        <td style="text-align: right; width: 100%;">No File:<input name="" type="checkbox" class="plans" required></td>
-      </tr>
-      <tr>
-        <td class='firstCol'>Engineer Plans: </td>
-        <td><input id='eng1' type="file" name="" class="engineer" required></td>
-        <td style="text-align: right; width: 100%;">No File:<input name="" type="checkbox" class="engineer" required></td>
-      </tr>
-      <tr hidden id='engrow1'>
-        <td class='firstCol'>Engineer Plans extra: </td>
-        <td><input id='eng2' type="file" name="" class="engineer"></td>
-        <td><br></td>
-      </tr>
-      <tr hidden id='engrow2'>
-        <td class='firstCol'>Engineer Plans extra: </td>
-        <td><input id='eng3' type="file" name="" class="engineer"></td>
-        <td><br></td>
-      </tr>
-      <tr hidden id='engrow3'>
-        <td class='firstCol'>Engineer Plans extra: </td>
-        <td><input id='eng4' type="file" name="" class="engineer"></td>
-        <td><br></td>
-      </tr>
-      <tr hidden id='engrow4'>
-        <td class='firstCol'>Engineer Plans extra: </td>
-        <td><input id='eng5' type="file" name="" class="engineer"></td>
-        <td><br></td>
-      </tr>
-      <tr>
-        <td class='firstCol'>Window & Door Plans:</td>
-        <td><input type="file" name="" class="wndPlans" required></td>
-        <td style="text-align: right; width: 100%;">No File:<input name="" type="checkbox" class="wndPlans" required></td>
-      </tr>
-      <tr>
-        <td class='firstCol'>Specifications:</td>
-        <td><input type="file" name="" class="specs" required></td>
-        <td style="text-align: right; width: 100%;">No File:<input name="" type="checkbox" class="specs" required></td>
-      </tr>
-    </table>
+                    <p class="row">Customer Contact Name:<input class="textbox" required name="" type="text" placeholder="Account/Customers Name" ></p>
+                    <p class="row">Customer's Address:<textarea class="textbox address" name="" type="text" placeholder="Site Address"></textarea></p>
+                    <p class="row">Customer's Phone:<input class="textbox" name="" type="text" placeholder=""></p>
+                    <p class="row">BUN Job Number:<input class="textbox" name="" type="text" placeholder=""></p>
+                    <p class="row">Template:
+                      <select name="">
+                        <option value="volvo">North Auckland</option>
+                        <option value="saab">East Tamaki</option>
+                        <option value="fiat">Rotorua</option>
+                        <option value="audi">Wellington</option>
+                      </select>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class='checkboxZone'>
+              <input type="checkbox" name='section2Required'></input>
+            </td>
+            <td>
+              <button type="button" class="collapsible">Section 2: Plan Specifications - FOR QS USE</button>
+              <div class="content">
+                <div class="colContainer">
+                  <div class="column">
 
-    </div>
-    <br>
-    <input class="submission" type="submit" value="Submit form and upload">
-  </form>
-  <div id="output">
-    <h3>&nbsp;</h3>
-    <p>&nbsp;</p>
-  </div>
+                    <table class='BorderedTable' style=' border-collapse: collapse;'>
+                      <tr class='borderedTableItem'>
+                        <td class='borderedTableItem'>Foundations</td>
+                        <td class='borderedTableItem'>Y</td>
+                        <td class='borderedTableItem'>Required</td>
+                      </tr>
+                      <tr class='borderedTableItem'>
+                        <td class='borderedTableItem'>Reinforcing - Random Supply Only</td>
+                        <td class='borderedTableItem'><input type='checkbox'></td>
+                        <td class='borderedTableItem'><input class="textbox" required name="" type="text"></td>
+                      </tr>
+                      <tr class='borderedTableItem'>
+                        <td class='borderedTableItem'>Blockwork incl of Retaining</td>
+                        <td class='borderedTableItem'><input type='checkbox'></td>
+                        <td class='borderedTableItem'><input class="textbox" required name="" type="text"></td>
+                      </tr>
+                      <tr class='borderedTableItem'>
+                        <td class='borderedTableItem'>Concrete</td>
+                        <td class='borderedTableItem'><input type='checkbox'></td>
+                        <td class='borderedTableItem'><input class="textbox" required name="" type="text"></td>
+                      </tr>
+                      <tr class='borderedTableItem'>
+                        <td class='borderedTableItem'>Rib Raft Pods & accessories</td>
+                        <td class='borderedTableItem'><input type='checkbox'></td>
+                        <td class='borderedTableItem'><input class="textbox" required name="" type="text"></td>
+                      </tr>
+                      <tr class='borderedTableItem'>
+                        <td class='borderedTableItem'>Slab Insulation</td>
+                        <td class='borderedTableItem'><input type='checkbox'></td>
+                        <td class='borderedTableItem'><input class="textbox" required name="" type="text"></td>
+                      </tr>
+                    </table>
+
+                    <br>
+
+                    <table class='BorderedTable' style=' border-collapse: collapse;'>
+                      <tr class='borderedTableItem'>
+                        <td class='borderedTableItem'>Prenail Supplied Items</td>
+                        <td class='borderedTableItem'>Y</td>
+                        <td class='borderedTableItem'>Required</td>
+                      </tr>
+                      <tr class='borderedTableItem'>
+                        <td class='borderedTableItem'>Frames</td>
+                        <td class='borderedTableItem'><input type='checkbox'></td>
+                        <td class='borderedTableItem'><input class="textbox" required name="" type="text"></td>
+                      </tr>
+                      <tr class='borderedTableItem'>
+                        <td class='borderedTableItem'>Trusses</td>
+                        <td class='borderedTableItem'><input type='checkbox'></td>
+                        <td class='borderedTableItem'><input class="textbox" required name="" type="text"></td>
+                      </tr>
+                      <tr class='borderedTableItem'>
+                        <td class='borderedTableItem'>Roof Pack</td>
+                        <td class='borderedTableItem'><input type='checkbox'></td>
+                        <td class='borderedTableItem'><input class="textbox" required name="" type="text"></td>
+                      </tr>
+                      <tr class='borderedTableItem'>
+                        <td class='borderedTableItem'>Metal Ceiling Batten</td>
+                        <td class='borderedTableItem'><input type='checkbox'></td>
+                        <td class='borderedTableItem'><input class="textbox" required name="" type="text"></td>
+                      </tr>
+                    </table>
+
+                    <br>
+
+                    <table class='BorderedTable' style=' border-collapse: collapse;'>
+                      <tr class='borderedTableItem'>
+                        <td class='borderedTableItem'>Random Framing</td>
+                        <td class='borderedTableItem'>Y</td>
+                        <td class='borderedTableItem'>Only if Prenail Not Required</td>
+                      </tr>
+                      <tr class='borderedTableItem'>
+                        <td class='borderedTableItem'>Wall Framing</td>
+                        <td class='borderedTableItem'><input type='checkbox'></td>
+                        <td class='borderedTableItem'><input class="textbox" required name="" type="text"></td>
+                      </tr>
+                      <tr class='borderedTableItem'>
+                        <td class='borderedTableItem'>Ceiling Pack</td>
+                        <td class='borderedTableItem'><input type='checkbox'></td>
+                        <td class='borderedTableItem'><input class="textbox" required name="" type="text"></td>
+                      </tr>
+                      <tr class='borderedTableItem'>
+                        <td class='borderedTableItem'>Rafters</td>
+                        <td class='borderedTableItem'><input type='checkbox'></td>
+                        <td class='borderedTableItem'><input class="textbox" required name="" type="text"></td>
+                      </tr>
+                      <tr class='borderedTableItem'>
+                        <td class='borderedTableItem'>Roof Pack</td>
+                        <td class='borderedTableItem'><input type='checkbox'></td>
+                        <td class='borderedTableItem'><input class="textbox" required name="" type="text"></td>
+                      </tr>
+                    </table>
+
+                    <br>
+
+                    <table class='BorderedTable' style=' border-collapse: collapse;'>
+                      <tr class='borderedTableItem'>
+                        <td class='borderedTableItem'>Timber Floor</td>
+                        <td class='borderedTableItem'>Y</td>
+                        <td class='borderedTableItem'>Required</td>
+                      </tr>
+                      <tr class='borderedTableItem'>
+                        <td class='borderedTableItem'>Sub Floor Framing</td>
+                        <td class='borderedTableItem'><input type='checkbox'></td>
+                        <td class='borderedTableItem'><input class="textbox" required name="" type="text"></td>
+                      </tr>
+                      <tr class='borderedTableItem'>
+                        <td class='borderedTableItem'>Mid Floor Framing</td>
+                        <td class='borderedTableItem'><input type='checkbox'></td>
+                        <td class='borderedTableItem'><input class="textbox" required name="" type="text"></td>
+                      </tr>
+                      <tr class='borderedTableItem'>
+                        <td class='borderedTableItem'>Flooring</td>
+                        <td class='borderedTableItem'><input type='checkbox'></td>
+                        <td class='borderedTableItem'><input class="textbox" required name="" type="text"></td>
+                      </tr>
+                      <tr class='borderedTableItem'>
+                        <td class='borderedTableItem'>Wet Area Flooring</td>
+                        <td class='borderedTableItem'><input type='checkbox'></td>
+                        <td class='borderedTableItem'><input class="textbox" required name="" type="text"></td>
+                      </tr>
+                      <tr class='borderedTableItem'>
+                        <td class='borderedTableItem'>Wet Area Underlay</td>
+                        <td class='borderedTableItem'><input type='checkbox'></td>
+                        <td class='borderedTableItem'><input class="textbox" required name="" type="text"></td>
+                      </tr>
+                    </table>
+
+                    <br>
+
+                    <table class='BorderedTable' style=' border-collapse: collapse;'>
+                      <tr class='borderedTableItem'>
+                        <td class='borderedTableItem'>Insulation - SUPPLY ONLY</td>
+                        <td class='borderedTableItem'>Y</td>
+                        <td class='borderedTableItem'>Required Rating if diff to plan</td>
+                      </tr>
+                      <tr class='borderedTableItem'>
+                        <td class='borderedTableItem'>Sub Floor</td>
+                        <td class='borderedTableItem'><input type='checkbox'></td>
+                        <td class='borderedTableItem'><input class="textbox" required name="" type="text"></td>
+                      </tr>
+                      <tr class='borderedTableItem'>
+                        <td class='borderedTableItem'>Mid Floor</td>
+                        <td class='borderedTableItem'><input type='checkbox'></td>
+                        <td class='borderedTableItem'><input class="textbox" required name="" type="text"></td>
+                      </tr>
+                      <tr class='borderedTableItem'>
+                        <td class='borderedTableItem'>Wall</td>
+                        <td class='borderedTableItem'><input type='checkbox'></td>
+                        <td class='borderedTableItem'><input class="textbox" required name="" type="text"></td>
+                      </tr>
+                      <tr class='borderedTableItem'>
+                        <td class='borderedTableItem'>Ceiling</td>
+                        <td class='borderedTableItem'><input type='checkbox'></td>
+                        <td class='borderedTableItem'><input class="textbox" required name="" type="text"></td>
+                      </tr>
+                      <tr class='borderedTableItem'>
+                        <td class='borderedTableItem'>Strapped Walls</td>
+                        <td class='borderedTableItem'><input type='checkbox'></td>
+                        <td class='borderedTableItem'><input class="textbox" required name="" type="text"></td>
+                      </tr>
+                      <tr class='borderedTableItem'>
+                        <td class='borderedTableItem'>Acoustic</td>
+                        <td class='borderedTableItem'><input type='checkbox'></td>
+                        <td class='borderedTableItem'><input class="textbox" required name="" type="text"></td>
+                      </tr>
+                    </table>
+
+
+                    <br>
+
+                    <table class='BorderedTable' style=' border-collapse: collapse;'>
+                      <tr class='borderedTableItem'>
+                        <td class='borderedTableItem'>Exterior Cladding</td>
+                        <td class='borderedTableItem'>Y</td>
+                        <td class='borderedTableItem'>Required Rating if diff to plan</td>
+                      </tr>
+                      <tr class='borderedTableItem'>
+                        <td class='borderedTableItem'>Timber Fascia</td>
+                        <td class='borderedTableItem'><input type='checkbox'></td>
+                        <td class='borderedTableItem'><input class="textbox" required name="" type="text"></td>
+                      </tr>
+                      <tr class='borderedTableItem'>
+                        <td class='borderedTableItem'>Brick (Qty per m2)</td>
+                        <td class='borderedTableItem'><input type='checkbox'></td>
+                        <td class='borderedTableItem'><input class="textbox" required name="" type="text"></td>
+                      </tr>
+                      <tr class='borderedTableItem'>
+                        <td class='borderedTableItem'>Sheet</td>
+                        <td class='borderedTableItem'><input type='checkbox'></td>
+                        <td class='borderedTableItem'><input class="textbox" required name="" type="text"></td>
+                      </tr>
+                      <tr class='borderedTableItem'>
+                        <td class='borderedTableItem'>Fibre Cement Weatherboard</td>
+                        <td class='borderedTableItem'><input type='checkbox'></td>
+                        <td class='borderedTableItem'><input class="textbox" required name="" type="text"></td>
+                      </tr>
+                      <tr class='borderedTableItem'>
+                        <td class='borderedTableItem'>Timber Weatherboard</td>
+                        <td class='borderedTableItem'><input type='checkbox'></td>
+                        <td class='borderedTableItem'><input class="textbox" required name="" type="text"></td>
+                      </tr>
+                      <tr class='borderedTableItem'>
+                        <td class='borderedTableItem'>Stone Cladding Substrate</td>
+                        <td class='borderedTableItem'><input type='checkbox'></td>
+                        <td class='borderedTableItem'><input class="textbox" required name="" type="text"></td>
+                      </tr>
+                      <tr class='borderedTableItem'>
+                        <td class='borderedTableItem'>Other</td>
+                        <td class='borderedTableItem'><input type='checkbox'></td>
+                        <td class='borderedTableItem'><input class="textbox" required name="" type="text"></td>
+                      </tr>
+                    </table>
+                  </div>
+
+
+                  <div class="column">
+
+                    <table class='BorderedTable' style=' border-collapse: collapse;'>
+                      <tr class='borderedTableItem'>
+                        <td class='borderedTableItem'>Interior Lining</td>
+                        <td class='borderedTableItem'>Y</td>
+                        <td class='borderedTableItem'>Required</td>
+                      </tr>
+                      <tr class='borderedTableItem'>
+                        <td class='borderedTableItem'>Walls</td>
+                        <td class='borderedTableItem'><input type='checkbox'></td>
+                        <td class='borderedTableItem'><input class="textbox" required name="" type="text"></td>
+                      </tr>
+                      <tr class='borderedTableItem'>
+                        <td class='borderedTableItem'>Ceiling</td>
+                        <td class='borderedTableItem'><input type='checkbox'></td>
+                        <td class='borderedTableItem'><input class="textbox" required name="" type="text"></td>
+                      </tr>
+                      <tr class='borderedTableItem'>
+                        <td class='borderedTableItem'>Wet Wall lining</td>
+                        <td class='borderedTableItem'><input type='checkbox'></td>
+                        <td class='borderedTableItem'><input class="textbox" required name="" type="text"></td>
+                        <tr class='borderedTableItem'>
+                          <td class='borderedTableItem'>Wet Ceiling lining</td>
+                          <td class='borderedTableItem'><input type='checkbox'></td>
+                          <td class='borderedTableItem'><input class="textbox" required name="" type="text"></td>
+                        </tr>
+                        <tr class='borderedTableItem'>
+                          <td class='borderedTableItem'>Other</td>
+                          <td class='borderedTableItem'><input type='checkbox'></td>
+                          <td class='borderedTableItem'><input class="textbox" required name="" type="text"></td>
+                        </tr>
+                      </table>
+                      <br>
+
+
+                      <table class='BorderedTable' style=' border-collapse: collapse;'>
+                        <tr class='borderedTableItem'>
+                          <td class='borderedTableItem'>Interior Doors</td>
+                          <td class='borderedTableItem'>Y</td>
+                          <td class='borderedTableItem'>Required</td>
+                        </tr>
+                        <tr class='borderedTableItem'>
+                          <td class='borderedTableItem'>Confirm Door height</td>
+                          <td class='borderedTableItem'><input type='checkbox'></td>
+                          <td class='borderedTableItem'><input class="textbox" required name="" type="text"></td>
+                        </tr>
+                        <tr class='borderedTableItem'>
+                          <td class='borderedTableItem'>Door type	Y	Polycore</td>
+                          <td class='borderedTableItem'><input type='checkbox'></td>
+                          <td class='borderedTableItem'><input class="textbox" required name="" type="text"></td>
+                        </tr>
+                        <tr class='borderedTableItem'>
+                          <td class='borderedTableItem'>Jambs Type</td>
+                          <td class='borderedTableItem'><input type='checkbox'></td>
+                          <td class='borderedTableItem'><input class="textbox" required name="" type="text"></td>
+                        </table>
+                        <br>
+
+
+                        <table class='BorderedTable' style=' border-collapse: collapse;'>
+                          <tr class='borderedTableItem'>
+                            <td class='borderedTableItem'>Door Furniture</td>
+                            <td class='borderedTableItem'>Y</td>
+                            <td class='borderedTableItem'>Required</td>
+                          </tr>
+                          <tr class='borderedTableItem'>
+                            <td class='borderedTableItem'>Type</td>
+                            <td class='borderedTableItem'><input type='checkbox'></td>
+                            <td class='borderedTableItem'><input class="textbox" required name="" type="text"></td>
+                          </tr>
+                        </table>
+                        <br>
+
+
+                        <table class='BorderedTable' style=' border-collapse: collapse;'>
+                          <tr class='borderedTableItem'>
+                            <td class='borderedTableItem'>Interior Finishings</td>
+                            <td class='borderedTableItem'>Y</td>
+                            <td class='borderedTableItem'>Required</td>
+                          </tr>
+                          <tr class='borderedTableItem'>
+                            <td class='borderedTableItem'>Skirting</td>
+                            <td class='borderedTableItem'><input type='checkbox'></td>
+                            <td class='borderedTableItem'><input class="textbox" required name="" type="text"></td>
+                          </tr>
+                          <tr class='borderedTableItem'>
+                            <td class='borderedTableItem'>Architraves</td>
+                            <td class='borderedTableItem'><input type='checkbox'></td>
+                            <td class='borderedTableItem'><input class="textbox" required name="" type="text"></td>
+                          </tr>
+                          <tr class='borderedTableItem'>
+                            <td class='borderedTableItem'>Timber Cornice</td>
+                            <td class='borderedTableItem'><input type='checkbox'></td>
+                            <td class='borderedTableItem'><input class="textbox" required name="" type="text"></td>
+                            <tr class='borderedTableItem'>
+                              <td class='borderedTableItem'>Gib Cove</td>
+                              <td class='borderedTableItem'><input type='checkbox'></td>
+                              <td class='borderedTableItem'><input class="textbox" required name="" type="text"></td>
+                            </tr>
+                            <tr class='borderedTableItem'>
+                              <td class='borderedTableItem'>Wet Areas</td>
+                              <td class='borderedTableItem'><input type='checkbox'></td>
+                              <td class='borderedTableItem'><input class="textbox" required name="" type="text"></td>
+                            </tr>
+                            <tr class='borderedTableItem'>
+                              <td class='borderedTableItem'>Shelving</td>
+                              <td class='borderedTableItem'><input type='checkbox'></td>
+                              <td class='borderedTableItem'><input class="textbox" required name="" type="text"></td>
+                            </tr>
+                          </table>
+                          <br>
+
+
+
+
+                          <table class='BorderedTable' style=' border-collapse: collapse;'>
+                            <tr class='borderedTableItem'>
+                              <td class='borderedTableItem'>Landscaping</td>
+                              <td class='borderedTableItem'>Y</td>
+                              <td class='borderedTableItem'>Required</td>
+                            </tr>
+                            <tr class='borderedTableItem'>
+                              <td class='borderedTableItem'>Decks - Pine</td>
+                              <td class='borderedTableItem'><input type='checkbox'></td>
+                              <td class='borderedTableItem'><input class="textbox" required name="" type="text"></td>
+                            </tr>
+                            <tr class='borderedTableItem'>
+                              <td class='borderedTableItem'>Decks - Redwood</td>
+                              <td class='borderedTableItem'><input type='checkbox'></td>
+                              <td class='borderedTableItem'><input class="textbox" required name="" type="text"></td>
+                            </tr>
+                            <tr class='borderedTableItem'>
+                              <td class='borderedTableItem'>Decks - Hardwood</td>
+                              <td class='borderedTableItem'><input type='checkbox'></td>
+                              <td class='borderedTableItem'><input class="textbox" required name="" type="text"></td>
+                              <tr class='borderedTableItem'>
+                                <td class='borderedTableItem'>Decks - Composite</td>
+                                <td class='borderedTableItem'><input type='checkbox'></td>
+                                <td class='borderedTableItem'><input class="textbox" required name="" type="text"></td>
+                              </tr>
+                              <tr class='borderedTableItem'>
+                                <td class='borderedTableItem'>Pergola</td>
+                                <td class='borderedTableItem'><input type='checkbox'></td>
+                                <td class='borderedTableItem'><input class="textbox" required name="" type="text"></td>
+                              </tr>
+                              <tr class='borderedTableItem'>
+                                <td class='borderedTableItem'>Carport</td>
+                                <td class='borderedTableItem'><input type='checkbox'></td>
+                                <td class='borderedTableItem'><input class="textbox" required name="" type="text"></td>
+                              </tr>
+                              <tr class='borderedTableItem'>
+                                <td class='borderedTableItem'>Timber Retaining Walls</td>
+                                <td class='borderedTableItem'><input type='checkbox'></td>
+                                <td class='borderedTableItem'><input class="textbox" required name="" type="text"></td>
+                              </tr>
+                              <tr class='borderedTableItem'>
+                                <td class='borderedTableItem'>Concrete Patios</td>
+                                <td class='borderedTableItem'><input type='checkbox'></td>
+                                <td class='borderedTableItem'><input class="textbox" required name="" type="text"></td>
+                              </tr>
+                            </table>
+                            <br>
+
+
+                            <table class='BorderedTable' style=' border-collapse: collapse;'>
+                              <tr class='borderedTableItem'>
+                                <td class='borderedTableItem'>Other Items</td>
+                                <td class='borderedTableItem'>Y</td>
+                                <td class='borderedTableItem'>Required</td>
+                              </tr>
+                              <tr class='borderedTableItem'>
+                                <td class='borderedTableItem'>Ply to Membrane Roof</td>
+                                <td class='borderedTableItem'><input type='checkbox'></td>
+                                <td class='borderedTableItem'><input class="textbox" required name="" type="text"></td>
+                              </tr>
+                              <tr class='borderedTableItem'>
+                                <td class='borderedTableItem'>Ply to Shingle Roof</td>
+                                <td class='borderedTableItem'><input type='checkbox'></td>
+                                <td class='borderedTableItem'><input class="textbox" required name="" type="text"></td>
+                              </tr>
+                              <tr class='borderedTableItem'>
+                                <td class='borderedTableItem'>Garage Door</td>
+                                <td class='borderedTableItem'><input type='checkbox'></td>
+                                <td class='borderedTableItem'><input class="textbox" required name="" type="text"></td>
+                                <tr class='borderedTableItem'>
+                                  <td class='borderedTableItem'>PVC Spouting System</td>
+                                  <td class='borderedTableItem'><input type='checkbox'></td>
+                                  <td class='borderedTableItem'><input class="textbox" required name="" type="text"></td>
+                                </tr>
+                                <tr class='borderedTableItem'>
+                                  <td class='borderedTableItem'>PVC Downpipes</td>
+                                  <td class='borderedTableItem'><input type='checkbox'></td>
+                                  <td class='borderedTableItem'><input class="textbox" required name="" type="text"></td>
+                                </tr>
+                                <tr class='borderedTableItem'>
+                                  <td class='borderedTableItem'>Skylight/Suntubes</td>
+                                  <td class='borderedTableItem'><input type='checkbox'></td>
+                                  <td class='borderedTableItem'><input class="textbox" required name="" type="text"></td>
+                                </tr>
+                                <tr class='borderedTableItem'>
+                                  <td class='borderedTableItem'>PVC Roofing</td>
+                                  <td class='borderedTableItem'><input type='checkbox'></td>
+                                  <td class='borderedTableItem'><input class="textbox" required name="" type="text"></td>
+                                </tr>
+                              </table>
+                              <br>
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+
+                      <td class='checkboxZone'>
+                        <input type="checkbox" name='section3Required'></input>
+                      </td>
+                      <td>
+                        <button type="button" class="collapsible">Section 3: External Suppliers</button>
+                        <div class="content">
+                          Section 3: External Suppliers
+
+
+                          "Section 3:
+
+                          <div class="colContainer">
+                            <div class="column">
+
+                              <table class='BorderedTable' style=' border-collapse: collapse;'>
+                                <tr class='borderedTableItem'>
+                                  <td class='borderedTableItem'>Bathroom/Plumbing fittings</td>
+                                  <td class='borderedTableItem'>Y</td>
+                                  <td class='borderedTableItem'>Please fill in Section 5</td>
+                                </tr>
+                                <tr class='borderedTableItem'>
+                                  <td class='borderedTableItem'>Cedar</td>
+                                  <td class='borderedTableItem'><input type='checkbox'></td>
+                                  <td class='borderedTableItem'><input class="textbox" required name="" type="text"></td>
+                                </tr>
+                                <tr class='borderedTableItem'>
+                                  <td class='borderedTableItem'>Garage Door</td>
+                                  <td class='borderedTableItem'><input type='checkbox'></td>
+                                  <td class='borderedTableItem'><input class="textbox" required name="" type="text"></td>
+                                </tr>
+                                <tr class='borderedTableItem'>
+                                  <td class='borderedTableItem'>Heat Pumps</td>
+                                  <td class='borderedTableItem'><input type='checkbox'></td>
+                                  <td class='borderedTableItem'><input class="textbox" required name="" type="text"></td>
+                                </tr>
+                                <tr class='borderedTableItem'>
+                                  <td class='borderedTableItem'>Interior Lighting</td>
+                                  <td class='borderedTableItem'><input type='checkbox'></td>
+                                  <td class='borderedTableItem'><input class="textbox" required name="" type="text"></td>
+                                </tr>
+                                <tr class='borderedTableItem'>
+                                  <td class='borderedTableItem'>Insulation Supply & Install	Y	Smart Energy</td>
+                                  <td class='borderedTableItem'><input type='checkbox'></td>
+                                  <td class='borderedTableItem'><input class="textbox" required name="" type="text"></td>
+                                </tr>
+                                <tr class='borderedTableItem'>
+                                  <td class='borderedTableItem'>Joinery (windows/doors)</td>
+                                  <td class='borderedTableItem'><input type='checkbox'></td>
+                                  <td class='borderedTableItem'><input class="textbox" required name="" type="text"></td>
+                                </tr>
+                                <tr class='borderedTableItem'>
+                                  <td class='borderedTableItem'>Kitchen & Bench Tops	</td>
+                                  <td class='borderedTableItem'><input type='checkbox'></td>
+                                  <td class='borderedTableItem'><input class="textbox" required name="" type="text"></td>
+                                </tr>
+                                <tr class='borderedTableItem'>
+                                  <td class='borderedTableItem'>Laundry/HWC	</td>
+                                  <td class='borderedTableItem'><input type='checkbox'></td>
+                                  <td class='borderedTableItem'><input class="textbox" required name="" type="text"></td>
+                                </tr>
+                                <tr class='borderedTableItem'>
+                                  <td class='borderedTableItem'>Maxraft option	</td>
+                                  <td class='borderedTableItem'><input type='checkbox'></td>
+                                  <td class='borderedTableItem'><input class="textbox" required name="" type="text"></td>
+                                </tr>
+                                <tr class='borderedTableItem'>
+                                  <td class='borderedTableItem'>Metal Fascia	</td>
+                                  <td class='borderedTableItem'><input type='checkbox'></td>
+                                  <td class='borderedTableItem'><input class="textbox" required name="" type="text"></td>
+                                </tr>
+                                <tr class='borderedTableItem'>
+                                  <td class='borderedTableItem'>Metal Spouting	</td>
+                                  <td class='borderedTableItem'><input type='checkbox'></td>
+                                  <td class='borderedTableItem'><input class="textbox" required name="" type="text"></td>
+                                </tr>
+                              </table>
+                            </div>
+                            <div class="column">
+                              <table class='BorderedTable' style=' border-collapse: collapse;'>
+                                <tr class='borderedTableItem'>
+                                  <td class='borderedTableItem'>Precut / Prenail /Trusses option</td>
+                                  <td class='borderedTableItem'>Y</td>
+                                  <td class='borderedTableItem'></td>
+                                </tr>
+                                <tr class='borderedTableItem'>
+                                  <td class='borderedTableItem'>Prehung Doors</td>
+                                  <td class='borderedTableItem'><input type='checkbox'></td>
+                                  <td class='borderedTableItem'><input class="textbox" required name="" type="text"></td>
+                                </tr>
+                                <tr class='borderedTableItem'>
+                                  <td class='borderedTableItem'>Reinforcing Steel (pre-bent steel)</td>
+                                  <td class='borderedTableItem'><input type='checkbox'></td>
+                                  <td class='borderedTableItem'><input class="textbox" required name="" type="text"></td>
+                                </tr>
+                                <tr class='borderedTableItem'>
+                                  <td class='borderedTableItem'>Ribraft</td>
+                                  <td class='borderedTableItem'><input type='checkbox'></td>
+                                  <td class='borderedTableItem'><input class="textbox" required name="" type="text"></td>
+                                </tr>
+                                <tr class='borderedTableItem'>
+                                  <td class='borderedTableItem'>Roofing	Y	Roof Improvements</td>
+                                  <td class='borderedTableItem'><input type='checkbox'></td>
+                                  <td class='borderedTableItem'><input class="textbox" required name="" type="text"></td>
+                                </tr>
+                                <tr class='borderedTableItem'>
+                                  <td class='borderedTableItem'>Schist</td>
+                                  <td class='borderedTableItem'><input type='checkbox'></td>
+                                  <td class='borderedTableItem'><input class="textbox" required name="" type="text"></td>
+                                </tr>
+                                <tr class='borderedTableItem'>
+                                  <td class='borderedTableItem'>Stairs	Y	TopFlyte</td>
+                                  <td class='borderedTableItem'><input type='checkbox'></td>
+                                  <td class='borderedTableItem'><input class="textbox" required name="" type="text"></td>
+                                </tr>
+                                <tr class='borderedTableItem'>
+                                  <td class='borderedTableItem'>Steel Beams</td>
+                                  <td class='borderedTableItem'><input type='checkbox'></td>
+                                  <td class='borderedTableItem'><input class="textbox" required name="" type="text"></td>
+                                </tr>
+                                <tr class='borderedTableItem'>
+                                  <td class='borderedTableItem'>Other</td>
+                                  <td class='borderedTableItem'><input type='checkbox'></td>
+                                  <td class='borderedTableItem'><input class="textbox" required name="" type="text"></td>
+                                </tr>
+                              </table>
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class='checkboxZone'>
+                        <input type="checkbox" name='section4Required'></input>
+                      </td>
+                      <td>
+                        <button type="button" class="collapsible">Section 4: Kitchen</button>
+                        <div class="content">
+                          Section 4: Kitchen
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class='checkboxZone'>
+                        <input type="checkbox" name='section5Required'></input>
+                      </td>
+                      <td>
+                        <button type="button" class="collapsible">Section 5: Bathroom</button>
+                        <div class="content">
+                          Section 5: Bathroom
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class='checkboxZone'>
+                        <input type="checkbox" name='section6Required'></input>
+                      </td>
+                      <td>
+                        <button type="button" class="collapsible">Section 6: Other</button>
+                        <div class="content">
+                          Section 6: Other
+                        </div>
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+
+              <div class="uploadSection">
+                <br>
+                <h3>Upload your plan files here. If you're not uploading a file, tick the box.</h3>
+                <table>
+                  <tr>
+                    <td class='firstCol'>Plans:  </td>
+                    <td><input type="file" name="" class="plans" required></td>
+                    <td style="text-align: right; width: 100%;">No File:<input name="" type="checkbox" class="plans" required></td>
+                  </tr>
+                  <tr>
+                    <td class='firstCol'>Engineer Plans: </td>
+                    <td><input id='eng1' type="file" name="" class="engineer" required></td>
+                    <td style="text-align: right; width: 100%;">No File:<input name="" type="checkbox" class="engineer" required></td>
+                  </tr>
+                  <tr hidden id='engrow1'>
+                    <td class='firstCol'>Engineer Plans extra: </td>
+                    <td><input id='eng2' type="file" name="" class="engineer"></td>
+                    <td><br></td>
+                  </tr>
+                  <tr hidden id='engrow2'>
+                    <td class='firstCol'>Engineer Plans extra: </td>
+                    <td><input id='eng3' type="file" name="" class="engineer"></td>
+                    <td><br></td>
+                  </tr>
+                  <tr hidden id='engrow3'>
+                    <td class='firstCol'>Engineer Plans extra: </td>
+                    <td><input id='eng4' type="file" name="" class="engineer"></td>
+                    <td><br></td>
+                  </tr>
+                  <tr hidden id='engrow4'>
+                    <td class='firstCol'>Engineer Plans extra: </td>
+                    <td><input id='eng5' type="file" name="" class="engineer"></td>
+                    <td><br></td>
+                  </tr>
+                  <tr>
+                    <td class='firstCol'>Window & Door Plans:</td>
+                    <td><input type="file" name="" class="wndPlans" required></td>
+                    <td style="text-align: right; width: 100%;">No File:<input name="" type="checkbox" class="wndPlans" required></td>
+                  </tr>
+                  <tr>
+                    <td class='firstCol'>Specifications:</td>
+                    <td><input type="file" name="" class="specs" required></td>
+                    <td style="text-align: right; width: 100%;">No File:<input name="" type="checkbox" class="specs" required></td>
+                  </tr>
+                </table>
+
+              </div>
+              <br>
+              <input class="submission" type="submit" value="Submit form and upload">
+            </form>
+            <div id="output">
+              <h3>&nbsp;</h3>
+              <p>&nbsp;</p>
+            </div>
+            <script>
+            //collapsable
+
+            var coll = document.getElementsByClassName("collapsible");
+            var i;
+
+            for (i = 0; i < coll.length; i++) {
+              coll[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                var content = this.nextElementSibling;
+                if (content.style.maxHeight){
+                  content.style.maxHeight = null;
+                } else {
+                  content.style.maxHeight = content.scrollHeight + "px";
+                }
+              });
+            }
+            </script>
+          </body>

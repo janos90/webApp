@@ -530,8 +530,6 @@ function updateUrl(url) {
                         <td class='borderedTableItem'>Wet Wall lining</td>
                         <td class='borderedTableItem'><input type='checkbox'></td>
                         <td class='borderedTableItem'><input class="textbox" type="text"></td>
-                      </tr>
-
                         <tr class='borderedTableItem'>
                           <td class='borderedTableItem'>Wet Ceiling lining</td>
                           <td class='borderedTableItem'><input type='checkbox'></td>
@@ -566,24 +564,23 @@ function updateUrl(url) {
                           <td class='borderedTableItem'>Jambs Type</td>
                           <td class='borderedTableItem'><input type='checkbox'></td>
                           <td class='borderedTableItem'><input class="textbox" type="text"></td>
-                        </tr>
-                      </table>
-                      <br>
+                        </table>
+                        <br>
 
 
-                      <table class='BorderedTable' style='border-collapse: collapse;'>
-                        <tr class='borderedTableItem'>
-                          <th class='borderedTableItem'>Door Furniture</th>
-                          <th class='borderedTableItem'><input type='checkbox'></th>
-                          <th class='borderedTableItem'>Required</th>
-                        </tr>
-                        <tr class='borderedTableItem'>
-                          <td class='borderedTableItem'>Type</td>
-                          <td class='borderedTableItem'><input type='checkbox'></td>
-                          <td class='borderedTableItem'><input class="textbox" type="text"></td>
-                        </tr>
-                      </table>
-                      <br>
+                        <table class='BorderedTable' style='border-collapse: collapse;'>
+                          <tr class='borderedTableItem'>
+                            <th class='borderedTableItem'>Door Furniture</th>
+                            <th class='borderedTableItem'><input type='checkbox'></th>
+                            <th class='borderedTableItem'>Required</th>
+                          </tr>
+                          <tr class='borderedTableItem'>
+                            <td class='borderedTableItem'>Type</td>
+                            <td class='borderedTableItem'><input type='checkbox'></td>
+                            <td class='borderedTableItem'><input class="textbox" type="text"></td>
+                          </tr>
+                        </table>
+                        <br>
 
 
                         <table class='BorderedTable' style='border-collapse: collapse;'>

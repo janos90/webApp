@@ -1,0 +1,34 @@
+doable Now
+•	The sheet needs to lock out incompatible selections.
+•	The selection of suppliers may be down to a store level rather than a region.
+•	The choice of suppliers may be down to a rep level, or alternatively they need to be able to select multiple options; for example Housing NZ require more than one quote for suppliers, I.e. a door quote may need to go to 2 suppliers.
+•	They have suggested that we test on the New Plymouth area, just two stores, NP and Hawera.
+
+
+Doable with SQL DB
+•	The functional recording of lead-time across all suppliers.
+•	The ability for the program to identify a duplicate job – i.e. a job that has previously been done.
+
+
+Doable with new UI (UI reqs DB)
+
+•	What is the process for raising an issue with a loaded job once received – i.e. incorrect plans loaded.
+•	The ability to go for purely a reprice – this would solely go to the quote office.
+•	Colour marking for job status, on time late etc?
+•	Central access to the job list.
+•	Data analysis and reporting from the program, by store, rep, client etc
+•	Integrated reporting on conversion, being able to use the program for exporting the finished job to the client and recording the outcome, by store, rep, region, client etc.
+•	The ability to comment on the job status
+•	The ability for the submitter and the quote office to have real-time access to where the job is in the process
+
+
+
+it depends or undecided
+
+•	Bunnings currently use a job portal (internal) to allocate job numbers and track jobs, obviously we will be taking over a lot of this function, however is there any way we can pick up their numbering process as they use this for other functions that we will not be working on, so we will need to use their numbering?
+
+
+
+	Its all well and good to say one step at a time but this project needs to be done properly then it needs to be planned and built all at once then tested once the ground floor is in.
+	Do the structure then worry about the furniture
+method for comfirmation

@@ -102,6 +102,45 @@
     font-weight: normal;
     font-size: 14;
   }
+
+  /* modal */
+  .modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+
+  /* Modal Content */
+  .modal-content {
+      background-color: #fefefe;
+      margin: auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 80%;
+  }
+
+  /* The Close Button */
+  .close {
+      color: #aaaaaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+  }
+
+  .close:hover,
+  .close:focus {
+      color: #000;
+      text-decoration: none;
+      cursor: pointer;
+}
 </style>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -179,24 +218,66 @@ function updateUrl(url) {
   form.style.display = "none";
 }
 
+
 </script>
 
 <form id="myForm" align="center" onsubmit="handleFormSubmit(this)">
   <div class="wrapper">
     <div class="main">
       <div class="headingWrapper">
-        <div class="imagePair">
+        <div class="fullWidthContainer" style="border:none;">
           <p style="padding: 10px">
             <img src="https://www.thomsonsitm.co.nz/themes/ThomsonsITM/images/logo.png" style="background-color: #000000; padding: 20px;">
             <br>
             <br>Thomsons Timbers Supplies Limited
           </p>
-          <div class="checkboxContainer">
-            <p style="color: red; text-align: left; padding-left: 9px">Office Use only:</p>
-            <p>Frames/Trusses: <input class="textbox right" name="officeFrames" type="text" style="width: 60%;"></p>
-            <p>Discount Group: <input class="textbox right" name="officeDiscount" type="text" style="width: 60%;"></p>
-            <p>Reason: <input class="textbox right" name="officeReason" type="text" style="width: 60%;"></p>
+        </div>
+      </div>
+
+      <header>
+
+
+      </header>
+      <div class="pair">
+        <div class="fullWidthContainer">
+          <h4 >Detailing:</h4>
+          <p class="row"><input class="detailing" name="variable1" type="checkbox">Truss Layout, PS1 only</p>
+          <p class="row"><input class="detailing" name="variable2" type="checkbox">Full Buildable Layouts</p>
+          <p class="row"><input class="detailing" name="variable42" type="checkbox">Detailing</p>
+          <p class="row"><input class="detailing" name="variable9" type="checkbox">Trusses/Rafters</p>
+          <button id="myBtn" type="button">Acceptance form</button>
+          <div id="myModal" class="modal">
+            <div class="modal-content">
+              <span class="close">&times;</span>
+              <div>
+                <div id="includedContent"></div>
+
+
+              </div>
+            </div>
           </div>
+
+          <script>
+          var modal = document.getElementById('myModal');
+          var btn = document.getElementById("myBtn");
+          var span = document.getElementsByClassName("close")[0];
+          btn.onclick = function() {
+            $("#includedContent").load("modalcontents.html");
+
+              modal.style.display = "block";
+
+          }
+          span.onclick = function() {
+              modal.style.display = "none";
+          }
+          </script>
+
+        </div>
+        <div class="fullWidthContainer">
+          <p style="color: red; text-align: left; padding-left: 9px">Office Use only:</p>
+          <p>Frames/Trusses: <input class="textbox right" name="officeFrames" type="text" style="width: 60%;"></p>
+          <p>Discount Group: <input class="textbox right" name="officeDiscount" type="text" style="width: 60%;"></p>
+          <p>Reason: <input class="textbox right" name="officeReason" type="text" style="width: 60%;"></p>
         </div>
       </div>
       <header>
@@ -227,16 +308,14 @@ function updateUrl(url) {
 
         </div>
       </div>
+
+
       <header>
         <h4 >Tick the items below required to be estimated</h4>
       </header>
       <div class="pair">
 
         <div class="checkboxContainer">
-          <p class="row"><input class="detailing" name="variable1" type="checkbox">Truss Layout, PS1 only</p>
-          <p class="row"><input class="detailing" name="variable2" type="checkbox">Full Buildable Layouts</p>
-          <p class="row"><input class="detailing" name="variable42" type="checkbox">Detailing</p>
-          <p style="border:solid 1px black;"></p>
           <p class="row"><input name="variable3" type="checkbox">Steel Reinforcing</p>
           <p class="row"><input name="variable4" type="checkbox">Pre-Bent R/Steel</p>
           <p class="row"><input name="variable5" type="checkbox">Rib-raft</p>
@@ -245,7 +324,6 @@ function updateUrl(url) {
         </div>
         <div class="checkboxContainer">
           <p class="row"><input name="variable8" type="checkbox">Prenail</p>
-          <p class="row"><input class="detailing" name="variable9" type="checkbox">Trusses/Rafters</p>
           <p class="row"><input name="variable10" type="checkbox">Roof Pack</p>
           <p class="row"><input name="variable11" type="checkbox">Random</p>
           <p class="row"><input name="variable12" type="checkbox">Sub-floor</p>

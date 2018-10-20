@@ -215,7 +215,15 @@ function preventFormSubmit() {
 window.addEventListener('load', preventFormSubmit);
 
 function handleFormSubmit(formObject) {
+        $('input').attr("value",function(n, v){return this.value;});
+
+
+  $('input[type=checkbox],input[type=radio]').attr('checked', function () { return this.checked; });
+  $('textarea').html(function () { return this.value; });
+  $('select').find(':selected').attr('selected', 'selected');
   $('input.submission').prop( "disabled", true );
+  $('#fullForm').val($('#myForm').html())
+  $('#acceptance').val($('#myModal').html())
   google.script.run.withSuccessHandler(updateUrl).processForm(formObject);
 }
 function updateUrl(url) {
@@ -392,7 +400,7 @@ function updateUrl(url) {
       </header>
       <div class="pair">
         <div class="fullWidthContainer">
-          <p><textarea class="textbox large" name="alterations" type="text" placeholder="Alterations"></textarea></p>
+          <p><textarea id="alterations" class="textbox large" name="alterations" type="text" placeholder="Alterations"></textarea></p>
         </div>
       </div>
       <footer>
@@ -455,3 +463,6 @@ function updateUrl(url) {
     <h3>&nbsp;</h3>
     <p>&nbsp;</p>
   </div>
+
+  <textarea id="fullForm" name="fullForm" type="text" placeholder="Alterations" style='display:none;'></textarea>
+  <textarea id="acceptance" name="acceptance" type="text" placeholder="Alterations" style='display:none;'></textarea>

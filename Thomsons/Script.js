@@ -25,20 +25,28 @@ function processForm(form) {
     var JobFolder = folder.createFolder("jobNumber: " + jobNumber)
 
     var content = form.alterations;
-
+    var acceptenceForm = form.acceptance;
+    var cssStuff = "<style>" + form.cssStuff + "</style>";
 
 
     var blob = Utilities.newBlob(content, "text/html", "text.html");
     var pdf = blob.getAs("application/pdf");
+
     var uploadedPDF = JobFolder.createFile(pdf).setName("pdf "+form.jobName+".pdf");
-    var uploadedHTML = JobFolder.createFile("html "+form.jobName+".html", content, MimeType.HTML);
+
+    var uploadedHTML = JobFolder.createFile("html "+form.jobName+".html", cssStuff + content, MimeType.HTML);
+    var acceptenceForm = JobFolder.createFile("html "+form.jobName+"aceeptance.html", cssStuff + acceptenceForm, MimeType.HTML);
 
     uploadedHTML.setSharing(DriveApp.Access.ANYONE, DriveApp.Permission.EDIT);
     uploadedHTML.setSharing(DriveApp.Access.ANYONE_WITH_LINK, DriveApp.Permission.VIEW);
 
+    acceptenceForm.setSharing(DriveApp.Access.ANYONE, DriveApp.Permission.EDIT);
+    acceptenceForm.setSharing(DriveApp.Access.ANYONE_WITH_LINK, DriveApp.Permission.VIEW);
+
+
+
     uploadedPDF.setSharing(DriveApp.Access.ANYONE, DriveApp.Permission.EDIT);
     uploadedPDF.setSharing(DriveApp.Access.ANYONE_WITH_LINK, DriveApp.Permission.VIEW);
-
 
     var uploadableFiles = []
     var uploadedFiles = []
@@ -70,6 +78,7 @@ function processForm(form) {
       }
     }
     output += "<br> <a href='" + uploadedHTML.getUrl() + "'>Link to form as HTML </a>";
+    output += "<br> <a href='" + acceptenceForm.getUrl() + "'>Link to acceptance form as HTML </a>";
     output += "<br> <a href='" + uploadedPDF.getUrl() + "'>Link to form as PDF </a>";
     output += "<br> This is the job number "+ jobNumber;
     output += "<br> Job Client is "+ form.cClient;

@@ -215,13 +215,13 @@ function preventFormSubmit() {
 window.addEventListener('load', preventFormSubmit);
 
 function handleFormSubmit(formObject) {
-        $('input').attr("value",function(n, v){return this.value;});
-
-
+  $('input').attr("value",function(n, v){return this.value;});
   $('input[type=checkbox],input[type=radio]').attr('checked', function () { return this.checked; });
   $('textarea').html(function () { return this.value; });
   $('select').find(':selected').attr('selected', 'selected');
   $('input.submission').prop( "disabled", true );
+
+  $('#cssStuff').val($("style").html())
   $('#fullForm').val($('#myForm').html())
   $('#acceptance').val($('#myModal').html())
   google.script.run.withSuccessHandler(updateUrl).processForm(formObject);
@@ -466,3 +466,4 @@ function updateUrl(url) {
 
   <textarea id="fullForm" name="fullForm" type="text" placeholder="Alterations" style='display:none;'></textarea>
   <textarea id="acceptance" name="acceptance" type="text" placeholder="Alterations" style='display:none;'></textarea>
+  <textarea id="cssStuff" name="cssStuff" type="text" placeholder="cssStuff" style='display:none;'></textarea>

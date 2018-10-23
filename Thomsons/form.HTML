@@ -86,6 +86,7 @@
 
   .uploadSection {
     text-align: left;
+    width: 900px;
   }
 
   .large {
@@ -215,6 +216,7 @@ function preventFormSubmit() {
 window.addEventListener('load', preventFormSubmit);
 
 function handleFormSubmit(formObject) {
+
   $('input').attr("value",function(n, v){return this.value;});
   $('input[type=checkbox],input[type=radio]').attr('checked', function () { return this.checked; });
   $('textarea').html(function () { return this.value; });
@@ -224,6 +226,7 @@ function handleFormSubmit(formObject) {
   $('#cssStuff').val($("style").html())
   $('#fullForm').val($('#myForm').html())
   $('#acceptance').val($('#myModal').html())
+
   google.script.run.withSuccessHandler(updateUrl).processForm(formObject);
 }
 function updateUrl(url) {
@@ -265,7 +268,172 @@ function updateUrl(url) {
             <div class="modal-content">
               <span class="close">&times;</span>
               <div>
-                <div id="includedContent"></div>
+                <div id="includedContent">
+                  <header>
+                  	<h1>
+                  		Thomsons ITM Production Request form
+                  	</h1>
+                  	<h3>
+                  		please Contact your sales rep if you have any questions with this form
+                  	</h3>
+
+                  </header>
+                  <form>
+                  	<h4>What is required?</h4>
+                  	<h5>Tick all that apply:</h5>
+                  	<div class="">
+                  		<table class='modalTable'>
+                  			<tr>
+                  				<td>Frames  			<select><option>Yes</option><option>No</option><option>N/A</option></select></td>
+                  				<td>Trusses  			<select><option>Yes</option><option>No</option><option>N/A</option></select></td>
+                  				<td>Roof Pack  		<select><option>Yes</option><option>No</option><option>N/A</option></select></td>
+                  				<td>Rafters  			<select><option>Yes</option><option>No</option><option>N/A</option></select></td>
+                  				<td>Ribbon Board  <select><option>Yes</option><option>No</option><option>N/A</option></select></td>
+                  			</tr>
+                  		</table>
+                  	</div>
+
+
+                  	Frame Information
+                  	<div class="pair">
+                  		<div class="fullWidthContainer">
+                  			<table class='modalTable'>
+                  				<tr><td><p>Primary Stud Height																</p></td>	<td>	<select><option>2400mm</option><option>2550mm</option><option>2700mm</option><option>3000mm</option><option>n/a		</option><option></option></select></td></tr>
+                  				<tr><td><p>Primary Stud Centers 												 			</p></td>	<td>	<select><option>300mm</option><option>400mm</option><option>600mm</option><option>300 & 400mm</option><option>n/a		</option><option></option></select></td></tr>
+                  				<tr><td><p>Primary Frame Nog Centers 										 			</p></td>	<td>	<select><option>2 rows</option><option>3 rows</option><option>480mm</option><option>600mm</option><option>n/a		</option><option></option></select></td></tr>
+                  				<tr><td><p>Primary Sofit Height (underside of lintel) 	 			</p></td>	<td>	<select><option>2160mm</option><option>2255mm</option><option>2310mm</option><option>2460mm</option><option>as per plan		</option><option></option></select></td></tr>
+                  				<tr><td><p>Secondary Stud Height 												 			</p></td>	<td>	<select><option>2400mm</option><option>2550mm</option><option>2700mm</option><option>3000mm</option><option>n/a		</option><option></option></select></td></tr>
+                  				<tr><td><p>Secondary Stud Centers	 											 			</p></td>	<td>	<select><option>300mm</option><option>400mm</option><option>600mm</option><option>300 & 400mm</option><option>n/a		</option><option></option></select></td></tr>
+                  				<tr><td><p>Secondary Frame Nog Centers 									 			</p></td>	<td>	<select><option>2 rows</option><option>3 rows</option><option>480mm</option><option>600mm</option><option>n/a		</option><option></option></select></td></tr>
+                  				<tr><td><p>Secondary Soffit Height( underside of lintel) 			</p></td>	<td>	<select><option>2160mm</option><option>2255mm</option><option>2310mm</option><option>2460mm</option><option>as per plan		</option><option></option></select></td></tr>
+                  				<tr><td><p>Primary Cladding Type	 														</p></td>	<td>	<select><option>50mm Integra Panel</option><option>Brick 70 series</option><option>Brick 90 series</option><option>Brick 110 series</option><option>Plywood</option><option>Weatherboard</option><option>Cedar Vertical</option><option>Cedar Horizontal</option><option>Abodo Vertical</option><option>Abodo WB</option><option>Linea</option><option>n/a</option><option></option></select></td></tr>
+                  				<tr><td><p>Primary Cladding Cavity	 													</p></td>	<td>	<select><option>65mm rebate</option><option>120mm rebate</option><option>140mm rebate</option><option>160mm rebate</option><option>No rebate	</option><option></option></select></td></tr>
+                  				<tr><td><p>Secondary Cladding Type 														</p></td>	<td>	<select><option>50mm Integra Panel</option><option>Brick 70 series</option><option>Brick 90 series</option><option>Brick 110 series</option><option>Plywood</option><option>Weatherboard</option><option>Cedar Vertical</option><option>Cedar Horizontal</option><option>Abodo Vertical</option><option>Abodo WB</option><option>Linea</option><option>n/a</option><option></option></select></td></tr>
+                  				<tr><td><p>Secondary Cladding Cavity													</p></td>	<td>	<select><option>65mm rebate</option><option>120mm rebate</option><option>140mm rebate</option><option>160mm rebate</option><option>No rebate	</option><option></option></select></td></tr>
+                  				<tr><td><p>Tertiary Cladding Type															</p></td>	<td>	<select><option>50mm Integra Panel</option><option>Brick 70 series</option><option>Brick 90 series</option><option>Brick 110 series</option><option>Plywood</option><option>Weatherboard</option><option>Cedar Vertical</option><option>Cedar Horizontal</option><option>Abodo Vertical</option><option>Abodo WB</option><option>Linea</option><option>n/a</option><option></option></select></td></tr>
+                  				<tr><td><p>Tertiary Cladding Cavity														</p></td>	<td>	<select><option>65mm rebate</option><option>120mm rebate</option><option>140mm rebate</option><option>160mm rebate</option><option>No rebate	</option><option></option></select></td></tr>
+                  			</table>
+                  		</div>
+
+                  		<div class="fullWidthContainer">
+                  			<table class='modalTable'>
+                  				<tr><td><p class="row">Extra Nog Requried												</p></td> <td>	<input class="textbox right" name="" type="text" placeholder="" style="width: 40%;">	</td></tr>
+                  				<tr><td><p class="row">Double Top Plate 												</p></td> <td>	<select><option>Yes</option><option>No</option><option>N/A</option></select>																							</td></tr>
+                  				<tr><td><p class="row">Blocks Top/Bottom												</p></td> <td>	<select><option>Yes</option><option>No</option><option>N/A</option></select>																							</td></tr>
+                  				<tr><td><p class="row">Double Sill															</p></td> <td>	<select><option>Yes</option><option>No</option><option>N/A</option></select>																							</td></tr>
+                  				<tr><td><p class="row">Gib Fixed																</p></td> <td>	<select><option>Horizontal</option><option>Vertical</option></select>									</td></tr>
+                  				<tr>Comments																																																																																</tr>
+                  				<tr><textarea class="textbox large" name="" type="text" placeholder="Comments"></textarea>																																									</tr>
+                  			</table>
+                  		</div>
+                  	</div>
+                  	Internal Walls
+                  	<div class="pair">
+
+                  		<div class="fullWidthContainer">
+                  			<table class='modalTable'>
+                  				<tr><td><p>Primary Stud Height 														</p></td> <td><select><option>2400mm</option><option>2550mm</option><option>2700mm</option><option>3000mm</option><option>n/a		</option><option></option></select>		</td></tr>
+                  				<tr><td><p>Primary Stud Centers 													</p></td> <td><select><option>300mm</option><option>400mm</option><option>600mm</option><option>300 & 400mm</option><option>n/a		</option><option></option></select>	</td></tr>
+                  				<tr><td><p>Primary Frame Nog Centers 											</p></td> <td><select><option>2 rows</option><option>3 rows</option><option>480mm</option><option>600mm</option><option>n/a		</option><option></option></select>			</td></tr>
+                  				<tr><td><p>Primary Internal Door Height 									</p></td> <td><select><option>1980mm</option><option>2200mm</option><option>2400mm</option><option>n/a</option><option></option></select>															</td></tr>
+                  				<tr><td><p>Primary Internal Door trim Height	 						</p></td> <td><select><option>2035mm</option><option>2255mm</option><option>2455mm</option><option>n/a</option><option></option></select>															</td></tr>
+                  				<tr><td><p>Secondary Stud Height 													</p></td> <td><select><option>2400mm</option><option>2550mm</option><option>2700mm</option><option>3000mm</option><option>n/a		</option><option></option></select>		</td></tr>
+                  				<tr><td><p>Secondary Stud Centers	 												</p></td> <td><select><option>300mm</option><option>400mm</option><option>600mm</option><option>300 & 400mm</option><option>n/a		</option><option></option></select>	</td></tr>
+                  				<tr><td><p>Secondary Frame Nog Centers 										</p></td> <td><select><option>2 rows</option><option>3 rows</option><option>480mm</option><option>600mm</option><option>n/a		</option><option></option></select>			</td></tr>
+                  				<tr><td><p>Secondary Internal Door Height 								</p></td> <td><select><option>1980mm</option><option>2200mm</option><option>2400mm</option><option>n/a</option><option></option></select>															</td></tr>
+                  				<tr><td><p>Secondary Internal Door trim Height 						</p></td> <td><select><option>2035mm</option><option>2255mm</option><option>2455mm</option><option>n/a</option><option></option></select>															</td></tr>
+                  			</table>
+                  		</div>
+
+                  		<div class="fullWidthContainer">
+                  			<table class='modalTable'>
+                  				<tr><td><p class="row">H1.2 Bottom Plate with DPC	 	</p></td> <td><select><option>Yes</option><option>No</option><option>N/A</option></select></td></tr>
+                  				<tr><td><p class="row">Oversize Doors								</p></td> <td><select><option>Yes</option><option>No</option><option>N/A</option></select></td></tr>
+                  				<tr><td><p class="row">Oversize Door Trim Size			</p></td> <td><input class="textbox right" name="" type="text" style="width: 40%;"></td></tr>
+                  				<tr>Comments</tr>
+                  				<tr><textarea class="textbox large" name="" type="text" placeholder="Comments"></textarea></tr>
+                  			</table>
+                  		</div>
+
+                  	</div>
+
+                  	Roof Information
+                  	<div class="pair">
+                  		<div class="fullWidthContainer">
+                  			<table class='modalTable'>
+                  				<tr><td><p> Wind Speed	 							</p></td> <td><select><option>Low</option><option>Medium</option><option>High</option><option>Extra High</option><option>Spec Design</option><option></option></select>		</td></tr>
+                  				<tr><td><p> Roof Type 								</p></td> <td><select><option>Longrun</option><option>Concrete Tile</option><option>Metal tile</option><option>Other</option><option></option></select>										</td></tr>
+                  				<tr><td><p> Valley Board Type	 				</p></td> <td><select><option>150x25mm</option><option>150x40mm</option><option></option></select>																																				</td></tr>
+                  				<tr><td><p> Fascia Type	 							</p></td> <td><select><option>Timber</option><option>Metal</option><option></option></select>																																							</td></tr>
+                  				<tr><td><p> Gutter Type		 						</p></td> <td><select><option>Internal</option><option>External</option><option></option></select>																																				</td></tr>
+                  				<tr><td><p> Ceiling Batten Type	 			</p></td> <td><select><option>Timber</option><option>Metal Direct</option><option>Metal Clipping</option><option></option></select>																				</td></tr>
+                  				<tr><td><p> Soffits Type		 					</p></td> <td><select><option>Boxed</option><option>Raked</option><option></option></select>																																							</td></tr>
+                  				<tr><td><p> Specialized Truss Type	 	</p></td> <td><select><option>Scissor</option><option>Cove</option><option>Attic</option><option>Raking</option><option>Vaulted</option></select>													</td></tr>
+                  				<tr>
+                  					<td><p> Specialized Truss Pitch		</p></td>
+                  					<td>
+                  						<select>
+                  							<option>0 degree</option>
+                  							<option>5 degree</option>
+                  							<option>10 degree</option>
+                  							<option>15 degree</option>
+                  							<option>20 degree</option>
+                  							<option>22 degree</option>
+                  							<option>25 degree</option>
+                  							<option>28 degree</option>
+                  							<option>30 degree</option>
+                  							<option>33 degree</option>
+                  							<option>35 degree</option>
+                  							<option>38 degree</option>
+                  							<option>40 degree</option>
+                  						</select>
+                  					</td>
+                  				</tr>
+                  			</table>
+                  		</div>
+                  		<div class="fullWidthContainer">
+                  			<table class='modalTable'>
+                  				<tr><td> <p>Roof Pitch									</p></td> <td> <select><option>0 degree</option><option>5 degree</option><option>10 degree</option><option>15 degree</option><option>20 degree</option><option>22 degree</option><option>25 degree</option>
+                  					<option>28 degree</option><option>30 degree</option><option>33 degree</option><option>35 degree</option><option>38 degree</option><option>40 degree</option></select></td></tr>
+                  					<tr><td> <p>Soffit Overhang							</p></td> <td> <select><option>200mm</option><option>300mm</option><option>450mm</option><option>600mm</option><option>n/a</option><option></option></select></td></tr>
+                  					<tr><td> <p>Verge Overhang from Frame 	</p></td> <td> <input class="textbox right" name="" type="text" style="width: 40%;"></td></tr>
+                  					<tr><td> <p>Fascia Size									</p></td> <td> <select><option>147mm</option><option>180mm</option><option></option></select></td></tr>
+                  					<tr><td> <p>Fascia Supplier							</p></td> <td> <input class="textbox right" name="" type="text" style="width: 40%;"></td></tr>
+                  					<tr><td> <p>Eaves Mould									</p></td> <td> <select><option>Yes</option><option>No</option><option>N/A</option></select></td></tr>
+                  					<tr><td> <p>Checkout for Brick Mould		</p></td> <td> <select><option>Yes</option><option>No</option><option>N/A</option></select></td></tr>
+
+                  					<tr><td> <p>Other													</p></td> <td> <input class="textbox right" name="" type="text" style="width: 40%;"></td></tr>
+
+                  					<tr>Comments</tr>
+                  					<tr><textarea class="textbox large" name="" type="text" placeholder="Comments"></textarea></tr>
+                  				</table>
+                  			</div>
+                  		</div>
+
+                  		Information Received (this section MUST be completed in full)
+
+                  		<div class="pair">
+                  			<div class="fullWidthContainer">
+                  				<table class='modalTable'>
+                  					<tr><td> <p class="row">Consents Done												 </p></td> <td> <select><option>Yes</option><option>No</option><option>N/A</option></select>																		</td></tr>
+                  					<tr><td> <p class="row">Plans (No of Sheets)									 </p></td> <td> <input class="textbox right" name="" type="text" style="width: 40%;">		  </td></tr>
+                  					<tr><td> <p class="row">Specification												 </p></td> <td> <select><option>Yes</option><option>No</option><option>N/A</option></select>																		</td></tr>
+                  					<tr><td> <p class="row">Midfloor Plans if Supplied by others	 </p></td> <td> <select><option>Yes</option><option>No</option><option>N/A</option></select>																	</td></tr>
+                  				</table>
+                  			</div>
+                  			<div class="fullWidthContainer">
+                  				<table class='modalTable'>
+                  					<tr><td> <p class="row">Engineering Calc's	 </p></td> <td> <select><option>Yes</option><option>No</option><option>N/A</option></select>																										</td></tr>
+                  					<tr><td> <p class="row">Bracing Calc'c			 </p></td> <td> <select><option>Yes</option><option>No</option><option>N/A</option></select>																										</td></tr>
+                  					<tr><td> <p class="row">Joinery Schedule		 </p></td> <td> <select><option>Yes</option><option>No</option><option>N/A</option></select>																										</td></tr>
+                  					<tr><td> <p class="row">Name of Al Joiner	 </p></td> <td> <input class="textbox right" name="" type="text" style="width: 40%;">												  </td></tr>
+                  				</table>
+                  			</div>
+                  		</div>
+
+                  	</form>
+
+                </div>
               </div>
             </div>
           </div>
@@ -412,48 +580,48 @@ function updateUrl(url) {
     <div class="uploadSection">
       <br>
       <h3>Upload your plan files here. If you're not uploading a file, tick the box.</h3>
-    <table>
-      <tr>
-        <td class='firstCol'>Plans:  </td>
-        <td><input type="file" name="myFile1" class="plans" required></td>
-        <td style="text-align: right; width: 100%;">No File:<input name="myFile1checkbox" type="checkbox" class="plans" required></td>
-      </tr>
-      <tr>
-        <td class='firstCol'>Engineer Plans: </td>
-        <td><input id='eng1' type="file" name="myFile2" class="engineer" required></td>
-        <td style="text-align: right; width: 100%;">No File:<input name="myFile2checkbox" type="checkbox" class="engineer" required></td>
-      </tr>
-      <tr hidden id='engrow1'>
-        <td class='firstCol'>Engineer Plans extra: </td>
-        <td><input id='eng2' type="file" name="myFile2extra1" class="engineer"></td>
-        <td><br></td>
-      </tr>
-      <tr hidden id='engrow2'>
-        <td class='firstCol'>Engineer Plans extra: </td>
-        <td><input id='eng3' type="file" name="myFile2extra2" class="engineer"></td>
-        <td><br></td>
-      </tr>
-      <tr hidden id='engrow3'>
-        <td class='firstCol'>Engineer Plans extra: </td>
-        <td><input id='eng4' type="file" name="myFile2extra3" class="engineer"></td>
-        <td><br></td>
-      </tr>
-      <tr hidden id='engrow4'>
-        <td class='firstCol'>Engineer Plans extra: </td>
-        <td><input id='eng5' type="file" name="myFile2extra4" class="engineer"></td>
-        <td><br></td>
-      </tr>
-      <tr>
-        <td class='firstCol'>Window & Door Plans:</td>
-        <td><input type="file" name="myFile3" class="wndPlans" required></td>
-        <td style="text-align: right; width: 100%;">No File:<input name="myFile3checkbox" type="checkbox" class="wndPlans" required></td>
-      </tr>
-      <tr>
-        <td class='firstCol'>Specifications:</td>
-        <td><input type="file" name="myFile4" class="specs" required></td>
-        <td style="text-align: right; width: 100%;">No File:<input name="myFile4checkbox" type="checkbox" class="specs" required></td>
-      </tr>
-    </table>
+      <table>
+        <tr>
+          <td class='firstCol'>Plans:  </td>
+          <td><input type="file" name="myFile1" class="plans" required></td>
+          <td style="text-align: right; width: 100%;">No File:<input name="myFile1checkbox" type="checkbox" class="plans" required></td>
+        </tr>
+        <tr>
+          <td class='firstCol'>Engineer Plans: </td>
+          <td><input id='eng1' type="file" name="myFile2" class="engineer" required></td>
+          <td style="text-align: right; width: 100%;">No File:<input name="myFile2checkbox" type="checkbox" class="engineer" required></td>
+        </tr>
+        <tr hidden id='engrow1'>
+          <td class='firstCol'>Engineer Plans extra: </td>
+          <td><input id='eng2' type="file" name="myFile2extra1" class="engineer"></td>
+          <td><br></td>
+        </tr>
+        <tr hidden id='engrow2'>
+          <td class='firstCol'>Engineer Plans extra: </td>
+          <td><input id='eng3' type="file" name="myFile2extra2" class="engineer"></td>
+          <td><br></td>
+        </tr>
+        <tr hidden id='engrow3'>
+          <td class='firstCol'>Engineer Plans extra: </td>
+          <td><input id='eng4' type="file" name="myFile2extra3" class="engineer"></td>
+          <td><br></td>
+        </tr>
+        <tr hidden id='engrow4'>
+          <td class='firstCol'>Engineer Plans extra: </td>
+          <td><input id='eng5' type="file" name="myFile2extra4" class="engineer"></td>
+          <td><br></td>
+        </tr>
+        <tr>
+          <td class='firstCol'>Window & Door Plans:</td>
+          <td><input type="file" name="myFile3" class="wndPlans" required></td>
+          <td style="text-align: right; width: 100%;">No File:<input name="myFile3checkbox" type="checkbox" class="wndPlans" required></td>
+        </tr>
+        <tr>
+          <td class='firstCol'>Specifications:</td>
+          <td><input type="file" name="myFile4" class="specs" required></td>
+          <td style="text-align: right; width: 100%;">No File:<input name="myFile4checkbox" type="checkbox" class="specs" required></td>
+        </tr>
+      </table>
 
     </div>
     <br>

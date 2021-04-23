@@ -205,6 +205,14 @@ function processForm(form) {
     content += "<p>Scotia:         <input class='textbox right' value='" + form.scotia +      "' type='text' placeholder='Product' style='width: 80%;'></p>"
     content += "<p>Skirting:       <input class='textbox right' value='" + form.skirting +    "' type='text' placeholder='Product' style='width: 80%;'></p>"
     content += "<p>Architraves:    <input class='textbox right' value='" + form.architraves +  "' type='text' placeholder='Product' style='width: 80%;'></p>"
+
+
+    content+= "<p>Fascia type:        <input class='textbox right' value='" + form.fasciaType +        "' type='text' placeholder='Product' style='width: 80%;'></p>"
+    content+= "<p>Ceiling batten:     <input class='textbox right' value='" + form.ceilingBatten +     "' type='text' placeholder='Product' style='width: 80%;'></p>"
+    content+= "<p>Roof material:      <input class='textbox right' value='" + form.roofMaterial +      "' type='text' placeholder='Product' style='width: 80%;'></p>"
+    content+= "<p>Truss penetrations: <input class='textbox right' value='" + form.trussPenetrations + "' type='text' placeholder='eg AC Unit, skylight' style='width: 80%;'></p>"
+    content+= "<p>Special Trusses:    <input class='textbox right' value='" + form.specialTrusses +    "' type='text' placeholder='eg attic, scissor' style='width: 80%;'></p>"
+
     content += "</div></div>"
 
     content += "<header><h4 >Note below alterations to plan supplied:</h4> </header> "

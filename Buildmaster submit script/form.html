@@ -102,6 +102,11 @@
     font-weight: normal;
     font-size: 14;
   }
+  .sub-box {
+    border: 1px black solid;
+    padding: 5px;
+    margin: 5px;
+  }
 </style>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -233,8 +238,20 @@
           <input class="textbox" required name="cRep" type="text" placeholder="Rep">
           <input class="textbox" name="cDate" type="text" placeholder="Date">
           <p class="row"><textarea class="textbox address" name="cAddress" type="text" placeholder="Client Address"></textarea></p>
-          <p class="row"><input class="location" name="jobLocAuckland" type="checkbox">Auckland Job</p>
-          <p class="row"><input class="location" name="jobLocWaikato" type="checkbox">Waikato Job</p>
+          <div class="sub-box">
+            <header>
+              Contact info for detailers questions
+            </header>
+            <input class="textbox" name="contactName" type="text" placeholder="Name" >
+            <input class="textbox" name="constactInfo" type="text" placeholder="Contact info">
+          </div>
+          <div class="sub-box">
+            <header>
+              Job Location
+            </header>
+            <p class="row"><input class="location" name="jobLocAuckland" type="checkbox">Auckland</p>
+            <p class="row"><input class="location" name="jobLocWaikato" type="checkbox">Waikato</p>
+          </div>
         </div>
         <div class="checkboxContainer">
           <header>Job</header>

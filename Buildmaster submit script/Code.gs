@@ -101,8 +101,14 @@ function processForm(form) {
     content += "<input class='textbox' required value='" + form.cRep    + "' type='text' placeholder='Rep'>"
     content += "<input class='textbox'          value='" + form.cDate   + "' type='text' placeholder='Date'>"
     content += "<p class='row'><textarea class='textbox address' name='cAddress' type='text' placeholder='Client Address'>" + form.cAddress+ "</textarea></p> "
+    content += "<div class="sub-box"><header>Contact info for detailers questions</header>"
+    content += "<input class='textbox' name='contactName' type='text' placeholder='Name' value='" + form.contactName + "'>"
+    content += "<input class='textbox' name='constactInfo' type='text' placeholder='Contact info'value='" + form.constactInfo + "'></div>"
+
+
+    content += "<div class='sub-box'><header>Job Location</header>"
     content += "<p class='row'><input " + location[0] + " type='checkbox'>Auckland Job</p>"
-    content += "<p class='row'><input " + location[1] + " type='checkbox'>Waikato Job</p>  	</div> "
+    content += "<p class='row'><input " + location[1] + " type='checkbox'>Waikato Job</p></div> </div>"
     content += "<div class='checkboxContainer'> <header>Job</header> "
     content += "<input class='textbox' required value='" + form.jobName + "' type='text' placeholder='Job Name'> "
     content += "<input class='textbox' value='" + form.jobCompany + "' type='text' placeholder='Company/Branch Name'> "

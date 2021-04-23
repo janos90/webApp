@@ -59,7 +59,8 @@ function processForm(form) {
       form.variable34,
       form.variable35,
       form.variable36,
-      form.variable37
+      form.variable37,
+      form.variable38
     ]
     var checkedArray = []
     for(var i = 0; i < valuesArray.length; i++) {
@@ -133,6 +134,7 @@ function processForm(form) {
     content += "<p class='row'><input " + checkedArray[12] + " type='checkbox'>   Sub-floor                                   </p>"
     content += "<p class='row'><input " + checkedArray[13] + " type='checkbox'>   Mid-floor                                   </p>"
     content += "<p class='row'><input " + checkedArray[14] + " type='checkbox'>   Deck                                        </p>"
+    content += "<p class='row'><input " + checkedArray[38] + " type='checkbox'>   J-Frame                                     </p>"
     content += "</div> 	                                                                           <div class='checkboxContainer'>"
     content += "<p class='row'><input " + checkedArray[15] + " type='checkbox'>   Cladding                                    </p>"
     content += "<p class='row'><input " + checkedArray[16] + " type='checkbox'>   Insulation Only                             </p>"

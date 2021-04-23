@@ -22,9 +22,9 @@ function processForm(form) {
     if (folders.hasNext()) {folder = folders.next();} else {folder = parentFolder.createFolder(clientFolderName);}
     var JobFolder = folder.createFolder("jobNumber: " + jobNumber)
     var valuesArray = [
+      form.variable0,
       form.variable1,
       form.variable2,
-      form.variable42,
       form.variable3,
       form.variable4,
       form.variable5,
@@ -60,7 +60,13 @@ function processForm(form) {
       form.variable35,
       form.variable36,
       form.variable37,
-      form.variable38
+      form.variable38,
+      form.variable39,
+      form.variable40,
+      form.variable41,
+      form.variable42,
+      form.variable43,
+      form.variable44
     ]
     var checkedArray = []
     for(var i = 0; i < valuesArray.length; i++) {
@@ -184,6 +190,19 @@ function processForm(form) {
     content += "<footer> <h2> PLEASE NOTE: ALL INFORMATION GIVEN ON THIS FORM SUPERCEDES THAT ON THE PLAN.</H2> 	</footer>"
     content += "</div></div>"
 
+    content += "<header><h3>Information available in plans</h3></header>"
+    content += "<div class='pair'><div class='checkboxContainer'>"
+    content += "<p class='row'><input name='variable39' " + checkedArray[39] + "type='checkbox'>Dimensioned floor plan</p>"
+    content += "<p class='row'><input name='variable40' " + checkedArray[40] + "type='checkbox'>Elevations</p>"
+    content += "<p class='row'><input name='variable41' " + checkedArray[41] + "type='checkbox'>Cross-Section</p>"
+    content += "</div><div class='checkboxContainer'>"
+    content += "<p class='row'><input name='variable42' " + checkedArray[42] + "type='checkbox'>Roof Pitch</p>"
+    content += "<p class='row'><input name='variable43' " + checkedArray[43] + "type='checkbox'>Electrical plan</p>"
+    content += "<p class='row'><input name='variable44' " + checkedArray[44] + "type='checkbox'>Rafters design and sizing</p>"
+    content += "</div></div>"
+
+    
+    content += "</form>"
 
     var blob = Utilities.newBlob(content, "text/html", "text.html");
     var pdf = blob.getAs("application/pdf");

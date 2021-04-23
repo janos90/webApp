@@ -258,6 +258,7 @@ function processForm(form) {
     if(form.myFile2extra4.name) {uploadableFiles.push(form.myFile2extra4)}
     if(form.myFile3.name) {uploadableFiles.push(form.myFile3)}
     if(form.myFile4.name) {uploadableFiles.push(form.myFile4)}
+    if(form.dwgFile.name) {uploadableFiles.push(form.dwgFile)}
 
     if(uploadableFiles.length) {
       for( var iter = 0; iter < uploadableFiles.length; iter++) {

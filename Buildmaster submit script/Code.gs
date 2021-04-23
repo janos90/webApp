@@ -88,9 +88,28 @@ function processForm(form) {
 
 
     content += "<head><style type='text/css'>"
-    content += "body {   text-align: -webkit-center;   background-color: #FFfFFF;   font-family: Sans-serif; }  form {   width:800px;  } .address {   Height: 60px;   width: 350px;   margin-left:15px;   word-break:break-all    } .wrapper {   display: flex;   flex-flow: row wrap;   font-weight: bold;   text-align: center;   } .header {   flex:1;   text-align: center;   min-width: 600px; } .main {   flex: 1; } .textbox {   /* float: right; */ } .row {   display: flex;   flex-flow: row wrap;   text-align: center;  "
-    content +=" font-weight: normal;   font-size: 14;  } .checkboxContainer {   border: solid 3px black;   flex-flow: wrap;   width: 50%;   padding: 5px;  }  .checkboxContainerheader {   background-color: grey;   padding: 5px }  .fullWidthContainer {   border: solid 3px black;   flex-flow: wrap;   width: 100%;   padding: 5px; }  .pair {   display: flex;  }  .right {   float: right;  }  .uploadSection {   text-align: left; }  .large {   height: 90px;   width: 90%; }  .imagePair {   display: flex;  "
-    content += "}  .imageContainer {   flex-flow: wrap;   width: 50%;   padding: 5px; } .uploadRow {   display: flex;   text-align: center;   font-weight: normal;   font-size: 14;  } </style> </head>"
+    content += "body { text-align: -webkit-center; background-color: #FFfFFF; font-family: Sans-serif; }"
+    content += ".firstCol { width: 20%; }"
+    content += "form { width:800px; }"
+    content += ".address { Height: 60px; width: 350px; margin-left:15px; word-break:break-all; }"
+    content += ".wrapper { display: flex;      flex-flow: row wrap;      font-weight: bold;      text-align: center; }"
+    content += ".header { flex:1;      text-align: center;      min-width: 600px; }"
+    content += ".main { flex: 1; }"
+    content += ".textbox {/* float: right;*/ }"
+    content += ".row { display: flex; flex-flow: row wrap; text-align: center; font-weight: normal; font-size: 14; }"
+    content += ".checkboxContainer { border: solid 3px black;      flex-flow: wrap;      width: 50%;      padding: 5px; }"
+    content += ".checkboxContainerheader { background-color: grey;      padding: 5px    }"
+    content += ".fullWidthContainer { border: solid 3px black;      flex-flow: wrap;      width: 100%;      padding: 5px; }"
+    content += ".pair { display: flex; }"
+    content += ".right { float: right; }"
+    content += ".uploadSection { text-align: left; }"
+    content += ".large { height: 90px; width: 90%; }"
+    content += ".imagePair { display: flex; }"
+    content += ".imageContainer {flex-flow: wrap; width: 50%; padding: 5px; }"
+    content += ".uploadRow {display: flex; text-align: center; font-weight: normal; font-size: 14; }"
+    content += ".sub-box {border: 1px black solid; padding: 5px; margin: 5px; }"
+    content += "</style></head>"
+
     content += "<form id='myForm' align='center' onsubmit='handleFormSubmit(this)'>  <div class='wrapper'><div class='main'>"
     content += "<div class='headingWrapper'>"
     content += "<div class='imagePair'><p style='padding: 10px'><img src='https://www.thomsonsitm.co.nz/themes/ThomsonsITM/images/logo.png' style='background-color: #000000; padding: 20px;'><br><br>Thomsons Timbers Supplies Limited  </p>  "
@@ -108,7 +127,7 @@ function processForm(form) {
     content += "<input class='textbox' required value='" + form.cRep    + "' type='text' placeholder='Rep'>"
     content += "<input class='textbox'          value='" + form.cDate   + "' type='text' placeholder='Date'>"
     content += "<p class='row'><textarea class='textbox address' name='cAddress' type='text' placeholder='Client Address'>" + form.cAddress+ "</textarea></p> "
-    content += "<div class="sub-box"><header>Contact info for detailers questions</header>"
+    content += "<div class='sub-box'><header>Contact info for detailers questions</header>"
     content += "<input class='textbox' name='contactName' type='text' placeholder='Name' value='" + form.contactName + "'>"
     content += "<input class='textbox' name='constactInfo' type='text' placeholder='Contact info'value='" + form.constactInfo + "'></div>"
 
@@ -201,7 +220,7 @@ function processForm(form) {
     content += "<p class='row'><input name='variable44' " + checkedArray[44] + "type='checkbox'>Rafters design and sizing</p>"
     content += "</div></div>"
 
-    
+
     content += "</form>"
 
     var blob = Utilities.newBlob(content, "text/html", "text.html");

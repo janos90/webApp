@@ -135,8 +135,8 @@
     $('input.specs').on('change', function() {
       $('input.specs').not(this).prop('required', false);
     });
-    $('input.dwgFile').on('change', function() {
-      $('input.dwgFile').not(this).prop('required', false);
+    $('input.dwg').on('change', function() {
+      $('input.dwg').not(this).prop('required', false);
     });
     $('input.location').on('change', function() {
       $('input.location').not(this).prop('checked', false);
@@ -421,7 +421,7 @@
         </tr>
         <tr>
           <td class='firstCol'>DWG floor plan:</td>
-          <td><input id='dwgFile' type="file" name="dwgFile" class="dwgFile" required></td>
+          <td><input id='dwgFile' type="file" name="dwgFile" class="dwg" required></td>
            <td id='dwgFileResults' class="results">result</td>
           <td style="text-align: right; min-width: 90px;">No File:<input name="dwgcheckbox" type="checkbox" class="dwg" required></td>
         </tr>

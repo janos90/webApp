@@ -135,6 +135,9 @@
     $('input.specs').on('change', function() {
       $('input.specs').not(this).prop('required', false);
     });
+    $('input.dwgFile').on('change', function() {
+      $('input.dwgFile').not(this).prop('required', false);
+    });
     $('input.location').on('change', function() {
       $('input.location').not(this).prop('checked', false);
     });
@@ -279,7 +282,7 @@
         <div class="checkboxContainer">
           <p class="row"><input class="detailing" name="variable0" type="checkbox">Truss Layout, PS1 only</p>
           <p class="row"><input class="detailing" name="variable1" type="checkbox">Full Buildable Layouts</p>
-          <p class="row"><input class="detailing" name="variable3" type="checkbox">Detailing</p>
+          <p class="row"><input class="detailing" name="variable2" type="checkbox">Detailing</p>
           <p style="border:solid 1px black;"></p>
           <p class="row"><input name="variable3" type="checkbox">Steel Reinforcing</p>
           <p class="row"><input name="variable4" type="checkbox">Pre-Bent R/Steel</p>

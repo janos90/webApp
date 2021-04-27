@@ -223,13 +223,13 @@ function processForm(form) {
 
     content += "<header><h3>Information available in plans</h3></header>"
     content += "<div class='pair'><div class='checkboxContainer'>"
-    content += "<p class='row'><input name='variable39' " + checkedArray[39] + "type='checkbox'>Dimensioned floor plan</p>"
-    content += "<p class='row'><input name='variable40' " + checkedArray[40] + "type='checkbox'>Elevations</p>"
-    content += "<p class='row'><input name='variable41' " + checkedArray[41] + "type='checkbox'>Cross-Section</p>"
+    content += "<p class='row'><input name='variable39' " + checkedArray[39] + " type='checkbox'>Dimensioned floor plan</p>"
+    content += "<p class='row'><input name='variable40' " + checkedArray[40] + " type='checkbox'>Elevations</p>"
+    content += "<p class='row'><input name='variable41' " + checkedArray[41] + " type='checkbox'>Cross-Section</p>"
     content += "</div><div class='checkboxContainer'>"
-    content += "<p class='row'><input name='variable42' " + checkedArray[42] + "type='checkbox'>Roof Pitch</p>"
-    content += "<p class='row'><input name='variable43' " + checkedArray[43] + "type='checkbox'>Electrical plan</p>"
-    content += "<p class='row'><input name='variable44' " + checkedArray[44] + "type='checkbox'>Rafters design and sizing</p>"
+    content += "<p class='row'><input name='variable42' " + checkedArray[42] + " type='checkbox'>Roof Pitch</p>"
+    content += "<p class='row'><input name='variable43' " + checkedArray[43] + " type='checkbox'>Electrical plan</p>"
+    content += "<p class='row'><input name='variable44' " + checkedArray[44] + " type='checkbox'>Rafters design and sizing</p>"
     content += "</div></div>"
 
 

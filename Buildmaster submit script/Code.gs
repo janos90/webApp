@@ -303,15 +303,15 @@ function processForm(form) {
     if(form.emailTo){
       sendEmail(form.emailTo, content, output, detailingSubject) // email the additional
     }
-    if(form.emailArie){
-      sendEmail('arie.quantifier@gmail.com', content, output, detailingSubject) // email Arie
-    }
-    if(form.emailJason){
-      sendEmail('jasonbunney73@gmail.com', content, output, detailingSubject) // email jason
-    }
-    if(form.emailSkip){
-      sendEmail('skip@johanson.co.nz', content, output, detailingSubject) // email Skip
-    }
+    // if(form.emailArie){
+    //   sendEmail('arie.quantifier@gmail.com', content, output, detailingSubject) // email Arie
+    // }
+    // if(form.emailJason){
+    //   sendEmail('jasonbunney73@gmail.com', content, output, detailingSubject) // email jason
+    // }
+    // if(form.emailSkip){
+    //   sendEmail('skip@johanson.co.nz', content, output, detailingSubject) // email Skip
+    // }
     if(form.emailLuci){
       sendEmail('luci.beynon@thomsonsitm.co.nz', content, output, detailingSubject) // email Luci
     }

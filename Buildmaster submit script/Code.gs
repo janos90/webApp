@@ -294,7 +294,7 @@ function processForm(form) {
     detailingSubject+= 'Uploaded by: ' + form.cRep + ', '
     detailingSubject+= 'For Client: ' + form.cClient + ', '
 
-    if(form.variable1 || form.variable2 || form.variable42 || form.variable9) {
+    if(form.variable1 || form.variable2 || form.variable8 || form.variable9) {
       sendEmail('colin@johanson.co.nz', content, output, detailingSubject) // email detailing
       sendEmail('skip@johanson.co.nz', content, output, detailingSubject) // email skip
     }

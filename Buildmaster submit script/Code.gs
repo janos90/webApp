@@ -292,7 +292,9 @@ function processForm(form) {
     if(form.variable0)  {detailingSubject+= 'Truss Layout, PS1 only, '}
     if(form.variable1)  {detailingSubject+= 'Full Buildable Layouts, '}
     if(form.variable2) {detailingSubject+= 'Detailing, '}
-    if(form.variable9)  {detailingSubject+= 'Trusses/Rafters, '}
+    if(form.variable8)  {detailingSubject+= 'Prenail, '}
+    if(form.variable9)  {detailingSubject+= 'Trusses, '}
+    if(form.variable45)  {detailingSubject+= 'Rafters, '}
 
     detailingSubject+= 'Uploaded by: ' + form.cRep + ', '
     detailingSubject+= 'For Client: ' + form.cClient + ', '

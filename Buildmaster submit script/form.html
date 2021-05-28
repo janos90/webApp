@@ -141,13 +141,19 @@
     $('input.dwg').on('change', function() {
       $('input.dwg').not(this).prop('required', false);
     });
+
+
     $('input.location').on('change', function() {
       $('input.location').not(this).prop('checked', false);
+      $('input.location').not(this).prop('required', false);
+      let $this = $(this)
+      $this.prop('required', true);
     });
     // detailing prevent submit unless engineering plan supplied
     $('input.detailing').on('change', function() {
       $('input.engineer').css('background-color', 'red');
     });
+
 
     // extra engineering upload rows
     $('#eng1').on('change', function() {
@@ -255,8 +261,8 @@
             <header>
               Job Location
             </header>
-            <p class="row"><input class="location" name="jobLocAuckland" type="checkbox">Auckland</p>
-            <p class="row"><input class="location" name="jobLocWaikato" type="checkbox">Waikato</p>
+            <p class="row"><input class="location" id="jobLocAuckland" name="jobLocAuckland" type="checkbox" required>Auckland</p>
+            <p class="row"><input class="location" id="jobLocWaikato" name="jobLocWaikato" type="checkbox" required>Waikato</p>
           </div>
         </div>
         <div class="checkboxContainer">

@@ -98,6 +98,7 @@ function processForm(form) {
     content += ".textbox {/* float: right;*/ }"
     content += ".row { display: flex; flex-flow: row wrap; text-align: center; font-weight: normal; font-size: 14; }"
     content += ".checkboxContainer { border: solid 3px black;      flex-flow: wrap;      width: 50%;      padding: 5px; }"
+    content += ".checkboxContainer.extra { width: 60%; }"
     content += ".checkboxContainerheader { background-color: grey;      padding: 5px    }"
     content += ".fullWidthContainer { border: solid 3px black;      flex-flow: wrap;      width: 100%;      padding: 5px; }"
     content += ".pair { display: flex; }"
@@ -145,7 +146,7 @@ function processForm(form) {
     content += "<p class='row'><textarea class='textbox address' required name='jobAddress' type='text' placeholder='Site Address'>" + form.jobAddress + "</textarea></p>"
     content += "</div> </div>"
     content += "<header><h4>Tick the items below required to be estimated</h4></header>"
-    content += "<div class='pair'><div class='checkboxContainer'>  "
+    content += "<div class='pair'><div class='checkboxContainer extra'>  "
     content += "<p class='row'><input " + checkedArray[0]  + " type='checkbox'>   Truss Layout, PS1 only                      </p>"
     content += "<p class='row'><input " + checkedArray[1]  + " type='checkbox'>   Full Buildable Layouts                      </p>"
     content += "<p class='row'><input " + checkedArray[2]  + " type='checkbox'>   Detailing                                   </p>"
@@ -289,7 +290,7 @@ function processForm(form) {
     if(form.variable1)  {detailingSubject+= 'Full Buildable Layouts, '}
     if(form.variable2) {detailingSubject+= 'Detailing, '}
     if(form.variable9)  {detailingSubject+= 'Trusses/Rafters, '}
-    
+
     detailingSubject+= 'Uploaded by: ' + form.cRep + ', '
     detailingSubject+= 'For Client: ' + form.cClient + ', '
 

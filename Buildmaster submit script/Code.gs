@@ -50,7 +50,8 @@ function processForm(form) {
       form.variable25,
       form.variable26,
       form.variable27,
-      form.variable28,
+      // form.variable28,
+      false,
       form.variable29,
       form.variable30,
       form.variable31,
@@ -182,7 +183,7 @@ function processForm(form) {
     content += "<p class='row'><input " + checkedArray[25] + " type='checkbox'>   Aluminium Joinery                           </p>"
     content += "<p class='row'><input " + checkedArray[26] + " type='checkbox'>   Pergola                                     </p>"
     content += "<p class='row'><input " + checkedArray[27] + " type='checkbox'>   Retaining Wall                              </p>"
-    content += "<p class='row'><input " + checkedArray[28] + " type='checkbox'>                                               </p>"
+    // content += "<p class='row'><input " + checkedArray[28] + " type='checkbox'>                                               </p>"
     content += "</div> </div> "
 
     content += "<header> 	<h4 >Tick the building zones for this building</h4> </header>"

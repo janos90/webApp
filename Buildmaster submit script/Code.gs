@@ -299,10 +299,10 @@ function processForm(form) {
     detailingSubject+= 'Uploaded by: ' + form.cRep + ', '
     detailingSubject+= 'For Client: ' + form.cClient + ', '
 
-    if(form.variable0 || form.variable1 || form.variable8 || form.variable9) {
-      // sendEmail('colin@johanson.co.nz', content, output, detailingSubject) // email detailing
+    if(form.variable0 || form.variable1 || form.variable2 || form.variable9) {
+      sendEmail('colin@johanson.co.nz', content, output, detailingSubject) // email detailing
       sendEmail('skip@johanson.co.nz', content, output, detailingSubject) // email skip
-    } else if(form.jobLocWaikato || form.variable45) {
+    } else if(form.jobLocWaikato) {
       sendEmail('arie.quantifier@gmail.com', content, output, detailingSubject) // email Arie
     } else if(form.jobLocAuckland) {
       sendEmail('jasonbunney73@gmail.com', content, output, detailingSubject) // email jason
@@ -311,7 +311,7 @@ function processForm(form) {
       sendEmail(form.emailTo, content, output, detailingSubject) // email the additional
     }
     if(form.emailLuci){
-      sendEmail('luci.beynon@thomsonsitm.co.nz', content, output, detailingSubject) // email Luci
+      sendEmail('luci.fraser@thomsonsitm.co.nz', content, output, detailingSubject) // email Luci
     }
 
 

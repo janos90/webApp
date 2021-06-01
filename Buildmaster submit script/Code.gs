@@ -307,15 +307,15 @@ function processForm(form) {
     } else if(form.jobLocAuckland) {
       sendEmail('jasonbunney73@gmail.com', content, output, detailingSubject) // email jason
     }
-    if(form.emailTo){
-      sendEmail(form.emailTo, content, output, detailingSubject) // email the additional
-    }
     if(form.emailLuci){
       sendEmail('luci.fraser@thomsonsitm.co.nz', content, output, detailingSubject) // email Luci
     }
 
-
     sendEmail('quotes@thomsonsitm.co.nz', content, output, detailingSubject) // email the quotes team
+
+    if(form.emailTo){
+      sendEmail(form.emailTo, content, output, detailingSubject) // email the additional
+    }
     incrementIterator(jobNumber);
 
 

@@ -37,3 +37,6 @@
 4.	Make columns 2  narrower to allow for column 1 to be wider and fit “Truss Layout, PS1 only” beside the checkbox
 5.	Remove blank checkbox.
 6.	Make Job Location field mandatory.
+
+14/06/21
+1. Change email Arie/Jason to "any condition (except skip conditions) non-exclusionary"

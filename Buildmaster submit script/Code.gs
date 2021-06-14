@@ -302,10 +302,25 @@ function processForm(form) {
     if(form.variable0 || form.variable1 || form.variable2 || form.variable9) {
       sendEmail('colin@johanson.co.nz', content, output, detailingSubject) // email detailing
       sendEmail('skip@johanson.co.nz', content, output, detailingSubject) // email skip
-    } else if(form.jobLocWaikato) {
-      sendEmail('arie.quantifier@gmail.com', content, output, detailingSubject) // email Arie
-    } else if(form.jobLocAuckland) {
-      sendEmail('jasonbunney73@gmail.com', content, output, detailingSubject) // email jason
+    }
+    let check1 = false;
+    if(form.variable3 || form.variable4 || form.variable5 || form.variable6 || form.variable7 || form.variable8 || form.variable45 || form.variable10) {
+      check1 = true;
+    }
+    let check2 = false;
+    if(form.variable11 || form.variable12 || form.variable13 || form.variable14 || form.variable38 || form.variable15 || form.variable16 || form.variable17) {
+      check2 = true;
+    }
+    let check3 = false;
+    if(form.variable18 || form.variable19 || form.variable20 || form.variable21 || form.variable22 || form.variable23 || form.variable24 || form.variable25 || form.variable26 || form.variable27) {
+      check3 = true;
+    }
+    if( check1 || check2 || check3) {
+      if(form.jobLocWaikato) {
+        sendEmail('arie.quantifier@gmail.com', content, output, detailingSubject) // email Arie
+      } else {
+        sendEmail('jasonbunney73@gmail.com', content, output, detailingSubject) // email jason
+      }
     }
     if(form.emailLuci){
       sendEmail('luci.fraser@thomsonsitm.co.nz', content, output, detailingSubject) // email Luci

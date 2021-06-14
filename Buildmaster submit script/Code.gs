@@ -303,15 +303,15 @@ function processForm(form) {
       sendEmail('colin@johanson.co.nz', content, output, detailingSubject) // email detailing
       sendEmail('skip@johanson.co.nz', content, output, detailingSubject) // email skip
     }
-    let check1 = false;
+    var check1 = false;
     if(form.variable3 || form.variable4 || form.variable5 || form.variable6 || form.variable7 || form.variable8 || form.variable45 || form.variable10) {
       check1 = true;
     }
-    let check2 = false;
+    var check2 = false;
     if(form.variable11 || form.variable12 || form.variable13 || form.variable14 || form.variable38 || form.variable15 || form.variable16 || form.variable17) {
       check2 = true;
     }
-    let check3 = false;
+    var check3 = false;
     if(form.variable18 || form.variable19 || form.variable20 || form.variable21 || form.variable22 || form.variable23 || form.variable24 || form.variable25 || form.variable26 || form.variable27) {
       check3 = true;
     }

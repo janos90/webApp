@@ -40,3 +40,12 @@
 
 14/06/21
 1. Change email Arie/Jason to "any condition (except skip conditions) non-exclusionary"
+
+19/06/21
+1.	Add new “Email Skip” checkbox
+  a.	email skip@johanson.co.nz
+  b.	email colin@johanson.co.nz
+2.	Add new “Email Arie” checkbox
+  a.	email arie.quantifier@gmail.com
+3.	Add new “Email Jason” checkbox
+  a.	email jasonbunney73@gmail.com

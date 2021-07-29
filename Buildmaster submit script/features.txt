@@ -49,3 +49,6 @@
   a.	email arie.quantifier@gmail.com
 3.	Add new “Email Jason” checkbox
   a.	email jasonbunney73@gmail.com
+30/07/21
+1. Add email to VIP to header
+2. add email address to plans@vftauckland.co.nz

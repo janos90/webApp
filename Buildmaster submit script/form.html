@@ -45,7 +45,17 @@
     text-align: center;
     font-weight: normal;
     font-size: 14;
-
+  }
+  .email-box .row {
+    width: 50%;
+    margin-top: 20px;
+  }
+  .email-box .row.emailto {
+    width: 100%;
+  }
+  .email-box {
+    display: flex;
+    flex-wrap: wrap;
   }
   .checkboxContainer {
     border: solid 3px black;
@@ -261,8 +271,14 @@
             <header>
               Job Location
             </header>
-            <p class="row"><input class="location" id="jobLocAuckland" name="jobLocAuckland" type="checkbox" required>Auckland</p>
-            <p class="row"><input class="location" id="jobLocWaikato" name="jobLocWaikato" type="checkbox" required>Waikato</p>
+            <p class="row">
+              <input class="location" id="jobLocAuckland" name="jobLocAuckland" type="checkbox" required>
+              Auckland
+            </p>
+            <p class="row">
+              <input class="location" id="jobLocWaikato" name="jobLocWaikato" type="checkbox" required>
+              Waikato
+            </p>
           </div>
         </div>
         <div class="checkboxContainer">
@@ -270,20 +286,28 @@
           <input class="textbox" required name="jobName" type="text" placeholder="Job Name">
           <input class="textbox" name="jobCompany" type="text" placeholder="Company/Branch Name">
           <input class="textbox" name="jobPrenail" type="text" placeholder="Est. Pre-nail Date">
-          <p class="row"><textarea class="textbox address" required name="jobAddress" type="text" placeholder="Site Address"></textarea></p>
           <p class="row">
-            <input name="emailSkip" type="checkbox" />Email to Skip
+            <textarea class="textbox address" required name="jobAddress" type="text" placeholder="Site Address"></textarea>
           </p>
-          <p class="row">
-            <input name="emailArie" type="checkbox" />Email to Arie
-          </p>
-          <p class="row">
-            <input name="emailJason" type="checkbox" />Email to Jason
-          </p>
-          <p class="row">
-            <input name="emailLuci" type="checkbox" />Email to Luci
-          </p>
-          <p class="row">Email a copy to:<input class="textbox right" name="emailTo" type="email" placeholder="email a copy to" style="width: 60%; margin-left: 10px;"></p>
+          <div class="email-box">
+            <div class="row">
+              <input name="emailSkip" type="checkbox" />Email to Skip
+            </div>
+            <div class="row">
+              <input name="emailVIP" type="checkbox" />Email to VIP
+            </div>
+
+            <div class="row">
+              <input name="emailArie" type="checkbox" />Email to Arie
+            </div>
+            <div class="row">
+              <input name="emailJason" type="checkbox" />Email to Jason
+            </div>
+            <div class="row">
+              <input name="emailLuci" type="checkbox" />Email to Luci
+            </div>
+            <p class="row emailto">Email a copy to:<input class="textbox right" name="emailTo" type="email" placeholder="email a copy to" style="width: 60%; margin-left: 10px;"></p>
+          </div>
         </div>
       </div>
       <header>

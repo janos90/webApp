@@ -331,6 +331,10 @@ function processForm(form) {
     if(form.emailLuci){
       sendEmail('luci.fraser@thomsonsitm.co.nz', content, output, detailingSubject) // email Luci
     }
+    if(form.emailVIP){
+      sendEmail('plans@vftauckland.co.nz', content, output, detailingSubject) // email VIP
+
+    }
 
     sendEmail('quotes@thomsonsitm.co.nz', content, output, detailingSubject) // email the quotes team
 

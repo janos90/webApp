@@ -318,25 +318,25 @@ function processForm(form) {
     detailingSubject+= 'Uploaded by: ' + form.cRep + ', '
     detailingSubject+= 'For Client: ' + form.cClient + ', '
 
-    if(form.emailSkip) {
-      sendEmail('colin@johanson.co.nz', content, output, detailingSubject) // email detailing
-      sendEmail('skip@johanson.co.nz', content, output, detailingSubject) // email skip
-    }
-    if(form.emailArie) {
-      sendEmail('arie.quantifier@gmail.com', content, output, detailingSubject) // email Arie
-    }
-    if(form.emailJason) {
-      sendEmail('jasonbunney73@gmail.com', content, output, detailingSubject) // email jason
-    }
-    if(form.emailLuci){
-      sendEmail('luci.fraser@thomsonsitm.co.nz', content, output, detailingSubject) // email Luci
-    }
-    if(form.emailVIP){
-      sendEmail('plans@vftauckland.co.nz', content, output, detailingSubject) // email VIP
-
-    }
-
-    sendEmail('quotes@thomsonsitm.co.nz', content, output, detailingSubject) // email the quotes team
+    // if(form.emailSkip) {
+    //   sendEmail('colin@johanson.co.nz', content, output, detailingSubject) // email detailing
+    //   sendEmail('skip@johanson.co.nz', content, output, detailingSubject) // email skip
+    // }
+    // if(form.emailArie) {
+    //   sendEmail('arie.quantifier@gmail.com', content, output, detailingSubject) // email Arie
+    // }
+    // if(form.emailJason) {
+    //   sendEmail('jasonbunney73@gmail.com', content, output, detailingSubject) // email jason
+    // }
+    // if(form.emailLuci){
+    //   sendEmail('luci.fraser@thomsonsitm.co.nz', content, output, detailingSubject) // email Luci
+    // }
+    // if(form.emailVIP){
+    //   sendEmail('plans@vftauckland.co.nz', content, output, detailingSubject) // email VIP
+    //
+    // }
+    //
+    // sendEmail('quotes@thomsonsitm.co.nz', content, output, detailingSubject) // email the quotes team
 
     if(form.emailTo){
       sendEmail(form.emailTo, content, output, detailingSubject) // email the additional

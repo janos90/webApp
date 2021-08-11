@@ -52,3 +52,8 @@
 30/07/21
 1. Add email to VIP to header
 2. add email address to plans@vftauckland.co.nz
+
+12/08/21
+1. Removed upload PDF due to error
+  a. https://stackoverflow.com/questions/68737388/google-apps-script-convert-html-to-pdf-not-working-anymore
+  b. https://issuetracker.google.com/issues/196100674

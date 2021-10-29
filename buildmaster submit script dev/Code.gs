@@ -86,6 +86,16 @@ function processForm(form) {
         location.push("")
         location.push("checked")
     }
+
+    // let emailSkipChecked = form.emailSkip? "checked" : ""
+    // let emailVIPChecked = form.emailVIP? "checked" : ""
+    if(form.emailSkip){
+      emailSkipChecked = 'checked'
+    }
+    if(form.emailVIP){
+      emailVIPChecked = 'checked'
+    }
+
     var content
 
 
@@ -156,6 +166,14 @@ function processForm(form) {
               content += "<input class='textbox' value='" + form.jobCompany + "' type='text' placeholder='Company/Branch Name'> "
               content += "<input class='textbox' value='" + form.jobPrenail + "' type='text' placeholder='Est. Pre-nail Date'>  "
               content += "<p class='row'><textarea class='textbox address' required name='jobAddress' type='text' placeholder='Site Address'>" + form.jobAddress + "</textarea></p>"
+              content += "<div class='email-box'>"
+                content += "<div class='row'><input name='emailSkip' "+ emailSkipChecked + "type='checkbox' />Email to Skip</div>"
+                content += "<div class='row'><input name='emailVIP' "+ emailVIPChecked +" type='checkbox' />Email to VIP</div>"
+              content += "</div>"
+
+
+
+
             content += "</div>"
           content += "</div>"
           content += "<header><h4>Tick the items below required to be estimated</h4></header>"
@@ -320,39 +338,43 @@ function processForm(form) {
     detailingSubject+= 'Uploaded by: ' + form.cRep + ', '
     detailingSubject+= 'For Client: ' + form.cClient + ', '
 
-    // if(form.emailSkip) {
-    //   sendEmail('colin@johanson.co.nz', content, output, detailingSubject) // email detailing
-    //   sendEmail('skip@johanson.co.nz', content, output, detailingSubject) // email skip
-    // }
-    // if(form.emailArie) {
-    //   sendEmail('arie.quantifier@gmail.com', content, output, detailingSubject) // email Arie
-    // }
-    // if(form.emailJason) {
-    //   sendEmail('jasonbunney73@gmail.com', content, output, detailingSubject) // email jason
-    // }
-    // if(form.emailLuci){
-    //   sendEmail('luci.fraser@thomsonsitm.co.nz', content, output, detailingSubject) // email Luci
-    // }
-    // if(form.emailVIP){
-    //   sendEmail('plans@vftauckland.co.nz', content, output, detailingSubject) // email VIP
-    //
-    // }
-    //
-    // sendEmail('quotes@thomsonsitm.co.nz', content, output, detailingSubject) // email the quotes team
-
-    if(form.emailTo){
-      sendEmail(form.emailTo, content, output, detailingSubject) // email the additional
+    let quotesOutput = "<br>This email was sent to: <br><ul>"
+    quotesOutput += "<li></li>"
+    if(form.emailSkip) {
+      // sendEmail('colin@johanson.co.nz', output, detailingSubject) // email detailing
+      // sendEmail('skip@johanson.co.nz', output, detailingSubject) // email skip
+      quotesOutput += "<li>Skip and Colin</li>"
     }
+    if(form.emailArie) {
+      // sendEmail('arie.quantifier@gmail.com', output, detailingSubject) // email Arie
+      quotesOutput += "<li>Arie</li>"
+    }
+    if(form.emailJason) {
+      // sendEmail('jasonbunney73@gmail.com', output, detailingSubject) // email jason
+      quotesOutput += "<li>Jason</li>"
+    }
+    if(form.emailVIP){
+      // sendEmail('plans@vftauckland.co.nz', output, detailingSubject) // email VIP
+      quotesOutput += "<li>VIP</li>"
+    }
+    if(form.emailTo){
+      sendEmail(form.emailTo, output, detailingSubject) // email the additional
+      quotesOutput += "<li>Additional "+form.emailTo+"</li>"
+    }
+
+    quotesOutput += "</ul> <br>" + output
+
+    sendEmail('thekingliveson@gmail.com', quotesOutput, detailingSubject) // email the quotes team
     incrementIterator(jobNumber);
     return output
 
   } catch (error) {
   Logger.log(error.toString())
-  sendEmail("thekingliveson@gmail.com",error.toString() ,error.toString()+' '+error ,'thomsons errors')
+  sendEmail("thekingliveson@gmail.com", error.toString()+' '+error ,'thomsons errors')
     return error.toString();
   }
 }
-function sendEmail(email, content, output, subject) {
+function sendEmail(email, output, subject) {
   GmailApp.sendEmail(
     email,
     subject,

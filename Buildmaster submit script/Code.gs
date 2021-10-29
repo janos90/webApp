@@ -338,39 +338,47 @@ function processForm(form) {
     detailingSubject+= 'Uploaded by: ' + form.cRep + ', '
     detailingSubject+= 'For Client: ' + form.cClient + ', '
 
+    let quotesOutput = "<br>This email was sent to: <br><ul>"
+    quotesOutput += "<li></li>"
     if(form.emailSkip) {
-      sendEmail('colin@johanson.co.nz', content, output, detailingSubject) // email detailing
-      sendEmail('skip@johanson.co.nz', content, output, detailingSubject) // email skip
+      sendEmail('colin@johanson.co.nz', output, detailingSubject) // email detailing
+      sendEmail('skip@johanson.co.nz', output, detailingSubject) // email skip
+      quotesOutput += "<li>Skip and Colin</li>"
     }
     if(form.emailArie) {
-      sendEmail('arie.quantifier@gmail.com', content, output, detailingSubject) // email Arie
+      sendEmail('arie.quantifier@gmail.com', output, detailingSubject) // email Arie
+      quotesOutput += "<li>Arie</li>"
     }
     if(form.emailJason) {
-      sendEmail('jasonbunney73@gmail.com', content, output, detailingSubject) // email jason
+      sendEmail('jasonbunney73@gmail.com', output, detailingSubject) // email jason
+      quotesOutput += "<li>Jason</li>"
     }
     if(form.emailLuci){
-      sendEmail('luci.fraser@thomsonsitm.co.nz', content, output, detailingSubject) // email Luci
+      sendEmail('luci.fraser@thomsonsitm.co.nz', output, detailingSubject) // email Luci
+      quotesOutput += "<li>Luci</li>"
     }
     if(form.emailVIP){
-      sendEmail('plans@vftauckland.co.nz', content, output, detailingSubject) // email VIP
-
+      sendEmail('plans@vftauckland.co.nz', output, detailingSubject) // email VIP
+      quotesOutput += "<li>VIP</li>"
     }
-
-    sendEmail('quotes@thomsonsitm.co.nz', content, output, detailingSubject) // email the quotes team
-
     if(form.emailTo){
-      sendEmail(form.emailTo, content, output, detailingSubject) // email the additional
+      sendEmail(form.emailTo, output, detailingSubject) // email the additional
+      quotesOutput += "<li>Additional "+form.emailTo+"</li>"
     }
+
+    quotesOutput += "</ul> <br>" + output
+
+    sendEmail('quotes@thomsonsitm.co.nz', quotesOutput, detailingSubject) // email the quotes team
     incrementIterator(jobNumber);
     return output
 
   } catch (error) {
   Logger.log(error.toString())
-  sendEmail("thekingliveson@gmail.com",error.toString() ,error.toString()+' '+error ,'thomsons errors')
+  sendEmail("thekingliveson@gmail.com", error.toString()+' '+error ,'thomsons errors')
     return error.toString();
   }
 }
-function sendEmail(email, content, output, subject) {
+function sendEmail(email, output, subject) {
   GmailApp.sendEmail(
     email,
     subject,

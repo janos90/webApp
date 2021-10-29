@@ -167,8 +167,8 @@ function processForm(form) {
               content += "<input class='textbox' value='" + form.jobPrenail + "' type='text' placeholder='Est. Pre-nail Date'>  "
               content += "<p class='row'><textarea class='textbox address' required name='jobAddress' type='text' placeholder='Site Address'>" + form.jobAddress + "</textarea></p>"
               content += "<div class='email-box'>"
-                content += "<div class='row'><input name='emailSkip' "+ emailSkipChecked + "type='checkbox' />Email to Skip</div>"
-                content += "<div class='row'><input name='emailVIP' "+ emailVIPChecked +" type='checkbox' />Email to VIP</div>"
+                content += "<div class='row'><input name='emailSkip' " + emailSkipChecked + " type='checkbox' />Email to Skip</div>"
+                content += "<div class='row'><input name='emailVIP' " + emailVIPChecked + " type='checkbox' />Email to VIP</div>"
               content += "</div>"
 
 
@@ -278,16 +278,16 @@ function processForm(form) {
       content += "</div>"
     content += "</form>"
 
-    // var blob = Utilities.newBlob(content, "text/html", "text.html");
-    // var pdf = blob.getAs("application/pdf");
-    // var uploadedPDF = JobFolder.createFile(pdf).setName("pdf "+form.jobName+".pdf");
+    var blob = Utilities.newBlob(content, "text/html", "text.html");
+    var pdf = blob.getAs("application/pdf");
+    var uploadedPDF = JobFolder.createFile(pdf).setName("pdf "+form.jobName+".pdf");
     var uploadedHTML = JobFolder.createFile("html "+form.jobName+".html", content, MimeType.HTML);
 
     uploadedHTML.setSharing(DriveApp.Access.ANYONE, DriveApp.Permission.EDIT);
     uploadedHTML.setSharing(DriveApp.Access.ANYONE_WITH_LINK, DriveApp.Permission.VIEW);
 
-    // uploadedPDF.setSharing(DriveApp.Access.ANYONE, DriveApp.Permission.EDIT);
-    // uploadedPDF.setSharing(DriveApp.Access.ANYONE_WITH_LINK, DriveApp.Permission.VIEW);
+    uploadedPDF.setSharing(DriveApp.Access.ANYONE, DriveApp.Permission.EDIT);
+    uploadedPDF.setSharing(DriveApp.Access.ANYONE_WITH_LINK, DriveApp.Permission.VIEW);
 
     var uploadableFiles = []
     var uploadedFiles = []
@@ -320,8 +320,8 @@ function processForm(form) {
       }
     }
     output += "<br> <a href='" + "http://drive.google.com/uc?export=download&id="+ uploadedHTML.getId() + "'>Link to form as HTML </a>";
-    // output += "<br> <a href='" + "http://drive.google.com/uc?export=download&id="+ uploadedPDF.getId() + "'>Link to form as PDF </a>";
-    output += "<br> <strong>PDF File is currently experiencing difficulties. Please download HTML file, open in new window, and print as PDF for pdf copy.</strong>"
+    output += "<br> <a href='" + "http://drive.google.com/uc?export=download&id="+ uploadedPDF.getId() + "'>Link to form as PDF </a>";
+    // output += "<br> <strong>PDF File is currently experiencing difficulties. Please download HTML file, open in new window, and print as PDF for pdf copy.</strong>"
     output += "<br> This is the job number "+ jobNumber;
     output += "<br> Job Client is "+ form.cClient;
 

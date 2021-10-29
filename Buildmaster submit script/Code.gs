@@ -353,10 +353,6 @@ function processForm(form) {
       sendEmail('jasonbunney73@gmail.com', output, detailingSubject) // email jason
       quotesOutput += "<li>Jason</li>"
     }
-    if(form.emailLuci){
-      sendEmail('luci.fraser@thomsonsitm.co.nz', output, detailingSubject) // email Luci
-      quotesOutput += "<li>Luci</li>"
-    }
     if(form.emailVIP){
       sendEmail('plans@vftauckland.co.nz', output, detailingSubject) // email VIP
       quotesOutput += "<li>VIP</li>"

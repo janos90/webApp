@@ -86,6 +86,16 @@ function processForm(form) {
         location.push("")
         location.push("checked")
     }
+
+    // let emailSkipChecked = form.emailSkip? "checked" : ""
+    // let emailVIPChecked = form.emailVIP? "checked" : ""
+    if(form.emailSkip){
+      emailSkipChecked = 'checked'
+    }
+    if(form.emailVIP){
+      emailVIPChecked = 'checked'
+    }
+
     var content
 
 
@@ -156,6 +166,14 @@ function processForm(form) {
               content += "<input class='textbox' value='" + form.jobCompany + "' type='text' placeholder='Company/Branch Name'> "
               content += "<input class='textbox' value='" + form.jobPrenail + "' type='text' placeholder='Est. Pre-nail Date'>  "
               content += "<p class='row'><textarea class='textbox address' required name='jobAddress' type='text' placeholder='Site Address'>" + form.jobAddress + "</textarea></p>"
+              content += "<div class='email-box'>"
+                content += "<div class='row'><input name='emailSkip' "+ emailSkipChecked + "type='checkbox' />Email to Skip</div>"
+                content += "<div class='row'><input name='emailVIP' "+ emailVIPChecked +" type='checkbox' />Email to VIP</div>"
+              content += "</div>"
+
+
+
+
             content += "</div>"
           content += "</div>"
           content += "<header><h4>Tick the items below required to be estimated</h4></header>"

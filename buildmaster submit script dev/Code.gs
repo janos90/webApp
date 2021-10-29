@@ -90,10 +90,10 @@ function processForm(form) {
     // let emailSkipChecked = form.emailSkip? "checked" : ""
     // let emailVIPChecked = form.emailVIP? "checked" : ""
     if(form.emailSkip){
-      emailSkipChecked = 'checked'
+      var emailSkipChecked = 'checked'
     }
     if(form.emailVIP){
-      emailVIPChecked = 'checked'
+      var emailVIPChecked = 'checked'
     }
 
     var content
@@ -338,8 +338,7 @@ function processForm(form) {
     detailingSubject+= 'Uploaded by: ' + form.cRep + ', '
     detailingSubject+= 'For Client: ' + form.cClient + ', '
 
-    let quotesOutput = "<br>This email was sent to: <br><ul>"
-    quotesOutput += "<li></li>"
+    var quotesOutput = "<br>This email was sent to: <br><ul>"
     if(form.emailSkip) {
       // sendEmail('colin@johanson.co.nz', output, detailingSubject) // email detailing
       // sendEmail('skip@johanson.co.nz', output, detailingSubject) // email skip

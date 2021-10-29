@@ -221,16 +221,17 @@ function processForm(form) {
           content += "<header><h4 >Note Products required for the following:</h4></header>"
           content += "<div class='pair'>"
             content += "<div class='fullWidthContainer'>"
-              content += "<p>Interior Doors: <input class='textbox right' value='" + form.intDoor +     "' type='text' placeholder='Product' style='width: 80%;'></p>"
-              content += "<p>Door Hardware:  <input class='textbox right' value='" + form.doorH +       "' type='text' placeholder='Product' style='width: 80%;'></p>"
-              content += "<p>Scotia:         <input class='textbox right' value='" + form.scotia +      "' type='text' placeholder='Product' style='width: 80%;'></p>"
-              content += "<p>Skirting:       <input class='textbox right' value='" + form.skirting +    "' type='text' placeholder='Product' style='width: 80%;'></p>"
-              content += "<p>Architraves:    <input class='textbox right' value='" + form.architraves +  "' type='text' placeholder='Product' style='width: 80%;'></p>"
+              content += "<p>Interior Doors:    <input class='textbox right' value='" + form.intDoor +     "' type='text' placeholder='Product' style='width: 80%;'></p>"
+              content += "<p>Door Hardware:     <input class='textbox right' value='" + form.doorH +       "' type='text' placeholder='Product' style='width: 80%;'></p>"
+              content += "<p>Scotia:            <input class='textbox right' value='" + form.scotia +      "' type='text' placeholder='Product' style='width: 80%;'></p>"
+              content += "<p>Skirting:          <input class='textbox right' value='" + form.skirting +    "' type='text' placeholder='Product' style='width: 80%;'></p>"
+              content += "<p>Architraves:       <input class='textbox right' value='" + form.architraves +  "' type='text' placeholder='Product' style='width: 80%;'></p>"
               content+= "<p>Fascia type:        <input class='textbox right' value='" + form.fasciaType +        "' type='text' placeholder='Product' style='width: 80%;'></p>"
               content+= "<p>Ceiling batten:     <input class='textbox right' value='" + form.ceilingBatten +     "' type='text' placeholder='Product' style='width: 80%;'></p>"
               content+= "<p>Roof material:      <input class='textbox right' value='" + form.roofMaterial +      "' type='text' placeholder='Product' style='width: 80%;'></p>"
               content+= "<p>Truss penetrations: <input class='textbox right' value='" + form.trussPenetrations + "' type='text' placeholder='eg AC Unit, skylight' style='width: 80%;'></p>"
               content+= "<p>Special Trusses:    <input class='textbox right' value='" + form.specialTrusses +    "' type='text' placeholder='eg attic, scissor' style='width: 80%;'></p>"
+              content+= "<p>Cladding:           <input class='textbox right' value='" + form.specialCladding +    "' type='text' placeholder='eg attic, scissor' style='width: 80%;'></p>"
             content += "</div>"
           content += "</div>"
 
@@ -301,7 +302,8 @@ function processForm(form) {
       }
     }
     output += "<br> <a href='" + "http://drive.google.com/uc?export=download&id="+ uploadedHTML.getId() + "'>Link to form as HTML </a>";
-    output += "<br> <a href='" + "http://drive.google.com/uc?export=download&id="+ uploadedPDF.getId() + "'>Link to form as PDF </a>";
+    // output += "<br> <a href='" + "http://drive.google.com/uc?export=download&id="+ uploadedPDF.getId() + "'>Link to form as PDF </a>";
+    output += "<br> <strong>PDF File is currently experiencing difficulties. Please download HTML file, open in new window, and print as PDF for pdf copy.</strong>"
     output += "<br> This is the job number "+ jobNumber;
     output += "<br> Job Client is "+ form.cClient;
 

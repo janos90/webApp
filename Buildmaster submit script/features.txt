@@ -57,3 +57,10 @@
 1. Removed upload PDF due to error
   a. https://stackoverflow.com/questions/68737388/google-apps-script-convert-html-to-pdf-not-working-anymore
   b. https://issuetracker.google.com/issues/196100674
+
+29/10/21
+1. Show tickboxes on ouput FORM
+  a. Email to Skip
+  b. email to VIP
+2. Add contact info to email sent to quotes
+3. Remove "email to Luci" tickbox.

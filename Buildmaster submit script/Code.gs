@@ -181,7 +181,7 @@ function processForm(form) {
             content += "<div class='checkboxContainer extra'>"
               content += "<p class='row'><input " + checkedArray[0]  + " type='checkbox'>   Truss Layout, PS1 only                      </p>"
               content += "<p class='row'><input " + checkedArray[1]  + " type='checkbox'>   Full Buildable Layouts                      </p>"
-              content += "<p class='row'><input " + checkedArray[2]  + " type='checkbox'>   Detailing                                   </p>"
+              content += "<p class='row'><input " + checkedArray[2]  + " type='checkbox'>   Posi Struts                                 </p>"
               content += "<p style='border:solid 1px black;'>                                                                           </p>"
               content += "<p class='row'><input " + checkedArray[3]  + " type='checkbox'>   Steel Reinforcing                           </p>"
               content += "<p class='row'><input " + checkedArray[4]  + " type='checkbox'>   Pre-Bent R/Steel                            </p>"
@@ -330,7 +330,7 @@ function processForm(form) {
     var detailingSubject = 'New job, number ' + jobNumber + ', issued for: '
     if(form.variable0)  {detailingSubject+= 'Truss Layout, PS1 only, '}
     if(form.variable1)  {detailingSubject+= 'Full Buildable Layouts, '}
-    if(form.variable2) {detailingSubject+= 'Detailing, '}
+    if(form.variable2) {detailingSubject+= 'Posi Struts, '}
     if(form.variable8)  {detailingSubject+= 'Prenail, '}
     if(form.variable9)  {detailingSubject+= 'Trusses, '}
     if(form.variable45)  {detailingSubject+= 'Rafters, '}

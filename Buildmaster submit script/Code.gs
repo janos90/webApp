@@ -348,9 +348,9 @@ function processForm(form) {
       sendEmail('arie.quantifier@gmail.com', output, detailingSubject) // email Arie
       quotesOutput += "<li>Arie</li>"
     }
-    if(form.emailJason) {
-      sendEmail('jasonbunney73@gmail.com', output, detailingSubject) // email jason
-      quotesOutput += "<li>Jason</li>"
+    if(form.emailGavin) {
+      sendEmail('gjquantifying@gmail.com', output, detailingSubject) // email Gavin
+      quotesOutput += "<li>Gavin</li>"
     }
     if(form.emailVIP){
       sendEmail('plans@vftauckland.co.nz', output, detailingSubject) // email VIP

@@ -64,3 +64,22 @@
   b. email to VIP
 2. Add contact info to email sent to quotes
 3. Remove "email to Luci" tickbox.
+
+
+01/09/2022
+
+
+1. Change site address to say Delivery address
+
+2. Change est prenail date to Requested return date if less than standard     -----(this is instead of the tender box option that we asked about previously)
+
+3. Can we make the frame/truss margin and discount group mandatory fields if any of the boxes from prenail to retaining wall are ticked?
+
+4. Remove the reason  box
+
+5. Change roof pack to say balance of roof
+
+6. Change information available in plans to information supplied in plans
+7. Can we make these tick boxes mandatory too, but remove electrical, change roof pitch to roof plan confirming pitch, and make rafters design and sizing have 3 options – tick, cross and n/a?
+
+8. Change alterations to say any other relevant information

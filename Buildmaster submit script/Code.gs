@@ -165,7 +165,7 @@ function processForm(form) {
               content += "<input class='textbox' required value='" + form.jobName + "' type='text' placeholder='Job Name'> "
               content += "<input class='textbox' value='" + form.jobCompany + "' type='text' placeholder='Company/Branch Name'> "
               content += "<input class='textbox' value='" + form.jobPrenail + "' type='text' placeholder='Est. Pre-nail Date'>  "
-              content += "<p class='row'><textarea class='textbox address' required name='jobAddress' type='text' placeholder='Site Address'>" + form.jobAddress + "</textarea></p>"
+              content += "<p class='row'><textarea class='textbox address' required name='jobAddress' type='text' placeholder='Delivery Address'>" + form.jobAddress + "</textarea></p>"
               content += "<div class='email-box'>"
                 content += "<div class='row'><input name='emailSkip' " + emailSkipChecked + " type='checkbox' />Email to Skip</div>"
                 content += "<div class='row'><input name='emailVIP' " + emailVIPChecked + " type='checkbox' />Email to VIP</div>"

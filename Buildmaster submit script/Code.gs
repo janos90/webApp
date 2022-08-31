@@ -252,7 +252,7 @@ function processForm(form) {
             content += "</div>"
           content += "</div>"
 
-          content += "<header><h4 >Note below alterations to plan supplied:</h4> </header> "
+          content += "<header><h4 >Note below any other relevant information to plan supplied:</h4> </header> "
           content += "<div class='pair'>"
             content += "<div class='fullWidthContainer'> "
               content += "<p><textarea class='textbox large' type='text' placeholder='Alterations'>" + form.alterations + "</textarea></p>"

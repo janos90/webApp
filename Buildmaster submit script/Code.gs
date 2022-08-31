@@ -192,7 +192,7 @@ function processForm(form) {
               content += "<p class='row'><input " + checkedArray[8]  + " type='checkbox'>   Prenail                                     </p>"
               content += "<p class='row'><input " + checkedArray[9]  + " type='checkbox'>   Trusses                                     </p>"
               content += "<p class='row'><input " + checkedArray[45]  + " type='checkbox'>   Rafters                                    </p>"
-              content += "<p class='row'><input " + checkedArray[10] + " type='checkbox'>   Roof Pack                                   </p>"
+              content += "<p class='row'><input " + checkedArray[10] + " type='checkbox'>   Balance of roof                                   </p>"
               content += "<p class='row'><input " + checkedArray[11] + " type='checkbox'>   Random                                      </p>"
               content += "<p class='row'><input " + checkedArray[12] + " type='checkbox'>   Sub-floor                                   </p>"
               content += "<p class='row'><input " + checkedArray[13] + " type='checkbox'>   Mid-floor                                   </p>"

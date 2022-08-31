@@ -262,7 +262,7 @@ function processForm(form) {
         content += "</div>"
       content += " </div>"
 
-      content += "<header><h3>Information available in plans</h3></header>"
+      content += "<header><h3>Information supplied in plans</h3></header>"
       content += "<div class='pair'>"
         content += "<div class='checkboxContainer'>"
           content += "<p class='row'><input name='variable39' " + checkedArray[39] + " type='checkbox'>Dimensioned floor plan</p>"

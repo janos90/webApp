@@ -137,7 +137,6 @@ function processForm(form) {
                 content += "<p>Frame/Trusses <span style='color: red'>MARGIN</span>: "
                 content += "<input class='textbox right' value='" + form.officeFrames + "' type='text' placeholder='Frame/truss margin' style='width: 45%;'></p>"
                 content += "<p>Discount Group:  <input class='textbox right' value='" + form.officeDiscount + "' type='text' placeholder='Office Discount' style='width: 45%;'></p>"
-                content += "<p>Reason: <input class='textbox right' value='" + form.officeReason   + "' type='text' placeholder='Reason' style='width: 45%;'></p>"
               content += "</div>"
             content += "</div>"
           content += "</div>"

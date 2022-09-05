@@ -185,13 +185,12 @@
       $('#engrow5').show();
     });
 
+    $('input.discount').on('change', function() {
+      $('#ftmarginInput').prop('required', true);
+      $('#discountInput').prop('required', true);
+    });
   })
 
-  $('input.discount').on('change', function() {
-    $('input.ftmargin').prop('required', true);
-    $('input.discount').prop('required', true);
-
-  })
 
   function preventFormSubmit() {
     var forms = document.querySelectorAll('form');

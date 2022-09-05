@@ -62,12 +62,18 @@ function processForm(form) {
       form.variable36,
       form.variable37,
       form.variable38,
-      form.variable39,
-      form.variable40,
-      form.variable41,
-      form.variable42,
-      form.variable43,
-      form.variable44,
+      // form.variable39,
+      false,
+      // form.variable40,
+      false,
+      // form.variable41,
+      false,
+      // form.variable42,
+      false,
+      // form.variable43,
+      false,
+      // form.variable44,
+      false,
       form.variable45
     ]
     var checkedArray = []
@@ -265,14 +271,20 @@ function processForm(form) {
       content += "<header><h3>Information supplied in plans</h3></header>"
       content += "<div class='pair'>"
         content += "<div class='checkboxContainer'>"
-          content += "<p class='row'><input name='variable39' " + checkedArray[39] + " type='checkbox'>Dimensioned floor plan</p>"
-          content += "<p class='row'><input name='variable40' " + checkedArray[40] + " type='checkbox'>Elevations</p>"
-          content += "<p class='row'><input name='variable41' " + checkedArray[41] + " type='checkbox'>Cross-Section</p>"
+          content += "<p class='row'><select class='specplanselect' name='variable39' required value=" + form.variable39.value + ">"
+          content += "<option disabled selected vlaue=''>" + form.variable39.value + "</option>Dimensioned floor plan</p>"
+          content += "<p class='row'><select class='specplanselect' name='variable40' required value=" + form.variable40.value + ">"
+          content += "<option disabled selected vlaue=''>" + form.variable40.value + "</option>Elevations</p>"
+          content += "<p class='row'><select class='specplanselect' name='variable41' required value=" + form.variable41.value + ">"
+          content += "<option disabled selected vlaue=''>" + form.variable41.value + "</option>Cross-Section</p>"
         content += "</div>"
         content += "<div class='checkboxContainer'>"
-          content += "<p class='row'><input name='variable42' " + checkedArray[42] + " type='checkbox'>Roof Pitch</p>"
-          content += "<p class='row'><input name='variable43' " + checkedArray[43] + " type='checkbox'>Electrical plan</p>"
-          content += "<p class='row'><input name='variable44' " + checkedArray[44] + " type='checkbox'>Rafters design and sizing</p>"
+
+        content += "<p class='row'><select class='specplanselect' name='variable42' required value=" + form.variable42.value + ">"
+        content += "<option disabled selected vlaue=''>" + form.variable42.value + "</option>Roof plan confirming pitch</p>"
+        content += "<p class='row'><select class='specplanselect' name='variable44' required value=" + form.variable44.value + ">"
+        content += "<option disabled selected vlaue=''>" + form.variable44.value + "</option>Rafters design and sizing</p>"
+
         content += "</div>"
       content += "</div>"
     content += "</form>"

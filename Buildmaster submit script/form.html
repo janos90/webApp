@@ -186,6 +186,13 @@
     });
 
   })
+
+  $('input.discount').on('change', function() {
+    $('input.ftmargin').prop('required', true);
+    $('input.discount').prop('required', true);
+
+  })
+
   function preventFormSubmit() {
     var forms = document.querySelectorAll('form');
     for (var i = 0; i < forms.length; i++) {
@@ -244,8 +251,8 @@
           </p>
           <div class="checkboxContainer">
             <p style="color: red; text-align: left; padding-left: 9px">Office Use only:</p>
-            <p>Frame/Trusses <span style="color: red">MARGIN</span>: <input class="textbox right" name="officeFrames" type="text" style="width: 45%;"></p>
-            <p>Discount Group: <input class="textbox right" name="officeDiscount" type="text" style="width: 45%;"></p>
+            <p>Frame/Trusses <span style="color: red">MARGIN</span>: <input id='ftmarginInput' class="textbox right" name="officeFrames" type="text" style="width: 45%;"></p>
+            <p>Discount Group: <input id='discountInput' class="textbox right" name="officeDiscount" type="text" style="width: 45%;"></p>
           </div>
         </div>
       </div>
@@ -325,32 +332,32 @@
           <p class="row"><input name="variable7" type="checkbox">Concrete</p>
         </div>
         <div class="checkboxContainer">
-          <p class="row"><input name="variable8" type="checkbox">Prenail</p>
-          <p class="row"><input class="detailing" name="variable9" type="checkbox">Trusses</p>
-          <p class="row"><input class="detailing" name="variable45" type="checkbox">Rafters</p>
-          <p class="row"><input name="variable10" type="checkbox">Balance of roof</p>
-          <p class="row"><input name="variable11" type="checkbox">Random</p>
-          <p class="row"><input name="variable12" type="checkbox">Sub-floor</p>
-          <p class="row"><input name="variable13" type="checkbox">Mid-floor</p>
-          <p class="row"><input name="variable14" type="checkbox">Deck</p>
-          <p class="row"><input name="variable38" type="checkbox">J-Frame</p>
+          <p class="row"><input class="discount" name="variable8" type="checkbox">Prenail</p>
+          <p class="row"><input class="discount detailing" name="variable9" type="checkbox">Trusses</p>
+          <p class="row"><input class="discount detailing" name="variable45" type="checkbox">Rafters</p>
+          <p class="row"><input class="discount" name="variable10" type="checkbox">Balance of roof</p>
+          <p class="row"><input class="discount" name="variable11" type="checkbox">Random</p>
+          <p class="row"><input class="discount" name="variable12" type="checkbox">Sub-floor</p>
+          <p class="row"><input class="discount" name="variable13" type="checkbox">Mid-floor</p>
+          <p class="row"><input class="discount" name="variable14" type="checkbox">Deck</p>
+          <p class="row"><input class="discount" name="variable38" type="checkbox">J-Frame</p>
         </div>
         <div class="checkboxContainer">
-          <p class="row"><input name="variable15" type="checkbox">Cladding</p>
-          <p class="row"><input name="variable16" type="checkbox">Insulation Only</p>
-          <p class="row"><input name="variable17" type="checkbox">Insulation Installed</p>
-          <p class="row"><input name="variable18" type="checkbox">Plasterboard</p>
-          <p class="row"><input name="variable19" type="checkbox">Plasterboard D.T.S</p>
-          <p class="row"><input name="variable20" type="checkbox">Internal Linings</p>
-          <p class="row"><input name="variable21" type="checkbox">Internal Doors</p>
+          <p class="row"><input class="discount" name="variable15" type="checkbox">Cladding</p>
+          <p class="row"><input class="discount" name="variable16" type="checkbox">Insulation Only</p>
+          <p class="row"><input class="discount" name="variable17" type="checkbox">Insulation Installed</p>
+          <p class="row"><input class="discount" name="variable18" type="checkbox">Plasterboard</p>
+          <p class="row"><input class="discount" name="variable19" type="checkbox">Plasterboard D.T.S</p>
+          <p class="row"><input class="discount" name="variable20" type="checkbox">Internal Linings</p>
+          <p class="row"><input class="discount" name="variable21" type="checkbox">Internal Doors</p>
         </div>
         <div class="checkboxContainer">
-          <p class="row"><input name="variable22" type="checkbox">Timber Fascia</p>
-          <p class="row"><input name="variable23" type="checkbox">Marley Gutter / D.P</p>
-          <p class="row"><input name="variable24" type="checkbox">Roofing</p>
-          <p class="row"><input name="variable25" type="checkbox">Aluminium Joinery</p>
-          <p class="row"><input name="variable26" type="checkbox">Pergola</p>
-          <p class="row"><input name="variable27" type="checkbox">Retaining Wall</p>
+          <p class="row"><input class="discount" name="variable22" type="checkbox">Timber Fascia</p>
+          <p class="row"><input class="discount" name="variable23" type="checkbox">Marley Gutter / D.P</p>
+          <p class="row"><input class="discount" name="variable24" type="checkbox">Roofing</p>
+          <p class="row"><input class="discount" name="variable25" type="checkbox">Aluminium Joinery</p>
+          <p class="row"><input class="discount" name="variable26" type="checkbox">Pergola</p>
+          <p class="row"><input class="discount" name="variable27" type="checkbox">Retaining Wall</p>
           <!-- <p class="row"><input name="variable28" type="checkbox"></p> -->
         </div>
       </div>

@@ -6,7 +6,10 @@
     background-color: #FFfFFF;
     font-family: Sans-serif;
   }
-
+  .specplanselect {
+    padding-right: 10px;
+    margin-right: 10px;
+  }
   .firstCol {
     width: 20%;
   }
@@ -466,14 +469,96 @@
     </header>
     <div class="pair">
       <div class="checkboxContainer">
-        <p class="row"><input name="variable39" type="checkbox">Dimensioned floor plan</p>
-        <p class="row"><input name="variable40" type="checkbox">Elevations</p>
-        <p class="row"><input name="variable41" type="checkbox">Cross-Section</p>
+        <p class="row">
+          <select class='specplanselect' name="variable39" required value="">
+            <option disabled selected vlaue=''>
+              Select
+            </option>
+            <option vlaue='tick'>
+              N/A
+            </option>
+            <option vlaue='tick'>
+              Yes
+            </option>
+            <option vlaue='cross'>
+              No
+            </option>
+          </select>
+          Dimensioned floor plan
+        </p>
+        <p class="row">
+          <select class='specplanselect' name="variable40" required value="">
+            <option disabled selected vlaue=''>
+              Select
+            </option>
+            <option vlaue='tick'>
+              N/A
+            </option>
+            <option vlaue='tick'>
+              Yes
+            </option>
+            <option vlaue='cross'>
+              No
+            </option>
+          </select>
+
+          Elevations
+        </p>
+        <p class="row">
+          <select class='specplanselect' name="variable41" required value="">
+            <option disabled selected vlaue=''>
+              Select
+            </option>
+            <option vlaue='tick'>
+              N/A
+            </option>
+            <option vlaue='tick'>
+              Yes
+            </option>
+            <option vlaue='cross'>
+              No
+            </option>
+          </select>
+
+          Cross-Section
+        </p>
       </div>
       <div class="checkboxContainer">
-        <p class="row"><input name="variable42" type="checkbox">Roof Pitch</p>
-        <p class="row"><input name="variable43" type="checkbox">Electrical plan</p>
-        <p class="row"><input name="variable44" type="checkbox">Rafters design and sizing</p>
+        <p class="row">
+          <select class='specplanselect' name="variable42" required value="">
+            <option disabled selected vlaue=''>
+              Select
+            </option>
+            <option vlaue='tick'>
+              N/A
+            </option>
+            <option vlaue='tick'>
+              Yes
+            </option>
+            <option vlaue='cross'>
+              No
+            </option>
+          </select>
+
+          Roof plan confirming pitch
+        </p>
+        <p class="row">
+          <select class='specplanselect' name="variable44" required value="">
+            <option disabled selected vlaue=''>
+              Select
+            </option>
+            <option vlaue='tick'>
+              N/A
+            </option>
+            <option vlaue='tick'>
+              Yes
+            </option>
+            <option vlaue='cross'>
+              No
+            </option>
+          </select>
+          Rafters design and sizing
+        </p>
       </div>
     </div>
 

@@ -56,6 +56,7 @@
     font-size: 20px;
     padding-top: 2px;
     padding-bottom: 2px;
+    margin-bottom: 3px;
   }
   .toggle-section header{
     background-color: gray;
@@ -63,6 +64,7 @@
     font-size: 20px;
     padding-top: 2px;
     padding-bottom: 2px;
+    margin-bottom: 3px;
     display: flex;
   }
 
@@ -80,7 +82,7 @@
     flex-wrap: wrap;
   }
   .toggle-section {
-    width: 49%;
+    width: 49.5%;
     margin: 2px;
     border: solid 1px black;
   }
@@ -106,52 +108,52 @@
   <script>
   $('document').ready(function() {
 
-  $('input.plans').on('change', function() {
-    $('input.plans').not(this).prop('required', false);
-  });
-  $('input.engineer').on('change', function() {
-    $('input.engineer').not(this).prop('required', false);
-  });
-  $('input.wndPlans').on('change', function() {
-    $('input.wndPlans').not(this).prop('required', false);
-  });
-  $('input.specs').on('change', function() {
-    $('input.specs').not(this).prop('required', false);
-  });
-  $('input.dwg').on('change', function() {
-    $('input.dwg').not(this).prop('required', false);
-  });
-});
-
-function preventFormSubmit() {
-  var forms = document.querySelectorAll('form');
-  for (var i = 0; i < forms.length; i++) {
-    forms[i].addEventListener('submit', function(event) {
-      event.preventDefault();
+    $('input.plans').on('change', function() {
+      $('input.plans').not(this).prop('required', false);
     });
+    $('input.engineer').on('change', function() {
+      $('input.engineer').not(this).prop('required', false);
+    });
+    $('input.wndPlans').on('change', function() {
+      $('input.wndPlans').not(this).prop('required', false);
+    });
+    $('input.specs').on('change', function() {
+      $('input.specs').not(this).prop('required', false);
+    });
+    $('input.dwg').on('change', function() {
+      $('input.dwg').not(this).prop('required', false);
+    });
+  });
+
+  function preventFormSubmit() {
+    var forms = document.querySelectorAll('form');
+    for (var i = 0; i < forms.length; i++) {
+      forms[i].addEventListener('submit', function(event) {
+        event.preventDefault();
+      });
+    }
   }
-}
-window.addEventListener('load', preventFormSubmit);
+  window.addEventListener('load', preventFormSubmit);
 
-function handleFormSubmit(formObject) {
-  $('input.submission').prop( "disabled", true );
-  google.script.run.withSuccessHandler(updateUrl).processForm(formObject);
-}
+  function handleFormSubmit(formObject) {
+    $('input.submission').prop( "disabled", true );
+    google.script.run.withSuccessHandler(updateUrl).processForm(formObject);
+  }
 
-function updateUrl(url) {
-  var div = document.getElementById('output');
-  var form = document.getElementById('myForm');
-  div.innerHTML = '<p>'+url+'</p>';
-  form.style.display = "none";
-}
-$(document).on("change", 'input:file',function (e) {
+  function updateUrl(url) {
+    var div = document.getElementById('output');
+    var form = document.getElementById('myForm');
+    div.innerHTML = '<p>'+url+'</p>';
+    form.style.display = "none";
+  }
+  $(document).on("change", 'input:file',function (e) {
     var file = e.currentTarget.files[0];
     var callerID = e.currentTarget.id;
     var approvedHTML = "";
     var filesize = ((file.size/1024)/1024).toFixed(4); // MB
 
     if (file.name != "item" && typeof file.name != "undefined" && filesize <= 49) {
-        approvedHTML += "approved " + file.name;
+      approvedHTML += "approved " + file.name;
     } else {
       if(file.name == "item"){
         approvedHTML += 'not approved no item; ';
@@ -165,7 +167,7 @@ $(document).on("change", 'input:file',function (e) {
       $("#" +callerID+"Results")
     }
     $("#" +callerID+"Results").html(approvedHTML);
-});
+  });
 
 
   function toggleAll(section) {
@@ -200,6 +202,27 @@ $(document).on("change", 'input:file',function (e) {
       toggleAllLabel.style.display = "inline-block"
     }
   }
+
+  function toggleEstimation() {
+    var toggleCheckbox = document.getElementById("cancel-estimation");
+    var sectionWrapper = document.getElementById("toggle-section-wrapper");
+    if(toggleCheckbox.checked) {
+        sectionWrapper.style.display = 'none';
+    } else {
+      sectionWrapper.style.display = 'flex';
+    }
+  }
+
+  function toggleOutsourcing() {
+    var toggleCheckbox = document.getElementById("cancel-outsourcing");
+    var sectionWrapper = document.getElementById("outsourcing-selection-body");
+    if(toggleCheckbox.checked) {
+        sectionWrapper.style.display = 'none';
+    } else {
+      sectionWrapper.style.display = 'flex';
+    }
+  }
+
 
   function outsourcePrenailDayle() {
     var checkbox = document.getElementById("outsourcePrenailDayleid");
@@ -308,8 +331,11 @@ $(document).on("change", 'input:file',function (e) {
       </div>
     </div>
     <div class="outsourcing-selection section">
-      <header>Out Sourcing - send Plans for measure and quote</header>
-      <main class="outsourcing-selection-body">
+      <header>Out Sourcing - send Plans for measure and quote <br />
+        Outsourcing not Required <input type="checkbox" class="checkbox" id="cancel-outsourcing" name='cancel-outsourcing' onclick="toggleOutsourcing()"/>
+
+      </header>
+      <main class="outsourcing-selection-body" id="outsourcing-selection-body">
         <ul class="outsourcing-selection-ul prenail">
           <header>PreNail</header>
           <li class="outsourcing-selection-li">
@@ -503,526 +529,526 @@ $(document).on("change", 'input:file',function (e) {
         </ul>
       </main>
     </div>
-
-    <div class="section hr-break" >
-      <header>
-        TICK THE ALL ITEMS BOX OR INDIVIDUAL ITEMS AS REQUIRED
+    <div class="section" >
+      <header class="toggle-section-header">
+        TICK THE ALL ITEMS BOX OR INDIVIDUAL ITEMS AS REQUIRED <br/>
+        Estimation not Required <input type="checkbox" class="checkbox" id="cancel-estimation" name='cancel-estimation' onclick="toggleEstimation()"/>
       </header>
+      <div class="toggle-section-wrapper" id='toggle-section-wrapper'>
+        <div class="toggle-section foundations">
+          <header id="toggle-section-header-foundations" class="toggle-section-header">
+            <h3>Foundations</h3>
+            <label id="label-toggle-all-foundations" class="all-items-toggle foundations" for="toggle-all-foundations">
+              All Items
+              <input type="checkbox"  id="toggle-all-foundations" onclick="toggleAll('foundations')" />
+            </label>
+            <label id="label-toggle-none-foundations" class="hide-section-toggle foundations" for="toggle-none-foundations">
+              Not required
+              <input type="checkbox" id="toggle-none-foundations" onclick="toggleNone('foundations')" />
+            </label>
+          </header>
+          <main id="toggle-section-questions-foundations">
+            <label class="foundations reinforcing-steel"for="foundations-reinforcing-steel">
+              <input class="checkbox" type="checkbox" name="foundations-reinforcing-steel" value="" />
+              Reinforcing Steel
+            </label>
+            <label class="foundations blocks"for="foundations-blocks">
+              <input class="checkbox" type="checkbox" checkbox="foundations-blocks" value="" />
+              Blocks
+            </label>
+            <label class="foundations pod-system"for="foundations-pod-system">
+              <input class="checkbox" type="checkbox" name="foundations-pod-system" value="" />
+              Pod System
+            </label>
+            <label class="foundations piles"for="foundations-piles">
+              <input class="checkbox" type="checkbox" name="foundations-piles" value="" />
+              Piles
+            </label>
+          </main>
+        </div>
+
+        <div class="toggle-section timber-floor">
+          <header id="toggle-section-header-timber-floor" class="toggle-section-header">
+            Timber Floor
+            <label id="label-toggle-all-timber-floor" class="all-items-toggle timber-floor" for="toggle-all-timber-floor">
+              All Items
+              <input type="checkbox"  id="toggle-all-timber-floor" onclick="toggleAll('timber-floor')"/>
+            </label>
+            <label id="label-toggle-none-timber-floor" class="hide-section-toggle timber-floor" for="toggle-none-timber-floor">
+              Not required
+              <input type="checkbox" id="toggle-none-timber-floor" onclick="toggleNone('timber-floor')"/>
+            </label>
+          </header>
+          <main id="toggle-section-questions-timber-floor">
+            <label class="timber-floor bearers"for="timber-floor-bearers">
+              <input class="checkbox" type="checkbox" name="timber-floor-bearers" value="" />
+              Bearers
+              <input class="single-input" type="text" name="timber-floor-bearers" value="" />
+            </label>
+
+            <label class="timber-floor Joists"for="timber-floor-Joists">
+              <input class="checkbox" type="checkbox" name="timber-floor-Joists" value="" />
+              Joists
+              <input class="single-input" type="text" name="timber-floor-Joists" value="" />
+            </label>
+
+            <label class="timber-floor flooring"for="timber-floor-flooring">
+              <input class="checkbox" type="checkbox" name="timber-floor-flooring" value="" />
+              Flooring
+              <input class="single-input" type="text" name="timber-floor-flooring" value="" />
+            </label>
+
+            <label class="timber-floor wet-area-flooring"for="timber-floor-wet-area-flooring">
+              <input class="checkbox" type="checkbox" name="timber-floor-wet-area-flooring" value="" />
+              Wet Area Flooring
+              <input class="single-input" type="text" name="timber-floor-wet-area-flooring" value="" />
+            </label>
+
+            <label class="timber-floor tile-slate-underlay"for="timber-floor-tile-slate-underlay">
+              <input class="checkbox" type="checkbox" name="timber-floor-tile-slate-underlay" value="" />
+              Tile & Slate Underlay
+              <input class="single-input" type="text" name="timber-floor-tile-slate-underlay" value="" />
+            </label>
+          </main>
+        </div>
+
+
+        <div class="toggle-section wall-framing">
+          <header class="toggle-section-header" id="toggle-section-header-wall-framing">
+            Wall Framing
+            <label id="label-toggle-all-wall-framing" class="all-items-toggle wall-framing" for="toggle-all-wall-framing">
+              All Items
+              <input type="checkbox" id="toggle-all-wall-framing" onclick="toggleAll('wall-framing')"/>
+            </label>
+            <label id="label-toggle-none-wall-framing" class="hide-section-toggle wall-framing" for="toggle-none-wall-framing">
+              Not required
+              <input type="checkbox" id="toggle-none-wall-framing" onclick="toggleNone('wall-framing')"/>
+            </label>
+          </header>
+          <main id="toggle-section-questions-wall-framing" >
+            <label class="wall-framing prenailer-supplied"for="wall-framing-prenailer-supplied">
+              <input class="checkbox" type="checkbox" name="wall-framing-prenailer-supplied" value="" />
+              Supplied by Prenailer - Do not allow
+            </label>
+            <label class="wall-framing random"for="wall-framing-random">
+              <input class="checkbox" type="checkbox" name="wall-framing-random" value="" />
+              Random
+            </label>
+            <label class="wall-framing capping"for="wall-framing-capping">
+              <input class="checkbox" type="checkbox" name="wall-framing-capping" value="" />
+              Capping
+            </label>
+            <label class="wall-framing strapping"for="wall-framing-strapping">
+              <input class="checkbox" type="checkbox" name="wall-framing-strapping" value="" />
+              Strapping
+            </label>
+
+            <label class="wall-framing h-one-two"for="wall-framing-h-one-two">
+              <input class="checkbox" type="checkbox" name="wall-framing-h-one-two" value="" />
+              H1.2
+            </label>
+            <label class="wall-framing h-three-two"for="wall-framing-h-three-two">
+              <input class="checkbox" type="checkbox" name="wall-framing-h-three-two" value="" />
+              H3.2
+            </label>
+            <label class="wall-framing h-three-plates"for="wall-framing-h-three-plates">
+              <input class="checkbox" type="checkbox" name="wall-framing-h-three-plates" value="" />
+              H3 Plates
+            </label>
+
+            <label class="wall-framing beams"for="wall-framing-beams">
+              <input class="checkbox" type="checkbox" name="wall-framing-beams" value="" />
+              Beams
+            </label>
+            <label class="wall-framing posts"for="wall-framing-posts">
+              <input class="checkbox" type="checkbox" name="wall-framing-posts" value="" />
+              Posts
+            </label>
+
+
+            <label class="wall-framing metal"for="wall-framing-metal">
+              <input class="checkbox" type="checkbox" name="wall-framing-metal" value="" />
+              Metal
+            </label>
+
+            <label class="wall-framing timber"for="wall-framing-timber">
+              <input class="checkbox" type="checkbox" name="wall-framing-timber" value="" />
+              Timber
+            </label>
+          </main>
+        </div>
+
+        <div class="toggle-section roof-framing">
+          <header class="toggle-section-header" id="toggle-section-header-roof-framing">
+            Roof Framing
+            <label id="label-toggle-all-roof-framing" class="all-items-toggle roof-framing" for="toggle-all-roof-framing">
+              All Items
+              <input type="checkbox"  id="toggle-all-roof-framing" onclick="toggleAll('roof-framing')"/>
+            </label>
+            <label id="label-toggle-none-roof-framing" class="hide-section-toggle roof-framing" for="toggle-none-roof-framing">
+              Not required
+              <input type="checkbox" id="toggle-none-roof-framing" onclick="toggleNone('roof-framing')"/>
+            </label>
+          </header>
+          <main id="toggle-section-questions-roof-framing">
+            <label class="roof-framing prenailer-supplied"for="roof-framing-prenailer-supplied">
+              Supplied by Prenailer - Do not allow
+              <input class="single-input" type="text" name="roof-framing-prenailer-supplied" value="" />
+            </label>
+            <label class="roof-framing bor-pack"for="roof-framing-bor-pack">
+              BOR Pack (as Agreed)
+              <input class="single-input" type="text" name="roof-framing-bor-pack" value="" />
+            </label>
+            <label class="roof-framing ply-membrane"for="roof-framing-ply-membrane">
+              Ply to Membrane Roof
+              <input class="single-input" type="text" name="roof-framing-ply-membrane" value="" />
+            </label>
+            <label class="roof-framing ply-shingle"for="roof-framing-ply-shingle">
+              Ply to Shingle Roof
+              <input class="single-input" type="text" name="roof-framing-ply-shingle" value="" />
+            </label>
+            <label class="roof-framing purlins-only"for="roof-framing-purlins-only">
+              Purlins only
+              <input class="single-input" type="text" name="roof-framing-purlins-only" value="" />
+            </label>
+          </main>
+
+        </div>
+
+
+
+        <div class="toggle-section exterior-finishing">
+          <header id="toggle-section-header-exterior-finishing" class="toggle-section-header">
+            Exterior Finishings
+            <label id="label-toggle-all-exterior-finishing" class="all-items-toggle exterior-finishing" for="toggle-all-exterior-finishing">
+              All Items
+              <input type="checkbox"  id="toggle-all-exterior-finishing" onclick="toggleAll('exterior-finishing')"/>
+            </label>
+            <label id="label-toggle-none-exterior-finishing" class="hide-section-toggle exterior-finishing" for="toggle-none-exterior-finishing">
+              Not required
+              <input type="checkbox" id="toggle-none-exterior-finishing" onclick="toggleNone('exterior-finishing')"/>
+            </label>
+          </header>
+          <main id="toggle-section-questions-exterior-finishing">
+
+            <label class="exterior-finishing building-wrap"for="exterior-finishing-building-wrap">
+              Building Wrap
+              <input class="single-input" type="text" name="exterior-finishing-building-wrap" value="" />
+            </label>
+
+            <label class="exterior-finishing timber-fascia"for="exterior-finishing-timber-fascia">
+              Timber Fascia
+              <input class="single-input" type="text" name="exterior-finishing-timber-fascia" value="" />
+            </label>
+
+            <label class="exterior-finishing rab"for="exterior-finishing-rab">
+              RAB
+
+              <input class="single-input" type="text" name="exterior-finishing-rab" value="" />
+            </label>
+
+            <label class="exterior-finishing metal-fascia"for="exterior-finishing-metal-fascia">
+              Metal Fascia by Others
+              <input class="single-input" type="text" name="exterior-finishing-metal-fascia" value="" />
+            </label>
+
+            <label class="exterior-finishing pvc-spouting"for="exterior-finishing-pvc-spouting">
+              PVC Spouting
+              <input class="single-input" type="text" name="exterior-finishing-pvc-spouting" value="" />
+            </label>
+
+            <label class="exterior-finishing soffit"for="exterior-finishing-soffit">
+              Soffit
+
+              <input class="single-input" type="text" name="exterior-finishing-soffit" value="" />
+            </label>
+
+            <label class="exterior-finishing eaves-mould"for="exterior-finishing-eaves-mould">
+              Eaves Mould
+              <input class="single-input" type="text" name="exterior-finishing-eaves-mould" value="" />
+            </label>
+          </main>
+        </div>
+
+
+
+
+        <div class="toggle-section cladding">
+          <header id="toggle-section-header-cladding" class="toggle-section-header">
+            Cladding
+            <label id="label-toggle-all-cladding" class="all-items-toggle cladding" for="toggle-all-cladding">
+              All Items
+              <input type="checkbox"  id="toggle-all-cladding" onclick="toggleAll('cladding')"/>
+            </label>
+            <label id="label-toggle-none-cladding" class="hide-section-toggle cladding" for="toggle-none-cladding">
+              Not required
+              <input type="checkbox" id="toggle-none-cladding" onclick="toggleNone('cladding')"/>
+            </label>
+          </header>
+          <main id="toggle-section-questions-cladding">
+            <label class="cladding brick"for="cladding-brick">
+              Brick
+              <input class="single-input" type="text" name="cladding-brick" value="" />
+            </label>
+
+            <label class="cladding sheet"for="cladding-sheet">
+              Sheet
+              <input class="single-input" type="text" name="cladding-sheet" value="" />
+            </label>
+
+            <label class="cladding w-board"for="cladding-w-board">
+              W/Board
+
+              <input class="single-input" type="text" name="cladding-w-board" value="" />
+            </label>
+
+            <label class="cladding stone-cladding-substrate"for="cladding-stone-cladding-substrate">
+              Stone Cladding Substrate
+              <input class="single-input" type="text" name="cladding-stone-cladding-substrate" value="" />
+            </label>
+          </main>
+        </div>
+
+        <div class="toggle-section insulation">
+          <header id="toggle-section-header-insulation" class="toggle-section-header">
+            Insulation
+            <label id="label-toggle-all-insulation" class="all-items-toggle insulation" for="toggle-all-insulation">
+              All Items
+              <input type="checkbox"  id="toggle-all-insulation" onclick="toggleAll('insulation')"/>
+            </label>
+            <label id="label-toggle-none-insulation" class="hide-section-toggle insulation" for="toggle-none-insulation">
+              Not required
+              <input type="checkbox" id="toggle-none-insulation" onclick="toggleNone('insulation')"/>
+            </label>
+          </header>
+          <main id="toggle-section-questions-insulation">
+
+            <label class="insulation sub-floor"for="insulation-sub-floor">
+              Sub Floor
+              <input class="single-input" type="text" name="insulation-sub-floor" value="" />
+            </label>
+
+            <label class="insulation mid-floor"for="insulation-mid-floor">
+              Mid Floor
+              <input class="single-input" type="text" name="insulation-mid-floor" value="" />
+            </label>
+
+            <label class="insulation walls"for="insulation-walls">
+              Walls
+              <input class="single-input" type="text" name="insulation-walls" value="" />
+            </label>
+
+            <label class="insulation ceiling"for="insulation-ceiling">
+              Ceiling
+              <input class="single-input" type="text" name="insulation-ceiling" value="" />
+            </label>
+
+            <label class="insulation accoustic"for="insulation-accoustic">
+              Accoustic
+              <input class="single-input" type="text" name="insulation-accoustic" value="" />
+            </label>
+
+            <label class="insulation garage-walls-ceiling"for="insulation-garage-walls-ceiling">
+              Garage walls/Ceiling (included)
+              <input class="single-input" type="text" name="insulation-garage-walls-ceiling" value="" />
+            </label>
+
+            <label class="insulation installation"for="insulation-installation">
+              Installation
+              <input class="single-input" type="text" name="insulation-installation" value="" />
+            </label>
+          </main>
+        </div>
+
+
+
+
+        <div class="toggle-section interior-linings">
+          <header id="toggle-section-header-interior-linings" class="toggle-section-header">
+            Interior Linings
+            <label id="label-toggle-all-interior-linings" class="all-items-toggle interior-linings" for="toggle-all-interior-linings">
+              All Items
+              <input type="checkbox"  id="toggle-all-interior-linings" onclick="toggleAll('interior-linings')"/>
+            </label>
+            <label id="label-toggle-none-interior-linings" class="hide-section-toggle interior-linings" for="toggle-none-interior-linings">
+              Not required
+              <input type="checkbox" id="toggle-none-interior-linings" onclick="toggleNone('interior-linings')"/>
+            </label>
+          </header>
+          <main id="toggle-section-questions-interior-linings">
+
+            <label class="interior-linings wall"for="interior-linings-wall">
+              Wall
+              <input class="single-input" type="text" name="interior-linings-wall" value="" />
+            </label>
+
+            <label class="interior-linings wet-wall"for="interior-linings-wet-wall">
+              Wet Wall
+              <input class="single-input" type="text" name="interior-linings-wet-wall" value="" />
+            </label>
+
+            <label class="interior-linings bathroom"for="interior-linings-bathroom">
+              Bathroom
+              <input class="single-input" type="text" name="interior-linings-bathroom" value="" />
+            </label>
+
+            <label class="interior-linings wc"for="interior-linings-wc">
+              WC
+              <input class="single-input" type="text" name="interior-linings-wc" value="" />
+            </label>
+
+            <label class="interior-linings ceiling"for="interior-linings-ceiling">
+              Ceiling
+              <input class="single-input" type="text" name="interior-linings-ceiling" value="" />
+            </label>
+
+            <label class="interior-linings wet-ceiling"for="interior-linings-wet-ceiling">
+              Wet Ceiling
+              <input class="single-input" type="text" name="interior-linings-wet-ceiling" value="" />
+            </label>
+
+            <label class="interior-linings ensuite"for="interior-linings-ensuite">
+              Ensuite
+              <input class="single-input" type="text" name="interior-linings-ensuite" value="" />
+            </label>
+
+            <label class="interior-linings laundry"for="interior-linings-laundry">
+              Laundry
+              <input class="single-input" type="text" name="interior-linings-laundry" value="" />
+            </label>
+
+            <label class="interior-linings other"for="interior-linings-other">
+              Other
+              <input class="single-input" type="text" name="interior-linings-other" value="" />
+            </label>
+          </main>
+        </div>
+
+
+        <div class="toggle-section interior-doors">
+          <header id="toggle-section-header-interior-doors" class="toggle-section-header">
+            Interior Doors
+            <label  id="label-toggle-all-interior-doors" class="all-items-toggle interior-doors" for="toggle-all-interior-doors">
+              All Items
+              <input type="checkbox"  id="toggle-all-interior-doors" onclick="toggleAll('interior-doors')"/>
+            </label>
+            <label  id="label-toggle-none-interior-doors" class="hide-section-toggle interior-doors" for="toggle-none-interior-doors">
+              Not required
+              <input type="checkbox" id="toggle-none-interior-doors" onclick="toggleNone('interior-doors')"/>
+            </label>
+          </header>
+          <main id="toggle-section-questions-interior-doors">
+
+            <label class="interior-doors door-type"for="interior-doors-door-type">
+              MDF HC PQ FJ FLAT JAMB
+              <input class="single-input" type="text" name="interior-doors-door-type" value="" />
+            </label>
+
+            <label class="interior-doors door-hardware"for="interior-doors-door-hardware">
+              Door Hardware
+              <input class="single-input" type="text" name="interior-doors-door-hardware" value="" />
+            </label>
+          </main>
+        </div>
+
+        <div class="toggle-section interior-finishings">
+          <header id="toggle-section-header-interior-finishings" class="toggle-section-header">
+            Interior Finishings
+            <label  id="label-toggle-all-interior-finishings" class="all-items-toggle interior-finishings" for="toggle-all-interior-finishings">
+              All Items
+              <input type="checkbox"  id="toggle-all-interior-finishings" onclick="toggleAll('interior-finishings')"/>
+            </label>
+            <label  id="label-toggle-none-interior-finishings" class="hide-section-toggle interior-finishings" for="toggle-none-interior-finishings">
+              Not required
+              <input type="checkbox" id="toggle-none-interior-finishings" onclick="toggleNone('interior-finishings')"/>
+            </label>
+          </header>
+          <main id="toggle-section-questions-interior-finishings">
+
+            <label class="interior-finishings mdf"for="interior-finishings-mdf">
+              MDF
+              <input class="single-input" type="text" name="interior-finishings-mdf" value="" />
+            </label>
+            <label class="interior-finishings f-j"for="interior-finishings-f-j">
+              F/J
+              <input class="single-input" type="text" name="interior-finishings-f-j" value="" />
+            </label>
+            <label class="interior-finishings clears"for="interior-finishings-clears">
+              Clears
+              <input class="single-input" type="text" name="interior-finishings-clears" value="" />
+            </label>
+            <label class="interior-finishings timber-cornice"for="interior-finishings-timber-cornice">
+              Timber Cornice
+              <input class="single-input" type="text" name="interior-finishings-timber-cornice" value="" />
+            </label>
+            <label class="interior-finishings gib-cove"for="interior-finishings-gib-cove">
+              Gib Cove
+              <input class="single-input" type="text" name="interior-finishings-gib-cove" value="" />
+            </label>
+            <label class="interior-finishings skirting"for="interior-finishings-skirting">
+              Skirting
+              <input class="single-input" type="text" name="interior-finishings-skirting" value="" />
+            </label>
+            <label class="interior-finishings architrave"for="interior-finishings-architrave">
+              Architrave
+              <input class="single-input" type="text" name="interior-finishings-architrave" value="" />
+            </label>
+            <label class="interior-finishings wet-areas"for="interior-finishings-wet-areas">
+              Wet Areas
+              <input class="single-input" type="text" name="interior-finishings-wet-areas" value="" />
+            </label>
+            <label class="interior-finishings shelving"for="interior-finishings-shelving">
+              Shelving
+              <input class="single-input" type="text" name="interior-finishings-shelving" value="" />
+            </label>
+          </main>
+
+        </div>
+
+        <div class="toggle-section landscaping">
+          <header id="toggle-section-header-landscaping" class="toggle-section-header">
+            Landscaping
+            <label id="label-toggle-all-landscaping" class="all-items-toggle landscaping" for="toggle-all-landscaping">
+              All Items
+              <input type="checkbox"  id="toggle-all-landscaping" onclick="toggleAll('landscaping')"/>
+            </label>
+            <label id="label-toggle-none-landscaping" class="hide-section-toggle landscaping" for="toggle-none-landscaping">
+              Not required
+              <input type="checkbox" id="toggle-none-landscaping" onclick="toggleNone('landscaping')"/>
+            </label>
+          </header>
+          <main id="toggle-section-questions-landscaping">
+            <label class="landscaping concrete-patios"for="landscaping-concrete-patios">
+              Concrete Patios
+              <input class="single-input" type="text" name="landscaping-concrete-patios" value="" />
+            </label>
+            <label class="landscaping ply-deck"for="landscaping-ply-deck">
+              Ply Deck
+              <input class="single-input" type="text" name="landscaping-ply-deck" value="" />
+            </label>
+            <label class="landscaping decking"for="landscaping-decking">
+              Decking
+              <input class="single-input" type="text" name="landscaping-decking" value="" />
+            </label>
+            <label class="landscaping car-port"for="landscaping-car-port">
+              Carport
+              <input class="single-input" type="text" name="landscaping-car-port" value="" />
+            </label>
+            <label class="landscaping pergola"for="landscaping-pergola">
+              Pergola
+              <input class="single-input" type="text" name="landscaping-pergola" value="" />
+            </label>
+            <label class="landscaping timber-retaining-wall"for="landscaping-timber-retaining-wall">
+              Timber Retaining Wall
+              <input class="single-input" type="text" name="landscaping-timber-retaining-wall" value="" />
+            </label>
+          </main>
+        </div>
+
+
+      </div>
+
     </div>
-    <div class="toggle-section-wrapper">
-      <div class="toggle-section foundations">
-        <header id="toggle-section-header-foundations" class="toggle-section-header">
-          <h3>Foundations</h3>
-          <label id="label-toggle-all-foundations" class="all-items-toggle foundations" for="toggle-all-foundations">
-            All Items
-            <input type="checkbox"  id="toggle-all-foundations" onclick="toggleAll('foundations')" />
-          </label>
-          <label id="label-toggle-none-foundations" class="hide-section-toggle foundations" for="toggle-none-foundations">
-            Not required
-            <input type="checkbox" id="toggle-none-foundations" onclick="toggleNone('foundations')" />
-          </label>
-        </header>
-        <main id="toggle-section-questions-foundations">
-          <label class="foundations reinforcing-steel"for="foundations-reinforcing-steel">
-            <input class="checkbox" type="checkbox" name="foundations-reinforcing-steel" value="" />
-            Reinforcing Steel
-          </label>
-          <label class="foundations blocks"for="foundations-blocks">
-            <input class="checkbox" type="checkbox" checkbox="foundations-blocks" value="" />
-            Blocks
-          </label>
-          <label class="foundations pod-system"for="foundations-pod-system">
-            <input class="checkbox" type="checkbox" name="foundations-pod-system" value="" />
-            Pod System
-          </label>
-          <label class="foundations piles"for="foundations-piles">
-            <input class="checkbox" type="checkbox" name="foundations-piles" value="" />
-            Piles
-          </label>
-        </main>
-      </div>
-
-      <div class="toggle-section timber-floor">
-        <header id="toggle-section-header-timber-floor" class="toggle-section-header">
-          Timber Floor
-          <label id="label-toggle-all-timber-floor" class="all-items-toggle timber-floor" for="toggle-all-timber-floor">
-            All Items
-            <input type="checkbox"  id="toggle-all-timber-floor" onclick="toggleAll('timber-floor')"/>
-          </label>
-          <label id="label-toggle-none-timber-floor" class="hide-section-toggle timber-floor" for="toggle-none-timber-floor">
-            Not required
-            <input type="checkbox" id="toggle-none-timber-floor" onclick="toggleNone('timber-floor')"/>
-          </label>
-        </header>
-        <main id="toggle-section-questions-timber-floor">
-          <label class="timber-floor bearers"for="timber-floor-bearers">
-            <input class="checkbox" type="checkbox" name="timber-floor-bearers" value="" />
-            Bearers
-            <input class="single-input" type="text" name="timber-floor-bearers" value="" />
-          </label>
-
-          <label class="timber-floor Joists"for="timber-floor-Joists">
-            <input class="checkbox" type="checkbox" name="timber-floor-Joists" value="" />
-            Joists
-            <input class="single-input" type="text" name="timber-floor-Joists" value="" />
-          </label>
-
-          <label class="timber-floor flooring"for="timber-floor-flooring">
-            <input class="checkbox" type="checkbox" name="timber-floor-flooring" value="" />
-            Flooring
-            <input class="single-input" type="text" name="timber-floor-flooring" value="" />
-          </label>
-
-          <label class="timber-floor wet-area-flooring"for="timber-floor-wet-area-flooring">
-            <input class="checkbox" type="checkbox" name="timber-floor-wet-area-flooring" value="" />
-            Wet Area Flooring
-            <input class="single-input" type="text" name="timber-floor-wet-area-flooring" value="" />
-          </label>
-
-          <label class="timber-floor tile-slate-underlay"for="timber-floor-tile-slate-underlay">
-            <input class="checkbox" type="checkbox" name="timber-floor-tile-slate-underlay" value="" />
-            Tile & Slate Underlay
-            <input class="single-input" type="text" name="timber-floor-tile-slate-underlay" value="" />
-          </label>
-        </main>
-      </div>
-
-
-      <div class="toggle-section wall-framing">
-        <header class="toggle-section-header" id="toggle-section-header-wall-framing">
-          Wall Framing
-          <label id="label-toggle-all-wall-framing" class="all-items-toggle wall-framing" for="toggle-all-wall-framing">
-            All Items
-            <input type="checkbox" id="toggle-all-wall-framing" onclick="toggleAll('wall-framing')"/>
-          </label>
-          <label id="label-toggle-none-wall-framing" class="hide-section-toggle wall-framing" for="toggle-none-wall-framing">
-            Not required
-            <input type="checkbox" id="toggle-none-wall-framing" onclick="toggleNone('wall-framing')"/>
-          </label>
-        </header>
-        <main id="toggle-section-questions-wall-framing" >
-          <label class="wall-framing prenailer-supplied"for="wall-framing-prenailer-supplied">
-            <input class="checkbox" type="checkbox" name="wall-framing-prenailer-supplied" value="" />
-            Supplied by Prenailer - Do not allow
-          </label>
-          <label class="wall-framing random"for="wall-framing-random">
-            <input class="checkbox" type="checkbox" name="wall-framing-random" value="" />
-            Random
-          </label>
-          <label class="wall-framing capping"for="wall-framing-capping">
-            <input class="checkbox" type="checkbox" name="wall-framing-capping" value="" />
-            Capping
-          </label>
-          <label class="wall-framing strapping"for="wall-framing-strapping">
-            <input class="checkbox" type="checkbox" name="wall-framing-strapping" value="" />
-            Strapping
-          </label>
-
-          <label class="wall-framing h-one-two"for="wall-framing-h-one-two">
-            <input class="checkbox" type="checkbox" name="wall-framing-h-one-two" value="" />
-            H1.2
-          </label>
-          <label class="wall-framing h-three-two"for="wall-framing-h-three-two">
-            <input class="checkbox" type="checkbox" name="wall-framing-h-three-two" value="" />
-            H3.2
-          </label>
-          <label class="wall-framing h-three-plates"for="wall-framing-h-three-plates">
-            <input class="checkbox" type="checkbox" name="wall-framing-h-three-plates" value="" />
-            H3 Plates
-          </label>
-
-          <label class="wall-framing beams"for="wall-framing-beams">
-            <input class="checkbox" type="checkbox" name="wall-framing-beams" value="" />
-            Beams
-          </label>
-          <label class="wall-framing posts"for="wall-framing-posts">
-            <input class="checkbox" type="checkbox" name="wall-framing-posts" value="" />
-            Posts
-          </label>
-
-
-          <label class="wall-framing metal"for="wall-framing-metal">
-            <input class="checkbox" type="checkbox" name="wall-framing-metal" value="" />
-            Metal
-          </label>
-
-          <label class="wall-framing timber"for="wall-framing-timber">
-            <input class="checkbox" type="checkbox" name="wall-framing-timber" value="" />
-            Timber
-          </label>
-        </main>
-      </div>
-
-      <div class="toggle-section roof-framing">
-        <header class="toggle-section-header" id="toggle-section-header-roof-framing">
-          Roof Framing
-          <label id="label-toggle-all-roof-framing" class="all-items-toggle roof-framing" for="toggle-all-roof-framing">
-            All Items
-            <input type="checkbox"  id="toggle-all-roof-framing" onclick="toggleAll('roof-framing')"/>
-          </label>
-          <label id="label-toggle-none-roof-framing" class="hide-section-toggle roof-framing" for="toggle-none-roof-framing">
-            Not required
-            <input type="checkbox" id="toggle-none-roof-framing" onclick="toggleNone('roof-framing')"/>
-          </label>
-        </header>
-        <main id="toggle-section-questions-roof-framing">
-          <label class="roof-framing prenailer-supplied"for="roof-framing-prenailer-supplied">
-            Supplied by Prenailer - Do not allow
-            <input class="single-input" type="text" name="roof-framing-prenailer-supplied" value="" />
-          </label>
-          <label class="roof-framing bor-pack"for="roof-framing-bor-pack">
-            BOR Pack (as Agreed)
-            <input class="single-input" type="text" name="roof-framing-bor-pack" value="" />
-          </label>
-          <label class="roof-framing ply-membrane"for="roof-framing-ply-membrane">
-            Ply to Membrane Roof
-            <input class="single-input" type="text" name="roof-framing-ply-membrane" value="" />
-          </label>
-          <label class="roof-framing ply-shingle"for="roof-framing-ply-shingle">
-            Ply to Shingle Roof
-            <input class="single-input" type="text" name="roof-framing-ply-shingle" value="" />
-          </label>
-          <label class="roof-framing purlins-only"for="roof-framing-purlins-only">
-            Purlins only
-            <input class="single-input" type="text" name="roof-framing-purlins-only" value="" />
-          </label>
-        </main>
-
-      </div>
-
-
-
-      <div class="toggle-section exterior-finishing">
-        <header id="toggle-section-header-exterior-finishing" class="toggle-section-header">
-          Exterior Finishings
-          <label id="label-toggle-all-exterior-finishing" class="all-items-toggle exterior-finishing" for="toggle-all-exterior-finishing">
-            All Items
-            <input type="checkbox"  id="toggle-all-exterior-finishing" onclick="toggleAll('exterior-finishing')"/>
-          </label>
-          <label id="label-toggle-none-exterior-finishing" class="hide-section-toggle exterior-finishing" for="toggle-none-exterior-finishing">
-            Not required
-            <input type="checkbox" id="toggle-none-exterior-finishing" onclick="toggleNone('exterior-finishing')"/>
-          </label>
-        </header>
-        <main id="toggle-section-questions-exterior-finishing">
-
-          <label class="exterior-finishing building-wrap"for="exterior-finishing-building-wrap">
-            Building Wrap
-            <input class="single-input" type="text" name="exterior-finishing-building-wrap" value="" />
-          </label>
-
-          <label class="exterior-finishing timber-fascia"for="exterior-finishing-timber-fascia">
-            Timber Fascia
-            <input class="single-input" type="text" name="exterior-finishing-timber-fascia" value="" />
-          </label>
-
-          <label class="exterior-finishing rab"for="exterior-finishing-rab">
-            RAB
-
-            <input class="single-input" type="text" name="exterior-finishing-rab" value="" />
-          </label>
-
-          <label class="exterior-finishing metal-fascia"for="exterior-finishing-metal-fascia">
-            Metal Fascia by Others
-            <input class="single-input" type="text" name="exterior-finishing-metal-fascia" value="" />
-          </label>
-
-          <label class="exterior-finishing pvc-spouting"for="exterior-finishing-pvc-spouting">
-            PVC Spouting
-            <input class="single-input" type="text" name="exterior-finishing-pvc-spouting" value="" />
-          </label>
-
-          <label class="exterior-finishing soffit"for="exterior-finishing-soffit">
-            Soffit
-
-            <input class="single-input" type="text" name="exterior-finishing-soffit" value="" />
-          </label>
-
-          <label class="exterior-finishing eaves-mould"for="exterior-finishing-eaves-mould">
-            Eaves Mould
-            <input class="single-input" type="text" name="exterior-finishing-eaves-mould" value="" />
-          </label>
-        </main>
-      </div>
-
-
-
-
-      <div class="toggle-section cladding">
-        <header id="toggle-section-header-cladding" class="toggle-section-header">
-          Cladding
-          <label id="label-toggle-all-cladding" class="all-items-toggle cladding" for="toggle-all-cladding">
-            All Items
-            <input type="checkbox"  id="toggle-all-cladding" onclick="toggleAll('cladding')"/>
-          </label>
-          <label id="label-toggle-none-cladding" class="hide-section-toggle cladding" for="toggle-none-cladding">
-            Not required
-            <input type="checkbox" id="toggle-none-cladding" onclick="toggleNone('cladding')"/>
-          </label>
-        </header>
-        <main id="toggle-section-questions-cladding">
-          <label class="cladding brick"for="cladding-brick">
-            Brick
-            <input class="single-input" type="text" name="cladding-brick" value="" />
-          </label>
-
-          <label class="cladding sheet"for="cladding-sheet">
-            Sheet
-            <input class="single-input" type="text" name="cladding-sheet" value="" />
-          </label>
-
-          <label class="cladding w-board"for="cladding-w-board">
-            W/Board
-
-            <input class="single-input" type="text" name="cladding-w-board" value="" />
-          </label>
-
-          <label class="cladding stone-cladding-substrate"for="cladding-stone-cladding-substrate">
-            Stone Cladding Substrate
-            <input class="single-input" type="text" name="cladding-stone-cladding-substrate" value="" />
-          </label>
-        </main>
-      </div>
-
-      <div class="toggle-section insulation">
-        <header id="toggle-section-header-insulation" class="toggle-section-header">
-          Insulation
-          <label id="label-toggle-all-insulation" class="all-items-toggle insulation" for="toggle-all-insulation">
-            All Items
-            <input type="checkbox"  id="toggle-all-insulation" onclick="toggleAll('insulation')"/>
-          </label>
-          <label id="label-toggle-none-insulation" class="hide-section-toggle insulation" for="toggle-none-insulation">
-            Not required
-            <input type="checkbox" id="toggle-none-insulation" onclick="toggleNone('insulation')"/>
-          </label>
-        </header>
-        <main id="toggle-section-questions-insulation">
-
-          <label class="insulation sub-floor"for="insulation-sub-floor">
-            Sub Floor
-            <input class="single-input" type="text" name="insulation-sub-floor" value="" />
-          </label>
-
-          <label class="insulation mid-floor"for="insulation-mid-floor">
-            Mid Floor
-            <input class="single-input" type="text" name="insulation-mid-floor" value="" />
-          </label>
-
-          <label class="insulation walls"for="insulation-walls">
-            Walls
-            <input class="single-input" type="text" name="insulation-walls" value="" />
-          </label>
-
-          <label class="insulation ceiling"for="insulation-ceiling">
-            Ceiling
-            <input class="single-input" type="text" name="insulation-ceiling" value="" />
-          </label>
-
-          <label class="insulation accoustic"for="insulation-accoustic">
-            Accoustic
-            <input class="single-input" type="text" name="insulation-accoustic" value="" />
-          </label>
-
-          <label class="insulation garage-walls-ceiling"for="insulation-garage-walls-ceiling">
-            Garage walls/Ceiling (included)
-            <input class="single-input" type="text" name="insulation-garage-walls-ceiling" value="" />
-          </label>
-
-          <label class="insulation installation"for="insulation-installation">
-            Installation
-            <input class="single-input" type="text" name="insulation-installation" value="" />
-          </label>
-        </main>
-      </div>
-
-
-
-
-      <div class="toggle-section interior-linings">
-        <header id="toggle-section-header-interior-linings" class="toggle-section-header">
-          Interior Linings
-          <label id="label-toggle-all-interior-linings" class="all-items-toggle interior-linings" for="toggle-all-interior-linings">
-            All Items
-            <input type="checkbox"  id="toggle-all-interior-linings" onclick="toggleAll('interior-linings')"/>
-          </label>
-          <label id="label-toggle-none-interior-linings" class="hide-section-toggle interior-linings" for="toggle-none-interior-linings">
-            Not required
-            <input type="checkbox" id="toggle-none-interior-linings" onclick="toggleNone('interior-linings')"/>
-          </label>
-        </header>
-        <main id="toggle-section-questions-interior-linings">
-
-          <label class="interior-linings wall"for="interior-linings-wall">
-            Wall
-            <input class="single-input" type="text" name="interior-linings-wall" value="" />
-          </label>
-
-          <label class="interior-linings wet-wall"for="interior-linings-wet-wall">
-            Wet Wall
-            <input class="single-input" type="text" name="interior-linings-wet-wall" value="" />
-          </label>
-
-          <label class="interior-linings bathroom"for="interior-linings-bathroom">
-            Bathroom
-            <input class="single-input" type="text" name="interior-linings-bathroom" value="" />
-          </label>
-
-          <label class="interior-linings wc"for="interior-linings-wc">
-            WC
-            <input class="single-input" type="text" name="interior-linings-wc" value="" />
-          </label>
-
-          <label class="interior-linings ceiling"for="interior-linings-ceiling">
-            Ceiling
-            <input class="single-input" type="text" name="interior-linings-ceiling" value="" />
-          </label>
-
-          <label class="interior-linings wet-ceiling"for="interior-linings-wet-ceiling">
-            Wet Ceiling
-            <input class="single-input" type="text" name="interior-linings-wet-ceiling" value="" />
-          </label>
-
-          <label class="interior-linings ensuite"for="interior-linings-ensuite">
-            Ensuite
-            <input class="single-input" type="text" name="interior-linings-ensuite" value="" />
-          </label>
-
-          <label class="interior-linings laundry"for="interior-linings-laundry">
-            Laundry
-            <input class="single-input" type="text" name="interior-linings-laundry" value="" />
-          </label>
-
-          <label class="interior-linings other"for="interior-linings-other">
-            Other
-            <input class="single-input" type="text" name="interior-linings-other" value="" />
-          </label>
-        </main>
-      </div>
-
-
-      <div class="toggle-section interior-doors">
-        <header id="toggle-section-header-interior-doors" class="toggle-section-header">
-          Interior Doors
-          <label  id="label-toggle-all-interior-doors" class="all-items-toggle interior-doors" for="toggle-all-interior-doors">
-            All Items
-            <input type="checkbox"  id="toggle-all-interior-doors" onclick="toggleAll('interior-doors')"/>
-          </label>
-          <label  id="label-toggle-none-interior-doors" class="hide-section-toggle interior-doors" for="toggle-none-interior-doors">
-            Not required
-            <input type="checkbox" id="toggle-none-interior-doors" onclick="toggleNone('interior-doors')"/>
-          </label>
-        </header>
-        <main id="toggle-section-questions-interior-doors">
-
-          <label class="interior-doors door-type"for="interior-doors-door-type">
-            MDF HC PQ FJ FLAT JAMB
-            <input class="single-input" type="text" name="interior-doors-door-type" value="" />
-          </label>
-
-          <label class="interior-doors door-hardware"for="interior-doors-door-hardware">
-            Door Hardware
-            <input class="single-input" type="text" name="interior-doors-door-hardware" value="" />
-          </label>
-        </main>
-      </div>
-
-      <div class="toggle-section interior-finishings">
-        <header id="toggle-section-header-interior-finishings" class="toggle-section-header">
-          Interior Finishings
-          <label  id="label-toggle-all-interior-finishings" class="all-items-toggle interior-finishings" for="toggle-all-interior-finishings">
-            All Items
-            <input type="checkbox"  id="toggle-all-interior-finishings" onclick="toggleAll('interior-finishings')"/>
-          </label>
-          <label  id="label-toggle-none-interior-finishings" class="hide-section-toggle interior-finishings" for="toggle-none-interior-finishings">
-            Not required
-            <input type="checkbox" id="toggle-none-interior-finishings" onclick="toggleNone('interior-finishings')"/>
-          </label>
-        </header>
-        <main id="toggle-section-questions-interior-finishings">
-
-          <label class="interior-finishings mdf"for="interior-finishings-mdf">
-            MDF
-            <input class="single-input" type="text" name="interior-finishings-mdf" value="" />
-          </label>
-          <label class="interior-finishings f-j"for="interior-finishings-f-j">
-            F/J
-            <input class="single-input" type="text" name="interior-finishings-f-j" value="" />
-          </label>
-          <label class="interior-finishings clears"for="interior-finishings-clears">
-            Clears
-            <input class="single-input" type="text" name="interior-finishings-clears" value="" />
-          </label>
-          <label class="interior-finishings timber-cornice"for="interior-finishings-timber-cornice">
-            Timber Cornice
-            <input class="single-input" type="text" name="interior-finishings-timber-cornice" value="" />
-          </label>
-          <label class="interior-finishings gib-cove"for="interior-finishings-gib-cove">
-            Gib Cove
-            <input class="single-input" type="text" name="interior-finishings-gib-cove" value="" />
-          </label>
-          <label class="interior-finishings skirting"for="interior-finishings-skirting">
-            Skirting
-            <input class="single-input" type="text" name="interior-finishings-skirting" value="" />
-          </label>
-          <label class="interior-finishings architrave"for="interior-finishings-architrave">
-            Architrave
-            <input class="single-input" type="text" name="interior-finishings-architrave" value="" />
-          </label>
-          <label class="interior-finishings wet-areas"for="interior-finishings-wet-areas">
-            Wet Areas
-            <input class="single-input" type="text" name="interior-finishings-wet-areas" value="" />
-          </label>
-          <label class="interior-finishings shelving"for="interior-finishings-shelving">
-            Shelving
-            <input class="single-input" type="text" name="interior-finishings-shelving" value="" />
-          </label>
-        </main>
-
-      </div>
-
-      <div class="toggle-section landscaping">
-        <header id="toggle-section-header-landscaping" class="toggle-section-header">
-          Landscaping
-          <label id="label-toggle-all-landscaping" class="all-items-toggle landscaping" for="toggle-all-landscaping">
-            All Items
-            <input type="checkbox"  id="toggle-all-landscaping" onclick="toggleAll('landscaping')"/>
-          </label>
-          <label id="label-toggle-none-landscaping" class="hide-section-toggle landscaping" for="toggle-none-landscaping">
-            Not required
-            <input type="checkbox" id="toggle-none-landscaping" onclick="toggleNone('landscaping')"/>
-          </label>
-        </header>
-        <main id="toggle-section-questions-landscaping">
-          <label class="landscaping concrete-patios"for="landscaping-concrete-patios">
-            Concrete Patios
-            <input class="single-input" type="text" name="landscaping-concrete-patios" value="" />
-          </label>
-          <label class="landscaping ply-deck"for="landscaping-ply-deck">
-            Ply Deck
-            <input class="single-input" type="text" name="landscaping-ply-deck" value="" />
-          </label>
-          <label class="landscaping decking"for="landscaping-decking">
-            Decking
-            <input class="single-input" type="text" name="landscaping-decking" value="" />
-          </label>
-          <label class="landscaping car-port"for="landscaping-car-port">
-            Carport
-            <input class="single-input" type="text" name="landscaping-car-port" value="" />
-          </label>
-          <label class="landscaping pergola"for="landscaping-pergola">
-            Pergola
-            <input class="single-input" type="text" name="landscaping-pergola" value="" />
-          </label>
-          <label class="landscaping timber-retaining-wall"for="landscaping-timber-retaining-wall">
-            Timber Retaining Wall
-            <input class="single-input" type="text" name="landscaping-timber-retaining-wall" value="" />
-          </label>
-        </main>
-      </div>
-
-
-    </div>
-
     <div id="Dayles-prenail-questions" class="" style="display:none">
       <header>
         <h1>

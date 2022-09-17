@@ -47,8 +47,11 @@
   }
 
   label {
-    width: 100%;
+    min-width: 35%;
     display: block;
+    margin: 2px;
+    padding: 5px;
+
   }
   .section header{
     background-color: gray;
@@ -100,6 +103,12 @@
     width: 48%;
     border-radius: 5px;
     flex-grow: 1;
+  }
+
+  .toggle-section-questions {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
   }
 
   </style>
@@ -537,7 +546,7 @@
       <div class="toggle-section-wrapper" id='toggle-section-wrapper'>
         <div class="toggle-section foundations">
           <header id="toggle-section-header-foundations" class="toggle-section-header">
-            <h3>Foundations</h3>
+            Foundations
             <label id="label-toggle-all-foundations" class="all-items-toggle foundations" for="toggle-all-foundations">
               All Items
               <input type="checkbox"  id="toggle-all-foundations" onclick="toggleAll('foundations')" />
@@ -547,7 +556,7 @@
               <input type="checkbox" id="toggle-none-foundations" onclick="toggleNone('foundations')" />
             </label>
           </header>
-          <main id="toggle-section-questions-foundations">
+          <main class='toggle-section-questions' id="toggle-section-questions-foundations">
             <label class="foundations reinforcing-steel"for="foundations-reinforcing-steel">
               <input class="checkbox" type="checkbox" name="foundations-reinforcing-steel" value="" />
               Reinforcing Steel
@@ -564,6 +573,11 @@
               <input class="checkbox" type="checkbox" name="foundations-piles" value="" />
               Piles
             </label>
+            <label class="foundations other"for="foundations-other">
+              Other
+              <input class="text" type="text" name="foundations-other" value="" />
+            </label>
+
           </main>
         </div>
 
@@ -579,7 +593,7 @@
               <input type="checkbox" id="toggle-none-timber-floor" onclick="toggleNone('timber-floor')"/>
             </label>
           </header>
-          <main id="toggle-section-questions-timber-floor">
+          <main class="toggle-section-questions" id="toggle-section-questions-timber-floor">
             <label class="timber-floor bearers"for="timber-floor-bearers">
               <input class="checkbox" type="checkbox" name="timber-floor-bearers" value="" />
               Bearers
@@ -625,7 +639,7 @@
               <input type="checkbox" id="toggle-none-wall-framing" onclick="toggleNone('wall-framing')"/>
             </label>
           </header>
-          <main id="toggle-section-questions-wall-framing" >
+          <main class="toggle-section-questions" id="toggle-section-questions-wall-framing" >
             <label class="wall-framing prenailer-supplied"for="wall-framing-prenailer-supplied">
               <input class="checkbox" type="checkbox" name="wall-framing-prenailer-supplied" value="" />
               Supplied by Prenailer - Do not allow
@@ -690,7 +704,7 @@
               <input type="checkbox" id="toggle-none-roof-framing" onclick="toggleNone('roof-framing')"/>
             </label>
           </header>
-          <main id="toggle-section-questions-roof-framing">
+          <main class="toggle-section-questions" id="toggle-section-questions-roof-framing">
             <label class="roof-framing prenailer-supplied"for="roof-framing-prenailer-supplied">
               Supplied by Prenailer - Do not allow
               <input class="single-input" type="text" name="roof-framing-prenailer-supplied" value="" />
@@ -729,7 +743,7 @@
               <input type="checkbox" id="toggle-none-exterior-finishing" onclick="toggleNone('exterior-finishing')"/>
             </label>
           </header>
-          <main id="toggle-section-questions-exterior-finishing">
+          <main class="toggle-section-questions" id="toggle-section-questions-exterior-finishing">
 
             <label class="exterior-finishing building-wrap"for="exterior-finishing-building-wrap">
               Building Wrap
@@ -785,7 +799,7 @@
               <input type="checkbox" id="toggle-none-cladding" onclick="toggleNone('cladding')"/>
             </label>
           </header>
-          <main id="toggle-section-questions-cladding">
+          <main class="toggle-section-questions" id="toggle-section-questions-cladding">
             <label class="cladding brick"for="cladding-brick">
               Brick
               <input class="single-input" type="text" name="cladding-brick" value="" />
@@ -821,7 +835,7 @@
               <input type="checkbox" id="toggle-none-insulation" onclick="toggleNone('insulation')"/>
             </label>
           </header>
-          <main id="toggle-section-questions-insulation">
+          <main class="toggle-section-questions" id="toggle-section-questions-insulation">
 
             <label class="insulation sub-floor"for="insulation-sub-floor">
               Sub Floor
@@ -875,7 +889,7 @@
               <input type="checkbox" id="toggle-none-interior-linings" onclick="toggleNone('interior-linings')"/>
             </label>
           </header>
-          <main id="toggle-section-questions-interior-linings">
+          <main class="toggle-section-questions" id="toggle-section-questions-interior-linings">
 
             <label class="interior-linings wall"for="interior-linings-wall">
               Wall
@@ -937,7 +951,7 @@
               <input type="checkbox" id="toggle-none-interior-doors" onclick="toggleNone('interior-doors')"/>
             </label>
           </header>
-          <main id="toggle-section-questions-interior-doors">
+          <main class="toggle-section-questions" id="toggle-section-questions-interior-doors">
 
             <label class="interior-doors door-type"for="interior-doors-door-type">
               MDF HC PQ FJ FLAT JAMB
@@ -963,7 +977,7 @@
               <input type="checkbox" id="toggle-none-interior-finishings" onclick="toggleNone('interior-finishings')"/>
             </label>
           </header>
-          <main id="toggle-section-questions-interior-finishings">
+          <main class="toggle-section-questions" id="toggle-section-questions-interior-finishings">
 
             <label class="interior-finishings mdf"for="interior-finishings-mdf">
               MDF
@@ -1017,7 +1031,7 @@
               <input type="checkbox" id="toggle-none-landscaping" onclick="toggleNone('landscaping')"/>
             </label>
           </header>
-          <main id="toggle-section-questions-landscaping">
+          <main class="toggle-section-questions" id="toggle-section-questions-landscaping">
             <label class="landscaping concrete-patios"for="landscaping-concrete-patios">
               Concrete Patios
               <input class="single-input" type="text" name="landscaping-concrete-patios" value="" />

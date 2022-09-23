@@ -77,6 +77,35 @@ function processForm(form) {
 
     var quotesOutput = "<br>This email was sent to: <br><ul>"
 
+    // PreNail
+    output += "<br> <h3>Prenail</h3>"
+
+     if(form['outsourcing-selection-prenail-turangi']) {
+       output += "<br>Sent to turangi for estimation"
+
+     }
+     if(form['outsourcing-selection-prenail-ntml']) {
+       output += "<br>Sent to ntml for estimation"
+     }
+     if(form['outsourcing-selection-prenail-dayles']) {
+       output += "<br>Sent to dayles for estimation"
+     }
+
+
+     // Reinforcing
+     output += "<br> <h3>Reinforcing</h3>"
+      if(form['outsourcing-selection-reinforcing-united-steel']) {
+        output += "<br>Sent to united-steel for estimation"
+
+      }
+      if(form['outsourcing-selection-reinforcing-Summit']) {
+        output += "<br>Sent to Summit for estimation"
+      }
+      if(form['outsourcing-selection-reinforcing-Wyatt']) {
+        output += "<br>Sent to Wyatt for estimation"
+      }
+
+
     if(form.emailTo){
       sendEmail(form.emailTo, output, detailingSubject) // email the additional
       quotesOutput += "<li>Additional "+form.emailTo+"</li>"

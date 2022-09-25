@@ -64,8 +64,8 @@ function processForm(form) {
       dayleContent+= "<label>Mid Floors</label> <br />"
       dayleContent+= "<label>Flitch Beams </label> <br />"
       dayleContent+= "</div></div>"
-      var dayelBlob = Utilities.newBlob(dayleContent, "text/html", "text.html");
-      var daylePdf = dayelBlob.getAs("application/pdf");
+      var dayleBlob = Utilities.newBlob(dayleContent, "text/html", "text.html");
+      var daylePdf = dayleBlob.getAs("application/pdf");
       uploadedDaylePDF = JobFolder.createFile(daylePdf).setName("pdf "+form['job-info-address']+".pdf");
       uploadedDayleHTML = JobFolder.createFile("html "+form['job-info-address']+".html", dayleContent, MimeType.HTML);
       uploadedDaylePDF.setSharing(DriveApp.Access.ANYONE, DriveApp.Permission.EDIT);

@@ -25,6 +25,62 @@ function processForm(form) {
     var content = "<p> this is just a test </p>"
 
 
+    var uploadedDaylePDF
+    var uploadedDayleHTML
+    if(form['outsourcing-selection-prenail-dayles']) {
+      var dayleContent = "";
+      dayleContent+= "<style>.page-header {display:flex}"
+      dayleContent+= ".wrapper {max-width: 900px;}"
+      dayleContent+= ".quote-info-wrapper {display:flex;flex-wrap: wrap;}"
+      dayleContent+= "label {margin: 5px;}</style>"
+      dayleContent+= "<div class='wrapper'>"
+      dayleContent+= "<header class='page-header' style = ''>"
+      dayleContent+= "<img src='https://www.earthimpressions.co.nz/wp-content/uploads/2021/07/Logo_ITM.jpg' />"
+      dayleContent+= "<h2>Prenail Estimate Request Sheet</h2></header>"
+      dayleContent+= "<table class=''>"
+      dayleContent+= "<tr><td>Client name:"+form['customer-info-name']+"</td><td>Job name:"+form['job-info-address']+" </td></tr>"
+      dayleContent+= "<tr><td>Site Address: </td><td>Branch: </td></tr>"
+      dayleContent+= "<tr><td>Received By:</td><td>Sales Person/Rep</td></tr>"
+      dayleContent+= "<tr><td>Date Received:</td><td>Date Required:</td></tr>"
+      dayleContent+= "<tr><td>Builder:</td><td>Email:</td></tr>"
+      dayleContent+= "<tr><td>Quote reference:</td></tr></table>"
+      dayleContent+= "<div><label>Prenail Frames</label> <br />"
+      dayleContent+= "<label>Bottom Plates</label> <br />"
+      dayleContent+= "<label>Trusses / Balance of Roof / Cut Roof</label> <br />"
+      dayleContent+= "<label>Chimney framing</label> <br />"
+      dayleContent+= "<label>LVL Beams</label> <br />"
+      dayleContent+= "<label>Glulam Beams </label> <br />"
+      dayleContent+= "<label>Porch Posts</label> <br />"
+      dayleContent+= "<label>Verandah Posts </label> <br />"
+      dayleContent+= "<label>Enclosed balustrades interior</label> <br />"
+      dayleContent+= "<label>Enclosed balustrades exterior</label> <br />"
+      dayleContent+= "<label>Hip Boards</label> <br />"
+      dayleContent+= "<label>Verandah/Porch Beams - Exposed				</label> <br />"
+      dayleContent+= "<label>Beams in Soffit space</label> <br />"
+      dayleContent+= "<label>Metal Strap Bracing</label> <br />"
+      dayleContent+= "<label>Truss Bottom Chord Bracing - (Rondo) </label> <br />"
+      dayleContent+= "<label>Sub Floors</label> <br />"
+      dayleContent+= "<label>Flitch Beams </label> <br />"
+      dayleContent+= "<label>Mid Floors</label> <br />"
+      dayleContent+= "<label>Flitch Beams </label> <br />"
+      dayleContent+= "</div></div>"
+      var dayelBlob = Utilities.newBlob(dayleContent, "text/html", "text.html");
+      var daylePdf = dayelBlob.getAs("application/pdf");
+      uploadedDaylePDF = JobFolder.createFile(daylePdf).setName("pdf "+form['job-info-address']+".pdf");
+      uploadedDayleHTML = JobFolder.createFile("html "+form['job-info-address']+".html", dayleContent, MimeType.HTML);
+      uploadedDaylePDF.setSharing(DriveApp.Access.ANYONE, DriveApp.Permission.EDIT);
+      uploadedDaylePDF.setSharing(DriveApp.Access.ANYONE_WITH_LINK, DriveApp.Permission.VIEW);
+      uploadedDayleHTML.setSharing(DriveApp.Access.ANYONE, DriveApp.Permission.EDIT);
+      uploadedDayleHTML.setSharing(DriveApp.Access.ANYONE_WITH_LINK, DriveApp.Permission.VIEW);
+
+
+      var dayleOutput = "A new Job has been submitted by "+form['quote-info-sales-rep']+" For "+form['template-selection']
+      dayleOutput += "<br /> Please see attatched included link to Request Sheet"
+      dayleOutput += "<br> <a href='" + "http://drive.google.com/uc?export=download&id="+ uploadedDayleHTML.getId() + "'>Link to form as HTML </a>";
+      dayleOutput += "<br> <a href='" + "http://drive.google.com/uc?export=download&id="+ uploadedDaylePDF.getId() + "'>Link to form as PDF </a>";
+      sendEmail(form['dayle-test-email'], dayleOutput, detailingSubject) // email the additional
+    }
+
     var blob = Utilities.newBlob(content, "text/html", "text.html");
     var pdf = blob.getAs("application/pdf");
     var uploadedPDF = JobFolder.createFile(pdf).setName("pdf "+form['job-info-address']+".pdf");
@@ -55,6 +111,8 @@ function processForm(form) {
       }
     }
 
+    // Dayle output
+
     // Email body (output)
     var output = "Job Submitted successfully, Below are your file Links"
     if(uploadedFiles.length) {
@@ -64,6 +122,7 @@ function processForm(form) {
     }
     output += "<br> <a href='" + "http://drive.google.com/uc?export=download&id="+ uploadedHTML.getId() + "'>Link to form as HTML </a>";
     output += "<br> <a href='" + "http://drive.google.com/uc?export=download&id="+ uploadedPDF.getId() + "'>Link to form as PDF </a>";
+
     // output += "<br> <strong>PDF File is currently experiencing difficulties. Please download HTML file, open in new window, and print as PDF for pdf copy.</strong>"
     output += "<br> This is the job number "+ jobNumber;
     output += "<br> Job Client is "+ form.cClient;
@@ -89,6 +148,8 @@ function processForm(form) {
      }
      if(form['outsourcing-selection-prenail-dayles']) {
        output += "<br>Sent to dayles for estimation"
+       output += "<br> <a href='" + "http://drive.google.com/uc?export=download&id="+ uploadedDayleHTML.getId() + "'>Link to Dayle Prenail as HTML </a>";
+       output += "<br> <a href='" + "http://drive.google.com/uc?export=download&id="+ uploadedDaylePDF.getId() + "'>Link to Dayle Prenail as PDF </a>";
      }
 
 

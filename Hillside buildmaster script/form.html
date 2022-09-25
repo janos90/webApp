@@ -116,146 +116,146 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
   <script>
-  $('document').ready(function() {
+    $('document').ready(function() {
 
-    $('input.plans').on('change', function() {
-      $('input.plans').not(this).prop('required', false);
-    });
-    $('input.engineer').on('change', function() {
-      $('input.engineer').not(this).prop('required', false);
-    });
-    $('input.wndPlans').on('change', function() {
-      $('input.wndPlans').not(this).prop('required', false);
-    });
-    $('input.specs').on('change', function() {
-      $('input.specs').not(this).prop('required', false);
-    });
-    $('input.dwg').on('change', function() {
-      $('input.dwg').not(this).prop('required', false);
-    });
-  });
-
-  function preventFormSubmit() {
-    var forms = document.querySelectorAll('form');
-    for (var i = 0; i < forms.length; i++) {
-      forms[i].addEventListener('submit', function(event) {
-        event.preventDefault();
+      $('input.plans').on('change', function() {
+        $('input.plans').not(this).prop('required', false);
       });
-    }
-  }
-  window.addEventListener('load', preventFormSubmit);
+      $('input.engineer').on('change', function() {
+        $('input.engineer').not(this).prop('required', false);
+      });
+      $('input.wndPlans').on('change', function() {
+        $('input.wndPlans').not(this).prop('required', false);
+      });
+      $('input.specs').on('change', function() {
+        $('input.specs').not(this).prop('required', false);
+      });
+      $('input.dwg').on('change', function() {
+        $('input.dwg').not(this).prop('required', false);
+      });
+    });
 
-  function handleFormSubmit(formObject) {
-    $('input.submission').prop( "disabled", true );
-    google.script.run.withSuccessHandler(updateUrl).processForm(formObject);
-  }
-
-  function updateUrl(url) {
-    var div = document.getElementById('output');
-    var form = document.getElementById('myForm');
-    div.innerHTML = '<p>'+url+'</p>';
-    form.style.display = "none";
-  }
-  $(document).on("change", 'input:file',function (e) {
-    var file = e.currentTarget.files[0];
-    var callerID = e.currentTarget.id;
-    var approvedHTML = "";
-    var filesize = ((file.size/1024)/1024).toFixed(4); // MB
-
-    if (file.name != "item" && typeof file.name != "undefined" && filesize <= 49) {
-      approvedHTML += "approved " + file.name;
-    } else {
-      if(file.name == "item"){
-        approvedHTML += 'not approved no item; ';
+    function preventFormSubmit() {
+      var forms = document.querySelectorAll('form');
+      for (var i = 0; i < forms.length; i++) {
+        forms[i].addEventListener('submit', function(event) {
+          event.preventDefault();
+        });
       }
-      if(typeof file.name == "undefined"){
-        approvedHTML += 'not approved, bad filename; ';
+    }
+    window.addEventListener('load', preventFormSubmit);
+
+    function handleFormSubmit(formObject) {
+      $('input.submission').prop( "disabled", true );
+      google.script.run.withSuccessHandler(updateUrl).processForm(formObject);
+    }
+
+    function updateUrl(url) {
+      var div = document.getElementById('output');
+      var form = document.getElementById('myForm');
+      div.innerHTML = '<p>'+url+'</p>';
+      form.style.display = "none";
+    }
+    $(document).on("change", 'input:file',function (e) {
+      var file = e.currentTarget.files[0];
+      var callerID = e.currentTarget.id;
+      var approvedHTML = "";
+      var filesize = ((file.size/1024)/1024).toFixed(4); // MB
+
+      if (file.name != "item" && typeof file.name != "undefined" && filesize <= 49) {
+        approvedHTML += "approved " + file.name;
+      } else {
+        if(file.name == "item"){
+          approvedHTML += 'not approved no item; ';
+        }
+        if(typeof file.name == "undefined"){
+          approvedHTML += 'not approved, bad filename; ';
+        }
+        if(filesize >= 50){
+          approvedHTML += 'not approved, file too large; ';
+        }
+        $("#" +callerID+"Results")
       }
-      if(filesize >= 50){
-        approvedHTML += 'not approved, file too large; ';
+      $("#" +callerID+"Results").html(approvedHTML);
+    });
+
+
+    function toggleAll(section) {
+      var toggleAllCheckbox = document.getElementById("toggle-all-"+section);
+
+      var toggleNoneLabel = document.getElementById("label-toggle-none-"+section);
+      var statusLabel = document.getElementById("label-status-"+section);
+      var questions = document.getElementById("toggle-section-questions-"+section);
+      var header = document.getElementById("toggle-section-header-"+section);
+      if(toggleAllCheckbox.checked) {
+        questions.style.display = "none"
+        header.style.backgroundColor = 'green';
+        toggleNoneLabel.style.display = "none"
+        statusLabel.textContent = "As Per Plan"
+        statusLabel.style.display = "inline-block"
+      } else {
+        header.style.backgroundColor = '';
+        questions.style.display = "flex"
+        toggleNoneLabel.style.display = "inline-block"
+        statusLabel.style.display = "none"
+        statusLabel.textContent = ""
+
       }
-      $("#" +callerID+"Results")
     }
-    $("#" +callerID+"Results").html(approvedHTML);
-  });
+    function toggleNone(section) {
+      var toggleNoneCheckbox = document.getElementById("toggle-none-"+section);
 
+      var toggleAllLabel = document.getElementById("label-toggle-all-"+section);
+      var statusLabel = document.getElementById("label-status-"+section);
+      var questions = document.getElementById("toggle-section-questions-"+section);
+      var header = document.getElementById("toggle-section-header-"+section);
 
-  function toggleAll(section) {
-    var toggleAllCheckbox = document.getElementById("toggle-all-"+section);
-
-    var toggleNoneLabel = document.getElementById("label-toggle-none-"+section);
-    var statusLabel = document.getElementById("label-status-"+section);
-    var questions = document.getElementById("toggle-section-questions-"+section);
-    var header = document.getElementById("toggle-section-header-"+section);
-    if(toggleAllCheckbox.checked) {
-      questions.style.display = "none"
-      header.style.backgroundColor = 'green';
-      toggleNoneLabel.style.display = "none"
-      statusLabel.textContent = "As Per Plan"
-      statusLabel.style.display = "inline-block"
-    } else {
-      header.style.backgroundColor = '';
-      questions.style.display = "flex"
-      toggleNoneLabel.style.display = "inline-block"
-      statusLabel.style.display = "none"
-      statusLabel.textContent = ""
-
+      if(toggleNoneCheckbox.checked) {
+        questions.style.display = "none"
+        header.style.backgroundColor = 'red';
+        toggleAllLabel.style.display = "none"
+        statusLabel.style.display = "inline-block"
+        statusLabel.textContent = "Outsourced"
+      } else {
+        header.style.backgroundColor = '';
+        questions.style.display = "flex"
+        toggleAllLabel.style.display = "inline-block"
+        statusLabel.style.display = "none"
+        statusLabel.textContent = ""
+      }
     }
-  }
-  function toggleNone(section) {
-    var toggleNoneCheckbox = document.getElementById("toggle-none-"+section);
 
-    var toggleAllLabel = document.getElementById("label-toggle-all-"+section);
-    var statusLabel = document.getElementById("label-status-"+section);
-    var questions = document.getElementById("toggle-section-questions-"+section);
-    var header = document.getElementById("toggle-section-header-"+section);
-
-    if(toggleNoneCheckbox.checked) {
-      questions.style.display = "none"
-      header.style.backgroundColor = 'red';
-      toggleAllLabel.style.display = "none"
-      statusLabel.style.display = "inline-block"
-      statusLabel.textContent = "Outsourced"
-    } else {
-      header.style.backgroundColor = '';
-      questions.style.display = "flex"
-      toggleAllLabel.style.display = "inline-block"
-      statusLabel.style.display = "none"
-      statusLabel.textContent = ""
+    function toggleEstimation() {
+      var toggleCheckbox = document.getElementById("cancel-estimation");
+      var sectionWrapper = document.getElementById("toggle-section-wrapper");
+      if(toggleCheckbox.checked) {
+          sectionWrapper.style.display = 'none';
+      } else {
+        sectionWrapper.style.display = 'flex';
+      }
     }
-  }
 
-  function toggleEstimation() {
-    var toggleCheckbox = document.getElementById("cancel-estimation");
-    var sectionWrapper = document.getElementById("toggle-section-wrapper");
-    if(toggleCheckbox.checked) {
-        sectionWrapper.style.display = 'none';
-    } else {
-      sectionWrapper.style.display = 'flex';
+    function toggleOutsourcing() {
+      var toggleCheckbox = document.getElementById("cancel-outsourcing");
+      var sectionWrapper = document.getElementById("outsourcing-selection-body");
+      if(toggleCheckbox.checked) {
+          sectionWrapper.style.display = 'none';
+      } else {
+        sectionWrapper.style.display = 'flex';
+      }
     }
-  }
 
-  function toggleOutsourcing() {
-    var toggleCheckbox = document.getElementById("cancel-outsourcing");
-    var sectionWrapper = document.getElementById("outsourcing-selection-body");
-    if(toggleCheckbox.checked) {
-        sectionWrapper.style.display = 'none';
-    } else {
-      sectionWrapper.style.display = 'flex';
+
+    function outsourcePrenailDayle() {
+      var checkbox = document.getElementById("outsourcePrenailDayleid");
+      var questions = document.getElementById('Dayles-prenail-questions');
+      if(checkbox) {
+        questions.style.display = "block"
+      } else {
+        questions.style.display = "none"
+
+      }
     }
-  }
-
-
-  function outsourcePrenailDayle() {
-    var checkbox = document.getElementById("outsourcePrenailDayleid");
-    var questions = document.getElementById('Dayles-prenail-questions');
-    if(checkbox) {
-      questions.style.display = "block"
-    } else {
-      questions.style.display = "none"
-
-    }
-  }
 
 
   </script>
@@ -267,7 +267,7 @@
 
       <h2 class="title">
         Estimate request <br /> ITM Hillside
-        Version 6
+        Version 7
       </h2>
     </header>
 
@@ -1165,7 +1165,7 @@
 
 
     </div>
-
+a
     <div class="uploadSection">
       <br>
       <h3>Upload your plan files here. If you're not uploading a file, tick the box.</h3>

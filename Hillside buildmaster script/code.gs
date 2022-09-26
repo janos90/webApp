@@ -21,6 +21,10 @@ function processForm(form) {
     var folder, folders = parentFolder.getFoldersByName(clientFolderName);
     if (folders.hasNext()) {folder = folders.next();} else {folder = parentFolder.createFolder(clientFolderName);}
     var JobFolder = folder.createFolder("jobNumber: " + jobNumber)
+    var detailingSubject = 'New job, number ' + jobNumber + ', issued for: '
+
+    detailingSubject+= 'Uploaded by: ' + form['quote-info-sales-rep'] + ', '
+    detailingSubject+= 'For Client: ' + form['customer-info-name'] + ', '
 
     var content = ""
     var formHeader = ""
@@ -470,8 +474,10 @@ function processForm(form) {
 
     var uploadedDaylePDF
     var uploadedDayleHTML
+    var dayleOutput = "A new Job has been submitted by "+form['quote-info-sales-rep']+"' For "+form['template-selection']
+    var dayleContent = "";
+
     if(form['outsourcing-selection-prenail-dayles']) {
-      var dayleContent = "";
       dayleContent+= "<style>.page-header {display:flex}"
       dayleContent+= ".wrapper {max-width: 900px;}"
       dayleContent+= ".quote-info-wrapper {display:flex;flex-wrap: wrap;}"
@@ -517,16 +523,27 @@ function processForm(form) {
       uploadedDayleHTML.setSharing(DriveApp.Access.ANYONE_WITH_LINK, DriveApp.Permission.VIEW);
 
 
-      var dayleOutput = "A new Job has been submitted by "+form['quote-info-sales-rep']+"' For "+form['template-selection']
-      dayleOutput += "<br /> Please see attatched included link to Request Sheet"
-      dayleOutput += "<br> <a href='" + "http://drive.google.com/uc?export=download&id="+ uploadedDayleHTML.getId() + "'>Link to Dayle request as HTML </a>";
-      dayleOutput += "<br> <a href='" + "http://drive.google.com/uc?export=download&id="+ uploadedDaylePDF.getId() + "'>Link to Dayle request as PDF </a>";
-      sendEmail(form['dayle-test-email'], dayleOutput, detailingSubject) // email the additional
     }
 
+    var uploadedEstimationPDF
+    var uploadedEstimationHTML
+    var estimationOutput = "A new Job has been submitted by "+form['quote-info-sales-rep']+"' For "+form['template-selection']
 
     if(!form['cancel-estimation']) {
-      console.log("time to estimate!@", form['cancel-estimation']);
+      var estCompleteContent = "" + styles+formHeader+clientDetails+estimationContent+'</form>'
+
+
+      var estimationBlob = Utilities.newBlob(estCompleteContent, "text/html", "text.html");
+      var estimationPdf = estimationBlob.getAs("application/pdf");
+      uploadedEstimationPDF = JobFolder.createFile(estimationPdf).setName("pdf Estimation request "+form['job-info-address']+".pdf");
+      uploadedEstimationHTML = JobFolder.createFile("html Estimation request "+form['job-info-address']+".html", estCompleteContent, MimeType.HTML);
+      uploadedEstimationPDF.setSharing(DriveApp.Access.ANYONE, DriveApp.Permission.EDIT);
+      uploadedEstimationPDF.setSharing(DriveApp.Access.ANYONE_WITH_LINK, DriveApp.Permission.VIEW);
+      uploadedEstimationHTML.setSharing(DriveApp.Access.ANYONE, DriveApp.Permission.EDIT);
+      uploadedEstimationHTML.setSharing(DriveApp.Access.ANYONE_WITH_LINK, DriveApp.Permission.VIEW);
+
+
+
     }
 
     var blob = Utilities.newBlob(content, "text/html", "text.html");
@@ -562,12 +579,14 @@ function processForm(form) {
     // Dayle output
 
     // Email body (output)
-    var output = "Job Submitted successfully, Below are your file Links"
+    var output = "Job Submitted successfully, "
+    var fileLinks = "<br>Below are your file Links"
     if(uploadedFiles.length) {
       for(var it = 0; it < uploadedFiles.length; it++) {
-        output += "<br> <a href='" + "http://drive.google.com/uc?export=download&id="+ uploadedFiles[it].getId() + "'>Link to "+ uploadedFiles[it].getName() + "</a>";
+        fileLinks += "<br> <a href='" + "http://drive.google.com/uc?export=download&id="+ uploadedFiles[it].getId() + "'>Link to "+ uploadedFiles[it].getName() + "</a>";
       }
     }
+      output +=fileLinks
     output += "<br> <a href='" + "http://drive.google.com/uc?export=download&id="+ uploadedHTML.getId() + "'>Link to form as HTML </a>";
     output += "<br> <a href='" + "http://drive.google.com/uc?export=download&id="+ uploadedPDF.getId() + "'>Link to form as PDF </a>";
 
@@ -577,15 +596,13 @@ function processForm(form) {
 
     // email subjects
     var genericSubject = 'New job, number '+ jobNumber + ', has been submitted to the quotes portal by: ' + form.cRep + ' for client ' + form.cClient
-    var detailingSubject = 'New job, number ' + jobNumber + ', issued for: '
-
-    detailingSubject+= 'Uploaded by: ' + form['quote-info-sales-rep'] + ', '
-    detailingSubject+= 'For Client: ' + form['customer-info-name'] + ', '
 
     var quotesOutput = "<br>This email was sent to: <br><ul>"
 
     // PreNail
-    output += "<br> <h3>Prenail</h3>"
+    if(form['outsourcing-selection-prenail-turangi'] ||form['outsourcing-selection-prenail-ntml'] ||form['outsourcing-selection-prenail-dayles'] ) {
+      output += "<br> <h3>Prenail</h3>"
+    }
 
      if(form['outsourcing-selection-prenail-turangi']) {
        output += "<br>Sent to turangi for estimation"
@@ -598,11 +615,22 @@ function processForm(form) {
        output += "<br>Sent to dayles for estimation"
        output += "<br> <a href='" + "http://drive.google.com/uc?export=download&id="+ uploadedDayleHTML.getId() + "'>Link to Dayle Prenail as HTML </a>";
        output += "<br> <a href='" + "http://drive.google.com/uc?export=download&id="+ uploadedDaylePDF.getId() + "'>Link to Dayle Prenail as PDF </a>";
+       dayleOutput += "<br /> Please see attatched included link to Request Sheet"
+       dayleOutput += "<br> <a href='" + "http://drive.google.com/uc?export=download&id="+ uploadedDayleHTML.getId() + "'>Link to Dayle request as HTML </a>";
+       dayleOutput += "<br> <a href='" + "http://drive.google.com/uc?export=download&id="+ uploadedDaylePDF.getId() + "'>Link to Dayle request as PDF </a>";
+       dayleOutput+= fileLinks
+       sendEmail(form['dayle-test-email'], dayleOutput, detailingSubject) // email the additional
+
      }
 
 
+
+
      // Reinforcing
+     if(form['outsourcing-selection-reinforcing-united-steel'] ||form['outsourcing-selection-reinforcing-Summit'] ||form['outsourcing-selection-reinforcing-Wyatt'] ) {
+
      output += "<br> <h3>Reinforcing</h3>"
+   }
       if(form['outsourcing-selection-reinforcing-united-steel']) {
         output += "<br>Sent to united-steel for estimation"
 
@@ -613,6 +641,19 @@ function processForm(form) {
       if(form['outsourcing-selection-reinforcing-Wyatt']) {
         output += "<br>Sent to Wyatt for estimation"
       }
+
+      if(!form['cancel-estimation']) {
+        output += "<br/><h3>Sent to Quantifying</h3>"
+        output += "<br> <a href='" + "http://drive.google.com/uc?export=download&id="+ uploadedEstimationHTML.getId() + "'>Link to estimate request as HTML </a>";
+        output += "<br> <a href='" + "http://drive.google.com/uc?export=download&id="+ uploadedEstimationPDF.getId() + "'>Link to estimate request as PDF </a>";
+        estimationOutput += "<br /> Please see attatched included link to Request Sheet"
+        estimationOutput += "<br> <a href='" + "http://drive.google.com/uc?export=download&id="+ uploadedEstimationHTML.getId() + "'>Link to estimate request as HTML </a>";
+        estimationOutput += "<br> <a href='" + "http://drive.google.com/uc?export=download&id="+ uploadedEstimationPDF.getId() + "'>Link to estimate request as PDF </a>";
+        estimationOutput+= fileLinks
+        sendEmail(form['estimation-test-email'], estimationOutput, detailingSubject) // email the additional
+
+      }
+
 
 
     if(form.emailTo){

@@ -181,45 +181,86 @@
 
 
     function toggleAll(section) {
-      var toggleAllCheckbox = document.getElementById("toggle-all-"+section);
+      var toggleAllCheckbox = document.getElementById("as-plan-"+section);
 
+      var toggleAllLabel = document.getElementById("label-as-plan-"+section);
+      var toggleSelectedLabel = document.getElementById("label-toggle-as-selected-"+section);
       var toggleNoneLabel = document.getElementById("label-toggle-none-"+section);
+
       var statusLabel = document.getElementById("label-status-"+section);
       var questions = document.getElementById("toggle-section-questions-"+section);
       var header = document.getElementById("toggle-section-header-"+section);
       if(toggleAllCheckbox.checked) {
-        questions.style.display = "none"
         header.style.backgroundColor = 'green';
+        toggleSelectedLabel.style.display = "none"
         toggleNoneLabel.style.display = "none"
         statusLabel.textContent = "As Per Plan"
         statusLabel.style.display = "inline-block"
       } else {
         header.style.backgroundColor = '';
-        questions.style.display = "flex"
+        toggleSelectedLabel.style.display = "inline-block"
         toggleNoneLabel.style.display = "inline-block"
         statusLabel.style.display = "none"
         statusLabel.textContent = ""
 
       }
     }
+
+
+    function toggleAsSelected(section) {
+      console.log(section);
+      var toggleAsSelectedCheckbox = document.getElementById("toggle-as-selected-"+section);
+      console.log(toggleAsSelectedCheckbox);
+
+      var toggleAllLabel = document.getElementById("label-as-plan-"+section);
+      var toggleSelectedLabel = document.getElementById("label-toggle-as-selected-"+section);
+      var toggleNoneLabel = document.getElementById("label-toggle-none-"+section);
+      var statusLabel = document.getElementById("label-status-"+section);
+      var questions = document.getElementById("toggle-section-questions-"+section);
+      var header = document.getElementById("toggle-section-header-"+section);
+
+      if(toggleAsSelectedCheckbox.checked) {
+        questions.style.display = "flex"
+        toggleAllLabel.style.display = "none"
+        toggleNoneLabel.style.display = "none"
+
+        statusLabel.style.display = "inline-block"
+        statusLabel.textContent = "As  Selected"
+        header.style.backgroundColor = 'orange';
+
+      } else {
+        questions.style.display = "none"
+        toggleAllLabel.style.display = "inline-block"
+        toggleNoneLabel.style.display = "inline-block"
+
+
+        header.style.backgroundColor = '';
+        statusLabel.style.display = "none"
+        statusLabel.textContent = ""
+      }
+    }
+
     function toggleNone(section) {
       var toggleNoneCheckbox = document.getElementById("toggle-none-"+section);
 
-      var toggleAllLabel = document.getElementById("label-toggle-all-"+section);
+      var toggleAllLabel = document.getElementById("label-as-plan-"+section);
+      var toggleSelectedLabel = document.getElementById("label-toggle-as-selected-"+section);
+      var toggleNoneLabel = document.getElementById("label-toggle-none-"+section);
+
       var statusLabel = document.getElementById("label-status-"+section);
       var questions = document.getElementById("toggle-section-questions-"+section);
       var header = document.getElementById("toggle-section-header-"+section);
 
       if(toggleNoneCheckbox.checked) {
-        questions.style.display = "none"
         header.style.backgroundColor = 'red';
         toggleAllLabel.style.display = "none"
+        toggleSelectedLabel.style.display = "none"
         statusLabel.style.display = "inline-block"
         statusLabel.textContent = "Outsourced"
       } else {
         header.style.backgroundColor = '';
-        questions.style.display = "flex"
         toggleAllLabel.style.display = "inline-block"
+        toggleSelectedLabel.style.display = "inline-block"
         statusLabel.style.display = "none"
         statusLabel.textContent = ""
       }
@@ -562,11 +603,15 @@
         <div class="toggle-section foundations">
           <header id="toggle-section-header-foundations" class="toggle-section-header">
             Foundations
-            <label style="display: none;" id="label-status-foundations" class="all-items-toggle foundations" for="toggle-all-foundations">
+            <label style="display: none;" id="label-status-foundations" class="toggle-status foundations">
             </label>
-            <label id="label-toggle-all-foundations" class="all-items-toggle foundations" for="toggle-all-foundations">
-              All Items
-              <input type="checkbox"  id="toggle-all-foundations" name='toggle-all-foundations' onclick="toggleAll('foundations')" />
+            <label id="label-as-plan-foundations" class="as-plan-toggle foundations" for="as-plan-foundations">
+              As per Plan
+              <input type="checkbox"  id="as-plan-foundations" name='as-plan-foundations' onclick="toggleAll('foundations')" />
+            </label>
+            <label id="label-toggle-as-selected-foundations" class="hide-section-toggle foundations" for="toggle-as-selected-foundations">
+              As Selected
+              <input type="checkbox" id="toggle-as-selected-foundations" name='toggle-as-selected-foundations' onclick="toggleAsSelected('foundations')" />
             </label>
             <label id="label-toggle-none-foundations" class="hide-section-toggle foundations" for="toggle-none-foundations">
               Not required
@@ -602,11 +647,15 @@
         <div class="toggle-section timber-floor">
           <header id="toggle-section-header-timber-floor" class="toggle-section-header">
             Timber Floor
-            <label style="display: none;" id="label-status-timber-floor" class="all-items-toggle timber-floor" for="toggle-all-timber-floor">
+            <label style="display: none;" id="label-status-timber-floor" class="toggle-status timber-floor">
             </label>
-            <label id="label-toggle-all-timber-floor" class="all-items-toggle timber-floor" for="toggle-all-timber-floor">
-              All Items
-              <input type="checkbox"  id="toggle-all-timber-floor" name='toggle-all-timber-floor' onclick="toggleAll('timber-floor')"/>
+            <label id="label-as-plan-timber-floor" class="as-plan-toggle timber-floor" for="as-plan-timber-floor">
+              As per Plan
+              <input type="checkbox"  id="as-plan-timber-floor" name='as-plan-timber-floor' onclick="toggleAll('timber-floor')"/>
+            </label>
+            <label id="label-toggle-as-selected-timber-floor" class="hide-section-toggle timber-floor" for="toggle-as-selected-timber-floor">
+              As Selected
+              <input type="checkbox" id="toggle-as-selected-timber-floor" name='toggle-as-selected-timber-floor' onclick="toggleAsSelected('timber-floor')"/>
             </label>
             <label id="label-toggle-none-timber-floor" class="hide-section-toggle timber-floor" for="toggle-none-timber-floor">
               Not required
@@ -649,11 +698,15 @@
         <div class="toggle-section wall-framing">
           <header class="toggle-section-header" id="toggle-section-header-wall-framing">
             Wall Framing
-            <label style="display: none;" id="label-status-wall-framing" class="all-items-toggle wall-framing" for="toggle-all-wall-framing">
+            <label style="display: none;" id="label-status-wall-framing" class="toggle-status wall-framing">
             </label>
-            <label id="label-toggle-all-wall-framing" class="all-items-toggle wall-framing" for="toggle-all-wall-framing">
-              All Items
-              <input type="checkbox" id="toggle-all-wall-framing" name='toggle-all-wall-framing' onclick="toggleAll('wall-framing')"/>
+            <label id="label-as-plan-wall-framing" class="as-plan-toggle wall-framing" for="as-plan-wall-framing">
+              As per Plan
+              <input type="checkbox" id="as-plan-wall-framing" name='as-plan-wall-framing' onclick="toggleAll('wall-framing')"/>
+            </label>
+            <label id="label-toggle-as-selected-wall-framing" class="hide-section-toggle wall-framing" for="toggle-as-selected-wall-framing">
+              As Selected
+              <input type="checkbox" id="toggle-as-selected-wall-framing" name='toggle-as-selected-wall-framing' onclick="toggleAsSelected('wall-framing')"/>
             </label>
             <label id="label-toggle-none-wall-framing" class="hide-section-toggle wall-framing" for="toggle-none-wall-framing">
               Not required
@@ -716,11 +769,15 @@
         <div class="toggle-section roof-framing">
           <header class="toggle-section-header" id="toggle-section-header-roof-framing">
             Roof Framing
-            <label style="display: none;" id="label-status-roof-framing" class="all-items-toggle roof-framing" for="toggle-all-roof-framing">
+            <label style="display: none;" id="label-status-roof-framing" class="toggle-status roof-framing">
             </label>
-            <label id="label-toggle-all-roof-framing" class="all-items-toggle roof-framing" for="toggle-all-roof-framing">
-              All Items
-              <input type="checkbox"  id="toggle-all-roof-framing" name='toggle-all-roof-framing' onclick="toggleAll('roof-framing')"/>
+            <label id="label-as-plan-roof-framing" class="as-plan-toggle roof-framing" for="as-plan-roof-framing">
+              As per Plan
+              <input type="checkbox"  id="as-plan-roof-framing" name='as-plan-roof-framing' onclick="toggleAll('roof-framing')"/>
+            </label>
+            <label id="label-toggle-as-selected-roof-framing" class="hide-section-toggle roof-framing" for="toggle-as-selected-roof-framing">
+              As Selected
+              <input type="checkbox" id="toggle-as-selected-roof-framing" name='toggle-as-selected-roof-framing' onclick="toggleAsSelected('roof-framing')"/>
             </label>
             <label id="label-toggle-none-roof-framing" class="hide-section-toggle roof-framing" for="toggle-none-roof-framing">
               Not required
@@ -755,11 +812,15 @@
         <div class="toggle-section exterior-finishing">
           <header id="toggle-section-header-exterior-finishing" class="toggle-section-header">
             Exterior Finishings
-            <label style="display: none;" id="label-status-exterior-finishing" class="all-items-toggle exterior-finishing" for="toggle-all-exterior-finishing">
+            <label style="display: none;" id="label-status-exterior-finishing" class="toggle-status exterior-finishing">
             </label>
-            <label id="label-toggle-all-exterior-finishing" class="all-items-toggle exterior-finishing" for="toggle-all-exterior-finishing">
-              All Items
-              <input type="checkbox"  id="toggle-all-exterior-finishing" name='toggle-all-exterior-finishing' onclick="toggleAll('exterior-finishing')"/>
+            <label id="label-as-plan-exterior-finishing" class="as-plan-toggle exterior-finishing" for="as-plan-exterior-finishing">
+              As per Plan
+              <input type="checkbox"  id="as-plan-exterior-finishing" name='as-plan-exterior-finishing' onclick="toggleAll('exterior-finishing')"/>
+            </label>
+            <label id="label-toggle-as-selected-exterior-finishing" class="hide-section-toggle exterior-finishing" for="toggle-as-selected-exterior-finishing">
+              As Selected
+              <input type="checkbox" id="toggle-as-selected-exterior-finishing" name='toggle-as-selected-exterior-finishing' onclick="toggleAsSelected('exterior-finishing')"/>
             </label>
             <label id="label-toggle-none-exterior-finishing" class="hide-section-toggle exterior-finishing" for="toggle-none-exterior-finishing">
               Not required
@@ -810,11 +871,15 @@
         <div class="toggle-section cladding">
           <header id="toggle-section-header-cladding" class="toggle-section-header">
             Cladding
-            <label style="display: none;" id="label-status-cladding" class="all-items-toggle cladding" for="toggle-all-cladding">
+            <label style="display: none;" id="label-status-cladding" class="toggle-status cladding">
             </label>
-            <label id="label-toggle-all-cladding" class="all-items-toggle cladding" for="toggle-all-cladding">
-              All Items
-              <input type="checkbox"  id="toggle-all-cladding" name='toggle-all-cladding' onclick="toggleAll('cladding')"/>
+            <label id="label-as-plan-cladding" class="as-plan-toggle cladding" for="as-plan-cladding">
+              As per Plan
+              <input type="checkbox"  id="as-plan-cladding" name='as-plan-cladding' onclick="toggleAll('cladding')"/>
+            </label>
+            <label id="label-toggle-as-selected-cladding" class="hide-section-toggle cladding" for="toggle-as-selected-cladding">
+              As Selected
+              <input type="checkbox" id="toggle-as-selected-cladding" name='toggle-as-selected-cladding' onclick="toggleAsSelected('cladding')"/>
             </label>
             <label id="label-toggle-none-cladding" class="hide-section-toggle cladding" for="toggle-none-cladding">
               Not required
@@ -850,11 +915,15 @@
         <div class="toggle-section insulation">
           <header id="toggle-section-header-insulation" class="toggle-section-header">
             Insulation
-            <label style="display: none;" id="label-status-insulation" class="all-items-toggle insulation" for="toggle-all-insulation">
+            <label style="display: none;" id="label-status-insulation" class="toggle-status insulation">
             </label>
-            <label id="label-toggle-all-insulation" class="all-items-toggle insulation" for="toggle-all-insulation">
-              All Items
-              <input type="checkbox"  id="toggle-all-insulation" name='toggle-all-insulation' onclick="toggleAll('insulation')"/>
+            <label id="label-as-plan-insulation" class="as-plan-toggle insulation" for="as-plan-insulation">
+              As per Plan
+              <input type="checkbox"  id="as-plan-insulation" name='as-plan-insulation' onclick="toggleAll('insulation')"/>
+            </label>
+            <label id="label-toggle-as-selected-insulation" class="hide-section-toggle insulation" for="toggle-as-selected-insulation">
+              As Selected
+              <input type="checkbox" id="toggle-as-selected-insulation" name='toggle-as-selected-insulation' onclick="toggleAsSelected('insulation')"/>
             </label>
             <label id="label-toggle-none-insulation" class="hide-section-toggle insulation" for="toggle-none-insulation">
               Not required
@@ -908,16 +977,24 @@
         <div class="toggle-section interior-linings">
           <header id="toggle-section-header-interior-linings" class="toggle-section-header">
             Interior Linings
-            <label style="display: none;" id="label-status-interior-linings" class="all-items-toggle interior-linings" for="toggle-all-interior-linings">
+            <label style="display: none;" id="label-status-interior-linings" class="toggle-status interior-linings">
             </label>
-            <label id="label-toggle-all-interior-linings" class="all-items-toggle interior-linings" for="toggle-all-interior-linings">
-              All Items
-              <input type="checkbox"  id="toggle-all-interior-linings" name='toggle-all-interior-linings' onclick="toggleAll('interior-linings')"/>
+
+            <label id="label-as-plan-interior-linings" class="as-plan-toggle interior-linings" for="as-plan-interior-linings">
+              As per Plan
+              <input type="checkbox"  id="as-plan-interior-linings" name='as-plan-interior-linings' onclick="toggleAll('interior-linings')"/>
             </label>
+
+            <label id="label-toggle-as-selected-interior-linings" class="toggle-as-selected interior-linings" for="toggle-as-selected-interior-linings">
+              As Selected
+              <input type="checkbox" id="toggle-as-selected-interior-linings" name='toggle-as-selected-interior-linings' onclick="toggleAsSelected('interior-linings')"/>
+            </label>
+
             <label id="label-toggle-none-interior-linings" class="hide-section-toggle interior-linings" for="toggle-none-interior-linings">
               Not required
               <input type="checkbox" id="toggle-none-interior-linings" name='toggle-none-interior-linings' onclick="toggleNone('interior-linings')"/>
             </label>
+
           </header>
           <main class="toggle-section-questions" id="toggle-section-questions-interior-linings">
 
@@ -971,11 +1048,15 @@
         <div class="toggle-section interior-doors">
           <header id="toggle-section-header-interior-doors" class="toggle-section-header">
             Interior Doors
-            <label style="display: none;"  id="label-status-interior-doors" class="all-items-toggle interior-doors" for="toggle-all-interior-doors">
+            <label style="display: none;"  id="label-status-interior-doors" class="toggle-status interior-doors">
             </label>
-            <label  id="label-toggle-all-interior-doors" class="all-items-toggle interior-doors" for="toggle-all-interior-doors">
-              All Items
-              <input type="checkbox"  id="toggle-all-interior-doors" name='toggle-all-interior-doors' onclick="toggleAll('interior-doors')"/>
+            <label  id="label-as-plan-interior-doors" class="as-plan-toggle interior-doors" for="as-plan-interior-doors">
+              As per Plan
+              <input type="checkbox"  id="as-plan-interior-doors" name='as-plan-interior-doors' onclick="toggleAll('interior-doors')"/>
+            </label>
+            <label  id="label-toggle-as-selected-interior-doors" class="hide-section-toggle interior-doors" for="toggle-as-selected-interior-doors">
+              As Selected
+              <input type="checkbox" id="toggle-as-selected-interior-doors" name='toggle-as-selected-interior-doors' onclick="toggleAsSelected('interior-doors')"/>
             </label>
             <label  id="label-toggle-none-interior-doors" class="hide-section-toggle interior-doors" for="toggle-none-interior-doors">
               Not required
@@ -999,11 +1080,15 @@
         <div class="toggle-section interior-finishings">
           <header id="toggle-section-header-interior-finishings" class="toggle-section-header">
             Interior Finishings
-            <label style="display: none;"  id="label-status-interior-finishings" class="all-items-toggle interior-finishings" for="toggle-all-interior-finishings">
+            <label style="display: none;"  id="label-status-interior-finishings" class="toggle-status interior-finishings">
             </label>
-            <label  id="label-toggle-all-interior-finishings" class="all-items-toggle interior-finishings" for="toggle-all-interior-finishings">
-              All Items
-              <input type="checkbox"  id="toggle-all-interior-finishings" name='toggle-all-interior-finishings' onclick="toggleAll('interior-finishings')"/>
+            <label  id="label-as-plan-interior-finishings" class="as-plan-toggle interior-finishings" for="as-plan-interior-finishings">
+              As per Plan
+              <input type="checkbox"  id="as-plan-interior-finishings" name='as-plan-interior-finishings' onclick="toggleAll('interior-finishings')"/>
+            </label>
+            <label  id="label-toggle-as-selected-interior-finishings" class="hide-section-toggle interior-finishings" for="toggle-as-selected-interior-finishings">
+              As Selected
+              <input type="checkbox" id="toggle-as-selected-interior-finishings" name='toggle-as-selected-interior-finishings' onclick="toggleAsSelected('interior-finishings')"/>
             </label>
             <label  id="label-toggle-none-interior-finishings" class="hide-section-toggle interior-finishings" for="toggle-none-interior-finishings">
               Not required
@@ -1055,11 +1140,15 @@
         <div class="toggle-section landscaping">
           <header id="toggle-section-header-landscaping" class="toggle-section-header">
             Landscaping
-            <label style="display: none;" id="label-status-landscaping" class="all-items-toggle landscaping" for="toggle-all-landscaping">
+            <label style='display: none;' id="label-status-landscaping" class="toggle-status landscaping">
             </label>
-            <label id="label-toggle-all-landscaping" class="all-items-toggle landscaping" for="toggle-all-landscaping">
-              All Items
-              <input type="checkbox"  id="toggle-all-landscaping" name='toggle-all-landscaping' onclick="toggleAll('landscaping')"/>
+            <label id="label-as-plan-landscaping" class="as-plan-toggle landscaping" for="as-plan-landscaping">
+              As per Plan
+              <input type="checkbox"  id="as-plan-landscaping" name='as-plan-landscaping' onclick="toggleAll('landscaping')"/>
+            </label>
+            <label id="label-as-selected-landscaping" class="hide-section-toggle landscaping" for="toggle-as-selected-landscaping">
+              As Selected
+              <input type="checkbox" id="toggle-as-selected-landscaping" name='toggle-as-selected-landscaping' onclick="toggleAsSelected('landscaping')"/>
             </label>
             <label id="label-toggle-none-landscaping" class="hide-section-toggle landscaping" for="toggle-none-landscaping">
               Not required

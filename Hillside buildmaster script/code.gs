@@ -593,6 +593,8 @@ function processForm(form) {
     // output += "<br> <strong>PDF File is currently experiencing difficulties. Please download HTML file, open in new window, and print as PDF for pdf copy.</strong>"
     output += "<br> This is the job number "+ jobNumber;
     output += "<br> Job Client is "+ form.cClient;
+    dayleOutput += "<br> This is the job number "+ jobNumber;
+    dayleOutput += "<br> Job Client is "+ form.cClient;
 
     // email subjects
     var genericSubject = 'New job, number '+ jobNumber + ', has been submitted to the quotes portal by: ' + form.cRep + ' for client ' + form.cClient

@@ -10,6 +10,18 @@
     width:80em;
   }
 
+  .checkboxContainer {
+    width: 49.5%;
+    margin-top: 2%;
+  }
+  #prenail-questions {
+    flex-wrap: wrap;
+  }
+  .fullWidthContainer {
+    width: 100%;
+  }
+
+
 
   #heading {
     display:flex;
@@ -46,8 +58,17 @@
     width: 33.33%;
   }
 
+  .prenail-table, .prenail-table-headers, .prenail-table-cells {
+    border: solid black 1px;
+  }
+
+  .prenail-table {
+    border-collapse: collapse;
+   margin: 5px;
+  }
+
   label {
-    min-width: 31%;
+    /* min-width: 31%; */
     display: block;
     margin: 2px;
     padding: 5px;
@@ -65,7 +86,7 @@
   .toggle-section header{
     background-color: gray;
     font-weight: bold;
-    font-size: 20px;
+    font-size: 16px;
     padding-top: 2px;
     padding-bottom: 2px;
     margin-bottom: 3px;
@@ -107,7 +128,7 @@
   }
 
   .toggle-section-questions {
-    display: flex;
+    display: none;
     width: 100%;
     flex-wrap: wrap;
   }
@@ -116,187 +137,193 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
   <script>
-    $('document').ready(function() {
-
-      $('input.plans').on('change', function() {
-        $('input.plans').not(this).prop('required', false);
-      });
-      $('input.engineer').on('change', function() {
-        $('input.engineer').not(this).prop('required', false);
-      });
-      $('input.wndPlans').on('change', function() {
-        $('input.wndPlans').not(this).prop('required', false);
-      });
-      $('input.specs').on('change', function() {
-        $('input.specs').not(this).prop('required', false);
-      });
-      $('input.dwg').on('change', function() {
-        $('input.dwg').not(this).prop('required', false);
-      });
+  $('document').ready(function() {
+    $('input.wind').on('change', function() {
+      $('input.wind').not(this).prop('checked', false);
     });
 
-    function preventFormSubmit() {
-      var forms = document.querySelectorAll('form');
-      for (var i = 0; i < forms.length; i++) {
-        forms[i].addEventListener('submit', function(event) {
-          event.preventDefault();
-        });
-      }
-    }
-    window.addEventListener('load', preventFormSubmit);
-
-    function handleFormSubmit(formObject) {
-      $('input.submission').prop( "disabled", true );
-      google.script.run.withSuccessHandler(updateUrl).processForm(formObject);
-    }
-
-    function updateUrl(url) {
-      var div = document.getElementById('output');
-      var form = document.getElementById('myForm');
-      div.innerHTML = '<p>'+url+'</p>';
-      form.style.display = "none";
-    }
-    $(document).on("change", 'input:file',function (e) {
-      var file = e.currentTarget.files[0];
-      var callerID = e.currentTarget.id;
-      var approvedHTML = "";
-      var filesize = ((file.size/1024)/1024).toFixed(4); // MB
-
-      if (file.name != "item" && typeof file.name != "undefined" && filesize <= 49) {
-        approvedHTML += "approved " + file.name;
-      } else {
-        if(file.name == "item"){
-          approvedHTML += 'not approved no item; ';
-        }
-        if(typeof file.name == "undefined"){
-          approvedHTML += 'not approved, bad filename; ';
-        }
-        if(filesize >= 50){
-          approvedHTML += 'not approved, file too large; ';
-        }
-        $("#" +callerID+"Results")
-      }
-      $("#" +callerID+"Results").html(approvedHTML);
+    $('input.plans').on('change', function() {
+      $('input.plans').not(this).prop('required', false);
     });
+    $('input.engineer').on('change', function() {
+      $('input.engineer').not(this).prop('required', false);
+    });
+    $('input.wndPlans').on('change', function() {
+      $('input.wndPlans').not(this).prop('required', false);
+    });
+    $('input.specs').on('change', function() {
+      $('input.specs').not(this).prop('required', false);
+    });
+    $('input.dwg').on('change', function() {
+      $('input.dwg').not(this).prop('required', false);
+    });
+  });
 
-
-    function toggleAll(section) {
-      var toggleAllCheckbox = document.getElementById("as-plan-"+section);
-
-      var toggleAllLabel = document.getElementById("label-as-plan-"+section);
-      var toggleSelectedLabel = document.getElementById("label-toggle-as-selected-"+section);
-      var toggleNoneLabel = document.getElementById("label-toggle-none-"+section);
-
-      var statusLabel = document.getElementById("label-status-"+section);
-      var questions = document.getElementById("toggle-section-questions-"+section);
-      var header = document.getElementById("toggle-section-header-"+section);
-      if(toggleAllCheckbox.checked) {
-        header.style.backgroundColor = 'green';
-        toggleSelectedLabel.style.display = "none"
-        toggleNoneLabel.style.display = "none"
-        statusLabel.textContent = "As Per Plan"
-        statusLabel.style.display = "inline-block"
-      } else {
-        header.style.backgroundColor = '';
-        toggleSelectedLabel.style.display = "inline-block"
-        toggleNoneLabel.style.display = "inline-block"
-        statusLabel.style.display = "none"
-        statusLabel.textContent = ""
-
-      }
+  function preventFormSubmit() {
+    var forms = document.querySelectorAll('form');
+    for (var i = 0; i < forms.length; i++) {
+      forms[i].addEventListener('submit', function(event) {
+        event.preventDefault();
+      });
     }
+  }
+  window.addEventListener('load', preventFormSubmit);
 
+  function handleFormSubmit(formObject) {
+    $('input.submission').prop( "disabled", true );
+    google.script.run.withSuccessHandler(updateUrl).processForm(formObject);
+  }
 
-    function toggleAsSelected(section) {
-      console.log(section);
-      var toggleAsSelectedCheckbox = document.getElementById("toggle-as-selected-"+section);
-      console.log(toggleAsSelectedCheckbox);
+  function updateUrl(url) {
+    var div = document.getElementById('output');
+    var form = document.getElementById('myForm');
+    div.innerHTML = '<p>'+url+'</p>';
+    form.style.display = "none";
+  }
+  $(document).on("change", 'input:file',function (e) {
+    var file = e.currentTarget.files[0];
+    var callerID = e.currentTarget.id;
+    var approvedHTML = "";
+    var filesize = ((file.size/1024)/1024).toFixed(4); // MB
 
-      var toggleAllLabel = document.getElementById("label-as-plan-"+section);
-      var toggleSelectedLabel = document.getElementById("label-toggle-as-selected-"+section);
-      var toggleNoneLabel = document.getElementById("label-toggle-none-"+section);
-      var statusLabel = document.getElementById("label-status-"+section);
-      var questions = document.getElementById("toggle-section-questions-"+section);
-      var header = document.getElementById("toggle-section-header-"+section);
-
-      if(toggleAsSelectedCheckbox.checked) {
-        questions.style.display = "flex"
-        toggleAllLabel.style.display = "none"
-        toggleNoneLabel.style.display = "none"
-
-        statusLabel.style.display = "inline-block"
-        statusLabel.textContent = "As  Selected"
-        header.style.backgroundColor = 'orange';
-
-      } else {
-        questions.style.display = "none"
-        toggleAllLabel.style.display = "inline-block"
-        toggleNoneLabel.style.display = "inline-block"
-
-
-        header.style.backgroundColor = '';
-        statusLabel.style.display = "none"
-        statusLabel.textContent = ""
+    if (file.name != "item" && typeof file.name != "undefined" && filesize <= 49) {
+      approvedHTML += "approved " + file.name;
+    } else {
+      if(file.name == "item"){
+        approvedHTML += 'not approved no item; ';
       }
-    }
-
-    function toggleNone(section) {
-      var toggleNoneCheckbox = document.getElementById("toggle-none-"+section);
-
-      var toggleAllLabel = document.getElementById("label-as-plan-"+section);
-      var toggleSelectedLabel = document.getElementById("label-toggle-as-selected-"+section);
-      var toggleNoneLabel = document.getElementById("label-toggle-none-"+section);
-
-      var statusLabel = document.getElementById("label-status-"+section);
-      var questions = document.getElementById("toggle-section-questions-"+section);
-      var header = document.getElementById("toggle-section-header-"+section);
-
-      if(toggleNoneCheckbox.checked) {
-        header.style.backgroundColor = 'red';
-        toggleAllLabel.style.display = "none"
-        toggleSelectedLabel.style.display = "none"
-        statusLabel.style.display = "inline-block"
-        statusLabel.textContent = "Outsourced"
-      } else {
-        header.style.backgroundColor = '';
-        toggleAllLabel.style.display = "inline-block"
-        toggleSelectedLabel.style.display = "inline-block"
-        statusLabel.style.display = "none"
-        statusLabel.textContent = ""
+      if(typeof file.name == "undefined"){
+        approvedHTML += 'not approved, bad filename; ';
       }
-    }
-
-    function toggleEstimation() {
-      var toggleCheckbox = document.getElementById("cancel-estimation");
-      var sectionWrapper = document.getElementById("toggle-section-wrapper");
-      if(toggleCheckbox.checked) {
-          sectionWrapper.style.display = 'none';
-      } else {
-        sectionWrapper.style.display = 'flex';
+      if(filesize >= 50){
+        approvedHTML += 'not approved, file too large; ';
       }
+      $("#" +callerID+"Results")
     }
+    $("#" +callerID+"Results").html(approvedHTML);
+  });
 
-    function toggleOutsourcing() {
-      var toggleCheckbox = document.getElementById("cancel-outsourcing");
-      var sectionWrapper = document.getElementById("outsourcing-selection-body");
-      if(toggleCheckbox.checked) {
-          sectionWrapper.style.display = 'none';
-      } else {
-        sectionWrapper.style.display = 'flex';
-      }
+
+  function toggleAll(section) {
+    var toggleAllCheckbox = document.getElementById("as-plan-"+section);
+
+    var toggleAllLabel = document.getElementById("label-as-plan-"+section);
+    var toggleSelectedLabel = document.getElementById("label-toggle-as-selected-"+section);
+    var toggleNoneLabel = document.getElementById("label-toggle-none-"+section);
+
+    // var statusLabel = document.getElementById("label-status-"+section);
+    var questions = document.getElementById("toggle-section-questions-"+section);
+    var header = document.getElementById("toggle-section-header-"+section);
+    if(toggleAllCheckbox.checked) {
+      header.style.backgroundColor = 'green';
+      toggleSelectedLabel.style.display = "none"
+      toggleNoneLabel.style.display = "none"
+      // statusLabel.textContent = "As Per Plan"
+      // statusLabel.style.display = "inline-block"
+    } else {
+      header.style.backgroundColor = '';
+      toggleSelectedLabel.style.display = "inline-block"
+      toggleNoneLabel.style.display = "inline-block"
+      // statusLabel.style.display = "none"
+      // statusLabel.textContent = ""
+
     }
+  }
 
 
-    function outsourcePrenailDayle() {
-      var checkbox = document.getElementById("outsourcePrenailDayleid");
-      var questions = document.getElementById('Dayles-prenail-questions');
-      if(checkbox) {
-        questions.style.display = "block"
-      } else {
-        questions.style.display = "none"
+  function toggleAsSelected(section) {
+    console.log(section);
+    var toggleAsSelectedCheckbox = document.getElementById("toggle-as-selected-"+section);
+    console.log(toggleAsSelectedCheckbox);
 
-      }
+    var toggleAllLabel = document.getElementById("label-as-plan-"+section);
+    var toggleSelectedLabel = document.getElementById("label-toggle-as-selected-"+section);
+    var toggleNoneLabel = document.getElementById("label-toggle-none-"+section);
+    // var statusLabel = document.getElementById("label-status-"+section);
+    var questions = document.getElementById("toggle-section-questions-"+section);
+    var header = document.getElementById("toggle-section-header-"+section);
+
+    if(toggleAsSelectedCheckbox.checked) {
+      questions.style.display = "flex"
+      toggleAllLabel.style.display = "none"
+      toggleNoneLabel.style.display = "none"
+
+      // statusLabel.style.display = "inline-block"
+      // statusLabel.textContent = "As  Selected"
+      header.style.backgroundColor = 'orange';
+
+    } else {
+      questions.style.display = "none"
+      toggleAllLabel.style.display = "inline-block"
+      toggleNoneLabel.style.display = "inline-block"
+
+
+      header.style.backgroundColor = '';
+      // statusLabel.style.display = "none"
+      // statusLabel.textContent = ""
     }
+  }
+
+  function toggleNone(section) {
+    var toggleNoneCheckbox = document.getElementById("toggle-none-"+section);
+
+    var toggleAllLabel = document.getElementById("label-as-plan-"+section);
+    var toggleSelectedLabel = document.getElementById("label-toggle-as-selected-"+section);
+    var toggleNoneLabel = document.getElementById("label-toggle-none-"+section);
+
+    // var statusLabel = document.getElementById("label-status-"+section);
+    var questions = document.getElementById("toggle-section-questions-"+section);
+    var header = document.getElementById("toggle-section-header-"+section);
+
+    if(toggleNoneCheckbox.checked) {
+      header.style.backgroundColor = 'red';
+      toggleAllLabel.style.display = "none"
+      toggleSelectedLabel.style.display = "none"
+      // statusLabel.style.display = "inline-block"
+      // statusLabel.textContent = "Outsourced"
+    } else {
+      header.style.backgroundColor = '';
+      toggleAllLabel.style.display = "inline-block"
+      toggleSelectedLabel.style.display = "inline-block"
+      // statusLabel.style.display = "none"
+      // statusLabel.textContent = ""
+    }
+  }
+
+  function toggleEstimation() {
+    var toggleCheckbox = document.getElementById("cancel-estimation");
+    var sectionWrapper = document.getElementById("toggle-section-wrapper");
+    if(toggleCheckbox.checked) {
+      sectionWrapper.style.display = 'none';
+    } else {
+      sectionWrapper.style.display = 'flex';
+    }
+  }
+
+  function toggleOutsourcing() {
+    var toggleCheckbox = document.getElementById("cancel-outsourcing");
+    var sectionWrapper = document.getElementById("outsourcing-selection-body");
+    if(toggleCheckbox.checked) {
+      sectionWrapper.style.display = 'none';
+    } else {
+      sectionWrapper.style.display = 'flex';
+    }
+  }
+
+
+  function outsourcePrenail() {
+    var checkbox1 = document.getElementById("outsourcing-selection-prenail-turangi");
+    var checkbox2 = document.getElementById("outsourcePrenailNTMLid");
+    var checkbox3 = document.getElementById("outsourcePrenailDayleid");
+
+    var questions = document.getElementById('prenail-questions');
+
+    if(checkbox1.checked || checkbox2.checked || checkbox3.checked) {
+      questions.style.display = "flex"
+    } else {
+      questions.style.display = "none"
+    }
+  }
 
 
   </script>
@@ -405,21 +432,21 @@
           <li class="outsourcing-selection-li">
             <label for="outsourcing-selection-prenail-turangi">
               Turangi ITM
-              <input class="checkbox" type="checkbox" name="outsourcing-selection-prenail-turangi" id='outsourcing-selection-prenail-turangi' />
+              <input class="checkbox" type="checkbox" name="outsourcing-selection-prenail-turangi" id='outsourcing-selection-prenail-turangi' onclick="outsourcePrenail()" />
             </label>
 
           </li>
           <li class="outsourcing-selection-li">
             <label for="outsourcing-selection-prenail-ntml">
               NTML
-              <input class="checkbox" type="checkbox" name="outsourcing-selection-prenail-ntml"  />
+              <input class="checkbox" type="checkbox" name="outsourcing-selection-prenail-ntml"  id='outsourcePrenailNTMLid' onclick="outsourcePrenail()" />
             </label>
 
           </li>
           <li class="outsourcing-selection-li">
             <label for="outsourcing-selection-prenail-dayles">
               Dayles
-              <input class="checkbox" type="checkbox" name="outsourcing-selection-prenail-dayles"  id='outsourcePrenailDayleid' onclick="outsourcePrenailDayle()"/>
+              <input class="checkbox" type="checkbox" name="outsourcing-selection-prenail-dayles"  id='outsourcePrenailDayleid' onclick="outsourcePrenail()"/>
             </label>
           </li>
         </ul>
@@ -603,8 +630,7 @@
         <div class="toggle-section foundations">
           <header id="toggle-section-header-foundations" class="toggle-section-header">
             Foundations
-            <label style="display: none;" id="label-status-foundations" class="toggle-status foundations">
-            </label>
+            <!-- <label style="display: none;" id="label-status-foundations" class="toggle-status foundations"></label> -->
             <label id="label-as-plan-foundations" class="as-plan-toggle foundations" for="as-plan-foundations">
               As per Plan
               <input type="checkbox"  id="as-plan-foundations" name='as-plan-foundations' onclick="toggleAll('foundations')" />
@@ -647,7 +673,7 @@
         <div class="toggle-section timber-floor">
           <header id="toggle-section-header-timber-floor" class="toggle-section-header">
             Timber Floor
-            <label style="display: none;" id="label-status-timber-floor" class="toggle-status timber-floor">
+            <!-- <label style="display: none;" id="label-status-timber-floor" class="toggle-status timber-floor"> -->
             </label>
             <label id="label-as-plan-timber-floor" class="as-plan-toggle timber-floor" for="as-plan-timber-floor">
               As per Plan
@@ -698,7 +724,7 @@
         <div class="toggle-section wall-framing">
           <header class="toggle-section-header" id="toggle-section-header-wall-framing">
             Wall Framing
-            <label style="display: none;" id="label-status-wall-framing" class="toggle-status wall-framing">
+            <!-- <label style="display: none;" id="label-status-wall-framing" class="toggle-status wall-framing"> -->
             </label>
             <label id="label-as-plan-wall-framing" class="as-plan-toggle wall-framing" for="as-plan-wall-framing">
               As per Plan
@@ -769,7 +795,7 @@
         <div class="toggle-section roof-framing">
           <header class="toggle-section-header" id="toggle-section-header-roof-framing">
             Roof Framing
-            <label style="display: none;" id="label-status-roof-framing" class="toggle-status roof-framing">
+            <!-- <label style="display: none;" id="label-status-roof-framing" class="toggle-status roof-framing"> -->
             </label>
             <label id="label-as-plan-roof-framing" class="as-plan-toggle roof-framing" for="as-plan-roof-framing">
               As per Plan
@@ -812,7 +838,7 @@
         <div class="toggle-section exterior-finishing">
           <header id="toggle-section-header-exterior-finishing" class="toggle-section-header">
             Exterior Finishings
-            <label style="display: none;" id="label-status-exterior-finishing" class="toggle-status exterior-finishing">
+            <!-- <label style="display: none;" id="label-status-exterior-finishing" class="toggle-status exterior-finishing"> -->
             </label>
             <label id="label-as-plan-exterior-finishing" class="as-plan-toggle exterior-finishing" for="as-plan-exterior-finishing">
               As per Plan
@@ -871,7 +897,7 @@
         <div class="toggle-section cladding">
           <header id="toggle-section-header-cladding" class="toggle-section-header">
             Cladding
-            <label style="display: none;" id="label-status-cladding" class="toggle-status cladding">
+            <!-- <label style="display: none;" id="label-status-cladding" class="toggle-status cladding"> -->
             </label>
             <label id="label-as-plan-cladding" class="as-plan-toggle cladding" for="as-plan-cladding">
               As per Plan
@@ -915,7 +941,7 @@
         <div class="toggle-section insulation">
           <header id="toggle-section-header-insulation" class="toggle-section-header">
             Insulation
-            <label style="display: none;" id="label-status-insulation" class="toggle-status insulation">
+            <!-- <label style="display: none;" id="label-status-insulation" class="toggle-status insulation"> -->
             </label>
             <label id="label-as-plan-insulation" class="as-plan-toggle insulation" for="as-plan-insulation">
               As per Plan
@@ -977,7 +1003,7 @@
         <div class="toggle-section interior-linings">
           <header id="toggle-section-header-interior-linings" class="toggle-section-header">
             Interior Linings
-            <label style="display: none;" id="label-status-interior-linings" class="toggle-status interior-linings">
+            <!-- <label style="display: none;" id="label-status-interior-linings" class="toggle-status interior-linings"> -->
             </label>
 
             <label id="label-as-plan-interior-linings" class="as-plan-toggle interior-linings" for="as-plan-interior-linings">
@@ -1048,7 +1074,7 @@
         <div class="toggle-section interior-doors">
           <header id="toggle-section-header-interior-doors" class="toggle-section-header">
             Interior Doors
-            <label style="display: none;"  id="label-status-interior-doors" class="toggle-status interior-doors">
+            <!-- <label style="display: none;"  id="label-status-interior-doors" class="toggle-status interior-doors"> -->
             </label>
             <label  id="label-as-plan-interior-doors" class="as-plan-toggle interior-doors" for="as-plan-interior-doors">
               As per Plan
@@ -1080,7 +1106,7 @@
         <div class="toggle-section interior-finishings">
           <header id="toggle-section-header-interior-finishings" class="toggle-section-header">
             Interior Finishings
-            <label style="display: none;"  id="label-status-interior-finishings" class="toggle-status interior-finishings">
+            <!-- <label style="display: none;"  id="label-status-interior-finishings" class="toggle-status interior-finishings"> -->
             </label>
             <label  id="label-as-plan-interior-finishings" class="as-plan-toggle interior-finishings" for="as-plan-interior-finishings">
               As per Plan
@@ -1140,8 +1166,8 @@
         <div class="toggle-section landscaping">
           <header id="toggle-section-header-landscaping" class="toggle-section-header">
             Landscaping
-            <label style='display: none;' id="label-status-landscaping" class="toggle-status landscaping">
-            </label>
+            <!-- <label style='display: none;' id="label-status-landscaping" class="toggle-status landscaping">
+            </label> -->
             <label id="label-as-plan-landscaping" class="as-plan-toggle landscaping" for="as-plan-landscaping">
               As per Plan
               <input type="checkbox"  id="as-plan-landscaping" name='as-plan-landscaping' onclick="toggleAll('landscaping')"/>
@@ -1187,64 +1213,169 @@
       </div>
 
     </div>
-    <div id="Dayles-prenail-questions" class="" style="display:none">
-      <header>
+
+
+    <div id="prenail-questions" class="" style="display:none">
+      <header class='fullWidthContainer'>
         <h1>
           Dayle Prenail questions
         </h1>
         Dayle email test: <input type="email" name="dayle-test-email"/>
       </header>
-      <label>
-        Prenail Frames
+      <div class="checkboxContainer">
+        Wind zone
+        <p class="row"><input class="wind" name="prenailMediumWind" type="checkbox">Medium Wind</p>
+        <p class="row"><input class="wind" name="prenailHighWind" type="checkbox">High Wind</p>
+        <p class="row"><input class="wind" name="prenailVeryWind" type="checkbox">Very High Wind</p>
+        <p class="row"><input class="wind" name="prenailExtraWind" type="checkbox">Extra High Wind</p>
+      </div>
+      <div class="checkboxContainer">
 
+      <table class='prenail-table'>
+        <caption>Wall Framing Treatment</caption>
+        <tr>
+          <th class='prenail-table-headers'></th>
+          <th class='prenail-table-headers'>H1.2</th>
+          <th class='prenail-table-headers'>H3.2</th>
+          <th class='prenail-table-headers'>H3.2 B/Plate</th>
+        </tr>
+        <tr>
+          <td class='prenail-table-cells'>
+            Interior
+          </td>
+          <td class='prenail-table-cells'>
+            <input type="checkbox" name='daylePrenailInteriorH1' />
+          </td>
+          <td class='prenail-table-cells'>
+            <input type="checkbox" name='daylePrenailInteriorH3' />
+          </td>
+          <td class='prenail-table-cells'>
+            <input type="checkbox" name='daylePrenailInteriorBPlate' />
+          </td>
+        </tr>
+        <tr>
+          <td class='prenail-table-cells'>
+            Exterior
+          </td>
+          <td class='prenail-table-cells'>
+            <input type="checkbox" name='daylePrenailExteriorH1' />
+          </td>
+          <td class='prenail-table-cells'>
+            <input type="checkbox" name='daylePrenailExteriorH3' />
+          </td>
+          <td class='prenail-table-cells'>
+            <input type="checkbox" name='daylePrenailExteriorBPlate' />
+          </td>
+
+        </tr>
+
+        <tr>
+          <td class='prenail-table-cells'>
+            Wet Areas
+          </td>
+          <td class='prenail-table-cells'>
+            <input type="checkbox" name='daylePrenailWetH1' />
+          </td>
+          <td class='prenail-table-cells'>
+            <input type="checkbox" name='daylePrenailWetH3' />
+          </td>
+          <td class='prenail-table-cells'>
+            <input type="checkbox" name='daylePrenailWetBPlate' />
+          </td>
+
+        </tr>
+      </table>
+      <br />
+      <table class='prenail-table'>
+        <caption>Roof Framing Treatment</caption>
+        <tr>
+          <th class='prenail-table-headers'></th>
+          <th class='prenail-table-headers'>H1.2</th>
+          <th class='prenail-table-headers'>H3.2</th>
+        </tr>
+        <tr>
+          <td class='prenail-table-cells'>Trusses</td>
+          <td class='prenail-table-cells'>
+            <input type="checkbox" name='daylePrenailTrussesH1' />
+          </td>
+          <td class='prenail-table-cells'>
+            <input type="checkbox" name='daylePrenailTrussesH3' />
+          </td>
+
+        </tr>
+        <tr>
+          <td class='prenail-table-cells'>Rafters</td>
+          <td class='prenail-table-cells'>
+            <input type="checkbox" name='daylePrenailRaftersH1' />
+          </td>
+          <td class='prenail-table-cells'>
+            <input type="checkbox" name='daylePrenailRaftersH3' />
+          </td>
+
+        </tr>
+      </table>
+    </div>
+
+
+
+
+    <div class="checkboxContainer">
+
+      <label>
+        Prenail Wall Frames
         <input class="single-input" type="text" name="daylesPrenailFrames"  />
       </label>
-      <label>
-        Bottom Plates
-        <input class="single-input" type="text" name="daylesBottomPlates"  />
-      </label>
 
       <label>
-        Trusses / Balance of Roof / Cut Roof
-
-        <input class="single-input" type="text" name="daylesTrusses"  />
+        Trusses
+        <input class="single-input" type="text" name="daylesPrenailTrusses"  />
       </label>
-
       <label>
-        Chimney framing
-        <input class="single-input" type="checkbox" name="daylesChimneyFraming"  />
+        Precut Rafters
+        <input class="single-input" type="text" name="daylesPrenailPrecutRafters"  />
       </label>
+      <label>
+        Precut balance of Roof
+        <input class="single-input" type="text" name="daylesPrenailPrecutRoof"  />
+      </label>
+</div>
+      <div class="checkboxContainer">
+<header>
+  <h4>Other : TBC by Prenail Supplier, must be detailed</h4>
+</header>
       <label>
         LVL Beams
-        <input class="single-input" type="checkbox" name="daylesLVLBeams"  />
+        <input class="single-input" type="checkbox" name="daylesPrenailLVLBeams"  />
+        eg in Mid floor / roof, lintels as per prenail/ engineer
       </label>
       <label>
         Glulam Beams
-
-        <input class="single-input" type="checkbox" name="daylesChimneyFraming"  />
+        <input class="single-input" type="checkbox" name="daylesPrenailGulamBeams"  />
+        eg in Mid floor / roof, lintels as per prenail/ engineer
       </label>
       <label>
-        Porch Posts
+        Flitch Beams
+        <input class="single-input" type="checkbox" name="daylesPrenailFlitchBeams"  />
+        eg in Mid floor / roof, lintels as per prenail/ engineer
+      </label>
 
-        <input class="single-input" type="checkbox" name="daylesChimneyFraming"  />
-      </label>
       <label>
-        Verandah Posts
+        Double top plate loose
+        <input class="single-input" type="checkbox" name="daylesPrenailDoubleTop"  />
+        double top plates will come nailed by default
+      </label>
 
-        <input class="single-input" type="checkbox" name="daylesChimneyFraming"  />
-      </label>
       <label>
-        Enclosed balustrades interior
+        Studlok / lintel lok
+        <input class="single-input" type="checkbox" name="daylesPrenailStudlok"  />
+        premium service, additional charges apply
+      </label>
 
-        <input class="single-input" type="checkbox" name="daylesChimneyFraming"  />
-      </label>
-      <label>
-        Enclosed balustrades exterior
-        <input class="single-input" type="checkbox" name="daylesChimneyFraming"  />
-      </label>
 
 
     </div>
+    </div>
+
     <div class="uploadSection">
       <br>
       <h3>Upload your plan files here. If you're not uploading a file, tick the box.</h3>

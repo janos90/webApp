@@ -14,7 +14,17 @@ function incrementIterator(jobNumber) {
 }
 function processForm(form) {
   try {
-    var jobNumber = getIterator()
+    var jobNumerical = getIterator()
+    var jobNumber =  jobNumerical
+    if(form['template-selection'].value === 'hillside') {
+      jobNumber = '524-' + jobNumerical
+
+
+    } else if (form['template-selection'].value === 'mahia') {
+      jobNumber = 'mahia' + jobNumerical
+    } else {
+      jobNumber = 'matakana' + jobNumerical
+    }
     var parentFolderId = "1ZrbjfZe6Iol1yOmFPeDEwt53CscY4hOk"
     var clientFolderName = form['quote-info-sales-rep'];
     var parentFolder = DriveApp.getFolderById(parentFolderId)
@@ -665,7 +675,7 @@ function processForm(form) {
 
     quotesOutput += "</ul> <br>" + output
 
-    incrementIterator(jobNumber);
+    incrementIterator(jobNumerical);
     return output
 
   } catch (error) {

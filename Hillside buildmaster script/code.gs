@@ -14,6 +14,16 @@ function incrementIterator(jobNumber) {
 }
 function processForm(form) {
   try {
+
+    // Temporary constants
+    var turangiConstEmail = '';
+    var ntmlConstEmail = '';
+    var dayleConstEmail = '';
+
+
+
+
+
     var jobNumerical = getIterator()
     var jobNumber =  jobNumerical
     if(form['template-selection'].value === 'hillside') {
@@ -42,7 +52,7 @@ function processForm(form) {
     var clientDetails = ''
     var outsourcingSelection = ''
     var estimationContent = ''
-    var dayleContentSubmitted = ''
+    var prenailContentSubmitted = ''
     styles+= "<style type='text/css'> body {  text-align: -webkit-center;  background-color: #FFfFFF;  font-family: Sans-serif;}"
     styles+= "form {  width:80em;}"
     styles+= "#heading {  display:flex;  height:100%;  padding: 0em 20em 2em 20em;}"
@@ -466,71 +476,71 @@ function processForm(form) {
     estimationContent+= "</main></div></div></div>"
     content+= estimationContent
 
-    dayleContentSubmitted+= "<div id='Dayles-prenail-questions' class=' style='display:none'><header><h1>Dayle Prenail questions</h1>"
-    dayleContentSubmitted+= "Dayle email test: <input disabled type='email' value='"+form['dayle-test-email']+"' /></header>"
-    dayleContentSubmitted+= "<label>Prenail Frames<input disabled class='single-input' type='text' value='"+form['daylesPrenailFrames']+"' /></label>"
-    dayleContentSubmitted+= "<label>Bottom Plates<input disabled class='single-input' type='text' value='"+form['daylesBottomPlates']+"' /></label>"
-    dayleContentSubmitted+= "<label>Trusses / Balance of Roof / Cut Roof<input disabled class='single-input' type='text' value='"+form['daylesTrusses']+"' /></label>"
-    dayleContentSubmitted+= "<label>Chimney framing<input disabled class='single-input' type='checkbox' "+(form['daylesChimneyFraming']?'checked':'')+" /></label>"
-    dayleContentSubmitted+= "<label>LVL Beams<input disabled class='single-input' type='checkbox' "+(form['daylesLVLBeams']?'checked':'')+" /></label>"
-    dayleContentSubmitted+= "<label>Glulam Beams<input disabled class='single-input' type='checkbox' "+(form['daylesChimneyFraming']?'checked':'')+" /></label>"
-    dayleContentSubmitted+= "<label>Porch Posts<input disabled class='single-input' type='checkbox' "+(form['daylesChimneyFraming']?'checked':'')+" /></label>"
-    dayleContentSubmitted+= "<label>Verandah Posts<input disabled class='single-input' type='checkbox' "+(form['daylesChimneyFraming']?'checked':'')+" /></label>"
-    dayleContentSubmitted+= "<label>Enclosed balustrades interior<input disabled class='single-input' type='checkbox' "+(form['daylesChimneyFraming']?'checked':'')+"/></label>"
-    dayleContentSubmitted+= "<label>Enclosed balustrades exterior<input disabled class='single-input' type='checkbox' "+(form['daylesChimneyFraming']?'checked':'')+"/></label></div>"
-    content+= dayleContentSubmitted
+    prenailContentSubmitted+= "<div id='Dayles-prenail-questions' class=' style='display:none'><header><h1>Dayle Prenail questions</h1>"
+    prenailContentSubmitted+= "Dayle email test: <input disabled type='email' value='"+form['dayle-test-email']+"' /></header>"
+    prenailContentSubmitted+= "<label>Prenail Frames<input disabled class='single-input' type='text' value='"+form['daylesPrenailFrames']+"' /></label>"
+    prenailContentSubmitted+= "<label>Bottom Plates<input disabled class='single-input' type='text' value='"+form['daylesBottomPlates']+"' /></label>"
+    prenailContentSubmitted+= "<label>Trusses / Balance of Roof / Cut Roof<input disabled class='single-input' type='text' value='"+form['daylesTrusses']+"' /></label>"
+    prenailContentSubmitted+= "<label>Chimney framing<input disabled class='single-input' type='checkbox' "+(form['daylesChimneyFraming']?'checked':'')+" /></label>"
+    prenailContentSubmitted+= "<label>LVL Beams<input disabled class='single-input' type='checkbox' "+(form['daylesLVLBeams']?'checked':'')+" /></label>"
+    prenailContentSubmitted+= "<label>Glulam Beams<input disabled class='single-input' type='checkbox' "+(form['daylesChimneyFraming']?'checked':'')+" /></label>"
+    prenailContentSubmitted+= "<label>Porch Posts<input disabled class='single-input' type='checkbox' "+(form['daylesChimneyFraming']?'checked':'')+" /></label>"
+    prenailContentSubmitted+= "<label>Verandah Posts<input disabled class='single-input' type='checkbox' "+(form['daylesChimneyFraming']?'checked':'')+" /></label>"
+    prenailContentSubmitted+= "<label>Enclosed balustrades interior<input disabled class='single-input' type='checkbox' "+(form['daylesChimneyFraming']?'checked':'')+"/></label>"
+    prenailContentSubmitted+= "<label>Enclosed balustrades exterior<input disabled class='single-input' type='checkbox' "+(form['daylesChimneyFraming']?'checked':'')+"/></label></div>"
+    content+= prenailContentSubmitted
     content+= "</form>"
 
 
-    var uploadedDaylePDF
-    var uploadedDayleHTML
-    var dayleOutput = "A new Job has been submitted by "+form['quote-info-sales-rep']+"' For "+form['template-selection']
-    var dayleContent = "";
+    var uploadedPrenailPDF
+    var uploadedPrenailHTML
+    var prenailOutput = "A new Job has been submitted by "+form['quote-info-sales-rep']+"' For "+form['template-selection']
+    var prenailContent = "";
 
-    if(form['outsourcing-selection-prenail-dayles']) {
-      dayleContent+= "<style>.page-header {display:flex}"
-      dayleContent+= ".wrapper {max-width: 900px;}"
-      dayleContent+= ".quote-info-wrapper {display:flex;flex-wrap: wrap;}"
-      dayleContent+= "label {margin: 5px;}</style>"
-      dayleContent+= "<div class='wrapper'>"
-      dayleContent+= "<header class='page-header' style = ''>"
-      dayleContent+= "<img src='https://www.earthimpressions.co.nz/wp-content/uploads/2021/07/Logo_ITM.jpg' />"
-      dayleContent+= "<h2>Prenail Estimate Request Sheet</h2></header>"
-      dayleContent+= "<table class=''>"
-      dayleContent+= "<tr><td>Client name:"+form['customer-info-name']+"</td><td>Job name:"+form['job-info-address']+"' </td></tr>"
-      dayleContent+= "<tr><td>Site Address: </td><td>Branch: </td></tr>"
-      dayleContent+= "<tr><td>Received By:</td><td>Sales Person/Rep</td></tr>"
-      dayleContent+= "<tr><td>Date Received:</td><td>Date Required:</td></tr>"
-      dayleContent+= "<tr><td>Builder:</td><td>Email:</td></tr>"
-      dayleContent+= "<tr><td>Quote reference:</td></tr></table>"
-      dayleContent+= "<div><label>Prenail Frames</label> <br />"
-      dayleContent+= "<label>Bottom Plates</label> <br />"
-      dayleContent+= "<label>Trusses / Balance of Roof / Cut Roof</label> <br />"
-      dayleContent+= "<label>Chimney framing</label> <br />"
-      dayleContent+= "<label>LVL Beams</label> <br />"
-      dayleContent+= "<label>Glulam Beams </label> <br />"
-      dayleContent+= "<label>Porch Posts</label> <br />"
-      dayleContent+= "<label>Verandah Posts </label> <br />"
-      dayleContent+= "<label>Enclosed balustrades interior</label> <br />"
-      dayleContent+= "<label>Enclosed balustrades exterior</label> <br />"
-      dayleContent+= "<label>Hip Boards</label> <br />"
-      dayleContent+= "<label>Verandah/Porch Beams - Exposed				</label> <br />"
-      dayleContent+= "<label>Beams in Soffit space</label> <br />"
-      dayleContent+= "<label>Metal Strap Bracing</label> <br />"
-      dayleContent+= "<label>Truss Bottom Chord Bracing - (Rondo) </label> <br />"
-      dayleContent+= "<label>Sub Floors</label> <br />"
-      dayleContent+= "<label>Flitch Beams </label> <br />"
-      dayleContent+= "<label>Mid Floors</label> <br />"
-      dayleContent+= "<label>Flitch Beams </label> <br />"
-      dayleContent+= "</div></div>"
-      var dayleBlob = Utilities.newBlob(dayleContent, "text/html", "text.html");
-      var daylePdf = dayleBlob.getAs("application/pdf");
-      uploadedDaylePDF = JobFolder.createFile(daylePdf).setName("pdf Dayle request "+form['job-info-address']+".pdf");
-      uploadedDayleHTML = JobFolder.createFile("html Dayle request "+form['job-info-address']+".html", dayleContent, MimeType.HTML);
-      uploadedDaylePDF.setSharing(DriveApp.Access.ANYONE, DriveApp.Permission.EDIT);
-      uploadedDaylePDF.setSharing(DriveApp.Access.ANYONE_WITH_LINK, DriveApp.Permission.VIEW);
-      uploadedDayleHTML.setSharing(DriveApp.Access.ANYONE, DriveApp.Permission.EDIT);
-      uploadedDayleHTML.setSharing(DriveApp.Access.ANYONE_WITH_LINK, DriveApp.Permission.VIEW);
+    if(form['outsourcing-selection-prenail-turangi'] ||form['outsourcing-selection-prenail-ntml'] ||form['outsourcing-selection-prenail-dayles']) {
+      prenailContent+= "<style>.page-header {display:flex}"
+      prenailContent+= ".wrapper {max-width: 900px;}"
+      prenailContent+= ".quote-info-wrapper {display:flex;flex-wrap: wrap;}"
+      prenailContent+= "label {margin: 5px;}</style>"
+      prenailContent+= "<div class='wrapper'>"
+      prenailContent+= "<header class='page-header' style = ''>"
+      prenailContent+= "<img src='https://www.earthimpressions.co.nz/wp-content/uploads/2021/07/Logo_ITM.jpg' />"
+      prenailContent+= "<h2>Prenail Estimate Request Sheet</h2></header>"
+      prenailContent+= "<table class=''>"
+      prenailContent+= "<tr><td>Client name:"+form['customer-info-name']+"</td><td>Job name:"+form['job-info-address']+"' </td></tr>"
+      prenailContent+= "<tr><td>Site Address: </td><td>Branch: </td></tr>"
+      prenailContent+= "<tr><td>Received By:</td><td>Sales Person/Rep</td></tr>"
+      prenailContent+= "<tr><td>Date Received:</td><td>Date Required:</td></tr>"
+      prenailContent+= "<tr><td>Builder:</td><td>Email:</td></tr>"
+      prenailContent+= "<tr><td>Quote reference:</td></tr></table>"
+      prenailContent+= "<div><label>Prenail Frames</label> <br />"
+      prenailContent+= "<label>Bottom Plates</label> <br />"
+      prenailContent+= "<label>Trusses / Balance of Roof / Cut Roof</label> <br />"
+      prenailContent+= "<label>Chimney framing</label> <br />"
+      prenailContent+= "<label>LVL Beams</label> <br />"
+      prenailContent+= "<label>Glulam Beams </label> <br />"
+      prenailContent+= "<label>Porch Posts</label> <br />"
+      prenailContent+= "<label>Verandah Posts </label> <br />"
+      prenailContent+= "<label>Enclosed balustrades interior</label> <br />"
+      prenailContent+= "<label>Enclosed balustrades exterior</label> <br />"
+      prenailContent+= "<label>Hip Boards</label> <br />"
+      prenailContent+= "<label>Verandah/Porch Beams - Exposed				</label> <br />"
+      prenailContent+= "<label>Beams in Soffit space</label> <br />"
+      prenailContent+= "<label>Metal Strap Bracing</label> <br />"
+      prenailContent+= "<label>Truss Bottom Chord Bracing - (Rondo) </label> <br />"
+      prenailContent+= "<label>Sub Floors</label> <br />"
+      prenailContent+= "<label>Flitch Beams </label> <br />"
+      prenailContent+= "<label>Mid Floors</label> <br />"
+      prenailContent+= "<label>Flitch Beams </label> <br />"
+      prenailContent+= "</div></div>"
+      var prenailBlob = Utilities.newBlob(prenailContent, "text/html", "text.html");
+      var prenailPdf = prenailBlob.getAs("application/pdf");
+      uploadedPrenailPDF = JobFolder.createFile(prenailPdf).setName("pdf Prenail request "+form['job-info-address']+".pdf");
+      uploadedPrenailHTML = JobFolder.createFile("html Prenail request "+form['job-info-address']+".html", prenailContent, MimeType.HTML);
+      uploadedPrenailPDF.setSharing(DriveApp.Access.ANYONE, DriveApp.Permission.EDIT);
+      uploadedPrenailPDF.setSharing(DriveApp.Access.ANYONE_WITH_LINK, DriveApp.Permission.VIEW);
+      uploadedPrenailHTML.setSharing(DriveApp.Access.ANYONE, DriveApp.Permission.EDIT);
+      uploadedPrenailHTML.setSharing(DriveApp.Access.ANYONE_WITH_LINK, DriveApp.Permission.VIEW);
 
 
     }
@@ -586,8 +596,6 @@ function processForm(form) {
       }
     }
 
-    // Dayle output
-
     // Email body (output)
     var output = "Job Submitted successfully, "
     var fileLinks = "<br>Below are your file Links"
@@ -603,8 +611,8 @@ function processForm(form) {
     // output += "<br> <strong>PDF File is currently experiencing difficulties. Please download HTML file, open in new window, and print as PDF for pdf copy.</strong>"
     output += "<br> This is the job number "+ jobNumber;
     output += "<br> Job Client is "+ form.cClient;
-    dayleOutput += "<br> This is the job number "+ jobNumber;
-    dayleOutput += "<br> Job Client is "+ form.cClient;
+    prenailOutput += "<br> This is the job number "+ jobNumber;
+    prenailOutput += "<br> Job Client is "+ form.cClient;
 
     // email subjects
     var genericSubject = 'New job, number '+ jobNumber + ', has been submitted to the quotes portal by: ' + form.cRep + ' for client ' + form.cClient
@@ -614,25 +622,27 @@ function processForm(form) {
     // PreNail
     if(form['outsourcing-selection-prenail-turangi'] ||form['outsourcing-selection-prenail-ntml'] ||form['outsourcing-selection-prenail-dayles'] ) {
       output += "<br> <h3>Prenail</h3>"
+      output += "<br> <a href='" + "http://drive.google.com/uc?export=download&id="+ uploadedPrenailHTML.getId() + "'>Link to Prenail file as HTML </a>";
+      output += "<br> <a href='" + "http://drive.google.com/uc?export=download&id="+ uploadedPrenailPDF.getId() + "'>Link to Prenail file as PDF </a>";
+      prenailOutput += "<br /> Please see attatched included link to Request Sheet"
+      prenailOutput += "<br> <a href='" + "http://drive.google.com/uc?export=download&id="+ uploadedPrenailHTML.getId() + "'>Link to Prenail request as HTML </a>";
+      prenailOutput += "<br> <a href='" + "http://drive.google.com/uc?export=download&id="+ uploadedPrenailPDF.getId() + "'>Link to Prenail request as PDF </a>";
+      prenailOutput+= fileLinks
+
+
     }
 
      if(form['outsourcing-selection-prenail-turangi']) {
        output += "<br>Sent to turangi for estimation"
-
+       sendEmail(turangiConstEmail, prenailOutput, detailingSubject) // email the additional
      }
      if(form['outsourcing-selection-prenail-ntml']) {
        output += "<br>Sent to ntml for estimation"
+       sendEmail(ntmlConstEmail, prenailOutput, detailingSubject) // email the additional
      }
      if(form['outsourcing-selection-prenail-dayles']) {
        output += "<br>Sent to dayles for estimation"
-       output += "<br> <a href='" + "http://drive.google.com/uc?export=download&id="+ uploadedDayleHTML.getId() + "'>Link to Dayle Prenail as HTML </a>";
-       output += "<br> <a href='" + "http://drive.google.com/uc?export=download&id="+ uploadedDaylePDF.getId() + "'>Link to Dayle Prenail as PDF </a>";
-       dayleOutput += "<br /> Please see attatched included link to Request Sheet"
-       dayleOutput += "<br> <a href='" + "http://drive.google.com/uc?export=download&id="+ uploadedDayleHTML.getId() + "'>Link to Dayle request as HTML </a>";
-       dayleOutput += "<br> <a href='" + "http://drive.google.com/uc?export=download&id="+ uploadedDaylePDF.getId() + "'>Link to Dayle request as PDF </a>";
-       dayleOutput+= fileLinks
-       sendEmail(form['dayle-test-email'], dayleOutput, detailingSubject) // email the additional
-
+       sendEmail(dayleConstEmail, prenailOutput, detailingSubject) // email the additional
      }
 
 

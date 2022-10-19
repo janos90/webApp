@@ -21,6 +21,50 @@ function processForm(form) {
     var dayleConstEmail = '';
 
 
+  var  unitedSteelConstEmail = '';		//		akl.cutandbend@unitedsteel.co.nz
+  var 	summitConstEmail = '';			//	QS@summitsteel.co.nz
+  var 	freoConstEmail = '';			//	TBC
+
+  // Ribraft
+  var 	rFLConstEmail = '';		//		TBC
+  var 	russelGordonConstEmail = '';		//		TBC
+
+  // Joinery
+  var 	visionConstEmail = '';		//		ash@visionwindows.co.nz
+  var					tBC = '';
+
+  // Garage Doors
+  var 	dominatorConstEmail = '';		//		sales@domnorthshore.co.nz
+  //
+  // Doors - Internal
+  var 	mahurangiConstEmail = '';		//		info@mahurangijoinery.co.nz
+  var 	doorwaysConstEmail = '';		//		trish.shirley@doorways.co.nz
+  var 	eliteConstEmail = '';			//	sales@elitedoors.net.nz
+  var 	nationwideConstEmail = '';		//		jo@nationwideprehung.co.nz
+  var 	bennett = ''; DoorsConstEmail		//		craig@bennettdoors.co.nz
+
+  // Insulation
+  var 	pinkfitConstEmail = '';		//		John.Coogan@pinkfit.co.nz
+  var 	naturalConstEmail = ''; 	//			jon@naturalinsulation.co.nz
+  var 	aDLInsulationConstEmail = '';	//			David.morris@adlgroup.co.nz
+  var 	smartEnergyConstEmail = '';		//		scarter@brightr.co.nz
+
+  // Structural SteelConstEmail
+  var 	allwinConstEmail = '';	//			sales@allwin.co.nz
+  var 	eCBConstEmail = '';			//	thomas@ecbeng.co.nz
+
+  // Cladding
+  var 	rosenfieldConstEmail = '';		//		dan@rosenfeldkidson.co.nz
+  var 	abodoConstEmail = '';		//		lewis.marshall@abodo.co.nz
+  var 	jSCConstEmail = '';			//	seanh@jsctimber.co.nz
+  var 	iTITimspecConstEmail = '';			//	davidh@ititimspec.co.nz
+
+  // Roofing
+  var 	newEraSFIConstEmail = '';						//		nikhil@neweraroofing.co.nz
+  var 	johnsonRoofingSFIConstEmail = '';			//					info@johnsonroofingltd.co.nz
+  var 	roofingIndustriesSupplyOnlyConstEmail = '';		//						marcust@roof.co.nz			
+  var 	sPSShinglesConstEmail = '';						//		info@spsbuilding.co.nz
+  var 	metalcraftConstEmail = '';						//
 
 
 

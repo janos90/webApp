@@ -216,14 +216,14 @@
     var header = document.getElementById("toggle-section-header-"+section);
     if(toggleAllCheckbox.checked) {
       header.style.backgroundColor = 'green';
-      toggleSelectedLabel.style.display = "none"
-      toggleNoneLabel.style.display = "none"
+      toggleSelectedLabel.style.visibility = "hidden"
+      toggleNoneLabel.style.visibility = "hidden"
       // statusLabel.textContent = "As Per Plan"
-      // statusLabel.style.display = "inline-block"
+      // statusLabel.style.visibility = "visible"
     } else {
       header.style.backgroundColor = '';
-      toggleSelectedLabel.style.display = "inline-block"
-      toggleNoneLabel.style.display = "inline-block"
+      toggleSelectedLabel.style.visibility = "visible"
+      toggleNoneLabel.style.visibility = "visible"
       // statusLabel.style.display = "none"
       // statusLabel.textContent = ""
 
@@ -245,17 +245,17 @@
 
     if(toggleAsSelectedCheckbox.checked) {
       questions.style.display = "flex"
-      toggleAllLabel.style.display = "none"
-      toggleNoneLabel.style.display = "none"
+      toggleAllLabel.style.visibility = "hidden"
+      toggleNoneLabel.style.visibility = "hidden"
 
-      // statusLabel.style.display = "inline-block"
+      // statusLabel.style.visibility = "visible"
       // statusLabel.textContent = "As  Selected"
       header.style.backgroundColor = 'orange';
 
     } else {
       questions.style.display = "none"
-      toggleAllLabel.style.display = "inline-block"
-      toggleNoneLabel.style.display = "inline-block"
+      toggleAllLabel.style.visibility = "visible"
+      toggleNoneLabel.style.visibility = "visible"
 
 
       header.style.backgroundColor = '';
@@ -277,14 +277,14 @@
 
     if(toggleNoneCheckbox.checked) {
       header.style.backgroundColor = 'red';
-      toggleAllLabel.style.display = "none"
-      toggleSelectedLabel.style.display = "none"
-      // statusLabel.style.display = "inline-block"
+      toggleAllLabel.style.visibility = "hidden"
+      toggleSelectedLabel.style.visibility = "hidden"
+      // statusLabel.style.visibility = "visible"
       // statusLabel.textContent = "Outsourced"
     } else {
       header.style.backgroundColor = '';
-      toggleAllLabel.style.display = "inline-block"
-      toggleSelectedLabel.style.display = "inline-block"
+      toggleAllLabel.style.visibility = "visible"
+      toggleSelectedLabel.style.visibility = "visible"
       // statusLabel.style.display = "none"
       // statusLabel.textContent = ""
     }

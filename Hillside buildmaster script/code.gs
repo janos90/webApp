@@ -20,51 +20,51 @@ function processForm(form) {
     var ntmlConstEmail = '';
     var dayleConstEmail = '';
 
+    
+    var  unitedSteelConstEmail = '';		//		akl.cutandbend@unitedsteel.co.nz
+    var 	summitConstEmail = '';			//	QS@summitsteel.co.nz
+    var 	freoConstEmail = '';			//	TBC
 
-  var  unitedSteelConstEmail = '';		//		akl.cutandbend@unitedsteel.co.nz
-  var 	summitConstEmail = '';			//	QS@summitsteel.co.nz
-  var 	freoConstEmail = '';			//	TBC
+    // Ribraft
+    var 	rFLConstEmail = '';		//		TBC
+    var 	russelGordonConstEmail = '';		//		TBC
 
-  // Ribraft
-  var 	rFLConstEmail = '';		//		TBC
-  var 	russelGordonConstEmail = '';		//		TBC
+    // Joinery
+    var 	visionConstEmail = '';		//		ash@visionwindows.co.nz
+    var					tBC = '';
 
-  // Joinery
-  var 	visionConstEmail = '';		//		ash@visionwindows.co.nz
-  var					tBC = '';
+    // Garage Doors
+    var 	dominatorConstEmail = '';		//		sales@domnorthshore.co.nz
+    //
+    // Doors - Internal
+    var 	mahurangiConstEmail = '';		//		info@mahurangijoinery.co.nz
+    var 	doorwaysConstEmail = '';		//		trish.shirley@doorways.co.nz
+    var 	eliteConstEmail = '';			//	sales@elitedoors.net.nz
+    var 	nationwideConstEmail = '';		//		jo@nationwideprehung.co.nz
+    var 	bennett = ''; DoorsConstEmail		//		craig@bennettdoors.co.nz
 
-  // Garage Doors
-  var 	dominatorConstEmail = '';		//		sales@domnorthshore.co.nz
-  //
-  // Doors - Internal
-  var 	mahurangiConstEmail = '';		//		info@mahurangijoinery.co.nz
-  var 	doorwaysConstEmail = '';		//		trish.shirley@doorways.co.nz
-  var 	eliteConstEmail = '';			//	sales@elitedoors.net.nz
-  var 	nationwideConstEmail = '';		//		jo@nationwideprehung.co.nz
-  var 	bennett = ''; DoorsConstEmail		//		craig@bennettdoors.co.nz
+    // Insulation
+    var 	pinkfitConstEmail = '';		//		John.Coogan@pinkfit.co.nz
+    var 	naturalConstEmail = ''; 	//			jon@naturalinsulation.co.nz
+    var 	aDLInsulationConstEmail = '';	//			David.morris@adlgroup.co.nz
+    var 	smartEnergyConstEmail = '';		//		scarter@brightr.co.nz
 
-  // Insulation
-  var 	pinkfitConstEmail = '';		//		John.Coogan@pinkfit.co.nz
-  var 	naturalConstEmail = ''; 	//			jon@naturalinsulation.co.nz
-  var 	aDLInsulationConstEmail = '';	//			David.morris@adlgroup.co.nz
-  var 	smartEnergyConstEmail = '';		//		scarter@brightr.co.nz
+    // Structural SteelConstEmail
+    var 	allwinConstEmail = '';	//			sales@allwin.co.nz
+    var 	eCBConstEmail = '';			//	thomas@ecbeng.co.nz
 
-  // Structural SteelConstEmail
-  var 	allwinConstEmail = '';	//			sales@allwin.co.nz
-  var 	eCBConstEmail = '';			//	thomas@ecbeng.co.nz
+    // Cladding
+    var 	rosenfieldConstEmail = '';		//		dan@rosenfeldkidson.co.nz
+    var 	abodoConstEmail = '';		//		lewis.marshall@abodo.co.nz
+    var 	jSCConstEmail = '';			//	seanh@jsctimber.co.nz
+    var 	iTITimspecConstEmail = '';			//	davidh@ititimspec.co.nz
 
-  // Cladding
-  var 	rosenfieldConstEmail = '';		//		dan@rosenfeldkidson.co.nz
-  var 	abodoConstEmail = '';		//		lewis.marshall@abodo.co.nz
-  var 	jSCConstEmail = '';			//	seanh@jsctimber.co.nz
-  var 	iTITimspecConstEmail = '';			//	davidh@ititimspec.co.nz
-
-  // Roofing
-  var 	newEraSFIConstEmail = '';						//		nikhil@neweraroofing.co.nz
-  var 	johnsonRoofingSFIConstEmail = '';			//					info@johnsonroofingltd.co.nz
-  var 	roofingIndustriesSupplyOnlyConstEmail = '';		//						marcust@roof.co.nz			
-  var 	sPSShinglesConstEmail = '';						//		info@spsbuilding.co.nz
-  var 	metalcraftConstEmail = '';						//
+    // Roofing
+    var 	newEraSFIConstEmail = '';						//		nikhil@neweraroofing.co.nz
+    var 	johnsonRoofingSFIConstEmail = '';			//					info@johnsonroofingltd.co.nz
+    var 	roofingIndustriesSupplyOnlyConstEmail = '';		//						marcust@roof.co.nz
+    var 	sPSShinglesConstEmail = '';						//		info@spsbuilding.co.nz
+    var 	metalcraftConstEmail = '';						//
 
 
 
@@ -648,7 +648,7 @@ function processForm(form) {
         fileLinks += "<br> <a href='" + "http://drive.google.com/uc?export=download&id="+ uploadedFiles[it].getId() + "'>Link to "+ uploadedFiles[it].getName() + "</a>";
       }
     }
-      output +=fileLinks
+    output +=fileLinks
     output += "<br> <a href='" + "http://drive.google.com/uc?export=download&id="+ uploadedHTML.getId() + "'>Link to form as HTML </a>";
     output += "<br> <a href='" + "http://drive.google.com/uc?export=download&id="+ uploadedPDF.getId() + "'>Link to form as PDF </a>";
 
@@ -676,49 +676,49 @@ function processForm(form) {
 
     }
 
-     if(form['outsourcing-selection-prenail-turangi']) {
-       output += "<br>Sent to turangi for estimation"
-       sendEmail(turangiConstEmail, prenailOutput, detailingSubject) // email the additional
-     }
-     if(form['outsourcing-selection-prenail-ntml']) {
-       output += "<br>Sent to ntml for estimation"
-       sendEmail(ntmlConstEmail, prenailOutput, detailingSubject) // email the additional
-     }
-     if(form['outsourcing-selection-prenail-dayles']) {
-       output += "<br>Sent to dayles for estimation"
-       sendEmail(dayleConstEmail, prenailOutput, detailingSubject) // email the additional
-     }
+    if(form['outsourcing-selection-prenail-turangi']) {
+      output += "<br>Sent to turangi for estimation"
+      sendEmail(turangiConstEmail, prenailOutput, detailingSubject) // email the additional
+    }
+    if(form['outsourcing-selection-prenail-ntml']) {
+      output += "<br>Sent to ntml for estimation"
+      sendEmail(ntmlConstEmail, prenailOutput, detailingSubject) // email the additional
+    }
+    if(form['outsourcing-selection-prenail-dayles']) {
+      output += "<br>Sent to dayles for estimation"
+      sendEmail(dayleConstEmail, prenailOutput, detailingSubject) // email the additional
+    }
 
 
 
 
-     // Reinforcing
-     if(form['outsourcing-selection-reinforcing-united-steel'] ||form['outsourcing-selection-reinforcing-Summit'] ||form['outsourcing-selection-reinforcing-Wyatt'] ) {
+    // Reinforcing
+    if(form['outsourcing-selection-reinforcing-united-steel'] ||form['outsourcing-selection-reinforcing-Summit'] ||form['outsourcing-selection-reinforcing-Wyatt'] ) {
 
-     output += "<br> <h3>Reinforcing</h3>"
-   }
-      if(form['outsourcing-selection-reinforcing-united-steel']) {
-        output += "<br>Sent to united-steel for estimation"
+      output += "<br> <h3>Reinforcing</h3>"
+    }
+    if(form['outsourcing-selection-reinforcing-united-steel']) {
+      output += "<br>Sent to united-steel for estimation"
 
-      }
-      if(form['outsourcing-selection-reinforcing-Summit']) {
-        output += "<br>Sent to Summit for estimation"
-      }
-      if(form['outsourcing-selection-reinforcing-Wyatt']) {
-        output += "<br>Sent to Wyatt for estimation"
-      }
+    }
+    if(form['outsourcing-selection-reinforcing-Summit']) {
+      output += "<br>Sent to Summit for estimation"
+    }
+    if(form['outsourcing-selection-reinforcing-Wyatt']) {
+      output += "<br>Sent to Wyatt for estimation"
+    }
 
-      if(!form['cancel-estimation']) {
-        output += "<br/><h3>Sent to Quantifying</h3>"
-        output += "<br> <a href='" + "http://drive.google.com/uc?export=download&id="+ uploadedEstimationHTML.getId() + "'>Link to estimate request as HTML </a>";
-        output += "<br> <a href='" + "http://drive.google.com/uc?export=download&id="+ uploadedEstimationPDF.getId() + "'>Link to estimate request as PDF </a>";
-        estimationOutput += "<br /> Please see attatched included link to Request Sheet"
-        estimationOutput += "<br> <a href='" + "http://drive.google.com/uc?export=download&id="+ uploadedEstimationHTML.getId() + "'>Link to estimate request as HTML </a>";
-        estimationOutput += "<br> <a href='" + "http://drive.google.com/uc?export=download&id="+ uploadedEstimationPDF.getId() + "'>Link to estimate request as PDF </a>";
-        estimationOutput+= fileLinks
-        sendEmail(form['estimation-test-email'], estimationOutput, detailingSubject) // email the additional
+    if(!form['cancel-estimation']) {
+      output += "<br/><h3>Sent to Quantifying</h3>"
+      output += "<br> <a href='" + "http://drive.google.com/uc?export=download&id="+ uploadedEstimationHTML.getId() + "'>Link to estimate request as HTML </a>";
+      output += "<br> <a href='" + "http://drive.google.com/uc?export=download&id="+ uploadedEstimationPDF.getId() + "'>Link to estimate request as PDF </a>";
+      estimationOutput += "<br /> Please see attatched included link to Request Sheet"
+      estimationOutput += "<br> <a href='" + "http://drive.google.com/uc?export=download&id="+ uploadedEstimationHTML.getId() + "'>Link to estimate request as HTML </a>";
+      estimationOutput += "<br> <a href='" + "http://drive.google.com/uc?export=download&id="+ uploadedEstimationPDF.getId() + "'>Link to estimate request as PDF </a>";
+      estimationOutput+= fileLinks
+      sendEmail(form['estimation-test-email'], estimationOutput, detailingSubject) // email the additional
 
-      }
+    }
 
 
 
@@ -747,4 +747,4 @@ function sendEmail(email, output, subject) {
     {
       htmlBody: output
     });
-}
+  }

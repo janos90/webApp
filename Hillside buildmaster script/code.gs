@@ -20,7 +20,7 @@ function processForm(form) {
     var ntmlConstEmail = '';
     var dayleConstEmail = '';
 
-    
+
     var  unitedSteelConstEmail = '';		//		akl.cutandbend@unitedsteel.co.nz
     var 	summitConstEmail = '';			//	QS@summitsteel.co.nz
     var 	freoConstEmail = '';			//	TBC
@@ -70,14 +70,18 @@ function processForm(form) {
 
     var jobNumerical = getIterator()
     var jobNumber =  jobNumerical
-    if(form['template-selection'].value === 'hillside') {
+    if(form['template-selection'].value === 'Hillside') {
       jobNumber = '524-' + jobNumerical
-
-
-    } else if (form['template-selection'].value === 'mahia') {
-      jobNumber = 'mahia' + jobNumerical
+    } else if (form['template-selection'].value === 'Matakana') {
+      jobNumber = '489' + jobNumerical
+    } else if (form['template-selection'].value === 'Mahia') {
+      jobNumber = '537' + jobNumerical
+    } else if (form['template-selection'].value === 'Turangi') {
+      jobNumber = '507' + jobNumerical
+    } else if (form['template-selection'].value === 'Taupo') {
+      jobNumber = '539' + jobNumerical
     } else {
-      jobNumber = 'matakana' + jobNumerical
+      jobNumber = '000' + jobNumerical
     }
     var parentFolderId = "1ZrbjfZe6Iol1yOmFPeDEwt53CscY4hOk"
     var clientFolderName = form['quote-info-sales-rep'];

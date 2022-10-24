@@ -605,6 +605,7 @@ function processForm(form) {
       var estimationPdf = estimationBlob.getAs("application/pdf");
       uploadedEstimationPDF = JobFolder.createFile(estimationPdf).setName("pdf Estimation request "+form['job-info-address']+".pdf");
       uploadedEstimationHTML = JobFolder.createFile("html Estimation request "+form['job-info-address']+".html", estCompleteContent, MimeType.HTML);
+
       uploadedEstimationPDF.setSharing(DriveApp.Access.ANYONE, DriveApp.Permission.EDIT);
       uploadedEstimationPDF.setSharing(DriveApp.Access.ANYONE_WITH_LINK, DriveApp.Permission.VIEW);
       uploadedEstimationHTML.setSharing(DriveApp.Access.ANYONE, DriveApp.Permission.EDIT);
@@ -693,24 +694,198 @@ function processForm(form) {
       sendEmail(dayleConstEmail, prenailOutput, detailingSubject) // email the additional
     }
 
-
-
-
-    // Reinforcing
-    if(form['outsourcing-selection-reinforcing-united-steel'] ||form['outsourcing-selection-reinforcing-Summit'] ||form['outsourcing-selection-reinforcing-Wyatt'] ) {
-
+    if(form['outsourcing-selection-reinforcing-united-steel']||form['outsourcing-selection-reinforcing-Summit'] ||form['outsourcing-selection-reinforcing-Freo'] ) {
       output += "<br> <h3>Reinforcing</h3>"
     }
-    if(form['outsourcing-selection-reinforcing-united-steel']) {
-      output += "<br>Sent to united-steel for estimation"
 
+    if(form['outsourcing-selection-reinforcing-united-steel']) {
+      output += "<br>Sent to United Steel for estimation"
+      sendEmail(unitedSteelConstEmail, generalOutsourcing, detailingSubject) // email the additional
     }
+
     if(form['outsourcing-selection-reinforcing-Summit']) {
       output += "<br>Sent to Summit for estimation"
+      sendEmail(summitConstEmail, generalOutsourcing, detailingSubject) // email the additional
     }
-    if(form['outsourcing-selection-reinforcing-Wyatt']) {
-      output += "<br>Sent to Wyatt for estimation"
+
+    if(form['outsourcing-selection-reinforcing-Freo']) {
+      output += "<br>Sent to FREO for estimation"
+      sendEmail(freoConstEmail, generalOutsourcing, detailingSubject) // email the additional
     }
+
+    // Ribraft
+    if(form['outsourcing-selection-ribraft-rfl'] || form['outsourcing-selection-ribraft-russel-gordon']) {
+      output += "<br> <h3>Ribraft</h3>"
+    }
+
+    if(form['outsourcing-selection-ribraft-rfl']) {
+      output += "<br>Sent to RFL for estimation"
+      sendEmail(rFLConstEmail, generalOutsourcing, detailingSubject) // email the additional
+    }
+
+    if(form['outsourcing-selection-ribraft-russel-gordon']) {
+      output += "<br>Sent to Russel Gordon for estimation"
+      sendEmail(russelGordonConstEmail, generalOutsourcing, detailingSubject) // email the additional
+    }
+
+    // Joinery
+    if(form['outsourcing-selection-joinery-vision'] || form['outsourcing-selection-joinery-tbc']) {
+      output += "<br> <h3>Ribraft</h3>"
+    }
+
+    if(form['outsourcing-selection-joinery-vision']) {
+      output += "<br>Sent to Vision for estimation"
+      sendEmail(visionConstEmail, generalOutsourcing, detailingSubject) // email the additional
+    }
+
+    if(form['outsourcing-selection-joinery-tbc']) {
+      output += "<br>Sent to TBC for estimation"
+      sendEmail(tBC, generalOutsourcing, detailingSubject) // email the additional
+    }
+
+    // Garage Doors
+    if(form['outsourcing-selection-garage-doors-dominator']) {
+      output += "<br> <h3>Garage Doors</h3>"
+    }
+    if(form['outsourcing-selection-garage-doors-dominator']) {
+      output += "<br>Sent to Dominator for estimation"
+      sendEmail(dominatorConstEmail, generalOutsourcing, detailingSubject) // email the additional
+    }
+
+    //
+    // Doors - Internal
+    let dia = (form['outsourcing-selection-doors-internal-mahurangi'] || form['outsourcing-selection-doors-internal-doorways'])
+    let dib = (form['outsourcing-selection-doors-internal-elite'] || form['outsourcing-selection-doors-internal-nationwide'])
+    let dic = (form['outsourcing-selection-doors-internal-bennett-doors'])
+    if(dia || dib || dic) {
+      output += "<br> <h3>Doors - Internal</h3>"
+    }
+    if(form['outsourcing-selection-doors-internal-mahurangi']) {
+      output += "<br>Sent to Mahurangi for estimation"
+      sendEmail(mahurangiConstEmail, generalOutsourcing, detailingSubject) // email the additional
+    }
+
+    if(form['outsourcing-selection-doors-internal-doorways']) {
+      output += "<br>Sent to Doorways for estimation"
+      sendEmail(doorwaysConstEmail, generalOutsourcing, detailingSubject) // email the additional
+    }
+
+    if(form['outsourcing-selection-doors-internal-elite']) {
+      output += "<br>Sent to Elite for estimation"
+      sendEmail(eliteConstEmail, generalOutsourcing, detailingSubject) // email the additional
+    }
+
+    if(form['outsourcing-selection-doors-internal-nationwide']) {
+      output += "<br>Sent to Nationwide for estimation"
+      sendEmail(nationwideConstEmail, generalOutsourcing, detailingSubject) // email the additional
+    }
+
+    if(form['outsourcing-selection-doors-internal-bennett-doors']) {
+      output += "<br>Sent to Bennett Doors for estimation"
+      sendEmail(bennett, generalOutsourcing, detailingSubject) // email the additional
+    }
+
+    // Insulation
+    let insa = form['outsourcing-selection-outsourcing-insualtion-pinkfit'] || form['outsourcing-selection-outsourcing-insualtion-natural']
+    let insb = form['outsourcing-selection-outsourcing-insualtion-adl-insulation'] || form['outsourcing-selection-outsourcing-insualtion-smart-energy']
+    if(insa || insb) {
+      output += "<br> <h3>Insulation</h3>"
+    }
+
+    if(form['outsourcing-selection-outsourcing-insualtion-pinkfit']) {
+      output += "<br>Sent to Pinkfit for estimation"
+      sendEmail(pinkfitConstEmail, generalOutsourcing, detailingSubject) // email the additional
+    }
+
+    if(form['outsourcing-selection-outsourcing-insualtion-natural']) {
+      output += "<br>Sent to Natural for estimation"
+      sendEmail(naturalConstEmail, generalOutsourcing, detailingSubject) // email the additional
+    }
+
+    if(form['outsourcing-selection-outsourcing-insualtion-adl-insulation']) {
+      output += "<br>Sent to ADL Insulation for estimation"
+      sendEmail(aDLInsulationConstEmail, generalOutsourcing, detailingSubject) // email the additional
+    }
+
+    if(form['outsourcing-selection-outsourcing-insualtion-smart-energy']) {
+      output += "<br>Sent to Smart Energy for estimation"
+      sendEmail(smartEnergyConstEmail, generalOutsourcing, detailingSubject) // email the additional
+    }
+
+
+    // Structural Steel
+    if(form['outsourcing-selection-structural-steel-allwin'] || form['outsourcing-selection-structural-steel-Ecb']) {
+      output += "<br> <h3>Structural Steel</h3>"
+    }
+    if(form['outsourcing-selection-structural-steel-allwin']) {
+      output += "<br>Sent to Allwin for estimation"
+      sendEmail(allwinConstEmail, generalOutsourcing, detailingSubject) // email the additional
+    }
+
+    if(form['outsourcing-selection-structural-steel-Ecb']) {
+      output += "<br>Sent to ECB for estimation"
+      sendEmail(eCBConstEmail, generalOutsourcing, detailingSubject) // email the additional
+    }
+
+
+    // Cladding
+    if(form['outsourcing-selection-cladding-rosenfield'] || form['outsourcing-selection-cladding-abodo'] || form['outsourcing-selection-cladding-jsc'] || form['outsourcing-selection-cladding-iti-timspec']) {
+      output += "<br> <h3>Cladding</h3>"
+    }
+
+    if(form['outsourcing-selection-cladding-rosenfield']) {
+      output += "<br>Sent to Rosenfield for estimation"
+      sendEmail(rosenfieldConstEmail, generalOutsourcing, detailingSubject) // email the additional
+    }
+
+    if(form['outsourcing-selection-cladding-abodo']) {
+      output += "<br>Sent to Abodo for estimation"
+      sendEmail(abodoConstEmail, generalOutsourcing, detailingSubject) // email the additional
+    }
+
+    if(form['outsourcing-selection-cladding-jsc']) {
+      output += "<br>Sent to JSC for estimation"
+      sendEmail(jSCConstEmail, generalOutsourcing, detailingSubject) // email the additional
+    }
+
+    if(form['outsourcing-selection-cladding-iti-timspec']) {
+      output += "<br>Sent to ITI Timspec for estimation"
+      sendEmail(iTITimspecConstEmail, generalOutsourcing, detailingSubject) // email the additional
+    }
+
+
+    // Roofing
+    let roofa = (form['outsourcing-selection-roofing-new-era-sfi'] || form['outsourcing-selection-roofing-johnson-roofing-sfi'])
+    let roofb = (form['outsourcing-selection-roofing-roofing-industries-supply-only'] || form['outsourcing-selection-roofing-sps-shingles'])
+
+    if(roofa || roofb || form['outsourcing-selection-roofing-metalcraft']) {
+      output += "<br> <h3>Roofing</h3>"
+    }
+    if(form['outsourcing-selection-roofing-new-era-sfi']) {
+      output += "<br>Sent to New Era SFI for estimation"
+      sendEmail(newEraSFIConstEmail, generalOutsourcing, detailingSubject) // email the additional
+    }
+
+    if(form['outsourcing-selection-roofing-johnson-roofing-sfi']) {
+      output += "<br>Sent to Johnson Roofing SFI for estimation"
+      sendEmail(johnsonRoofingSFIConstEmail, generalOutsourcing, detailingSubject) // email the additional
+    }
+
+    if(form['outsourcing-selection-roofing-roofing-industries-supply-only']) {
+      output += "<br>Sent to Roofing Industries Supply Only for estimation"
+      sendEmail(roofingIndustriesSupplyOnlyConstEmail, generalOutsourcing, detailingSubject) // email the additional
+    }
+
+    if(form['outsourcing-selection-roofing-sps-shingles']) {
+      output += "<br>Sent to SPS Shingles for estimation"
+      sendEmail(sPSShinglesConstEmail, generalOutsourcing, detailingSubject) // email the additional
+    }
+
+    if(form['outsourcing-selection-roofing-metalcraft']) {
+      output += "<br>Sent to Metalcraft for estimation"
+      sendEmail(metalcraftConstEmail, generalOutsourcing, detailingSubject) // email the additional
+    }
+
 
     if(!form['cancel-estimation']) {
       output += "<br/><h3>Sent to Quantifying</h3>"

@@ -11,9 +11,15 @@
   }
 
   .checkboxContainer {
-    width: 49.5%;
+    width: 45%;
     margin-top: 2%;
+    border: black solid 1px;
+    border-radius: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
   }
+
   #prenail-questions {
     flex-wrap: wrap;
   }
@@ -141,6 +147,11 @@
     $('input.wind').on('change', function() {
       $('input.wind').not(this).prop('checked', false);
     });
+
+    $('input.planType').on('change', function() {
+      $('input.planType').not(this).prop('checked', false);
+    });
+
 
     $('input.plans').on('change', function() {
       $('input.plans').not(this).prop('required', false);
@@ -335,7 +346,6 @@
 
       <h2 class="title">
         Estimate request <br /> ITM Hillside
-        Version 9
       </h2>
     </header>
 
@@ -345,7 +355,7 @@
       </header>
 
       <label for="quote-info-reference">
-        Quote Ref
+        Quote Reference
         <input class="single-input" type="text" name="quote-info-reference"  />
       </label>
 
@@ -371,12 +381,12 @@
 
       <label for="tickbox-preliminary-plan">
         Preliminary plan
-        <input type="checkbox" name="tickbox-preliminary-plan" >
+        <input class='planType' type="checkbox" name="tickbox-preliminary-plan" >
       </label>
 
       <label for="tickbox-preliminary-plan">
         Consented plan
-        <input type="checkbox" name="tickbox-preliminary-plan" >
+        <input class='planType' type="checkbox" name="tickbox-preliminary-plan" >
       </label>
 
       <label for="quote-info-plan-version">
@@ -667,7 +677,6 @@
         <div class="toggle-section foundations">
           <header id="toggle-section-header-foundations" class="toggle-section-header">
             Foundations
-            <!-- <label style="display: none;" id="label-status-foundations" class="toggle-status foundations"></label> -->
             <label id="label-as-plan-foundations" class="as-plan-toggle foundations" for="as-plan-foundations">
               As per Plan
               <input type="checkbox"  id="as-plan-foundations" name='as-plan-foundations' onclick="toggleAll('foundations')" />
@@ -709,7 +718,6 @@
         <div class="toggle-section timber-floor">
           <header id="toggle-section-header-timber-floor" class="toggle-section-header">
             Timber Floor
-            <!-- <label style="display: none;" id="label-status-timber-floor" class="toggle-status timber-floor">            </label> -->
             <label id="label-as-plan-timber-floor" class="as-plan-toggle timber-floor" for="as-plan-timber-floor">
               As per Plan
               <input type="checkbox"  id="as-plan-timber-floor" name='as-plan-timber-floor' onclick="toggleAll('timber-floor')"/>
@@ -765,7 +773,6 @@
         <div class="toggle-section wall-framing">
           <header class="toggle-section-header" id="toggle-section-header-wall-framing">
             Wall Framing
-            <!-- <label style="display: none;" id="label-status-wall-framing" class="toggle-status wall-framing">            </label> -->
             <label id="label-as-plan-wall-framing" class="as-plan-toggle wall-framing" for="as-plan-wall-framing">
               As per Plan
               <input type="checkbox" id="as-plan-wall-framing" name='as-plan-wall-framing' onclick="toggleAll('wall-framing')"/>
@@ -840,7 +847,6 @@
         <div class="toggle-section roof-framing">
           <header class="toggle-section-header" id="toggle-section-header-roof-framing">
             Roof Framing
-            <!-- <label style="display: none;" id="label-status-roof-framing" class="toggle-status roof-framing">            </label> -->
             <label id="label-as-plan-roof-framing" class="as-plan-toggle roof-framing" for="as-plan-roof-framing">
               As per Plan
               <input type="checkbox"  id="as-plan-roof-framing" name='as-plan-roof-framing' onclick="toggleAll('roof-framing')"/>
@@ -887,7 +893,6 @@
         <div class="toggle-section exterior-finishing">
           <header id="toggle-section-header-exterior-finishing" class="toggle-section-header">
             Exterior Finishings
-            <!-- <label style="display: none;" id="label-status-exterior-finishing" class="toggle-status exterior-finishing">            </label> -->
             <label id="label-as-plan-exterior-finishing" class="as-plan-toggle exterior-finishing" for="as-plan-exterior-finishing">
               As per Plan
               <input type="checkbox"  id="as-plan-exterior-finishing" name='as-plan-exterior-finishing' onclick="toggleAll('exterior-finishing')"/>
@@ -951,7 +956,6 @@
         <div class="toggle-section cladding">
           <header id="toggle-section-header-cladding" class="toggle-section-header">
             Cladding
-            <!-- <label style="display: none;" id="label-status-cladding" class="toggle-status cladding">            </label> -->
             <label id="label-as-plan-cladding" class="as-plan-toggle cladding" for="as-plan-cladding">
               As per Plan
               <input type="checkbox"  id="as-plan-cladding" name='as-plan-cladding' onclick="toggleAll('cladding')"/>
@@ -1000,7 +1004,6 @@
         <div class="toggle-section insulation">
           <header id="toggle-section-header-insulation" class="toggle-section-header">
             Insulation
-            <!-- <label style="display: none;" id="label-status-insulation" class="toggle-status insulation">            </label> -->
             <label id="label-as-plan-insulation" class="as-plan-toggle insulation" for="as-plan-insulation">
               As per Plan
               <input type="checkbox"  id="as-plan-insulation" name='as-plan-insulation' onclick="toggleAll('insulation')"/>
@@ -1066,8 +1069,6 @@
         <div class="toggle-section interior-linings">
           <header id="toggle-section-header-interior-linings" class="toggle-section-header">
             Interior Linings
-            <!-- <label style="display: none;" id="label-status-interior-linings" class="toggle-status interior-linings">            </label> -->
-
             <label id="label-as-plan-interior-linings" class="as-plan-toggle interior-linings" for="as-plan-interior-linings">
               As per Plan
               <input type="checkbox"  id="as-plan-interior-linings" name='as-plan-interior-linings' onclick="toggleAll('interior-linings')"/>
@@ -1137,7 +1138,6 @@
         <div class="toggle-section interior-doors">
           <header id="toggle-section-header-interior-doors" class="toggle-section-header">
             Interior Doors
-            <!-- <label style="display: none;"  id="label-status-interior-doors" class="toggle-status interior-doors">            </label> -->
             <label  id="label-as-plan-interior-doors" class="as-plan-toggle interior-doors" for="as-plan-interior-doors">
               As per Plan
               <input type="checkbox"  id="as-plan-interior-doors" name='as-plan-interior-doors' onclick="toggleAll('interior-doors')"/>
@@ -1173,7 +1173,6 @@
         <div class="toggle-section interior-finishings">
           <header id="toggle-section-header-interior-finishings" class="toggle-section-header">
             Interior Finishings
-            <!-- <label style="display: none;"  id="label-status-interior-finishings" class="toggle-status interior-finishings">            </label> -->
             <label  id="label-as-plan-interior-finishings" class="as-plan-toggle interior-finishings" for="as-plan-interior-finishings">
               As per Plan
               <input type="checkbox"  id="as-plan-interior-finishings" name='as-plan-interior-finishings' onclick="toggleAll('interior-finishings')"/>
@@ -1237,8 +1236,6 @@
         <div class="toggle-section landscaping">
           <header id="toggle-section-header-landscaping" class="toggle-section-header">
             Landscaping
-            <!-- <label style='display: none;' id="label-status-landscaping" class="toggle-status landscaping">
-          </label> -->
           <label id="label-as-plan-landscaping" class="as-plan-toggle landscaping" for="as-plan-landscaping">
             As per Plan
             <input type="checkbox"  id="as-plan-landscaping" name='as-plan-landscaping' onclick="toggleAll('landscaping')"/>
@@ -1297,16 +1294,16 @@
       <h1>
         Dayle Prenail questions
       </h1>
-      Dayle email test: <input type="email" name="dayle-test-email"/>
     </header>
     <div class="checkboxContainer">
-      Wind zone
+      <h3>Wind zone</h3>
       <p class="row"><input class="wind" name="prenailMediumWind" type="checkbox">Medium Wind</p>
       <p class="row"><input class="wind" name="prenailHighWind" type="checkbox">High Wind</p>
       <p class="row"><input class="wind" name="prenailVeryWind" type="checkbox">Very High Wind</p>
       <p class="row"><input class="wind" name="prenailExtraWind" type="checkbox">Extra High Wind</p>
     </div>
     <div class="checkboxContainer">
+      <h3>Framing Treatment</h3>
 
       <table class='prenail-table'>
         <caption>Wall Framing Treatment</caption>
@@ -1397,23 +1394,27 @@
 
 
     <div class="checkboxContainer">
-
+      <h3>Prenail Extras</h3>
       <label>
+        <input class="checkbox" type="checkbox" name="prenailFramesCheck"  />
         Prenail Wall Frames
-        <input class="single-input" type="text" name="daylesPrenailFrames"  />
+        <input class="single-input" type="text" name="prenailFramesText"  />
       </label>
 
       <label>
+        <input class="checkbox" type="checkbox" name="prenailTrussesCheck"  />
         Trusses
-        <input class="single-input" type="text" name="daylesPrenailTrusses"  />
+        <input class="single-input" type="text" name="prenailTrussesText"  />
       </label>
       <label>
+        <input class="checkbox" type="checkbox" name="prenailPrecutRaftersCheck"  />
         Precut Rafters
-        <input class="single-input" type="text" name="daylesPrenailPrecutRafters"  />
+        <input class="single-input" type="text" name="prenailPrecutRaftersText"  />
       </label>
       <label>
+        <input class="checkbox" type="checkbox" name="prenailPrecutRoofCheck"  />
         Precut balance of Roof
-        <input class="single-input" type="text" name="daylesPrenailPrecutRoof"  />
+        <input class="single-input" type="text" name="prenailPrecutRoofText"  />
       </label>
     </div>
     <div class="checkboxContainer">

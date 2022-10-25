@@ -485,4 +485,4 @@ prenailContentSubmitted+= "<label>Studlok / lintel lok<input class='single-input
 prenailContentSubmitted+= "premium service, additional charges apply</label>"
 prenailContentSubmitted+= "</div></div>"
 
-content+= dayleContentSubmitted
+content+= prenailContentSubmitted

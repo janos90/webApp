@@ -580,7 +580,7 @@ function processForm(form) {
     prenailContentSubmitted+= "premium service, additional charges apply</label>"
     prenailContentSubmitted+= "</div></div>"
 
-    content+= dayleContentSubmitted
+    content+= prenailContentSubmitted
 
 
     var uploadedPrenailPDF

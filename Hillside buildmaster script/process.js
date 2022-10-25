@@ -218,225 +218,220 @@ estimationContent+= "<label class='timber-floor additional'for='timber-floor-add
 estimationContent+= "<textarea class='textbox estimationAdditional' type='textbox' name='timber-floor-additional' ></textarea></label>"
 estimationContent+= "</main></div>"
 
-                    <div class='toggle-section wall-framing'>
-                    <header class='toggle-section-header' id='toggle-section-header-wall-framing'>Wall Framing
-                    <label id='label-as-plan-wall-framing' class='as-plan-toggle wall-framing' for='as-plan-wall-framing'>As per Plan
-                    <input type='checkbox' id='as-plan-wall-framing' name='as-plan-wall-framing' onclick='toggleAll('wall-framing')'/></label>
-                    <label id='label-toggle-as-selected-wall-framing' class='hide-section-toggle wall-framing' for='toggle-as-selected-wall-framing'>As Selected
-                    <input type='checkbox' id='toggle-as-selected-wall-framing' name='toggle-as-selected-wall-framing' onclick='toggleAsSelected('wall-framing')'/></label>
-                    <label id='label-toggle-none-wall-framing' class='hide-section-toggle wall-framing' for='toggle-none-wall-framing'>Not required
-                    <input type='checkbox' id='toggle-none-wall-framing' name='toggle-none-wall-framing' onclick='toggleNone('wall-framing')'/></label></header>
-                    <main class='toggle-section-questions' id='toggle-section-questions-wall-framing' >
-                    <label class='wall-framing prenailer-supplied'for='wall-framing-prenailer-supplied'>
-                    <input class='checkbox' type='checkbox' name='wall-framing-prenailer-supplied' />Supplied by Prenailer - Do not allow</label>
-                    <label class='wall-framing random'for='wall-framing-random'><input class='checkbox' type='checkbox' name='wall-framing-random' />Random</label>
-                    <label class='wall-framing capping'for='wall-framing-capping'><input class='checkbox' type='checkbox' name='wall-framing-capping' />Capping</label>
-                    <label class='wall-framing strapping'for='wall-framing-strapping'><input class='checkbox' type='checkbox' name='wall-framing-strapping' />Strapping</label>
-                    <label class='wall-framing h-one-two'for='wall-framing-h-one-two'><input class='checkbox' type='checkbox' name='wall-framing-h-one-two' />H1.2</label>
-                    <label class='wall-framing h-three-two'for='wall-framing-h-three-two'><input class='checkbox' type='checkbox' name='wall-framing-h-three-two' />H3.2</label>
-                    <label class='wall-framing h-three-plates'for='wall-framing-h-three-plates'><input class='checkbox' type='checkbox' name='wall-framing-h-three-plates' />H3 Plates</label>
-                    <label class='wall-framing beams'for='wall-framing-beams'><input class='checkbox' type='checkbox' name='wall-framing-beams' />Beams</label>
-                    <label class='wall-framing posts'for='wall-framing-posts'><input class='checkbox' type='checkbox' name='wall-framing-posts' />Posts</label>
-                    <label class='wall-framing metal'for='wall-framing-metal'><input class='checkbox' type='checkbox' name='wall-framing-metal' />Metal</label>
-                    <label class='wall-framing timber'for='wall-framing-timber'><input class='checkbox' type='checkbox' name='wall-framing-timber' />Timber</label>
-                    <label class='wall-framing additional'for='wall-framing-additional'>Additional Information
-                    <textarea class='textbox estimationAdditional' type='textbox' name='wall-framing-additional' ></textarea></label>
-                    </main></div>
+        estimationContent+="<div class='toggle-section wall-framing'>"
+        estimationContent+="<header class='toggle-section-header' id='toggle-section-header-wall-framing'>Wall Framing"
+        estimationContent+="<label id='label-as-plan-wall-framing' class='as-plan-toggle wall-framing' "+(form['as-plan-wall-framing']?'':"style='visibility:none;'")+">As per Plan"
+        estimationContent+="<input type='checkbox' id='as-plan-wall-framing' "+(form['as-plan-wall-framing']?'checked':'')+" onclick='toggleAll('wall-framing')'/></label>"
+        estimationContent+="<label id='label-toggle-as-selected-wall-framing' class='hide-section-toggle wall-framing' "+(form['toggle-as-selected-wall-framing']?'':"style='visibility:none;'")+">As Selected"
+        estimationContent+="<input type='checkbox' id='toggle-as-selected-wall-framing' "+(form['toggle-as-selected-wall-framing']?'checked':'')+" onclick='toggleAsSelected('wall-framing')'/></label>"
+        estimationContent+="<label id='label-toggle-none-wall-framing' class='hide-section-toggle wall-framing' "+(form['toggle-none-wall-framing']?'':"style='visibility:none;'")+">Not required"
+        estimationContent+="<input type='checkbox' id='toggle-none-wall-framing' "+(form['toggle-none-wall-framing']?'checked':'')+" onclick='toggleNone('wall-framing')'/></label></header>"
 
-                    <div class='toggle-section roof-framing'><header class='toggle-section-header' id='toggle-section-header-roof-framing'>Roof Framing
-                    <label id='label-as-plan-roof-framing' class='as-plan-toggle roof-framing' for='as-plan-roof-framing'>As per Plan
-                    <input type='checkbox'  id='as-plan-roof-framing' name='as-plan-roof-framing' onclick='toggleAll('roof-framing')'/></label>
-                    <label id='label-toggle-as-selected-roof-framing' class='hide-section-toggle roof-framing' for='toggle-as-selected-roof-framing'>As Selected
-                    <input type='checkbox' id='toggle-as-selected-roof-framing' name='toggle-as-selected-roof-framing' onclick='toggleAsSelected('roof-framing')'/></label>
-                    <label id='label-toggle-none-roof-framing' class='hide-section-toggle roof-framing' for='toggle-none-roof-framing'>Not required
-                    <input type='checkbox' id='toggle-none-roof-framing' name='toggle-none-roof-framing' onclick='toggleNone('roof-framing')'/></label>
-                    </header>
-                    <main class='toggle-section-questions' id='toggle-section-questions-roof-framing'>
-                    <label class='roof-framing prenailer-supplied'for='roof-framing-prenailer-supplied'>
-                    <input class='checkbox' type='checkbox' name='roof-framing-prenailer-supplied' />Supplied by Prenailer - Do not allow</label>
-                    <label class='roof-framing bor-pack'for='roof-framing-bor-pack'>
-                    <input class='checkbox' type='checkbox' name='roof-framing-bor-pack' />BOR Pack (as Agreed)</label>
-                    <label class='roof-framing ply-membrane'for='roof-framing-ply-membrane'>
-                    <input class='checkbox' type='checkbox' name='roof-framing-ply-membrane' />Ply to Membrane Roof</label>
-                    <label class='roof-framing ply-shingle'for='roof-framing-ply-shingle'>
-                    <input class='checkbox' type='checkbox' name='roof-framing-ply-shingle' />Ply to Shingle Roof</label>
-                    <label class='roof-framing purlins-only'for='roof-framing-purlins-only'>
-                    <input class='checkbox' type='checkbox' name='roof-framing-purlins-only' />Purlins only</label>
-                    <label class='roof-framing additional'for='roof-framing-additional'>Additional Information
-                    <textarea class='textbox estimationAdditional' type='textbox' name='roof-framing-additional' ></textarea></label>
+        estimationContent+="<main class='toggle-section-questions' id='toggle-section-questions-wall-framing' >"
+        estimationContent+="<label class='wall-framing prenailer-supplied'for='wall-framing-prenailer-supplied'>"
+        estimationContent+="<input class='checkbox' type='checkbox' name='wall-framing-prenailer-supplied' />Supplied by Prenailer - Do not allow</label>"
+        estimationContent+="<label class='wall-framing random'for='wall-framing-random'><input class='checkbox' type='checkbox' name='wall-framing-random' />Random</label>"
+        estimationContent+="<label class='wall-framing capping'for='wall-framing-capping'><input class='checkbox' type='checkbox' name='wall-framing-capping' />Capping</label>"
+        estimationContent+="<label class='wall-framing strapping'for='wall-framing-strapping'><input class='checkbox' type='checkbox' name='wall-framing-strapping' />Strapping</label>"
+        estimationContent+="<label class='wall-framing h-one-two'for='wall-framing-h-one-two'><input class='checkbox' type='checkbox' name='wall-framing-h-one-two' />H1.2</label>"
+        estimationContent+="<label class='wall-framing h-three-two'for='wall-framing-h-three-two'><input class='checkbox' type='checkbox' name='wall-framing-h-three-two' />H3.2</label>"
+        estimationContent+="<label class='wall-framing h-three-plates'for='wall-framing-h-three-plates'><input class='checkbox' type='checkbox' name='wall-framing-h-three-plates' />H3 Plates</label>"
+        estimationContent+="<label class='wall-framing beams'for='wall-framing-beams'><input class='checkbox' type='checkbox' name='wall-framing-beams' />Beams</label>"
+        estimationContent+="<label class='wall-framing posts'for='wall-framing-posts'><input class='checkbox' type='checkbox' name='wall-framing-posts' />Posts</label>"
+        estimationContent+="<label class='wall-framing metal'for='wall-framing-metal'><input class='checkbox' type='checkbox' name='wall-framing-metal' />Metal</label>"
+        estimationContent+="<label class='wall-framing timber'for='wall-framing-timber'><input class='checkbox' type='checkbox' name='wall-framing-timber' />Timber</label>"
+        estimationContent+="<label class='wall-framing additional'for='wall-framing-additional'>Additional Information"
+        estimationContent+="<textarea class='textbox estimationAdditional' type='textbox' name='wall-framing-additional' ></textarea></label>"
+        estimationContent+="</main></div>"
 
-                    </main> </div>
+        estimationContent+="<div class='toggle-section roof-framing'><header class='toggle-section-header' id='toggle-section-header-roof-framing'>Roof Framing"
+        estimationContent+="<label id='label-as-plan-roof-framing' class='as-plan-toggle roof-framing' "+(form['as-plan-roof-framing']?'':"style='visibility:none;'")+">As per Plan"
+        estimationContent+="<input type='checkbox'  id='as-plan-roof-framing' "+(form['as-plan-roof-framing']?'checked':'')+" onclick='toggleAll('roof-framing')'/></label>"
+        estimationContent+="<label id='label-toggle-as-selected-roof-framing' class='hide-section-toggle roof-framing' "+(form['toggle-as-selected-roof-framing']?'':"style='visibility:none;'")+">As Selected"
+        estimationContent+="<input type='checkbox' id='toggle-as-selected-roof-framing' "+(form['toggle-as-selected-roof-framing']?'checked':'')+" onclick='toggleAsSelected('roof-framing')'/></label>"
+        estimationContent+="<label id='label-toggle-none-roof-framing' class='hide-section-toggle roof-framing' "+(form['toggle-none-roof-framing']?'':"style='visibility:none;'")+">Not required"
+        estimationContent+="<input type='checkbox' id='toggle-none-roof-framing' "+(form['toggle-none-roof-framing']?'checked':'')+" onclick='toggleNone('roof-framing')'/></label>"
+        estimationContent+="</header>"
 
-                    <div class='toggle-section exterior-finishing'>
-                    <header id='toggle-section-header-exterior-finishing' class='toggle-section-header'>Exterior Finishings
-                    <label id='label-as-plan-exterior-finishing' class='as-plan-toggle exterior-finishing' for='as-plan-exterior-finishing'>As per Plan
-                    <input type='checkbox'  id='as-plan-exterior-finishing' name='as-plan-exterior-finishing' onclick='toggleAll('exterior-finishing')'/></label>
-                    <label id='label-toggle-as-selected-exterior-finishing' class='hide-section-toggle exterior-finishing' for='toggle-as-selected-exterior-finishing'>As Selected
-                    <input type='checkbox' id='toggle-as-selected-exterior-finishing' name='toggle-as-selected-exterior-finishing' onclick='toggleAsSelected('exterior-finishing')'/></label>
-                    <label id='label-toggle-none-exterior-finishing' class='hide-section-toggle exterior-finishing' for='toggle-none-exterior-finishing'>Not required
-                    <input type='checkbox' id='toggle-none-exterior-finishing' name='toggle-none-exterior-finishing' onclick='toggleNone('exterior-finishing')'/></label>
-                    </header>
-                    <main class='toggle-section-questions' id='toggle-section-questions-exterior-finishing'>
+        estimationContent+="<main class='toggle-section-questions' id='toggle-section-questions-roof-framing'>"
+        estimationContent+="<label class='roof-framing prenailer-supplied'for='roof-framing-prenailer-supplied'>"
+        estimationContent+="<input class='checkbox' type='checkbox' name='roof-framing-prenailer-supplied' />Supplied by Prenailer - Do not allow</label>"
+        estimationContent+="<label class='roof-framing bor-pack'for='roof-framing-bor-pack'>"
+        estimationContent+="<input class='checkbox' type='checkbox' name='roof-framing-bor-pack' />BOR Pack (as Agreed)</label>"
+        estimationContent+="<label class='roof-framing ply-membrane'for='roof-framing-ply-membrane'>"
+        estimationContent+="<input class='checkbox' type='checkbox' name='roof-framing-ply-membrane' />Ply to Membrane Roof</label>"
+        estimationContent+="<label class='roof-framing ply-shingle'for='roof-framing-ply-shingle'>"
+        estimationContent+="<input class='checkbox' type='checkbox' name='roof-framing-ply-shingle' />Ply to Shingle Roof</label>"
+        estimationContent+="<label class='roof-framing purlins-only'for='roof-framing-purlins-only'>"
+        estimationContent+="<input class='checkbox' type='checkbox' name='roof-framing-purlins-only' />Purlins only</label>"
+        estimationContent+="<label class='roof-framing additional'for='roof-framing-additional'>Additional Information"
+        estimationContent+="<textarea class='textbox estimationAdditional' type='textbox' name='roof-framing-additional' ></textarea></label>"
+        estimationContent+="</main> </div>"
 
-                    <label class='exterior-finishing building-wrap'for='exterior-finishing-building-wrap'>
-                    <input class='checkbox' type='checkbox' name='exterior-finishing-building-wrap' />Building Wrap</label>
+        estimationContent+="<div class='toggle-section exterior-finishing'>"
+        estimationContent+="<header id='toggle-section-header-exterior-finishing' class='toggle-section-header'>Exterior Finishings"
+        estimationContent+="<label id='label-as-plan-exterior-finishing' class='as-plan-toggle exterior-finishing'"+(form['as-plan-exterior-finishing']?'':"style='visibility:none;'")+">As per Plan"
+        estimationContent+="<input type='checkbox'  id='as-plan-exterior-finishing' "+(form['as-plan-exterior-finishing']?'checked':'')+" onclick='toggleAll('exterior-finishing')'/></label>"
+        estimationContent+="<label id='label-toggle-as-selected-exterior-finishing' class='hide-section-toggle exterior-finishing'"+(form['toggle-as-selected-exterior-finishing']?'':"style='visibility:none;'")+">As Selected"
+        estimationContent+="<input type='checkbox' id='toggle-as-selected-exterior-finishing' "+(form['toggle-as-selected-exterior-finishing']?'checked':'')+" onclick='toggleAsSelected('exterior-finishing')'/></label>"
+        estimationContent+="<label id='label-toggle-none-exterior-finishing' class='hide-section-toggle exterior-finishing'"+(form['toggle-none-exterior-finishing']?'':"style='visibility:none;'")+">Not required"
+        estimationContent+="<input type='checkbox' id='toggle-none-exterior-finishing' "+(form['toggle-none-exterior-finishing']?'checked':'')+" onclick='toggleNone('exterior-finishing')'/></label>"
+        estimationContent+="</header>"
 
-                    <label class='exterior-finishing timber-fascia'for='exterior-finishing-timber-fascia'>
-                    <input class='checkbox' type='checkbox' name='exterior-finishing-timber-fascia' />Timber Fascia</label>
-                    <label class='exterior-finishing rab'for='exterior-finishing-rab'>
-                    <input class='checkbox' type='checkbox' name='exterior-finishing-rab' />RAB</label>
-                    <label class='exterior-finishing metal-fascia'for='exterior-finishing-metal-fascia'>
-                    <input class='checkbox' type='checkbox' name='exterior-finishing-metal-fascia' />Metal Fascia by Others</label>
-                    <label class='exterior-finishing pvc-spouting'for='exterior-finishing-pvc-spouting'>
-                    <input class='checkbox' type='checkbox' name='exterior-finishing-pvc-spouting' />PVC Spouting</label>
-                    <label class='exterior-finishing soffit'for='exterior-finishing-soffit'>
-                    <input class='checkbox' type='checkbox' name='exterior-finishing-soffit' />Soffit</label>
-                    <label class='exterior-finishing eaves-mould'for='exterior-finishing-eaves-mould'>
-                    <input class='checkbox' type='checkbox' name='exterior-finishing-eaves-mould' />Eaves Mould</label>
-                    <label class='exterior-finishing additional'for='exterior-finishing-additional'>Additional Information
-                    <textarea class='textbox estimationAdditional' type='textbox' name='exterior-finishing-additional' ></textarea></label>
-                    </main></div>
+        estimationContent+="<main class='toggle-section-questions' id='toggle-section-questions-exterior-finishing'>"
+        estimationContent+="<label class='exterior-finishing building-wrap'for='exterior-finishing-building-wrap'>"
+        estimationContent+="<input class='checkbox' type='checkbox' name='exterior-finishing-building-wrap' />Building Wrap</label>"
+        estimationContent+="<label class='exterior-finishing timber-fascia'for='exterior-finishing-timber-fascia'>"
+        estimationContent+="<input class='checkbox' type='checkbox' name='exterior-finishing-timber-fascia' />Timber Fascia</label>"
+        estimationContent+="<label class='exterior-finishing rab'for='exterior-finishing-rab'>"
+        estimationContent+="<input class='checkbox' type='checkbox' name='exterior-finishing-rab' />RAB</label>"
+        estimationContent+="<label class='exterior-finishing metal-fascia'for='exterior-finishing-metal-fascia'>"
+        estimationContent+="<input class='checkbox' type='checkbox' name='exterior-finishing-metal-fascia' />Metal Fascia by Others</label>"
+        estimationContent+="<label class='exterior-finishing pvc-spouting'for='exterior-finishing-pvc-spouting'>"
+        estimationContent+="<input class='checkbox' type='checkbox' name='exterior-finishing-pvc-spouting' />PVC Spouting</label>"
+        estimationContent+="<label class='exterior-finishing soffit'for='exterior-finishing-soffit'>"
+        estimationContent+="<input class='checkbox' type='checkbox' name='exterior-finishing-soffit' />Soffit</label>"
+        estimationContent+="<label class='exterior-finishing eaves-mould'for='exterior-finishing-eaves-mould'>"
+        estimationContent+="<input class='checkbox' type='checkbox' name='exterior-finishing-eaves-mould' />Eaves Mould</label>"
+        estimationContent+="<label class='exterior-finishing additional'for='exterior-finishing-additional'>Additional Information"
+        estimationContent+="<textarea class='textbox estimationAdditional' type='textbox' name='exterior-finishing-additional' ></textarea></label>"
+        estimationContent+="</main></div>"
 
-                    <div class='toggle-section cladding'>
-                    <header id='toggle-section-header-cladding' class='toggle-section-header'>Cladding
-                    <label id='label-as-plan-cladding' class='as-plan-toggle cladding' for='as-plan-cladding'>As per Plan
-                    <input type='checkbox'  id='as-plan-cladding' name='as-plan-cladding' onclick='toggleAll('cladding')'/></label>
-                    <label id='label-toggle-as-selected-cladding' class='hide-section-toggle cladding' for='toggle-as-selected-cladding'>As Selected
-                    <input type='checkbox' id='toggle-as-selected-cladding' name='toggle-as-selected-cladding' onclick='toggleAsSelected('cladding')'/></label>
-                    <label id='label-toggle-none-cladding' class='hide-section-toggle cladding' for='toggle-none-cladding'>Not required
-                    <input type='checkbox' id='toggle-none-cladding' name='toggle-none-cladding' onclick='toggleNone('cladding')'/></label>
-                    </header>
-                    <main class='toggle-section-questions' id='toggle-section-questions-cladding'><label class='cladding brick'for='cladding-brick'>
-                    <input class='checkbox' type='checkbox' name='cladding-brick-check' />Brick
-                    <input class='number-input' type='number' name='cladding-brick-number' />Quantity per M²</label>
-                    <label class='cladding sheet'for='cladding-sheet'><input class='checkbox' type='checkbox' name='cladding-sheet-check' />
-                    Sheet<input class='single-input' type='text' name='cladding-sheet-text' /></label>
-                    <label class='cladding w-board'for='cladding-w-board'><input class='checkbox' type='checkbox' name='cladding-w-board-check' />
-                    W/Board<input class='single-input' type='text' name='cladding-w-board' /></label>
-                    <label class='cladding stone-cladding-substrate'for='cladding-stone-cladding-substrate'>
-                    <input class='checkbox' type='checkbox' name='cladding-stone-cladding-substrate' />Stone Cladding Substrate</label>
-                    <label class='cladding additional'for='cladding-additional'>Additional Information
-                    <textarea class='textbox estimationAdditional' type='textbox' name='cladding-additional' ></textarea></label>
-                    </main></div>
+        estimationContent+="<div class='toggle-section cladding'>"
+        estimationContent+="<header id='toggle-section-header-cladding' class='toggle-section-header'>Cladding"
+        estimationContent+="<label id='label-as-plan-cladding' class='as-plan-toggle cladding' "+(form['as-plan-cladding']?'':"style='visibility:none;'")+">As per Plan"
+        estimationContent+="<input type='checkbox'  id='as-plan-cladding' "+(form['as-plan-cladding']?'checked':'')+" onclick='toggleAll('cladding')'/></label>"
+        estimationContent+="<label id='label-toggle-as-selected-cladding' class='hide-section-toggle cladding' "+(form['toggle-as-selected-cladding']?'':"style='visibility:none;'")+">As Selected"
+        estimationContent+="<input type='checkbox' id='toggle-as-selected-cladding' "+(form['toggle-as-selected-cladding']?'checked':'')+" onclick='toggleAsSelected('cladding')'/></label>"
+        estimationContent+="<label id='label-toggle-none-cladding' class='hide-section-toggle cladding' "+(form['toggle-none-cladding']?'':"style='visibility:none;'")+">Not required"
+        estimationContent+="<input type='checkbox' id='toggle-none-cladding' "+(form['toggle-none-cladding']?'checked':'')+" onclick='toggleNone('cladding')'/></label>"
+        estimationContent+="</header>"
 
-    <div class='toggle-section insulation'>
-      <header id='toggle-section-header-insulation' class='toggle-section-header'>Insulation
-        <label id='label-as-plan-insulation' class='as-plan-toggle insulation' for='as-plan-insulation'>As per Plan
-          <input type='checkbox'  id='as-plan-insulation' name='as-plan-insulation' onclick='toggleAll('insulation')'/></label>
-        <label id='label-toggle-as-selected-insulation' class='hide-section-toggle insulation' for='toggle-as-selected-insulation'>As Selected
-          <input type='checkbox' id='toggle-as-selected-insulation' name='toggle-as-selected-insulation' onclick='toggleAsSelected('insulation')'/></label>
-        <label id='label-toggle-none-insulation' class='hide-section-toggle insulation' for='toggle-none-insulation'>Not required
-          <input type='checkbox' id='toggle-none-insulation' name='toggle-none-insulation' onclick='toggleNone('insulation')'/></label>
-      </header>
-      <main class='toggle-section-questions' id='toggle-section-questions-insulation'>
+        estimationContent+="<main class='toggle-section-questions' id='toggle-section-questions-cladding'><label class='cladding brick'for='cladding-brick'>"
+        estimationContent+="<input class='checkbox' type='checkbox' name='cladding-brick-check' />Brick"
+        estimationContent+="<input class='number-input' type='number' name='cladding-brick-number' />Quantity per M²</label>"
+        estimationContent+="<label class='cladding sheet'for='cladding-sheet'><input class='checkbox' type='checkbox' name='cladding-sheet-check' />"
+        estimationContent+="Sheet<input class='single-input' type='text' name='cladding-sheet-text' /></label>"
+        estimationContent+="<label class='cladding w-board'for='cladding-w-board'><input class='checkbox' type='checkbox' name='cladding-w-board-check' />"
+        estimationContent+="W/Board<input class='single-input' type='text' name='cladding-w-board' /></label>"
+        estimationContent+="<label class='cladding stone-cladding-substrate'for='cladding-stone-cladding-substrate'>"
+        estimationContent+="<input class='checkbox' type='checkbox' name='cladding-stone-cladding-substrate' />Stone Cladding Substrate</label>"
+        estimationContent+="<label class='cladding additional'for='cladding-additional'>Additional Information"
+        estimationContent+="<textarea class='textbox estimationAdditional' type='textbox' name='cladding-additional' ></textarea></label>"
+        estimationContent+="</main></div>"
 
-        <label class='insulation sub-floor'for='insulation-sub-floor'><input class='check' type='checkbox' name='insulation-sub-floor-check' />Sub Floor
-          <input class='single-input' type='text' name='insulation-sub-floor-text' /></label>
-        <label class='insulation mid-floor'for='insulation-mid-floor'><input class='check' type='checkbox' name='insulation-mid-floor-check' />Mid Floor
-          <input class='single-input' type='text' name='insulation-mid-floor-text' /></label>
-        <label class='insulation walls'for='insulation-walls'><input class='check' type='checkbox' name='insulation-walls-check' />Walls
-          <input class='single-input' type='text' name='insulation-walls-text' /></label>
-        <label class='insulation ceiling'for='insulation-ceiling'><input class='check' type='checkbox' name='insulation-ceiling-check' />Ceiling
-          <input class='single-input' type='text' name='insulation-ceiling-text' /></label>
-        <label class='insulation accoustic'for='insulation-accoustic'><input class='check' type='checkbox' name='insulation-accoustic-check' />Accoustic
-          <input class='single-input' type='text' name='insulation-accoustic-text' /></label>
-        <label class='insulation garage-walls-ceiling'for='insulation-garage-walls-ceiling'>
-          <input class='checkbox' type='checkbox' name='insulation-garage-walls-ceiling' />Garage walls/Ceiling (included)</label>
+        estimationContent+="<div class='toggle-section insulation'>"
+        estimationContent+="<header id='toggle-section-header-insulation' class='toggle-section-header'>Insulation"
+        estimationContent+="<label id='label-as-plan-insulation' class='as-plan-toggle insulation' "+(form['as-plan-insulation']?'':"style='visibility:none;'")+">As per Plan"
+        estimationContent+="<input type='checkbox'  id='as-plan-insulation' "+(form['as-plan-insulation']?'checked':'')+" onclick='toggleAll('insulation')'/></label>"
+        estimationContent+="<label id='label-toggle-as-selected-insulation' class='hide-section-toggle insulation' "+(form['toggle-as-selected-insulation']?'':"style='visibility:none;'")+">As Selected"
+        estimationContent+="<input type='checkbox' id='toggle-as-selected-insulation' "+(form['toggle-as-selected-insulation']?'checked':'')+" onclick='toggleAsSelected('insulation')'/></label>"
+        estimationContent+="<label id='label-toggle-none-insulation' class='hide-section-toggle insulation' "+(form['toggle-none-insulation']?'':"style='visibility:none;'")+">Not required"
+        estimationContent+="<input type='checkbox' id='toggle-none-insulation' "+(form['toggle-none-insulation']?'checked':'')+" onclick='toggleNone('insulation')'/></label>"
+        estimationContent+="</header>"
 
-        <label class='insulation installation'for='insulation-installation'><input class='checkbox' type='checkbox' name='insulation-installation' />Installation</label>
-        <label class='insulation additional'for='insulation-additional'>Additional Information
-          <textarea class='textbox estimationAdditional' type='textbox' name='insulation-additional' ></textarea></label>
-      </main></div>
+        estimationContent+="<main class='toggle-section-questions' id='toggle-section-questions-insulation'>"
+        estimationContent+="<label class='insulation sub-floor'for='insulation-sub-floor'><input class='check' type='checkbox' name='insulation-sub-floor-check' />Sub Floor"
+        estimationContent+="<input class='single-input' type='text' name='insulation-sub-floor-text' /></label>"
+        estimationContent+="<label class='insulation mid-floor'for='insulation-mid-floor'><input class='check' type='checkbox' name='insulation-mid-floor-check' />Mid Floor"
+        estimationContent+="<input class='single-input' type='text' name='insulation-mid-floor-text' /></label>"
+        estimationContent+="<label class='insulation walls'for='insulation-walls'><input class='check' type='checkbox' name='insulation-walls-check' />Walls"
+        estimationContent+="<input class='single-input' type='text' name='insulation-walls-text' /></label>"
+        estimationContent+="<label class='insulation ceiling'for='insulation-ceiling'><input class='check' type='checkbox' name='insulation-ceiling-check' />Ceiling"
+        estimationContent+="<input class='single-input' type='text' name='insulation-ceiling-text' /></label>"
+        estimationContent+="<label class='insulation accoustic'for='insulation-accoustic'><input class='check' type='checkbox' name='insulation-accoustic-check' />Accoustic"
+        estimationContent+="<input class='single-input' type='text' name='insulation-accoustic-text' /></label>"
+        estimationContent+="<label class='insulation garage-walls-ceiling'for='insulation-garage-walls-ceiling'>"
+        estimationContent+="<input class='checkbox' type='checkbox' name='insulation-garage-walls-ceiling' />Garage walls/Ceiling (included)</label>"
+        estimationContent+="<label class='insulation installation'for='insulation-installation'><input class='checkbox' type='checkbox' name='insulation-installation' />Installation</label>"
+        estimationContent+="<label class='insulation additional'for='insulation-additional'>Additional Information"
+        estimationContent+="<textarea class='textbox estimationAdditional' type='textbox' name='insulation-additional' ></textarea></label>"
+        estimationContent+="</main></div>"
 
-    <div class='toggle-section interior-linings'>
-      <header id='toggle-section-header-interior-linings' class='toggle-section-header'>Interior Linings
-        <label id='label-as-plan-interior-linings' class='as-plan-toggle interior-linings' for='as-plan-interior-linings'>As per Plan
-          <input type='checkbox'  id='as-plan-interior-linings' name='as-plan-interior-linings' onclick='toggleAll('interior-linings')'/></label>
-        <label id='label-toggle-as-selected-interior-linings' class='toggle-as-selected interior-linings' for='toggle-as-selected-interior-linings'>As Selected
-          <input type='checkbox' id='toggle-as-selected-interior-linings' name='toggle-as-selected-interior-linings' onclick='toggleAsSelected('interior-linings')'/></label>
-        <label id='label-toggle-none-interior-linings' class='hide-section-toggle interior-linings' for='toggle-none-interior-linings'>Not required
-          <input type='checkbox' id='toggle-none-interior-linings' name='toggle-none-interior-linings' onclick='toggleNone('interior-linings')'/></label>
-      </header>
-      <main class='toggle-section-questions' id='toggle-section-questions-interior-linings'>
-        <label class='interior-linings wall'for='interior-linings-wall'><input class='checkbox' type='checkbox' name='interior-linings-wall' />Wall</label>
-        <label class='interior-linings wet-wall'for='interior-linings-wet-wall'><input class='checkbox' type='checkbox' name='interior-linings-wet-wall' />Wet Wall</label>
-        <label class='interior-linings bathroom'for='interior-linings-bathroom'><input class='checkbox' type='checkbox' name='interior-linings-bathroom' />Bathroom</label>
-        <label class='interior-linings wc'for='interior-linings-wc'><input class='checkbox' type='checkbox' name='interior-linings-wc' />WC</label>
-        <label class='interior-linings ceiling'for='interior-linings-ceiling'><input class='checkbox' type='checkbox' name='interior-linings-ceiling' />Ceiling</label>
-        <label class='interior-linings wet-ceiling'for='interior-linings-wet-ceiling'><input class='checkbox' type='checkbox' name='interior-linings-wet-ceiling' />Wet Ceiling</label>
-        <label class='interior-linings ensuite'for='interior-linings-ensuite'><input class='checkbox' type='checkbox' name='interior-linings-ensuite' />Ensuite</label>
-        <label class='interior-linings laundry'for='interior-linings-laundry'><input class='checkbox' type='checkbox' name='interior-linings-laundry' />Laundry</label>
-        <label class='interior-linings additional'for='interior-linings-additional'>Additional Information
-          <textarea class='textbox estimationAdditional' type='textbox' name='interior-linings-additional' ></textarea></label>
-      </main></div>
+        estimationContent+="<div class='toggle-section interior-linings'>"
+        estimationContent+="<header id='toggle-section-header-interior-linings' class='toggle-section-header'>Interior Linings"
+        estimationContent+="<label id='label-as-plan-interior-linings' class='as-plan-toggle interior-linings' "+(form['as-plan-interior-linings']?'':"style='visibility:none;'")+">As per Plan"
+        estimationContent+="<input type='checkbox'  id='as-plan-interior-linings' "+(form['as-plan-interior-linings']?'checked':'')+" onclick='toggleAll('interior-linings')'/></label>"
+        estimationContent+="<label id='label-toggle-as-selected-interior-linings' class='toggle-as-selected interior-linings' "+(form['toggle-as-selected-interior-linings']?'':"style='visibility:none;'")+">As Selected"
+        estimationContent+="<input type='checkbox' id='toggle-as-selected-interior-linings' "+(form['toggle-as-selected-interior-linings']?'checked':'')+" onclick='toggleAsSelected('interior-linings')'/></label>"
+        estimationContent+="<label id='label-toggle-none-interior-linings' class='hide-section-toggle interior-linings' "+(form['toggle-none-interior-linings']?'':"style='visibility:none;'")+">Not required"
+        estimationContent+="<input type='checkbox' id='toggle-none-interior-linings' "+(form['toggle-none-interior-linings']?'checked':'')+" onclick='toggleNone('interior-linings')'/></label>"
+        estimationContent+="</header>"
 
-    <div class='toggle-section interior-doors'>
-      <header id='toggle-section-header-interior-doors' class='toggle-section-header'>Interior Doors
-        <label  id='label-as-plan-interior-doors' class='as-plan-toggle interior-doors' for='as-plan-interior-doors'>As per Plan
-          <input type='checkbox'  id='as-plan-interior-doors' name='as-plan-interior-doors' onclick='toggleAll('interior-doors')'/></label>
-        <label  id='label-toggle-as-selected-interior-doors' class='hide-section-toggle interior-doors' for='toggle-as-selected-interior-doors'>As Selected
-          <input type='checkbox' id='toggle-as-selected-interior-doors' name='toggle-as-selected-interior-doors' onclick='toggleAsSelected('interior-doors')'/></label>
-        <label  id='label-toggle-none-interior-doors' class='hide-section-toggle interior-doors' for='toggle-none-interior-doors'>Not required
-          <input type='checkbox' id='toggle-none-interior-doors' name='toggle-none-interior-doors' onclick='toggleNone('interior-doors')'/></label>
-      </header>
-      <main class='toggle-section-questions' id='toggle-section-questions-interior-doors'>
-        <label class='interior-doors door-type'for='interior-doors-door-type'><input class='checkbox' type='checkbox' name='interior-doors-door-type' />MDF HC PQ FJ FLAT JAMB</label>
-        <label class='interior-doors door-hardware'for='interior-doors-door-hardware'><input class='checkbox' type='checkbox' name='interior-doors-door-hardware' />Door Hardware</label>
-        <label class='interior-doors additional'for='interior-doors-additional'>Additional Information
-          <textarea class='textbox estimationAdditional' type='textbox' name='interior-doors-additional' ></textarea></label>
-      </main></div>
+        estimationContent+="<main class='toggle-section-questions' id='toggle-section-questions-interior-linings'>"
+        estimationContent+="<label class='interior-linings wall'for='interior-linings-wall'><input class='checkbox' type='checkbox' name='interior-linings-wall' />Wall</label>"
+        estimationContent+="<label class='interior-linings wet-wall'for='interior-linings-wet-wall'><input class='checkbox' type='checkbox' name='interior-linings-wet-wall' />Wet Wall</label>"
+        estimationContent+="<label class='interior-linings bathroom'for='interior-linings-bathroom'><input class='checkbox' type='checkbox' name='interior-linings-bathroom' />Bathroom</label>"
+        estimationContent+="<label class='interior-linings wc'for='interior-linings-wc'><input class='checkbox' type='checkbox' name='interior-linings-wc' />WC</label>"
+        estimationContent+="<label class='interior-linings ceiling'for='interior-linings-ceiling'><input class='checkbox' type='checkbox' name='interior-linings-ceiling' />Ceiling</label>"
+        estimationContent+="<label class='interior-linings wet-ceiling'for='interior-linings-wet-ceiling'><input class='checkbox' type='checkbox' name='interior-linings-wet-ceiling' />Wet Ceiling</label>"
+        estimationContent+="<label class='interior-linings ensuite'for='interior-linings-ensuite'><input class='checkbox' type='checkbox' name='interior-linings-ensuite' />Ensuite</label>"
+        estimationContent+="<label class='interior-linings laundry'for='interior-linings-laundry'><input class='checkbox' type='checkbox' name='interior-linings-laundry' />Laundry</label>"
+        estimationContent+="<label class='interior-linings additional'for='interior-linings-additional'>Additional Information"
+        estimationContent+="<textarea class='textbox estimationAdditional' type='textbox' name='interior-linings-additional' ></textarea></label>"
+        estimationContent+="</main></div>"
 
-    <div class='toggle-section interior-finishings'>
-      <header id='toggle-section-header-interior-finishings' class='toggle-section-header'>Interior Finishings
-        <label  id='label-as-plan-interior-finishings' class='as-plan-toggle interior-finishings' for='as-plan-interior-finishings'>As per Plan
-          <input type='checkbox'  id='as-plan-interior-finishings' name='as-plan-interior-finishings' onclick='toggleAll('interior-finishings')'/></label>
-        <label  id='label-toggle-as-selected-interior-finishings' class='hide-section-toggle interior-finishings' for='toggle-as-selected-interior-finishings'>As Selected
-          <input type='checkbox' id='toggle-as-selected-interior-finishings' name='toggle-as-selected-interior-finishings' onclick='toggleAsSelected('interior-finishings')'/></label>
-        <label  id='label-toggle-none-interior-finishings' class='hide-section-toggle interior-finishings' for='toggle-none-interior-finishings'>Not required
-          <input type='checkbox' id='toggle-none-interior-finishings' name='toggle-none-interior-finishings' onclick='toggleNone('interior-finishings')'/></label>
-      </header>
-      <main class='toggle-section-questions' id='toggle-section-questions-interior-finishings'>
+        estimationContent+="<div class='toggle-section interior-doors'>"
+        estimationContent+="<header id='toggle-section-header-interior-doors' class='toggle-section-header'>Interior Doors"
+        estimationContent+="<label  id='label-as-plan-interior-doors' class='as-plan-toggle interior-doors' "+(form['as-plan-interior-doors']?'':"style='visibility:none;'")+">As per Plan"
+        estimationContent+="<input type='checkbox'  id='as-plan-interior-doors' "+(form['as-plan-interior-doors']?'checked':'')+" onclick='toggleAll('interior-doors')'/></label>"
+        estimationContent+="<label  id='label-toggle-as-selected-interior-doors' class='hide-section-toggle interior-doors' "+(form['toggle-as-selected-interior-doors']?'':"style='visibility:none;'")+">As Selected"
+        estimationContent+="<input type='checkbox' id='toggle-as-selected-interior-doors' "+(form['toggle-as-selected-interior-doors']?'checked':'')+" onclick='toggleAsSelected('interior-doors')'/></label>"
+        estimationContent+="<label  id='label-toggle-none-interior-doors' class='hide-section-toggle interior-doors' "+(form['toggle-none-interior-doors']?'':"style='visibility:none;'")+">Not required"
+        estimationContent+="<input type='checkbox' id='toggle-none-interior-doors' "+(form['toggle-none-interior-doors']?'checked':'')+" onclick='toggleNone('interior-doors')'/></label>"
+        estimationContent+="</header>"
 
-        <label class='interior-finishings mdf'for='interior-finishings-mdf'>MDF<input class='checkbox' type='checkbox' name='interior-finishings-mdf' /></label>
-        <label class='interior-finishings f-j'for='interior-finishings-f-j'>F/J<input class='checkbox' type='checkbox' name='interior-finishings-f-j' /></label>
-        <label class='interior-finishings clears'for='interior-finishings-clears'>Clears<input class='checkbox' type='checkbox' name='interior-finishings-clears' /></label>
-        <label class='interior-finishings timber-cornice'for='interior-finishings-timber-cornice'>Timber Cornice<input class='checkbox' type='checkbox' name='interior-finishings-timber-cornice' /></label>
-        <label class='interior-finishings gib-cove'for='interior-finishings-gib-cove'>Gib Cove<input class='checkbox' type='checkbox' name='interior-finishings-gib-cove' /></label>
-        <label class='interior-finishings skirting'for='interior-finishings-skirting'>Skirting<input class='checkbox' type='checkbox' name='interior-finishings-skirting' /></label>
-        <label class='interior-finishings architrave'for='interior-finishings-architrave'>Architrave<input class='checkbox' type='checkbox' name='interior-finishings-architrave' /></label>
-        <label class='interior-finishings wet-areas'for='interior-finishings-wet-areas'>Wet Areas<input class='checkbox' type='checkbox' name='interior-finishings-wet-areas' /></label>
-        <label class='interior-finishings shelving'for='interior-finishings-shelving'>Shelving<input class='checkbox' type='checkbox' name='interior-finishings-shelving' /></label>
-        <label class='interior-finishings additional'for='interior-finishings-additional'>Additional Information
-          <textarea class='textbox estimationAdditional' type='textbox' name='interior-finishings-additional' ></textarea></label>
+        estimationContent+="<main class='toggle-section-questions' id='toggle-section-questions-interior-doors'>"
+        estimationContent+="<label class='interior-doors door-type'for='interior-doors-door-type'><input class='checkbox' type='checkbox' name='interior-doors-door-type' />MDF HC PQ FJ FLAT JAMB</label>"
+        estimationContent+="<label class='interior-doors door-hardware'for='interior-doors-door-hardware'><input class='checkbox' type='checkbox' name='interior-doors-door-hardware' />Door Hardware</label>"
+        estimationContent+="<label class='interior-doors additional'for='interior-doors-additional'>Additional Information"
+        estimationContent+="<textarea class='textbox estimationAdditional' type='textbox' name='interior-doors-additional' ></textarea></label>"
+        estimationContent+="</main></div>"
 
-      </main></div>
+        estimationContent+="<div class='toggle-section interior-finishings'>"
+        estimationContent+="<header id='toggle-section-header-interior-finishings' class='toggle-section-header'>Interior Finishings"
+        estimationContent+="<label  id='label-as-plan-interior-finishings' class='as-plan-toggle interior-finishings' "+(form['as-plan-interior-finishings']?'':"style='visibility:none;'")+">As per Plan"
+        estimationContent+="<input type='checkbox'  id='as-plan-interior-finishings' "+(form['as-plan-interior-finishings']?'checked':'')+" /></label>"
+        estimationContent+="<label  id='label-toggle-as-selected-interior-finishings' class='hide-section-toggle interior-finishings' "+(form['toggle-as-selected-interior-finishings']?'':"style='visibility:none;'")+">As Selected"
+        estimationContent+="<input type='checkbox' id='toggle-as-selected-interior-finishings' "+(form['toggle-as-selected-interior-finishings']?'checked':'')+" /></label>"
+        estimationContent+="<label  id='label-toggle-none-interior-finishings' class='hide-section-toggle interior-finishings' "+(form['toggle-none-interior-finishings']?'':"style='visibility:none;'")+">Not required"
+        estimationContent+="<input type='checkbox' id='toggle-none-interior-finishings' "+(form['toggle-none-interior-finishings']?'checked':'')+" /></label>"
+        estimationContent+="</header>"
 
-    <div class='toggle-section landscaping'>
-      <header id='toggle-section-header-landscaping' class='toggle-section-header'>Landscaping
-      <label id='label-as-plan-landscaping' class='as-plan-toggle landscaping' for='as-plan-landscaping'>As per Plan
-        <input type='checkbox'  id='as-plan-landscaping' name='as-plan-landscaping' onclick='toggleAll('landscaping')'/></label>
-      <label id='label-as-selected-landscaping' class='hide-section-toggle landscaping' for='toggle-as-selected-landscaping'>As Selected
-        <input type='checkbox' id='toggle-as-selected-landscaping' name='toggle-as-selected-landscaping' onclick='toggleAsSelected('landscaping')'/></label>
-      <label id='label-toggle-none-landscaping' class='hide-section-toggle landscaping' for='toggle-none-landscaping'>Not required
-        <input type='checkbox' id='toggle-none-landscaping' name='toggle-none-landscaping' onclick='toggleNone('landscaping')'/></label>
-    </header>
-    <main class='toggle-section-questions' id='toggle-section-questions-landscaping'>
-      <label class='landscaping concrete-patios'for='landscaping-concrete-patios'><input class='checkbox' type='checkbox' name='landscaping-concrete-patios' />Concrete Patios</label>
-      <label class='landscaping ply-deck'for='landscaping-ply-deck'><input class='checkbox' type='checkbox' name='landscaping-ply-deck-check' />Ply Deck</label>
-      <label class='landscaping decking'for='landscaping-decking'><input class='checkbox' type='checkbox' name='landscaping-decking' />Decking</label>
-      <label class='landscaping car-port'for='landscaping-car-port'><input class='checkbox' type='checkbox' name='landscaping-car-port' />Carport</label>
-      <label class='landscaping pergola'for='landscaping-pergola'><input class='checkbox' type='checkbox' name='landscaping-pergola' />Pergola</label>
-      <label class='landscaping timber-retaining-wall'for='landscaping-timber-retaining-wall'><input class='checkbox' type='checkbox' name='landscaping-timber-retaining-wall' />Timber Retaining Wall</label>
+        estimationContent+="<main class='toggle-section-questions' id='toggle-section-questions-interior-finishings'>"
+        estimationContent+="<label class='interior-finishings mdf'for='interior-finishings-mdf'>MDF<input class='checkbox' type='checkbox' name='interior-finishings-mdf' /></label>"
+        estimationContent+="<label class='interior-finishings f-j'for='interior-finishings-f-j'>F/J<input class='checkbox' type='checkbox' name='interior-finishings-f-j' /></label>"
+        estimationContent+="<label class='interior-finishings clears'for='interior-finishings-clears'>Clears<input class='checkbox' type='checkbox' name='interior-finishings-clears' /></label>"
+        estimationContent+="<label class='interior-finishings timber-cornice'for='interior-finishings-timber-cornice'>Timber Cornice<input class='checkbox' type='checkbox' name='interior-finishings-timber-cornice' /></label>"
+        estimationContent+="<label class='interior-finishings gib-cove'for='interior-finishings-gib-cove'>Gib Cove<input class='checkbox' type='checkbox' name='interior-finishings-gib-cove' /></label>"
+        estimationContent+="<label class='interior-finishings skirting'for='interior-finishings-skirting'>Skirting<input class='checkbox' type='checkbox' name='interior-finishings-skirting' /></label>"
+        estimationContent+="<label class='interior-finishings architrave'for='interior-finishings-architrave'>Architrave<input class='checkbox' type='checkbox' name='interior-finishings-architrave' /></label>"
+        estimationContent+="<label class='interior-finishings wet-areas'for='interior-finishings-wet-areas'>Wet Areas<input class='checkbox' type='checkbox' name='interior-finishings-wet-areas' /></label>"
+        estimationContent+="<label class='interior-finishings shelving'for='interior-finishings-shelving'>Shelving<input class='checkbox' type='checkbox' name='interior-finishings-shelving' /></label>"
+        estimationContent+="<label class='interior-finishings additional'for='interior-finishings-additional'>Additional Information"
+        estimationContent+="<textarea class='textbox estimationAdditional' type='textbox' name='interior-finishings-additional' ></textarea></label>"
+        estimationContent+="</main></div>"
 
-      <label class='landscaping additional'for='landscaping-additional'>
-        Additional Information
-        <textarea class='textbox estimationAdditional' type='textbox' name='landscaping-additional' ></textarea>
-      </label>
+        estimationContent+="<div class='toggle-section landscaping'>"
+        estimationContent+="<header id='toggle-section-header-landscaping' class='toggle-section-header'>Landscaping"
+        estimationContent+="<label id='label-as-plan-landscaping' class='as-plan-toggle landscaping' "+(form['as-plan-landscaping']?'':"style='visibility:none;'")+">As per Plan"
+        estimationContent+="<input type='checkbox'  id='as-plan-landscaping' "+(form['as-plan-landscaping']?'checked':'')+" /></label>"
+        estimationContent+="<label id='label-as-selected-landscaping' class='hide-section-toggle landscaping' "+(form['toggle-as-selected-landscaping']?'':"style='visibility:none;'")+">As Selected"
+        estimationContent+="<input type='checkbox' id='toggle-as-selected-landscaping' "+(form['toggle-as-selected-landscaping']?'checked':'')+" /></label>"
+        estimationContent+="<label id='label-toggle-none-landscaping' class='hide-section-toggle landscaping' "+(form['toggle-none-landscaping']?'':"style='visibility:none;'")+">Not required"
+        estimationContent+="<input type='checkbox' id='toggle-none-landscaping' "+(form['toggle-none-landscaping']?'checked':'')+" /></label>"
+        estimationContent+="</header>"
 
-    </main>
-  </div>
-</div>
-</div>
+        estimationContent+="<main class='toggle-section-questions' id='toggle-section-questions-landscaping'>"
+        estimationContent+="<label class='landscaping concrete-patios'for='landscaping-concrete-patios'><input class='checkbox' type='checkbox' name='landscaping-concrete-patios' />Concrete Patios</label>"
+        estimationContent+="<label class='landscaping ply-deck'for='landscaping-ply-deck'><input class='checkbox' type='checkbox' name='landscaping-ply-deck-check' />Ply Deck</label>"
+        estimationContent+="<label class='landscaping decking'for='landscaping-decking'><input class='checkbox' type='checkbox' name='landscaping-decking' />Decking</label>"
+        estimationContent+="<label class='landscaping car-port'for='landscaping-car-port'><input class='checkbox' type='checkbox' name='landscaping-car-port' />Carport</label>"
+        estimationContent+="<label class='landscaping pergola'for='landscaping-pergola'><input class='checkbox' type='checkbox' name='landscaping-pergola' />Pergola</label>"
+        estimationContent+="<label class='landscaping timber-retaining-wall'for='landscaping-timber-retaining-wall'><input class='checkbox' type='checkbox' name='landscaping-timber-retaining-wall' />Timber Retaining Wall</label>"
+        estimationContent+="<label class='landscaping additional'for='landscaping-additional'>Additional Information"
+        estimationContent+="<textarea class='textbox estimationAdditional' type='textbox' name='landscaping-additional' ></textarea></label>"
+        estimationContent+="</main></div></div></div>"
 
 
 

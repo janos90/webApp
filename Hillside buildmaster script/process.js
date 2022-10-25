@@ -1,5 +1,6 @@
 var content = ""
 var formHeader = ""
+var formFoot = "</form>"
 var styles = ""
 var head = ""
 var headEnd = ""
@@ -81,11 +82,11 @@ var estimationContent = ''
   outsourcingSelection+="<main class='outsourcing-selection-body' id='outsourcing-selection-body' style='"+ (form['cancel-outsourcing']?'display:none;':'') +"'> "
   outsourcingSelection+="<ul class='outsourcing-selection-ul prenail'><header>PreNail</header>"
   outsourcingSelection+="<li class='outsourcing-selection-li'><label for='outsourcing-selection-prenail-turangi'>Turangi ITM"
-  outsourcingSelection+="<input class='checkbox' type='checkbox' "+(form['outsourcing-selection-prenail-turangi'']?'checked':'')+" id='outsourcing-selection-prenail-turangi' /></label></li>"
+  outsourcingSelection+="<input class='checkbox' type='checkbox' "+(form['outsourcing-selection-prenail-turangi']?'checked':'')+" id='outsourcing-selection-prenail-turangi' /></label></li>"
   outsourcingSelection+="<li class='outsourcing-selection-li'><label for='outsourcing-selection-prenail-ntml'>NTML"
-  outsourcingSelection+="<input class='checkbox' type='checkbox' "+(form['outsourcing-selection-prenail-ntml'']?'checked':'')+"  id='outsourcePrenailNTMLid' /></label></li>"
+  outsourcingSelection+="<input class='checkbox' type='checkbox' "+(form['outsourcing-selection-prenail-ntml']?'checked':'')+"  id='outsourcePrenailNTMLid' /></label></li>"
   outsourcingSelection+="<li class='outsourcing-selection-li'><label for='outsourcing-selection-prenail-dayles'>Dayles"
-  outsourcingSelection+="<input class='checkbox' type='checkbox' "+(form['outsourcing-selection-prenail-dayles'']?'checked':'')+"  id='outsourcePrenailDayleid' /></label></li>"
+  outsourcingSelection+="<input class='checkbox' type='checkbox' "+(form['outsourcing-selection-prenail-dayles']?'checked':'')+"  id='outsourcePrenailDayleid' /></label></li>"
   outsourcingSelection+="</ul>"
   outsourcingSelection+="<ul class='outsourcing-selection-ul reinforcing'>  <header>Reinforcing</header>"
   outsourcingSelection+="<li class='outsourcing-selection-li'><label for='outsourcing-selection-reinforcing-united-steel'>United Steel"
@@ -426,189 +427,60 @@ estimationContent+= "</main></div>"
         estimationContent+="</main></div></div></div>"
 
 
-  <div id='prenail-questions' class='' style='display:none'>
-    <header class='fullWidthContainer'>
-      <h1>
-        Dayle Prenail questions
-      </h1>
-    </header>
-    <div class='checkboxContainer'>
-      <h3>Wind zone</h3>
-      <p class='row'><input class='wind' name='prenailMediumWind' type='checkbox'>Medium Wind</p>
-      <p class='row'><input class='wind' name='prenailHighWind' type='checkbox'>High Wind</p>
-      <p class='row'><input class='wind' name='prenailVeryWind' type='checkbox'>Very High Wind</p>
-      <p class='row'><input class='wind' name='prenailExtraWind' type='checkbox'>Extra High Wind</p>
-    </div>
-    <div class='checkboxContainer'>
-      <h3>Framing Treatment</h3>
+prenailContentSubmitted+= "<div id='prenail-questions' class=''>"
+prenailContentSubmitted+= "<header class='fullWidthContainer'><h1>Prenail questions</h1></header>"
+prenailContentSubmitted+= "<div class='checkboxContainer'><h3>Wind zone</h3>"
+prenailContentSubmitted+= "<p class='row'><input class='wind' "+(form['prenailMediumWind']?'checked':'')+" type='checkbox'>Medium Wind</p>"
+prenailContentSubmitted+= "<p class='row'><input class='wind' "+(form['prenailHighWind']?'checked':'')+" type='checkbox'>High Wind</p>"
+prenailContentSubmitted+= "<p class='row'><input class='wind' "+(form['prenailVeryWind']?'checked':'')+" type='checkbox'>Very High Wind</p>"
+prenailContentSubmitted+= "<p class='row'><input class='wind' "+(form['prenailExtraWind']?'checked':'')+" type='checkbox'>Extra High Wind</p>"
+prenailContentSubmitted+= "</div><div class='checkboxContainer'><h3>Framing Treatment</h3>"
+prenailContentSubmitted+= "<table class='prenail-table'><caption>Wall Framing Treatment</caption>"
+prenailContentSubmitted+= "<tr><th class='prenail-table-headers'></th><th class='prenail-table-headers'>H1.2</th>"
+prenailContentSubmitted+= "<th class='prenail-table-headers'>H3.2</th><th class='prenail-table-headers'>H3.2 B/Plate</th></tr>"
+prenailContentSubmitted+= "<tr><td class='prenail-table-cells'>Interior</td>"
+prenailContentSubmitted+= "<td class='prenail-table-cells'><input type='checkbox' "+(form['daylePrenailInteriorH1']?'checked':'')+" /></td>"
+prenailContentSubmitted+= "<td class='prenail-table-cells'><input type='checkbox' "+(form['daylePrenailInteriorH3']?'checked':'')+" /></td>"
+prenailContentSubmitted+= "<td class='prenail-table-cells'><input type='checkbox' "+(form['daylePrenailInteriorBPlate']?'checked':'')+" /></td></tr>"
+prenailContentSubmitted+= "<tr><td class='prenail-table-cells'>Exterior</td>"
+prenailContentSubmitted+= "<td class='prenail-table-cells'><input type='checkbox' "+(form['daylePrenailExteriorH1']?'checked':'')+" /></td>"
+prenailContentSubmitted+= "<td class='prenail-table-cells'><input type='checkbox' "+(form['daylePrenailExteriorH3']?'checked':'')+" /></td>"
+prenailContentSubmitted+= "<td class='prenail-table-cells'><input type='checkbox' "+(form['daylePrenailExteriorBPlate']?'checked':'')+" /></td></tr>"
+prenailContentSubmitted+= "<tr><td class='prenail-table-cells'>Wet Areas</td>"
+prenailContentSubmitted+= "<td class='prenail-table-cells'><input type='checkbox' "+(form['daylePrenailWetH1']?'checked':'')+" /></td>"
+prenailContentSubmitted+= "<td class='prenail-table-cells'><input type='checkbox' "+(form['daylePrenailWetH3']?'checked':'')+" /></td>"
+prenailContentSubmitted+= "<td class='prenail-table-cells'><input type='checkbox' "+(form['daylePrenailWetBPlate']?'checked':'')+" /></td></tr>"
+prenailContentSubmitted+= "</table><br />"
+prenailContentSubmitted+= "<table class='prenail-table'><caption>Roof Framing Treatment</caption>"
+prenailContentSubmitted+= "<tr><th class='prenail-table-headers'></th><th class='prenail-table-headers'>H1.2</th><th class='prenail-table-headers'>H3.2</th></tr>"
+prenailContentSubmitted+= "<tr><td class='prenail-table-cells'>Trusses</td>"
+prenailContentSubmitted+= "<td class='prenail-table-cells'><input type='checkbox' "+(form['daylePrenailTrussesH1']?'checked':'')+" /></td>"
+prenailContentSubmitted+= "<td class='prenail-table-cells'><input type='checkbox' "+(form['daylePrenailTrussesH3']?'checked':'')+" /></td></tr>"
+prenailContentSubmitted+= "<tr><td class='prenail-table-cells'>Rafters</td>"
+prenailContentSubmitted+= "<td class='prenail-table-cells'><input type='checkbox' "+(form['daylePrenailRaftersH1']?'checked':'')+" /></td>"
+prenailContentSubmitted+= "<td class='prenail-table-cells'><input type='checkbox' "+(form['daylePrenailRaftersH3']?'checked':'')+" /></td></tr>"
+prenailContentSubmitted+= "</table></div>"
+prenailContentSubmitted+= "<div class='checkboxContainer'><h3>Prenail Extras</h3>"
+prenailContentSubmitted+= "<label><input class='checkbox' type='checkbox' "+(form['prenailFramesCheck']?'checked':'')+"  />"
+prenailContentSubmitted+= "Prenail Wall Frames<input class='single-input' type='text' "+(form['prenailFramesText'])+"  /></label>"
+prenailContentSubmitted+= "<label><input class='checkbox' type='checkbox' "+(form['prenailTrussesCheck']?'checked':'')+"  />"
+prenailContentSubmitted+= "Trusses<input class='single-input' type='text' "+(form['prenailTrussesText'])+"  /></label>"
+prenailContentSubmitted+= "<label><input class='checkbox' type='checkbox' "+(form['prenailPrecutRaftersCheck']?'checked':'')+"  />"
+prenailContentSubmitted+= "Precut Rafters<input class='single-input' type='text' "+(form['prenailPrecutRaftersText'])+"  /></label>"
+prenailContentSubmitted+= "<label><input class='checkbox' type='checkbox' "+(form['prenailPrecutRoofCheck']?'checked':'')+"  />"
+prenailContentSubmitted+= "Precut balance of Roof<input class='single-input' type='text' "+(form['prenailPrecutRoofText'])+"  /></label>"
+prenailContentSubmitted+= "</div>"
+prenailContentSubmitted+= "<div class='checkboxContainer'><header><h4>Other : TBC by Prenail Supplier, must be detailed</h4></header>"
+prenailContentSubmitted+= "<label>LVL Beams<input class='single-input' type='checkbox' "+(form['daylesPrenailLVLBeams']?'checked':'')+"  />"
+prenailContentSubmitted+= "eg in Mid floor / roof, lintels as per prenail/ engineer</label>"
+prenailContentSubmitted+= "<label>Glulam Beams<input class='single-input' type='checkbox' "+(form['daylesPrenailGulamBeams']?'checked':'')+"  />"
+prenailContentSubmitted+= "eg in Mid floor / roof, lintels as per prenail/ engineer</label>"
+prenailContentSubmitted+= "<label>Flitch Beams<input class='single-input' type='checkbox' "+(form['daylesPrenailFlitchBeams']?'checked':'')+"  />"
+prenailContentSubmitted+= "eg in Mid floor / roof, lintels as per prenail/ engineer</label>"
+prenailContentSubmitted+= "<label>Double top plate loose<input class='single-input' type='checkbox' "+(form['daylesPrenailDoubleTop']?'checked':'')+"  />"
+prenailContentSubmitted+= "double top plates will come nailed by default</label>"
+prenailContentSubmitted+= "<label>Studlok / lintel lok<input class='single-input' type='checkbox' "+(form['daylesPrenailStudlok']?'checked':'')+"  />"
+prenailContentSubmitted+= "premium service, additional charges apply</label>"
+prenailContentSubmitted+= "</div></div>"
 
-      <table class='prenail-table'>
-        <caption>Wall Framing Treatment</caption>
-        <tr>
-          <th class='prenail-table-headers'></th>
-          <th class='prenail-table-headers'>H1.2</th>
-          <th class='prenail-table-headers'>H3.2</th>
-          <th class='prenail-table-headers'>H3.2 B/Plate</th>
-        </tr>
-        <tr>
-          <td class='prenail-table-cells'>
-            Interior
-          </td>
-          <td class='prenail-table-cells'>
-            <input type='checkbox' name='daylePrenailInteriorH1' />
-          </td>
-          <td class='prenail-table-cells'>
-            <input type='checkbox' name='daylePrenailInteriorH3' />
-          </td>
-          <td class='prenail-table-cells'>
-            <input type='checkbox' name='daylePrenailInteriorBPlate' />
-          </td>
-        </tr>
-        <tr>
-          <td class='prenail-table-cells'>
-            Exterior
-          </td>
-          <td class='prenail-table-cells'>
-            <input type='checkbox' name='daylePrenailExteriorH1' />
-          </td>
-          <td class='prenail-table-cells'>
-            <input type='checkbox' name='daylePrenailExteriorH3' />
-          </td>
-          <td class='prenail-table-cells'>
-            <input type='checkbox' name='daylePrenailExteriorBPlate' />
-          </td>
-
-        </tr>
-
-        <tr>
-          <td class='prenail-table-cells'>
-            Wet Areas
-          </td>
-          <td class='prenail-table-cells'>
-            <input type='checkbox' name='daylePrenailWetH1' />
-          </td>
-          <td class='prenail-table-cells'>
-            <input type='checkbox' name='daylePrenailWetH3' />
-          </td>
-          <td class='prenail-table-cells'>
-            <input type='checkbox' name='daylePrenailWetBPlate' />
-          </td>
-
-        </tr>
-      </table>
-      <br />
-      <table class='prenail-table'>
-        <caption>Roof Framing Treatment</caption>
-        <tr>
-          <th class='prenail-table-headers'></th>
-          <th class='prenail-table-headers'>H1.2</th>
-          <th class='prenail-table-headers'>H3.2</th>
-        </tr>
-        <tr>
-          <td class='prenail-table-cells'>Trusses</td>
-          <td class='prenail-table-cells'>
-            <input type='checkbox' name='daylePrenailTrussesH1' />
-          </td>
-          <td class='prenail-table-cells'>
-            <input type='checkbox' name='daylePrenailTrussesH3' />
-          </td>
-
-        </tr>
-        <tr>
-          <td class='prenail-table-cells'>Rafters</td>
-          <td class='prenail-table-cells'>
-            <input type='checkbox' name='daylePrenailRaftersH1' />
-          </td>
-          <td class='prenail-table-cells'>
-            <input type='checkbox' name='daylePrenailRaftersH3' />
-          </td>
-
-        </tr>
-      </table>
-    </div>
-
-
-
-
-    <div class='checkboxContainer'>
-      <h3>Prenail Extras</h3>
-      <label>
-        <input class='checkbox' type='checkbox' name='prenailFramesCheck'  />
-        Prenail Wall Frames
-        <input class='single-input' type='text' name='prenailFramesText'  />
-      </label>
-
-      <label>
-        <input class='checkbox' type='checkbox' name='prenailTrussesCheck'  />
-        Trusses
-        <input class='single-input' type='text' name='prenailTrussesText'  />
-      </label>
-      <label>
-        <input class='checkbox' type='checkbox' name='prenailPrecutRaftersCheck'  />
-        Precut Rafters
-        <input class='single-input' type='text' name='prenailPrecutRaftersText'  />
-      </label>
-      <label>
-        <input class='checkbox' type='checkbox' name='prenailPrecutRoofCheck'  />
-        Precut balance of Roof
-        <input class='single-input' type='text' name='prenailPrecutRoofText'  />
-      </label>
-    </div>
-    <div class='checkboxContainer'>
-      <header>
-        <h4>Other : TBC by Prenail Supplier, must be detailed</h4>
-      </header>
-      <label>
-        LVL Beams
-        <input class='single-input' type='checkbox' name='daylesPrenailLVLBeams'  />
-        eg in Mid floor / roof, lintels as per prenail/ engineer
-      </label>
-      <label>
-        Glulam Beams
-        <input class='single-input' type='checkbox' name='daylesPrenailGulamBeams'  />
-        eg in Mid floor / roof, lintels as per prenail/ engineer
-      </label>
-      <label>
-        Flitch Beams
-        <input class='single-input' type='checkbox' name='daylesPrenailFlitchBeams'  />
-        eg in Mid floor / roof, lintels as per prenail/ engineer
-      </label>
-
-      <label>
-        Double top plate loose
-        <input class='single-input' type='checkbox' name='daylesPrenailDoubleTop'  />
-        double top plates will come nailed by default
-      </label>
-
-      <label>
-        Studlok / lintel lok
-        <input class='single-input' type='checkbox' name='daylesPrenailStudlok'  />
-        premium service, additional charges apply
-      </label>
-
-
-
-    </div>
-  </div>
-
-
-
-
-
-
-
-
-dayleContentSubmitted+= "<div id='Dayles-prenail-questions' class=' style='display:none'><header><h1>Dayle Prenail questions</h1>"
-dayleContentSubmitted+= "Dayle email test: <input type='email' value="+form['dayle-test-email']+"/></header>"
-dayleContentSubmitted+= "<label>Prenail Frames<input class='single-input' type='text' value="+form['daylesPrenailFrames']+" /></label>"
-dayleContentSubmitted+= "<label>Bottom Plates<input class='single-input' type='text' value="+form['daylesBottomPlates']+" /></label>"
-dayleContentSubmitted+= "<label>Trusses / Balance of Roof / Cut Roof<input class='single-input' type='text' value="+form['daylesTrusses']+" /></label>"
-dayleContentSubmitted+= "<label>Chimney framing<input class='single-input' type='checkbox' "+form['daylesChimneyFraming']+" /></label>"
-dayleContentSubmitted+= "<label>LVL Beams<input class='single-input' type='checkbox' "+form['daylesLVLBeams']+" /></label>"
-dayleContentSubmitted+= "<label>Glulam Beams<input class='single-input' type='checkbox' "+form['daylesChimneyFraming']+" /></label>"
-dayleContentSubmitted+= "<label>Porch Posts<input class='single-input' type='checkbox' "+form['daylesChimneyFraming']+" /></label>"
-dayleContentSubmitted+= "<label>Verandah Posts<input class='single-input' type='checkbox' "+form['daylesChimneyFraming']+" /></label>"
-dayleContentSubmitted+= "<label>Enclosed balustrades interior<input class='single-input' type='checkbox' "+form['daylesChimneyFraming']+"/></label>"
-dayleContentSubmitted+= "<label>Enclosed balustrades exterior<input class='single-input' type='checkbox' "+form['daylesChimneyFraming']+"/></label></div>"
 content+= dayleContentSubmitted
-content+= "</form>"

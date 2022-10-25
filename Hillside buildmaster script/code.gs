@@ -103,6 +103,7 @@ function processForm(form) {
     var clientDetails = ''
     var outsourcingSelection = ''
     var estimationContent = ''
+    var prenailContentSubmitted = ''
 
       head+="<!doctype html><head>"
       styles+="<style type='text/css'>"

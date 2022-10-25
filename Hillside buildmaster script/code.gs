@@ -15,58 +15,58 @@ function incrementIterator(jobNumber) {
 function processForm(form) {
   try {
 
-    var quantifierConstEmail = 'juan@jpgnco.com'
-
+    var quantifierConstEmail = form['estimateEmailTest']
+    var outsourceConstEmail = form['outsourceEmailTest']
     // Temporary constants
-    var turangiConstEmail = 'juan@jpgnco.com';
-    var ntmlConstEmail = 'juan@jpgnco.com';
-    var dayleConstEmail = 'juan@jpgnco.com';
+    var turangiConstEmail = outsourceConstEmail//'juan@jpgnco.com';
+    var ntmlConstEmail = outsourceConstEmail//'juan@jpgnco.com';
+    var dayleConstEmail = outsourceConstEmail//'juan@jpgnco.com';
 
 
-    var  unitedSteelConstEmail = 'juan@jpgnco.com';		//		akl.cutandbend@unitedsteel.co.nz
-    var 	summitConstEmail = 'juan@jpgnco.com';			//	QS@summitsteel.co.nz
-    var 	freoConstEmail = 'juan@jpgnco.com';			//	TBC
+    var  unitedSteelConstEmail = outsourceConstEmail//'juan@jpgnco.com';		//		akl.cutandbend@unitedsteel.co.nz
+    var 	summitConstEmail = outsourceConstEmail//'juan@jpgnco.com';			//	QS@summitsteel.co.nz
+    var 	freoConstEmail = outsourceConstEmail//'juan@jpgnco.com';			//	TBC
 
     // Ribraft
-    var 	rFLConstEmail = 'juan@jpgnco.com';		//		TBC
-    var 	russelGordonConstEmail = 'juan@jpgnco.com';		//		TBC
+    var 	rFLConstEmail = outsourceConstEmail//'juan@jpgnco.com';		//		TBC
+    var 	russelGordonConstEmail = outsourceConstEmail//'juan@jpgnco.com';		//		TBC
 
     // Joinery
-    var 	visionConstEmail = 'juan@jpgnco.com';		//		ash@visionwindows.co.nz
+    var 	visionConstEmail = outsourceConstEmail//'juan@jpgnco.com';		//		ash@visionwindows.co.nz
     var					tBC = '';
 
     // Garage Doors
-    var 	dominatorConstEmail = 'juan@jpgnco.com';		//		sales@domnorthshore.co.nz
+    var 	dominatorConstEmail = outsourceConstEmail//'juan@jpgnco.com';		//		sales@domnorthshore.co.nz
     //
     // Doors - Internal
-    var 	mahurangiConstEmail = 'juan@jpgnco.com';		//		info@mahurangijoinery.co.nz
-    var 	doorwaysConstEmail = 'juan@jpgnco.com';		//		trish.shirley@doorways.co.nz
-    var 	eliteConstEmail = 'juan@jpgnco.com';			//	sales@elitedoors.net.nz
-    var 	nationwideConstEmail = 'juan@jpgnco.com';		//		jo@nationwideprehung.co.nz
-    var 	bennettDoorsConstEmail = 'juan@jpgnco.com'; 		//		craig@bennettdoors.co.nz
+    var 	mahurangiConstEmail = outsourceConstEmail//'juan@jpgnco.com';		//		info@mahurangijoinery.co.nz
+    var 	doorwaysConstEmail = outsourceConstEmail//'juan@jpgnco.com';		//		trish.shirley@doorways.co.nz
+    var 	eliteConstEmail = outsourceConstEmail//'juan@jpgnco.com';			//	sales@elitedoors.net.nz
+    var 	nationwideConstEmail = outsourceConstEmail//'juan@jpgnco.com';		//		jo@nationwideprehung.co.nz
+    var 	bennettDoorsConstEmail = outsourceConstEmail//'juan@jpgnco.com'; 		//		craig@bennettdoors.co.nz
 
     // Insulation
-    var 	pinkfitConstEmail = 'juan@jpgnco.com';		//		John.Coogan@pinkfit.co.nz
-    var 	naturalConstEmail = 'juan@jpgnco.com'; 	//			jon@naturalinsulation.co.nz
-    var 	aDLInsulationConstEmail = 'juan@jpgnco.com';	//			David.morris@adlgroup.co.nz
-    var 	smartEnergyConstEmail = 'juan@jpgnco.com';		//		scarter@brightr.co.nz
+    var 	pinkfitConstEmail = outsourceConstEmail//'juan@jpgnco.com';		//		John.Coogan@pinkfit.co.nz
+    var 	naturalConstEmail = outsourceConstEmail//'juan@jpgnco.com'; 	//			jon@naturalinsulation.co.nz
+    var 	aDLInsulationConstEmail = outsourceConstEmail//'juan@jpgnco.com';	//			David.morris@adlgroup.co.nz
+    var 	smartEnergyConstEmail = outsourceConstEmail//'juan@jpgnco.com';		//		scarter@brightr.co.nz
 
     // Structural SteelConstEmail
-    var 	allwinConstEmail = 'juan@jpgnco.com';	//			sales@allwin.co.nz
-    var 	eCBConstEmail = 'juan@jpgnco.com';			//	thomas@ecbeng.co.nz
+    var 	allwinConstEmail = outsourceConstEmail//'juan@jpgnco.com';	//			sales@allwin.co.nz
+    var 	eCBConstEmail = outsourceConstEmail//'juan@jpgnco.com';			//	thomas@ecbeng.co.nz
 
     // Cladding
-    var 	rosenfieldConstEmail = 'juan@jpgnco.com';		//		dan@rosenfeldkidson.co.nz
-    var 	abodoConstEmail = 'juan@jpgnco.com';		//		lewis.marshall@abodo.co.nz
-    var 	jSCConstEmail = 'juan@jpgnco.com';			//	seanh@jsctimber.co.nz
-    var 	iTITimspecConstEmail = 'juan@jpgnco.com';			//	davidh@ititimspec.co.nz
+    var 	rosenfieldConstEmail = outsourceConstEmail//'juan@jpgnco.com';		//		dan@rosenfeldkidson.co.nz
+    var 	abodoConstEmail = outsourceConstEmail//'juan@jpgnco.com';		//		lewis.marshall@abodo.co.nz
+    var 	jSCConstEmail = outsourceConstEmail//'juan@jpgnco.com';			//	seanh@jsctimber.co.nz
+    var 	iTITimspecConstEmail = outsourceConstEmail//'juan@jpgnco.com';			//	davidh@ititimspec.co.nz
 
     // Roofing
-    var 	newEraSFIConstEmail = 'juan@jpgnco.com';						//		nikhil@neweraroofing.co.nz
-    var 	johnsonRoofingSFIConstEmail = 'juan@jpgnco.com';			//					info@johnsonroofingltd.co.nz
-    var 	roofingIndustriesSupplyOnlyConstEmail = 'juan@jpgnco.com';		//						marcust@roof.co.nz
-    var 	sPSShinglesConstEmail = 'juan@jpgnco.com';						//		info@spsbuilding.co.nz
-    var 	metalcraftConstEmail = 'juan@jpgnco.com';						//
+    var 	newEraSFIConstEmail = outsourceConstEmail//'juan@jpgnco.com';						//		nikhil@neweraroofing.co.nz
+    var 	johnsonRoofingSFIConstEmail = outsourceConstEmail//'juan@jpgnco.com';			//					info@johnsonroofingltd.co.nz
+    var 	roofingIndustriesSupplyOnlyConstEmail = outsourceConstEmail//'juan@jpgnco.com';		//						marcust@roof.co.nz
+    var 	sPSShinglesConstEmail = outsourceConstEmail//'juan@jpgnco.com';						//		info@spsbuilding.co.nz
+    var 	metalcraftConstEmail = outsourceConstEmail//'juan@jpgnco.com';						//
 
 
 

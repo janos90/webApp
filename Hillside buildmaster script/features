@@ -7,7 +7,9 @@ tidy textboxes and test
 Branch owner
 email outsourcing
 Please send all pricing to XXX
-Mail to link
+Mail to link <a href="mailto:shaun@hillsideitm.co.nz?subject=Recepient%20Received%20Job%20"+jobNumber+"&body=Just%20letting%20you%20know%20we%20receivedVthe%20job">Email Us</a>
+When you receive this email, please Click this <a href="mailto:shaun@hillsideitm.co.nz?subject=Recepient%20Received%20Job%20"+jobNumber+"&body=Just%20letting%20you%20know%20we%20receivedVthe%20job">link</a>
+ to confirm you have received the job. Jobs that haven't been confirmed will expire in 3 Business Days.
 Additional information
 
 shaun@hillsideitm.co.nz

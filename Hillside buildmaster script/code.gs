@@ -586,6 +586,10 @@ function processForm(form) {
 
     content+= prenailContentSubmitted + formFoot
     generalOutsourcing+= head + styles + headEnd + clientDetails + formFoot
+    generalOutsourcing+="When you receive this email, please Click this"
+    generalOutsourcing+="<a href='mailto:shaun@hillsideitm.co.nz?subject=Recepient%20Received%20Job%20"+jobNumber+"&body=Just%20letting%20you%20know%20we%20receivedVthe%20job'">link</a>
+    generalOutsourcing+= "to confirm you have received the job. Jobs that haven't been confirmed will expire in 3 Business Days. "
+
 
     var uploadedPrenailPDF
     var uploadedPrenailHTML

@@ -1,6 +1,6 @@
 <!doctype html>
 <head>
-  <style type="text/css">
+  <style type='text/css'>
   body {
     text-align: -webkit-center;
     background-color: #FFfFFF;
@@ -26,8 +26,6 @@
   .fullWidthContainer {
     width: 100%;
   }
-
-
 
   #heading {
     display:flex;
@@ -74,7 +72,6 @@
   }
 
   label {
-    /* min-width: 31%; */
     display: block;
     margin: 2px;
     padding: 5px;
@@ -97,15 +94,6 @@
     padding-bottom: 2px;
     margin-bottom: 3px;
     display: flex;
-  }
-
-  .outsourcing-selection-ul {
-
-
-  }
-  .outsourcing-selection-li {
-
-
   }
 
   .toggle-section-wrapper {
@@ -140,7 +128,7 @@
   }
 
   </style>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
 
   <script>
   $('document').ready(function() {
@@ -181,7 +169,7 @@
   window.addEventListener('load', preventFormSubmit);
 
   function handleFormSubmit(formObject) {
-    $('input.submission').prop( "disabled", true );
+    $('input.submission').prop( 'disabled', true );
     google.script.run.withSuccessHandler(updateUrl).processForm(formObject);
   }
 
@@ -189,54 +177,54 @@
     var div = document.getElementById('output');
     var form = document.getElementById('myForm');
     div.innerHTML = '<p>'+url+'</p>';
-    form.style.display = "none";
+    form.style.display = 'none';
   }
-  $(document).on("change", 'input:file',function (e) {
+  $(document).on('change', 'input:file',function (e) {
     var file = e.currentTarget.files[0];
     var callerID = e.currentTarget.id;
-    var approvedHTML = "";
+    var approvedHTML = '';
     var filesize = ((file.size/1024)/1024).toFixed(4); // MB
 
-    if (file.name != "item" && typeof file.name != "undefined" && filesize <= 49) {
-      approvedHTML += "approved " + file.name;
+    if (file.name != 'item' && typeof file.name != 'undefined' && filesize <= 49) {
+      approvedHTML += 'approved ' + file.name;
     } else {
-      if(file.name == "item"){
+      if(file.name == 'item'){
         approvedHTML += 'not approved no item; ';
       }
-      if(typeof file.name == "undefined"){
+      if(typeof file.name == 'undefined'){
         approvedHTML += 'not approved, bad filename; ';
       }
       if(filesize >= 50){
         approvedHTML += 'not approved, file too large; ';
       }
-      $("#" +callerID+"Results")
+      $('#' +callerID+'Results')
     }
-    $("#" +callerID+"Results").html(approvedHTML);
+    $('#' +callerID+'Results').html(approvedHTML);
   });
 
 
   function toggleAll(section) {
-    var toggleAllCheckbox = document.getElementById("as-plan-"+section);
+    var toggleAllCheckbox = document.getElementById('as-plan-'+section);
 
-    var toggleAllLabel = document.getElementById("label-as-plan-"+section);
-    var toggleSelectedLabel = document.getElementById("label-toggle-as-selected-"+section);
-    var toggleNoneLabel = document.getElementById("label-toggle-none-"+section);
+    var toggleAllLabel = document.getElementById('label-as-plan-'+section);
+    var toggleSelectedLabel = document.getElementById('label-toggle-as-selected-'+section);
+    var toggleNoneLabel = document.getElementById('label-toggle-none-'+section);
 
-    // var statusLabel = document.getElementById("label-status-"+section);
-    var questions = document.getElementById("toggle-section-questions-"+section);
-    var header = document.getElementById("toggle-section-header-"+section);
+    // var statusLabel = document.getElementById('label-status-'+section);
+    var questions = document.getElementById('toggle-section-questions-'+section);
+    var header = document.getElementById('toggle-section-header-'+section);
     if(toggleAllCheckbox.checked) {
       header.style.backgroundColor = 'green';
-      toggleSelectedLabel.style.visibility = "hidden"
-      toggleNoneLabel.style.visibility = "hidden"
-      // statusLabel.textContent = "As Per Plan"
-      // statusLabel.style.visibility = "visible"
+      toggleSelectedLabel.style.visibility = 'hidden'
+      toggleNoneLabel.style.visibility = 'hidden'
+      // statusLabel.textContent = 'As Per Plan'
+      // statusLabel.style.visibility = 'visible'
     } else {
       header.style.backgroundColor = '';
-      toggleSelectedLabel.style.visibility = "visible"
-      toggleNoneLabel.style.visibility = "visible"
-      // statusLabel.style.display = "none"
-      // statusLabel.textContent = ""
+      toggleSelectedLabel.style.visibility = 'visible'
+      toggleNoneLabel.style.visibility = 'visible'
+      // statusLabel.style.display = 'none'
+      // statusLabel.textContent = ''
 
     }
   }
@@ -244,66 +232,66 @@
 
   function toggleAsSelected(section) {
     console.log(section);
-    var toggleAsSelectedCheckbox = document.getElementById("toggle-as-selected-"+section);
+    var toggleAsSelectedCheckbox = document.getElementById('toggle-as-selected-'+section);
     console.log(toggleAsSelectedCheckbox);
 
-    var toggleAllLabel = document.getElementById("label-as-plan-"+section);
-    var toggleSelectedLabel = document.getElementById("label-toggle-as-selected-"+section);
-    var toggleNoneLabel = document.getElementById("label-toggle-none-"+section);
-    // var statusLabel = document.getElementById("label-status-"+section);
-    var questions = document.getElementById("toggle-section-questions-"+section);
-    var header = document.getElementById("toggle-section-header-"+section);
+    var toggleAllLabel = document.getElementById('label-as-plan-'+section);
+    var toggleSelectedLabel = document.getElementById('label-toggle-as-selected-'+section);
+    var toggleNoneLabel = document.getElementById('label-toggle-none-'+section);
+    // var statusLabel = document.getElementById('label-status-'+section);
+    var questions = document.getElementById('toggle-section-questions-'+section);
+    var header = document.getElementById('toggle-section-header-'+section);
 
     if(toggleAsSelectedCheckbox.checked) {
-      questions.style.display = "flex"
-      toggleAllLabel.style.visibility = "hidden"
-      toggleNoneLabel.style.visibility = "hidden"
+      questions.style.display = 'flex'
+      toggleAllLabel.style.visibility = 'hidden'
+      toggleNoneLabel.style.visibility = 'hidden'
 
-      // statusLabel.style.visibility = "visible"
-      // statusLabel.textContent = "As  Selected"
+      // statusLabel.style.visibility = 'visible'
+      // statusLabel.textContent = 'As  Selected'
       header.style.backgroundColor = 'orange';
 
     } else {
-      questions.style.display = "none"
-      toggleAllLabel.style.visibility = "visible"
-      toggleNoneLabel.style.visibility = "visible"
+      questions.style.display = 'none'
+      toggleAllLabel.style.visibility = 'visible'
+      toggleNoneLabel.style.visibility = 'visible'
 
 
       header.style.backgroundColor = '';
-      // statusLabel.style.display = "none"
-      // statusLabel.textContent = ""
+      // statusLabel.style.display = 'none'
+      // statusLabel.textContent = ''
     }
   }
 
   function toggleNone(section) {
-    var toggleNoneCheckbox = document.getElementById("toggle-none-"+section);
+    var toggleNoneCheckbox = document.getElementById('toggle-none-'+section);
 
-    var toggleAllLabel = document.getElementById("label-as-plan-"+section);
-    var toggleSelectedLabel = document.getElementById("label-toggle-as-selected-"+section);
-    var toggleNoneLabel = document.getElementById("label-toggle-none-"+section);
+    var toggleAllLabel = document.getElementById('label-as-plan-'+section);
+    var toggleSelectedLabel = document.getElementById('label-toggle-as-selected-'+section);
+    var toggleNoneLabel = document.getElementById('label-toggle-none-'+section);
 
-    // var statusLabel = document.getElementById("label-status-"+section);
-    var questions = document.getElementById("toggle-section-questions-"+section);
-    var header = document.getElementById("toggle-section-header-"+section);
+    // var statusLabel = document.getElementById('label-status-'+section);
+    var questions = document.getElementById('toggle-section-questions-'+section);
+    var header = document.getElementById('toggle-section-header-'+section);
 
     if(toggleNoneCheckbox.checked) {
       header.style.backgroundColor = 'red';
-      toggleAllLabel.style.visibility = "hidden"
-      toggleSelectedLabel.style.visibility = "hidden"
-      // statusLabel.style.visibility = "visible"
-      // statusLabel.textContent = "Outsourced"
+      toggleAllLabel.style.visibility = 'hidden'
+      toggleSelectedLabel.style.visibility = 'hidden'
+      // statusLabel.style.visibility = 'visible'
+      // statusLabel.textContent = 'Outsourced'
     } else {
       header.style.backgroundColor = '';
-      toggleAllLabel.style.visibility = "visible"
-      toggleSelectedLabel.style.visibility = "visible"
-      // statusLabel.style.display = "none"
-      // statusLabel.textContent = ""
+      toggleAllLabel.style.visibility = 'visible'
+      toggleSelectedLabel.style.visibility = 'visible'
+      // statusLabel.style.display = 'none'
+      // statusLabel.textContent = ''
     }
   }
 
   function toggleEstimation() {
-    var toggleCheckbox = document.getElementById("cancel-estimation");
-    var sectionWrapper = document.getElementById("toggle-section-wrapper");
+    var toggleCheckbox = document.getElementById('cancel-estimation');
+    var sectionWrapper = document.getElementById('toggle-section-wrapper');
     if(toggleCheckbox.checked) {
       sectionWrapper.style.display = 'none';
     } else {
@@ -312,8 +300,8 @@
   }
 
   function toggleOutsourcing() {
-    var toggleCheckbox = document.getElementById("cancel-outsourcing");
-    var sectionWrapper = document.getElementById("outsourcing-selection-body");
+    var toggleCheckbox = document.getElementById('cancel-outsourcing');
+    var sectionWrapper = document.getElementById('outsourcing-selection-body');
     if(toggleCheckbox.checked) {
       sectionWrapper.style.display = 'none';
     } else {
@@ -323,16 +311,16 @@
 
 
   function outsourcePrenail() {
-    var checkbox1 = document.getElementById("outsourcing-selection-prenail-turangi");
-    var checkbox2 = document.getElementById("outsourcePrenailNTMLid");
-    var checkbox3 = document.getElementById("outsourcePrenailDayleid");
+    var checkbox1 = document.getElementById('outsourcing-selection-prenail-turangi');
+    var checkbox2 = document.getElementById('outsourcePrenailNTMLid');
+    var checkbox3 = document.getElementById('outsourcePrenailDayleid');
 
     var questions = document.getElementById('prenail-questions');
 
     if(checkbox1.checked || checkbox2.checked || checkbox3.checked) {
-      questions.style.display = "flex"
+      questions.style.display = 'flex'
     } else {
-      questions.style.display = "none"
+      questions.style.display = 'none'
     }
   }
 
@@ -340,945 +328,946 @@
   </script>
 </head>
 <body>
-  <form id="myForm" align="center" onsubmit="handleFormSubmit(this)">
-    <header class="" id="heading">
-      <image class="store-logo" src="https://westernitm.co.nz/wp-content/uploads/2014/10/ITM-Logo-square-200px-web.jpg"/>
+  <form id='myForm' align='center' onsubmit='handleFormSubmit(this)'>
+    <header class='' id='heading'>
+      <image class='store-logo' src='https://westernitm.co.nz/wp-content/uploads/2014/10/ITM-Logo-square-200px-web.jpg'/>
 
-      <h2 class="title">
+      <h2 class='title'>
         Estimate request <br /> ITM Hillside
       </h2>
     </header>
 
-    <div class="section" id='quote-info'>
+    <div class='section' id='quote-info'>
       <header>
         Quote Information
       </header>
 
-      <label for="quote-info-reference">
+      <label for='quote-info-reference'>
         Quote Reference
-        <input class="single-input" type="text" name="quote-info-reference"  />
+        <input class='single-input' type='text' name='quote-info-reference'  />
       </label>
 
-      <label for="quote-info-sales-rep">
+      <label for='quote-info-sales-rep'>
         Sales Rep
-        <input class="single-input" type="text" name="quote-info-sales-rep"  />
+        <input class='single-input' type='text' name='quote-info-sales-rep'  />
       </label>
 
-      <label for="quote-info-date-received">
+      <label for='quote-info-date-received'>
         Date Received
-        <input class="single-input" type="text" name="quote-info-date-received"  />
+        <input class='single-input' type='text' name='quote-info-date-received'  />
       </label>
 
-      <label for="template-selection">Select Template
-        <select class="" required name="template-selection" id="template-selection">
-          <option value="Hillside">Hillside</option>
-          <option value="Matakana">Matakana</option>
-          <option value="Mahia">Mahia</option>
-          <option value="Turangi">Turangi</option>
-          <option value="Taupo">Taupo</option>
+      <label for='template-selection'>Select Template
+        <select class='' required name='template-selection' id='template-selection'>
+          <option value='Hillside'>Hillside</option>
+          <option value='Matakana'>Matakana</option>
+          <option value='Mahia'>Mahia</option>
+          <option value='Turangi'>Turangi</option>
+          <option value='Taupo'>Taupo</option>
         </select>
       </label>
 
-      <label for="tickbox-preliminary-plan">
+      <label for='tickbox-preliminary-plan'>
         Preliminary plan
-        <input class='planType' type="checkbox" name="tickbox-preliminary-plan" >
+        <input class='planType' type='checkbox' name='tickbox-preliminary-plan' >
       </label>
 
-      <label for="tickbox-preliminary-plan">
+      <label for='tickbox-preliminary-plan'>
         Consented plan
-        <input class='planType' type="checkbox" name="tickbox-preliminary-plan" >
+        <input class='planType' type='checkbox' name='tickbox-preliminary-plan' >
       </label>
 
-      <label for="quote-info-plan-version">
+      <label for='quote-info-plan-version'>
         Plan Version Number
-        <input class="single-input" type="text" name="quote-info-plan-version"  />
+        <input class='single-input' type='text' name='quote-info-plan-version'  />
       </label>
 
-      <label for="emailTo">
+      <label for='emailTo'>
         Email to
-        <input class="single-input" type="text" name="emailTo" id='emailTo'  />
+        <input class='single-input' type='text' name='emailTo' id='emailTo'  />
       </label>
 
 
     </div>
-    <div class="section split-box">
-      <div class="half-section" id='customer-info'>
+    <div class='section split-box'>
+      <div class='half-section' id='customer-info'>
         <header>
           Customer Information
         </header>
-        <label for="customer-info-name">
+        <label for='customer-info-name'>
           Customer Name
-          <input class="single-input" type="text" name="customer-info-name"  />
+          <input class='single-input' type='text' name='customer-info-name'  />
         </label>
 
-        <label for="customer-info-email">
+        <label for='customer-info-email'>
           Contact Email
-          <input class="single-input" type="text" name="customer-info-email"  />
+          <input class='single-input' type='text' name='customer-info-email'  />
         </label>
 
-        <label for="customer-info-phone">
+        <label for='customer-info-phone'>
           Phone Number
-          <input class="single-input" type="text" name="customer-info-phone"  />
+          <input class='single-input' type='text' name='customer-info-phone'  />
         </label>
 
       </div>
-      <div class="half-section" id='job-info'>
+      <div class='half-section' id='job-info'>
         <header>
           Job Information
         </header>
-        <label for="job-info-address">
+        <label for='job-info-address'>
           Site Address
-          <input class="textbox-input" type="text" name="job-info-address"  />
+          <input class='textbox-input' type='text' name='job-info-address'  />
         </label>
 
       </div>
     </div>
-    <div class="outsourcing-selection section">
+    <div class='outsourcing-selection section'>
       <header>Out Sourcing - send Plans for measure and quote <br />
-        Outsourcing not Required <input type="checkbox" class="checkbox" id="cancel-outsourcing" name='cancel-outsourcing' onclick="toggleOutsourcing()"/>
+        Outsourcing not Required <input type='checkbox' class='checkbox' id='cancel-outsourcing' name='cancel-outsourcing' onclick='toggleOutsourcing()'/>
 
       </header>
-      <main class="outsourcing-selection-body" id="outsourcing-selection-body">
-        <ul class="outsourcing-selection-ul prenail">
+      <main class='outsourcing-selection-body' id='outsourcing-selection-body'>
+        <ul class='outsourcing-selection-ul prenail'>
           <header>PreNail</header>
-          <li class="outsourcing-selection-li">
-            <label for="outsourcing-selection-prenail-turangi">
+          <li class='outsourcing-selection-li'>
+            <label for='outsourcing-selection-prenail-turangi'>
               Turangi ITM
-              <input class="checkbox" type="checkbox" name="outsourcing-selection-prenail-turangi" id='outsourcing-selection-prenail-turangi' onclick="outsourcePrenail()" />
+              <input class='checkbox' type='checkbox' name='outsourcing-selection-prenail-turangi' id='outsourcing-selection-prenail-turangi' onclick='outsourcePrenail()' />
             </label>
 
           </li>
-          <li class="outsourcing-selection-li">
-            <label for="outsourcing-selection-prenail-ntml">
+          <li class='outsourcing-selection-li'>
+            <label for='outsourcing-selection-prenail-ntml'>
               NTML
-              <input class="checkbox" type="checkbox" name="outsourcing-selection-prenail-ntml"  id='outsourcePrenailNTMLid' onclick="outsourcePrenail()" />
+              <input class='checkbox' type='checkbox' name='outsourcing-selection-prenail-ntml'  id='outsourcePrenailNTMLid' onclick='outsourcePrenail()' />
             </label>
 
           </li>
-          <li class="outsourcing-selection-li">
-            <label for="outsourcing-selection-prenail-dayles">
+          <li class='outsourcing-selection-li'>
+            <label for='outsourcing-selection-prenail-dayles'>
               Dayles
-              <input class="checkbox" type="checkbox" name="outsourcing-selection-prenail-dayles"  id='outsourcePrenailDayleid' onclick="outsourcePrenail()"/>
+              <input class='checkbox' type='checkbox' name='outsourcing-selection-prenail-dayles'  id='outsourcePrenailDayleid' onclick='outsourcePrenail()'/>
             </label>
           </li>
         </ul>
-        <ul class="outsourcing-selection-ul reinforcing">
+        <ul class='outsourcing-selection-ul reinforcing'>
           <header>Reinforcing</header>
-          <li class="outsourcing-selection-li">
-            <label for="outsourcing-selection-reinforcing-united-steel">
+          <li class='outsourcing-selection-li'>
+            <label for='outsourcing-selection-reinforcing-united-steel'>
               United Steel
-              <input class="checkbox" type="checkbox" name="outsourcing-selection-reinforcing-united-steel"  />
+              <input class='checkbox' type='checkbox' name='outsourcing-selection-reinforcing-united-steel'  />
             </label>
 
           </li>
-          <li class="outsourcing-selection-li">
-            <label for="outsourcing-selection-reinforcing-Summit">
+          <li class='outsourcing-selection-li'>
+            <label for='outsourcing-selection-reinforcing-Summit'>
               Summit
-              <input class="checkbox" type="checkbox" name="outsourcing-selection-reinforcing-Summit"  />
+              <input class='checkbox' type='checkbox' name='outsourcing-selection-reinforcing-Summit'  />
             </label>
 
           </li>
-          <li class="outsourcing-selection-li">
-            <label for="outsourcing-selection-reinforcing-Freo">
+          <li class='outsourcing-selection-li'>
+            <label for='outsourcing-selection-reinforcing-Freo'>
               FREO
-              <input class="checkbox" type="checkbox" name="outsourcing-selection-reinforcing-Freo"  />
+              <input class='checkbox' type='checkbox' name='outsourcing-selection-reinforcing-Freo'  />
             </label>
 
           </li>
         </ul>
 
-        <ul class="outsourcing-selection-ul ribraft">
+        <ul class='outsourcing-selection-ul ribraft'>
           <header>Ribraft</header>
-          <li class="outsourcing-selection-li">
-            <label for="outsourcing-selection-ribraft-rfl">
+          <li class='outsourcing-selection-li'>
+            <label for='outsourcing-selection-ribraft-rfl'>
               RFL
-              <input class="checkbox" type="checkbox" name="outsourcing-selection-ribraft-rfl"  />
+              <input class='checkbox' type='checkbox' name='outsourcing-selection-ribraft-rfl'  />
             </label>
           </li>
-          <li class="outsourcing-selection-li">
-            <label for="outsourcing-selection-ribraft-russel-gordon">
+          <li class='outsourcing-selection-li'>
+            <label for='outsourcing-selection-ribraft-russel-gordon'>
               Russel Gordon
-              <input class="checkbox" type="checkbox" name="outsourcing-selection-ribraft-russel-gordon"  />
+              <input class='checkbox' type='checkbox' name='outsourcing-selection-ribraft-russel-gordon'  />
             </label>
           </li>
         </ul>
 
-        <ul class="outsourcing-selection-ul joinery">
+        <ul class='outsourcing-selection-ul joinery'>
           <header>Joinery</header>
-          <li class="outsourcing-selection-li">
-            <label for="outsourcing-selection-joinery-vision">
+          <li class='outsourcing-selection-li'>
+            <label for='outsourcing-selection-joinery-vision'>
               Vision
-              <input class="checkbox" type="checkbox" name="outsourcing-selection-joinery-vision"  />
+              <input class='checkbox' type='checkbox' name='outsourcing-selection-joinery-vision'  />
             </label>
           </li>
-          <li class="outsourcing-selection-li">
-            <label for="outsourcing-selection-joinery-tbc">
+          <li class='outsourcing-selection-li'>
+            <label for='outsourcing-selection-joinery-tbc'>
               TBC
-              <input class="checkbox" type="checkbox" name="outsourcing-selection-joinery-tbc"  />
+              <input class='checkbox' type='checkbox' name='outsourcing-selection-joinery-tbc'  />
             </label>
           </li>
         </ul>
 
-        <ul class="outsourcing-selection-ul garage-doors">
+        <ul class='outsourcing-selection-ul garage-doors'>
           <header>Garage Doors</header>
-          <li class="outsourcing-selection-li">
-            <label for="outsourcing-selection-garage-doors-dominator">
+          <li class='outsourcing-selection-li'>
+            <label for='outsourcing-selection-garage-doors-dominator'>
               Dominator
-              <input class="checkbox" type="checkbox" name="outsourcing-selection-garage-doors-dominator"  />
+              <input class='checkbox' type='checkbox' name='outsourcing-selection-garage-doors-dominator'  />
             </label>
           </li>
         </ul>
-        <ul class="outsourcing-selection-ul doors-internal">
+        <ul class='outsourcing-selection-ul doors-internal'>
           <header>Doors - Internal</header>
-          <li class="outsourcing-selection-li">
-            <label for="outsourcing-selection-doors-internal-mahurangi">
+          <li class='outsourcing-selection-li'>
+            <label for='outsourcing-selection-doors-internal-mahurangi'>
               Mahurangi
-              <input class="checkbox" type="checkbox" name="outsourcing-selection-doors-internal-mahurangi"  />
+              <input class='checkbox' type='checkbox' name='outsourcing-selection-doors-internal-mahurangi'  />
             </label>
           </li>
-          <li class="outsourcing-selection-li">
-            <label for="outsourcing-selection-doors-internal-doorways">
+          <li class='outsourcing-selection-li'>
+            <label for='outsourcing-selection-doors-internal-doorways'>
               Doorways
-              <input class="checkbox" type="checkbox" name="outsourcing-selection-doors-internal-doorways"  />
+              <input class='checkbox' type='checkbox' name='outsourcing-selection-doors-internal-doorways'  />
             </label>
           </li>
-          <li class="outsourcing-selection-li">
-            <label for="outsourcing-selection-doors-internal-elite">
+          <li class='outsourcing-selection-li'>
+            <label for='outsourcing-selection-doors-internal-elite'>
               Elite
-              <input class="checkbox" type="checkbox" name="outsourcing-selection-doors-internal-elite"  />
+              <input class='checkbox' type='checkbox' name='outsourcing-selection-doors-internal-elite'  />
             </label>
           </li>
-          <li class="outsourcing-selection-li">
-            <label for="outsourcing-selection-doors-internal-nationwide">
+          <li class='outsourcing-selection-li'>
+            <label for='outsourcing-selection-doors-internal-nationwide'>
               Nationwide
-              <input class="checkbox" type="checkbox" name="outsourcing-selection-doors-internal-nationwide"  />
+              <input class='checkbox' type='checkbox' name='outsourcing-selection-doors-internal-nationwide'  />
             </label>
           </li>
-          <li class="outsourcing-selection-li">
-            <label for="outsourcing-selection-doors-internal-bennett-doors">
+          <li class='outsourcing-selection-li'>
+            <label for='outsourcing-selection-doors-internal-bennett-doors'>
               Bennett Doors
-              <input class="checkbox" type="checkbox" name="outsourcing-selection-doors-internal-bennett-doors"  />
+              <input class='checkbox' type='checkbox' name='outsourcing-selection-doors-internal-bennett-doors'  />
             </label>
           </li>
         </ul>
 
-        <ul class="outsourcing-selection-ul outsourcing-insualtion">
+        <ul class='outsourcing-selection-ul outsourcing-insualtion'>
           <header>Insulation</header>
-          <li class="outsourcing-selection-li">
-            <label for="outsourcing-selection-outsourcing-insualtion-pinkfit">
+          <li class='outsourcing-selection-li'>
+            <label for='outsourcing-selection-outsourcing-insualtion-pinkfit'>
               Pinkfit
-              <input class="checkbox" type="checkbox" name="outsourcing-selection-outsourcing-insualtion-pinkfit"  />
+              <input class='checkbox' type='checkbox' name='outsourcing-selection-outsourcing-insualtion-pinkfit'  />
             </label>
           </li>
-          <li class="outsourcing-selection-li">
-            <label for="outsourcing-selection-outsourcing-insualtion-natural">
+          <li class='outsourcing-selection-li'>
+            <label for='outsourcing-selection-outsourcing-insualtion-natural'>
               Natural
-              <input class="checkbox" type="checkbox" name="outsourcing-selection-outsourcing-insualtion-natural"  />
+              <input class='checkbox' type='checkbox' name='outsourcing-selection-outsourcing-insualtion-natural'  />
             </label>
           </li>
-          <li class="outsourcing-selection-li">
-            <label for="outsourcing-selection-outsourcing-insualtion-adl-insulation">
+          <li class='outsourcing-selection-li'>
+            <label for='outsourcing-selection-outsourcing-insualtion-adl-insulation'>
               ADL Insulation
-              <input class="checkbox" type="checkbox" name="outsourcing-selection-outsourcing-insualtion-adl-insulation"  />
+              <input class='checkbox' type='checkbox' name='outsourcing-selection-outsourcing-insualtion-adl-insulation'  />
             </label>
           </li>
-          <li class="outsourcing-selection-li">
-            <label for="outsourcing-selection-outsourcing-insualtion-smart-energy">
+          <li class='outsourcing-selection-li'>
+            <label for='outsourcing-selection-outsourcing-insualtion-smart-energy'>
               Smart Energy
-              <input class="checkbox" type="checkbox" name="outsourcing-selection-outsourcing-insualtion-smart-energy"  />
+              <input class='checkbox' type='checkbox' name='outsourcing-selection-outsourcing-insualtion-smart-energy'  />
             </label>
           </li>
         </ul>
 
-        <ul class="outsourcing-selection-ul structural-steel">
+        <ul class='outsourcing-selection-ul structural-steel'>
           <header>Structural Steel</header>
-          <li class="outsourcing-selection-li">
-            <label for="outsourcing-selection-structural-steel-allwin">
+          <li class='outsourcing-selection-li'>
+            <label for='outsourcing-selection-structural-steel-allwin'>
               Allwin
-              <input class="checkbox" type="checkbox" name="outsourcing-selection-structural-steel-allwin"  />
+              <input class='checkbox' type='checkbox' name='outsourcing-selection-structural-steel-allwin'  />
             </label>
           </li>
-          <li class="outsourcing-selection-li">
-            <label for="outsourcing-selection-structural-steel-Ecb">
+          <li class='outsourcing-selection-li'>
+            <label for='outsourcing-selection-structural-steel-Ecb'>
               ECB
-              <input class="checkbox" type="checkbox" name="outsourcing-selection-structural-steel-Ecb"  />
+              <input class='checkbox' type='checkbox' name='outsourcing-selection-structural-steel-Ecb'  />
             </label>
           </li>
         </ul>
 
-        <ul class="outsourcing-selection-ul cladding">
+        <ul class='outsourcing-selection-ul cladding'>
           <header>Cladding</header>
-          <li class="outsourcing-selection-li">
-            <label for="outsourcing-selection-cladding-rosenfield">
+          <li class='outsourcing-selection-li'>
+            <label for='outsourcing-selection-cladding-rosenfield'>
               Rosenfield
-              <input class="checkbox" type="checkbox" name="outsourcing-selection-cladding-rosenfield"  />
+              <input class='checkbox' type='checkbox' name='outsourcing-selection-cladding-rosenfield'  />
             </label>
           </li>
-          <li class="outsourcing-selection-li">
-            <label for="outsourcing-selection-cladding-abodo">
+          <li class='outsourcing-selection-li'>
+            <label for='outsourcing-selection-cladding-abodo'>
               Abodo
-              <input class="checkbox" type="checkbox" name="outsourcing-selection-cladding-abodo"  />
+              <input class='checkbox' type='checkbox' name='outsourcing-selection-cladding-abodo'  />
             </label>
           </li>
-          <li class="outsourcing-selection-li">
-            <label for="outsourcing-selection-cladding-jsc">
+          <li class='outsourcing-selection-li'>
+            <label for='outsourcing-selection-cladding-jsc'>
               JSC
-              <input class="checkbox" type="checkbox" name="outsourcing-selection-cladding-jsc"  />
+              <input class='checkbox' type='checkbox' name='outsourcing-selection-cladding-jsc'  />
             </label>
           </li>
-          <li class="outsourcing-selection-li">
-            <label for="outsourcing-selection-cladding-iti-timspec">
+          <li class='outsourcing-selection-li'>
+            <label for='outsourcing-selection-cladding-iti-timspec'>
               ITI Timspec
-              <input class="checkbox" type="checkbox" name="outsourcing-selection-cladding-iti-timspec"  />
+              <input class='checkbox' type='checkbox' name='outsourcing-selection-cladding-iti-timspec'  />
             </label>
           </li>
         </ul>
-        <ul class="outsourcing-selection-ul roofing">
+        <ul class='outsourcing-selection-ul roofing'>
           <header>Roofing</header>
-          <li class="outsourcing-selection-li">
-            <label for="outsourcing-selection-roofing-new-era-sfi">
+          <li class='outsourcing-selection-li'>
+            <label for='outsourcing-selection-roofing-new-era-sfi'>
               New Era SFI
-              <input class="checkbox" type="checkbox" name="outsourcing-selection-roofing-new-era-sfi"  />
+              <input class='checkbox' type='checkbox' name='outsourcing-selection-roofing-new-era-sfi'  />
             </label>
           </li>
-          <li class="outsourcing-selection-li">
-            <label for="outsourcing-selection-roofing-johnson-roofing-sfi">
+          <li class='outsourcing-selection-li'>
+            <label for='outsourcing-selection-roofing-johnson-roofing-sfi'>
               Johnson Roofing SFI
-              <input class="checkbox" type="checkbox" name="outsourcing-selection-roofing-johnson-roofing-sfi"  />
+              <input class='checkbox' type='checkbox' name='outsourcing-selection-roofing-johnson-roofing-sfi'  />
             </label>
           </li>
-          <li class="outsourcing-selection-li">
-            <label for="outsourcing-selection-roofing-roofing-industries-supply-only">
+          <li class='outsourcing-selection-li'>
+            <label for='outsourcing-selection-roofing-roofing-industries-supply-only'>
               Roofing Industries Supply Only
-              <input class="checkbox" type="checkbox" name="outsourcing-selection-roofing-roofing-industries-supply-only"  />
+              <input class='checkbox' type='checkbox' name='outsourcing-selection-roofing-roofing-industries-supply-only'  />
             </label>
           </li>
-          <li class="outsourcing-selection-li">
-            <label for="outsourcing-selection-roofing-sps-shingles">
+          <li class='outsourcing-selection-li'>
+            <label for='outsourcing-selection-roofing-sps-shingles'>
               SPS Shingles
-              <input class="checkbox" type="checkbox" name="outsourcing-selection-roofing-sps-shingles"  />
+              <input class='checkbox' type='checkbox' name='outsourcing-selection-roofing-sps-shingles'  />
             </label>
           </li>
-          <li class="outsourcing-selection-li">
-            <label for="outsourcing-selection-roofing-metalcraft">
+          <li class='outsourcing-selection-li'>
+            <label for='outsourcing-selection-roofing-metalcraft'>
               Metalcraft
-              <input class="checkbox" type="checkbox" name="outsourcing-selection-roofing-metalcraft"  />
+              <input class='checkbox' type='checkbox' name='outsourcing-selection-roofing-metalcraft'  />
             </label>
           </li>
         </ul>
       </main>
     </div>
-    <div class="section" >
-      <header class="toggle-section-header">
+
+    <div class='section' >
+      <header class='toggle-section-header'>
         TICK THE ALL ITEMS BOX OR INDIVIDUAL ITEMS AS REQUIRED <br/>
-        Estimation not Required <input type="checkbox" class="checkbox" id="cancel-estimation" name='cancel-estimation' onclick="toggleEstimation()"/>
+        Estimation not Required <input type='checkbox' class='checkbox' id='cancel-estimation' name='cancel-estimation' onclick='toggleEstimation()'/>
       </header>
-      <div class="toggle-section-wrapper" id='toggle-section-wrapper'>
-        <div class="toggle-section foundations">
-          <header id="toggle-section-header-foundations" class="toggle-section-header">
+      <div class='toggle-section-wrapper' id='toggle-section-wrapper'>
+        <div class='toggle-section foundations'>
+          <header id='toggle-section-header-foundations' class='toggle-section-header'>
             Foundations
-            <label id="label-as-plan-foundations" class="as-plan-toggle foundations" for="as-plan-foundations">
+            <label id='label-as-plan-foundations' class='as-plan-toggle foundations' for='as-plan-foundations'>
               As per Plan
-              <input type="checkbox"  id="as-plan-foundations" name='as-plan-foundations' onclick="toggleAll('foundations')" />
+              <input type='checkbox'  id='as-plan-foundations' name='as-plan-foundations' onclick='toggleAll('foundations')' />
             </label>
-            <label id="label-toggle-as-selected-foundations" class="hide-section-toggle foundations" for="toggle-as-selected-foundations">
+            <label id='label-toggle-as-selected-foundations' class='hide-section-toggle foundations' for='toggle-as-selected-foundations'>
               As Selected
-              <input type="checkbox" id="toggle-as-selected-foundations" name='toggle-as-selected-foundations' onclick="toggleAsSelected('foundations')" />
+              <input type='checkbox' id='toggle-as-selected-foundations' name='toggle-as-selected-foundations' onclick='toggleAsSelected('foundations')' />
             </label>
-            <label id="label-toggle-none-foundations" class="hide-section-toggle foundations" for="toggle-none-foundations">
+            <label id='label-toggle-none-foundations' class='hide-section-toggle foundations' for='toggle-none-foundations'>
               Not required
-              <input type="checkbox" id="toggle-none-foundations" name='toggle-none-foundations' onclick="toggleNone('foundations')" />
+              <input type='checkbox' id='toggle-none-foundations' name='toggle-none-foundations' onclick='toggleNone('foundations')' />
             </label>
           </header>
-          <main class='toggle-section-questions' id="toggle-section-questions-foundations">
-            <label class="foundations reinforcing-steel"for="foundations-reinforcing-steel">
-              <input class="checkbox" type="checkbox" name="foundations-reinforcing-steel"  />
+          <main class='toggle-section-questions' id='toggle-section-questions-foundations'>
+            <label class='foundations reinforcing-steel'for='foundations-reinforcing-steel'>
+              <input class='checkbox' type='checkbox' name='foundations-reinforcing-steel'  />
               Reinforcing Steel
             </label>
-            <label class="foundations blocks"for="foundations-blocks">
-              <input class="checkbox" type="checkbox" name="foundations-blocks"  />
+            <label class='foundations blocks'for='foundations-blocks'>
+              <input class='checkbox' type='checkbox' name='foundations-blocks'  />
               Blocks
             </label>
-            <label class="foundations pod-system"for="foundations-pod-system">
-              <input class="checkbox" type="checkbox" name="foundations-pod-system"  />
+            <label class='foundations pod-system'for='foundations-pod-system'>
+              <input class='checkbox' type='checkbox' name='foundations-pod-system'  />
               Pod System
             </label>
-            <label class="foundations piles"for="foundations-piles">
-              <input class="checkbox" type="checkbox" name="foundations-piles"  />
+            <label class='foundations piles'for='foundations-piles'>
+              <input class='checkbox' type='checkbox' name='foundations-piles'  />
               Piles
             </label>
-            <label class="foundations additional"for="foundations-additional">
+            <label class='foundations additional'for='foundations-additional'>
               Additional Information
-              <textarea class="textbox estimationAdditional" type="textbox" name="foundations-additional" ></textarea>
+              <textarea class='textbox estimationAdditional' type='textbox' name='foundations-additional' ></textarea>
             </label>
 
           </main>
         </div>
 
-        <div class="toggle-section timber-floor">
-          <header id="toggle-section-header-timber-floor" class="toggle-section-header">
+        <div class='toggle-section timber-floor'>
+          <header id='toggle-section-header-timber-floor' class='toggle-section-header'>
             Timber Floor
-            <label id="label-as-plan-timber-floor" class="as-plan-toggle timber-floor" for="as-plan-timber-floor">
+            <label id='label-as-plan-timber-floor' class='as-plan-toggle timber-floor' for='as-plan-timber-floor'>
               As per Plan
-              <input type="checkbox"  id="as-plan-timber-floor" name='as-plan-timber-floor' onclick="toggleAll('timber-floor')"/>
+              <input type='checkbox'  id='as-plan-timber-floor' name='as-plan-timber-floor' onclick='toggleAll('timber-floor')'/>
             </label>
-            <label id="label-toggle-as-selected-timber-floor" class="hide-section-toggle timber-floor" for="toggle-as-selected-timber-floor">
+            <label id='label-toggle-as-selected-timber-floor' class='hide-section-toggle timber-floor' for='toggle-as-selected-timber-floor'>
               As Selected
-              <input type="checkbox" id="toggle-as-selected-timber-floor" name='toggle-as-selected-timber-floor' onclick="toggleAsSelected('timber-floor')"/>
+              <input type='checkbox' id='toggle-as-selected-timber-floor' name='toggle-as-selected-timber-floor' onclick='toggleAsSelected('timber-floor')'/>
             </label>
-            <label id="label-toggle-none-timber-floor" class="hide-section-toggle timber-floor" for="toggle-none-timber-floor">
+            <label id='label-toggle-none-timber-floor' class='hide-section-toggle timber-floor' for='toggle-none-timber-floor'>
               Not required
-              <input type="checkbox" id="toggle-none-timber-floor" name='toggle-none-timber-floor' onclick="toggleNone('timber-floor')"/>
+              <input type='checkbox' id='toggle-none-timber-floor' name='toggle-none-timber-floor' onclick='toggleNone('timber-floor')'/>
             </label>
           </header>
-          <main class="toggle-section-questions" id="toggle-section-questions-timber-floor">
-            <label class="timber-floor bearers"for="timber-floor-bearers">
-              <input class="checkbox" type="checkbox" name="timber-floor-bearers-check"  />
+          <main class='toggle-section-questions' id='toggle-section-questions-timber-floor'>
+            <label class='timber-floor bearers'for='timber-floor-bearers'>
+              <input class='checkbox' type='checkbox' name='timber-floor-bearers-check'  />
               Bearers
-              <input class="single-input" type="text" name="timber-floor-bearers-text"  />
+              <input class='single-input' type='text' name='timber-floor-bearers-text'  />
             </label>
 
-            <label class="timber-floor Joists"for="timber-floor-Joists">
-              <input class="checkbox" type="checkbox" name="timber-floor-Joists-check"  />
+            <label class='timber-floor Joists'for='timber-floor-Joists'>
+              <input class='checkbox' type='checkbox' name='timber-floor-Joists-check'  />
               Joists
-              <input class="single-input" type="text" name="timber-floor-Joists-text"  />
+              <input class='single-input' type='text' name='timber-floor-Joists-text'  />
             </label>
 
-            <label class="timber-floor flooring"for="timber-floor-flooring">
-              <input class="checkbox" type="checkbox" name="timber-floor-flooring-check"  />
+            <label class='timber-floor flooring'for='timber-floor-flooring'>
+              <input class='checkbox' type='checkbox' name='timber-floor-flooring-check'  />
               Flooring
-              <input class="single-input" type="text" name="timber-floor-flooring-text"  />
+              <input class='single-input' type='text' name='timber-floor-flooring-text'  />
             </label>
 
-            <label class="timber-floor wet-area-flooring"for="timber-floor-wet-area-flooring">
-              <input class="checkbox" type="checkbox" name="timber-floor-wet-area-flooring-check"  />
+            <label class='timber-floor wet-area-flooring'for='timber-floor-wet-area-flooring'>
+              <input class='checkbox' type='checkbox' name='timber-floor-wet-area-flooring-check'  />
               Wet Area Flooring
-              <input class="single-input" type="text" name="timber-floor-wet-area-flooring-text"  />
+              <input class='single-input' type='text' name='timber-floor-wet-area-flooring-text'  />
             </label>
 
-            <label class="timber-floor tile-slate-underlay"for="timber-floor-tile-slate-underlay">
-              <input class="checkbox" type="checkbox" name="timber-floor-tile-slate-underlay-check"  />
+            <label class='timber-floor tile-slate-underlay'for='timber-floor-tile-slate-underlay'>
+              <input class='checkbox' type='checkbox' name='timber-floor-tile-slate-underlay-check'  />
               Tile & Slate Underlay
-              <input class="single-input" type="text" name="timber-floor-tile-slate-underlay-text"  />
+              <input class='single-input' type='text' name='timber-floor-tile-slate-underlay-text'  />
             </label>
 
-            <label class="timber-floor additional"for="timber-floor-additional">
+            <label class='timber-floor additional'for='timber-floor-additional'>
               Additional Information
-              <textarea class="textbox estimationAdditional" type="textbox" name="timber-floor-additional" ></textarea>
+              <textarea class='textbox estimationAdditional' type='textbox' name='timber-floor-additional' ></textarea>
             </label>
 
           </main>
         </div>
 
-        <div class="toggle-section wall-framing">
-          <header class="toggle-section-header" id="toggle-section-header-wall-framing">
+        <div class='toggle-section wall-framing'>
+          <header class='toggle-section-header' id='toggle-section-header-wall-framing'>
             Wall Framing
-            <label id="label-as-plan-wall-framing" class="as-plan-toggle wall-framing" for="as-plan-wall-framing">
+            <label id='label-as-plan-wall-framing' class='as-plan-toggle wall-framing' for='as-plan-wall-framing'>
               As per Plan
-              <input type="checkbox" id="as-plan-wall-framing" name='as-plan-wall-framing' onclick="toggleAll('wall-framing')"/>
+              <input type='checkbox' id='as-plan-wall-framing' name='as-plan-wall-framing' onclick='toggleAll('wall-framing')'/>
             </label>
-            <label id="label-toggle-as-selected-wall-framing" class="hide-section-toggle wall-framing" for="toggle-as-selected-wall-framing">
+            <label id='label-toggle-as-selected-wall-framing' class='hide-section-toggle wall-framing' for='toggle-as-selected-wall-framing'>
               As Selected
-              <input type="checkbox" id="toggle-as-selected-wall-framing" name='toggle-as-selected-wall-framing' onclick="toggleAsSelected('wall-framing')"/>
+              <input type='checkbox' id='toggle-as-selected-wall-framing' name='toggle-as-selected-wall-framing' onclick='toggleAsSelected('wall-framing')'/>
             </label>
-            <label id="label-toggle-none-wall-framing" class="hide-section-toggle wall-framing" for="toggle-none-wall-framing">
+            <label id='label-toggle-none-wall-framing' class='hide-section-toggle wall-framing' for='toggle-none-wall-framing'>
               Not required
-              <input type="checkbox" id="toggle-none-wall-framing" name='toggle-none-wall-framing' onclick="toggleNone('wall-framing')"/>
+              <input type='checkbox' id='toggle-none-wall-framing' name='toggle-none-wall-framing' onclick='toggleNone('wall-framing')'/>
             </label>
           </header>
-          <main class="toggle-section-questions" id="toggle-section-questions-wall-framing" >
-            <label class="wall-framing prenailer-supplied"for="wall-framing-prenailer-supplied">
-              <input class="checkbox" type="checkbox" name="wall-framing-prenailer-supplied"  />
+          <main class='toggle-section-questions' id='toggle-section-questions-wall-framing' >
+            <label class='wall-framing prenailer-supplied'for='wall-framing-prenailer-supplied'>
+              <input class='checkbox' type='checkbox' name='wall-framing-prenailer-supplied'  />
               Supplied by Prenailer - Do not allow
             </label>
-            <label class="wall-framing random"for="wall-framing-random">
-              <input class="checkbox" type="checkbox" name="wall-framing-random"  />
+            <label class='wall-framing random'for='wall-framing-random'>
+              <input class='checkbox' type='checkbox' name='wall-framing-random'  />
               Random
             </label>
-            <label class="wall-framing capping"for="wall-framing-capping">
-              <input class="checkbox" type="checkbox" name="wall-framing-capping"  />
+            <label class='wall-framing capping'for='wall-framing-capping'>
+              <input class='checkbox' type='checkbox' name='wall-framing-capping'  />
               Capping
             </label>
-            <label class="wall-framing strapping"for="wall-framing-strapping">
-              <input class="checkbox" type="checkbox" name="wall-framing-strapping"  />
+            <label class='wall-framing strapping'for='wall-framing-strapping'>
+              <input class='checkbox' type='checkbox' name='wall-framing-strapping'  />
               Strapping
             </label>
 
-            <label class="wall-framing h-one-two"for="wall-framing-h-one-two">
-              <input class="checkbox" type="checkbox" name="wall-framing-h-one-two"  />
+            <label class='wall-framing h-one-two'for='wall-framing-h-one-two'>
+              <input class='checkbox' type='checkbox' name='wall-framing-h-one-two'  />
               H1.2
             </label>
-            <label class="wall-framing h-three-two"for="wall-framing-h-three-two">
-              <input class="checkbox" type="checkbox" name="wall-framing-h-three-two"  />
+            <label class='wall-framing h-three-two'for='wall-framing-h-three-two'>
+              <input class='checkbox' type='checkbox' name='wall-framing-h-three-two'  />
               H3.2
             </label>
-            <label class="wall-framing h-three-plates"for="wall-framing-h-three-plates">
-              <input class="checkbox" type="checkbox" name="wall-framing-h-three-plates"  />
+            <label class='wall-framing h-three-plates'for='wall-framing-h-three-plates'>
+              <input class='checkbox' type='checkbox' name='wall-framing-h-three-plates'  />
               H3 Plates
             </label>
 
-            <label class="wall-framing beams"for="wall-framing-beams">
-              <input class="checkbox" type="checkbox" name="wall-framing-beams"  />
+            <label class='wall-framing beams'for='wall-framing-beams'>
+              <input class='checkbox' type='checkbox' name='wall-framing-beams'  />
               Beams
             </label>
-            <label class="wall-framing posts"for="wall-framing-posts">
-              <input class="checkbox" type="checkbox" name="wall-framing-posts"  />
+            <label class='wall-framing posts'for='wall-framing-posts'>
+              <input class='checkbox' type='checkbox' name='wall-framing-posts'  />
               Posts
             </label>
 
 
-            <label class="wall-framing metal"for="wall-framing-metal">
-              <input class="checkbox" type="checkbox" name="wall-framing-metal"  />
+            <label class='wall-framing metal'for='wall-framing-metal'>
+              <input class='checkbox' type='checkbox' name='wall-framing-metal'  />
               Metal
             </label>
 
-            <label class="wall-framing timber"for="wall-framing-timber">
-              <input class="checkbox" type="checkbox" name="wall-framing-timber"  />
+            <label class='wall-framing timber'for='wall-framing-timber'>
+              <input class='checkbox' type='checkbox' name='wall-framing-timber'  />
               Timber
             </label>
-            <label class="wall-framing additional"for="wall-framing-additional">
+            <label class='wall-framing additional'for='wall-framing-additional'>
               Additional Information
-              <textarea class="textbox estimationAdditional" type="textbox" name="wall-framing-additional" ></textarea>
+              <textarea class='textbox estimationAdditional' type='textbox' name='wall-framing-additional' ></textarea>
             </label>
 
           </main>
         </div>
 
-        <div class="toggle-section roof-framing">
-          <header class="toggle-section-header" id="toggle-section-header-roof-framing">
+        <div class='toggle-section roof-framing'>
+          <header class='toggle-section-header' id='toggle-section-header-roof-framing'>
             Roof Framing
-            <label id="label-as-plan-roof-framing" class="as-plan-toggle roof-framing" for="as-plan-roof-framing">
+            <label id='label-as-plan-roof-framing' class='as-plan-toggle roof-framing' for='as-plan-roof-framing'>
               As per Plan
-              <input type="checkbox"  id="as-plan-roof-framing" name='as-plan-roof-framing' onclick="toggleAll('roof-framing')"/>
+              <input type='checkbox'  id='as-plan-roof-framing' name='as-plan-roof-framing' onclick='toggleAll('roof-framing')'/>
             </label>
-            <label id="label-toggle-as-selected-roof-framing" class="hide-section-toggle roof-framing" for="toggle-as-selected-roof-framing">
+            <label id='label-toggle-as-selected-roof-framing' class='hide-section-toggle roof-framing' for='toggle-as-selected-roof-framing'>
               As Selected
-              <input type="checkbox" id="toggle-as-selected-roof-framing" name='toggle-as-selected-roof-framing' onclick="toggleAsSelected('roof-framing')"/>
+              <input type='checkbox' id='toggle-as-selected-roof-framing' name='toggle-as-selected-roof-framing' onclick='toggleAsSelected('roof-framing')'/>
             </label>
-            <label id="label-toggle-none-roof-framing" class="hide-section-toggle roof-framing" for="toggle-none-roof-framing">
+            <label id='label-toggle-none-roof-framing' class='hide-section-toggle roof-framing' for='toggle-none-roof-framing'>
               Not required
-              <input type="checkbox" id="toggle-none-roof-framing" name='toggle-none-roof-framing' onclick="toggleNone('roof-framing')"/>
+              <input type='checkbox' id='toggle-none-roof-framing' name='toggle-none-roof-framing' onclick='toggleNone('roof-framing')'/>
             </label>
           </header>
-          <main class="toggle-section-questions" id="toggle-section-questions-roof-framing">
-            <label class="roof-framing prenailer-supplied"for="roof-framing-prenailer-supplied">
-              <input class="checkbox" type="checkbox" name="roof-framing-prenailer-supplied"  />
+          <main class='toggle-section-questions' id='toggle-section-questions-roof-framing'>
+            <label class='roof-framing prenailer-supplied'for='roof-framing-prenailer-supplied'>
+              <input class='checkbox' type='checkbox' name='roof-framing-prenailer-supplied'  />
               Supplied by Prenailer - Do not allow
             </label>
-            <label class="roof-framing bor-pack"for="roof-framing-bor-pack">
-              <input class="checkbox" type="checkbox" name="roof-framing-bor-pack"  />
+            <label class='roof-framing bor-pack'for='roof-framing-bor-pack'>
+              <input class='checkbox' type='checkbox' name='roof-framing-bor-pack'  />
               BOR Pack (as Agreed)
             </label>
-            <label class="roof-framing ply-membrane"for="roof-framing-ply-membrane">
-              <input class="checkbox" type="checkbox" name="roof-framing-ply-membrane"  />
+            <label class='roof-framing ply-membrane'for='roof-framing-ply-membrane'>
+              <input class='checkbox' type='checkbox' name='roof-framing-ply-membrane'  />
               Ply to Membrane Roof
             </label>
-            <label class="roof-framing ply-shingle"for="roof-framing-ply-shingle">
-              <input class="checkbox" type="checkbox" name="roof-framing-ply-shingle"  />
+            <label class='roof-framing ply-shingle'for='roof-framing-ply-shingle'>
+              <input class='checkbox' type='checkbox' name='roof-framing-ply-shingle'  />
               Ply to Shingle Roof
             </label>
-            <label class="roof-framing purlins-only"for="roof-framing-purlins-only">
-              <input class="checkbox" type="checkbox" name="roof-framing-purlins-only"  />
+            <label class='roof-framing purlins-only'for='roof-framing-purlins-only'>
+              <input class='checkbox' type='checkbox' name='roof-framing-purlins-only'  />
               Purlins only
             </label>
-            <label class="roof-framing additional"for="roof-framing-additional">
+            <label class='roof-framing additional'for='roof-framing-additional'>
               Additional Information
-              <textarea class="textbox estimationAdditional" type="textbox" name="roof-framing-additional" ></textarea>
+              <textarea class='textbox estimationAdditional' type='textbox' name='roof-framing-additional' ></textarea>
             </label>
 
           </main>
 
         </div>
 
-        <div class="toggle-section exterior-finishing">
-          <header id="toggle-section-header-exterior-finishing" class="toggle-section-header">
+        <div class='toggle-section exterior-finishing'>
+          <header id='toggle-section-header-exterior-finishing' class='toggle-section-header'>
             Exterior Finishings
-            <label id="label-as-plan-exterior-finishing" class="as-plan-toggle exterior-finishing" for="as-plan-exterior-finishing">
+            <label id='label-as-plan-exterior-finishing' class='as-plan-toggle exterior-finishing' for='as-plan-exterior-finishing'>
               As per Plan
-              <input type="checkbox"  id="as-plan-exterior-finishing" name='as-plan-exterior-finishing' onclick="toggleAll('exterior-finishing')"/>
+              <input type='checkbox'  id='as-plan-exterior-finishing' name='as-plan-exterior-finishing' onclick='toggleAll('exterior-finishing')'/>
             </label>
-            <label id="label-toggle-as-selected-exterior-finishing" class="hide-section-toggle exterior-finishing" for="toggle-as-selected-exterior-finishing">
+            <label id='label-toggle-as-selected-exterior-finishing' class='hide-section-toggle exterior-finishing' for='toggle-as-selected-exterior-finishing'>
               As Selected
-              <input type="checkbox" id="toggle-as-selected-exterior-finishing" name='toggle-as-selected-exterior-finishing' onclick="toggleAsSelected('exterior-finishing')"/>
+              <input type='checkbox' id='toggle-as-selected-exterior-finishing' name='toggle-as-selected-exterior-finishing' onclick='toggleAsSelected('exterior-finishing')'/>
             </label>
-            <label id="label-toggle-none-exterior-finishing" class="hide-section-toggle exterior-finishing" for="toggle-none-exterior-finishing">
+            <label id='label-toggle-none-exterior-finishing' class='hide-section-toggle exterior-finishing' for='toggle-none-exterior-finishing'>
               Not required
-              <input type="checkbox" id="toggle-none-exterior-finishing" name='toggle-none-exterior-finishing' onclick="toggleNone('exterior-finishing')"/>
+              <input type='checkbox' id='toggle-none-exterior-finishing' name='toggle-none-exterior-finishing' onclick='toggleNone('exterior-finishing')'/>
             </label>
           </header>
-          <main class="toggle-section-questions" id="toggle-section-questions-exterior-finishing">
+          <main class='toggle-section-questions' id='toggle-section-questions-exterior-finishing'>
 
-            <label class="exterior-finishing building-wrap"for="exterior-finishing-building-wrap">
-              <input class="checkbox" type="checkbox" name="exterior-finishing-building-wrap"  />
+            <label class='exterior-finishing building-wrap'for='exterior-finishing-building-wrap'>
+              <input class='checkbox' type='checkbox' name='exterior-finishing-building-wrap'  />
               Building Wrap
             </label>
 
-            <label class="exterior-finishing timber-fascia"for="exterior-finishing-timber-fascia">
-              <input class="checkbox" type="checkbox" name="exterior-finishing-timber-fascia"  />
+            <label class='exterior-finishing timber-fascia'for='exterior-finishing-timber-fascia'>
+              <input class='checkbox' type='checkbox' name='exterior-finishing-timber-fascia'  />
               Timber Fascia
             </label>
 
-            <label class="exterior-finishing rab"for="exterior-finishing-rab">
+            <label class='exterior-finishing rab'for='exterior-finishing-rab'>
               RAB
-              <input class="checkbox" type="checkbox" name="exterior-finishing-rab"  />
+              <input class='checkbox' type='checkbox' name='exterior-finishing-rab'  />
 
             </label>
 
-            <label class="exterior-finishing metal-fascia"for="exterior-finishing-metal-fascia">
-              <input class="checkbox" type="checkbox" name="exterior-finishing-metal-fascia"  />
+            <label class='exterior-finishing metal-fascia'for='exterior-finishing-metal-fascia'>
+              <input class='checkbox' type='checkbox' name='exterior-finishing-metal-fascia'  />
               Metal Fascia by Others
             </label>
 
-            <label class="exterior-finishing pvc-spouting"for="exterior-finishing-pvc-spouting">
-              <input class="checkbox" type="checkbox" name="exterior-finishing-pvc-spouting"  />
+            <label class='exterior-finishing pvc-spouting'for='exterior-finishing-pvc-spouting'>
+              <input class='checkbox' type='checkbox' name='exterior-finishing-pvc-spouting'  />
               PVC Spouting
             </label>
 
-            <label class="exterior-finishing soffit"for="exterior-finishing-soffit">
+            <label class='exterior-finishing soffit'for='exterior-finishing-soffit'>
               Soffit
-              <input class="checkbox" type="checkbox" name="exterior-finishing-soffit"  />
+              <input class='checkbox' type='checkbox' name='exterior-finishing-soffit'  />
 
             </label>
 
-            <label class="exterior-finishing eaves-mould"for="exterior-finishing-eaves-mould">
-              <input class="checkbox" type="checkbox" name="exterior-finishing-eaves-mould"  />
+            <label class='exterior-finishing eaves-mould'for='exterior-finishing-eaves-mould'>
+              <input class='checkbox' type='checkbox' name='exterior-finishing-eaves-mould'  />
               Eaves Mould
             </label>
 
-            <label class="exterior-finishing additional"for="exterior-finishing-additional">
+            <label class='exterior-finishing additional'for='exterior-finishing-additional'>
               Additional Information
-              <textarea class="textbox estimationAdditional" type="textbox" name="exterior-finishing-additional" ></textarea>
+              <textarea class='textbox estimationAdditional' type='textbox' name='exterior-finishing-additional' ></textarea>
             </label>
 
           </main>
         </div>
 
-        <div class="toggle-section cladding">
-          <header id="toggle-section-header-cladding" class="toggle-section-header">
+        <div class='toggle-section cladding'>
+          <header id='toggle-section-header-cladding' class='toggle-section-header'>
             Cladding
-            <label id="label-as-plan-cladding" class="as-plan-toggle cladding" for="as-plan-cladding">
+            <label id='label-as-plan-cladding' class='as-plan-toggle cladding' for='as-plan-cladding'>
               As per Plan
-              <input type="checkbox"  id="as-plan-cladding" name='as-plan-cladding' onclick="toggleAll('cladding')"/>
+              <input type='checkbox'  id='as-plan-cladding' name='as-plan-cladding' onclick='toggleAll('cladding')'/>
             </label>
-            <label id="label-toggle-as-selected-cladding" class="hide-section-toggle cladding" for="toggle-as-selected-cladding">
+            <label id='label-toggle-as-selected-cladding' class='hide-section-toggle cladding' for='toggle-as-selected-cladding'>
               As Selected
-              <input type="checkbox" id="toggle-as-selected-cladding" name='toggle-as-selected-cladding' onclick="toggleAsSelected('cladding')"/>
+              <input type='checkbox' id='toggle-as-selected-cladding' name='toggle-as-selected-cladding' onclick='toggleAsSelected('cladding')'/>
             </label>
-            <label id="label-toggle-none-cladding" class="hide-section-toggle cladding" for="toggle-none-cladding">
+            <label id='label-toggle-none-cladding' class='hide-section-toggle cladding' for='toggle-none-cladding'>
               Not required
-              <input type="checkbox" id="toggle-none-cladding" name='toggle-none-cladding' onclick="toggleNone('cladding')"/>
+              <input type='checkbox' id='toggle-none-cladding' name='toggle-none-cladding' onclick='toggleNone('cladding')'/>
             </label>
           </header>
-          <main class="toggle-section-questions" id="toggle-section-questions-cladding">
-            <label class="cladding brick"for="cladding-brick">
-              <input class="checkbox" type="checkbox" name="cladding-brick-check"  />
+          <main class='toggle-section-questions' id='toggle-section-questions-cladding'>
+            <label class='cladding brick'for='cladding-brick'>
+              <input class='checkbox' type='checkbox' name='cladding-brick-check'  />
               Brick
-              <input class="number-input" type="number" name="cladding-brick-number"  />  Quantity per M²
+              <input class='number-input' type='number' name='cladding-brick-number'  />  Quantity per M²
             </label>
 
-            <label class="cladding sheet"for="cladding-sheet">
-              <input class="checkbox" type="checkbox" name="cladding-sheet-check"  />
+            <label class='cladding sheet'for='cladding-sheet'>
+              <input class='checkbox' type='checkbox' name='cladding-sheet-check'  />
               Sheet
-              <input class="single-input" type="text" name="cladding-sheet-text"  />
+              <input class='single-input' type='text' name='cladding-sheet-text'  />
             </label>
 
-            <label class="cladding w-board"for="cladding-w-board">
-              <input class="checkbox" type="checkbox" name="cladding-w-board-check"  />
+            <label class='cladding w-board'for='cladding-w-board'>
+              <input class='checkbox' type='checkbox' name='cladding-w-board-check'  />
               W/Board
-              <input class="single-input" type="text" name="cladding-w-board"  />
+              <input class='single-input' type='text' name='cladding-w-board'  />
             </label>
 
-            <label class="cladding stone-cladding-substrate"for="cladding-stone-cladding-substrate">
-              <input class="checkbox" type="checkbox" name="cladding-stone-cladding-substrate"  />
+            <label class='cladding stone-cladding-substrate'for='cladding-stone-cladding-substrate'>
+              <input class='checkbox' type='checkbox' name='cladding-stone-cladding-substrate'  />
               Stone Cladding Substrate
             </label>
 
-            <label class="cladding additional"for="cladding-additional">
+            <label class='cladding additional'for='cladding-additional'>
               Additional Information
-              <textarea class="textbox estimationAdditional" type="textbox" name="cladding-additional" ></textarea>
+              <textarea class='textbox estimationAdditional' type='textbox' name='cladding-additional' ></textarea>
             </label>
 
           </main>
         </div>
 
-        <div class="toggle-section insulation">
-          <header id="toggle-section-header-insulation" class="toggle-section-header">
+        <div class='toggle-section insulation'>
+          <header id='toggle-section-header-insulation' class='toggle-section-header'>
             Insulation
-            <label id="label-as-plan-insulation" class="as-plan-toggle insulation" for="as-plan-insulation">
+            <label id='label-as-plan-insulation' class='as-plan-toggle insulation' for='as-plan-insulation'>
               As per Plan
-              <input type="checkbox"  id="as-plan-insulation" name='as-plan-insulation' onclick="toggleAll('insulation')"/>
+              <input type='checkbox'  id='as-plan-insulation' name='as-plan-insulation' onclick='toggleAll('insulation')'/>
             </label>
-            <label id="label-toggle-as-selected-insulation" class="hide-section-toggle insulation" for="toggle-as-selected-insulation">
+            <label id='label-toggle-as-selected-insulation' class='hide-section-toggle insulation' for='toggle-as-selected-insulation'>
               As Selected
-              <input type="checkbox" id="toggle-as-selected-insulation" name='toggle-as-selected-insulation' onclick="toggleAsSelected('insulation')"/>
+              <input type='checkbox' id='toggle-as-selected-insulation' name='toggle-as-selected-insulation' onclick='toggleAsSelected('insulation')'/>
             </label>
-            <label id="label-toggle-none-insulation" class="hide-section-toggle insulation" for="toggle-none-insulation">
+            <label id='label-toggle-none-insulation' class='hide-section-toggle insulation' for='toggle-none-insulation'>
               Not required
-              <input type="checkbox" id="toggle-none-insulation" name='toggle-none-insulation' onclick="toggleNone('insulation')"/>
+              <input type='checkbox' id='toggle-none-insulation' name='toggle-none-insulation' onclick='toggleNone('insulation')'/>
             </label>
           </header>
-          <main class="toggle-section-questions" id="toggle-section-questions-insulation">
+          <main class='toggle-section-questions' id='toggle-section-questions-insulation'>
 
-            <label class="insulation sub-floor"for="insulation-sub-floor">
-              <input class="check" type="checkbox" name="insulation-sub-floor-check"  />
+            <label class='insulation sub-floor'for='insulation-sub-floor'>
+              <input class='check' type='checkbox' name='insulation-sub-floor-check'  />
               Sub Floor
-              <input class="single-input" type="text" name="insulation-sub-floor-text"  />
+              <input class='single-input' type='text' name='insulation-sub-floor-text'  />
             </label>
 
-            <label class="insulation mid-floor"for="insulation-mid-floor">
-              <input class="check" type="checkbox" name="insulation-mid-floor-check"  />
+            <label class='insulation mid-floor'for='insulation-mid-floor'>
+              <input class='check' type='checkbox' name='insulation-mid-floor-check'  />
               Mid Floor
-              <input class="single-input" type="text" name="insulation-mid-floor-text"  />
+              <input class='single-input' type='text' name='insulation-mid-floor-text'  />
             </label>
 
-            <label class="insulation walls"for="insulation-walls">
-              <input class="check" type="checkbox" name="insulation-walls-check"  />
+            <label class='insulation walls'for='insulation-walls'>
+              <input class='check' type='checkbox' name='insulation-walls-check'  />
               Walls
-              <input class="single-input" type="text" name="insulation-walls-text"  />
+              <input class='single-input' type='text' name='insulation-walls-text'  />
             </label>
 
-            <label class="insulation ceiling"for="insulation-ceiling">
-              <input class="check" type="checkbox" name="insulation-ceiling-check"  />
+            <label class='insulation ceiling'for='insulation-ceiling'>
+              <input class='check' type='checkbox' name='insulation-ceiling-check'  />
               Ceiling
-              <input class="single-input" type="text" name="insulation-ceiling-text"  />
+              <input class='single-input' type='text' name='insulation-ceiling-text'  />
             </label>
 
-            <label class="insulation accoustic"for="insulation-accoustic">
-              <input class="check" type="checkbox" name="insulation-accoustic-check"  />
+            <label class='insulation accoustic'for='insulation-accoustic'>
+              <input class='check' type='checkbox' name='insulation-accoustic-check'  />
               Accoustic
-              <input class="single-input" type="text" name="insulation-accoustic-text"  />
+              <input class='single-input' type='text' name='insulation-accoustic-text'  />
             </label>
 
-            <label class="insulation garage-walls-ceiling"for="insulation-garage-walls-ceiling">
-              <input class="checkbox" type="checkbox" name="insulation-garage-walls-ceiling"  />
+            <label class='insulation garage-walls-ceiling'for='insulation-garage-walls-ceiling'>
+              <input class='checkbox' type='checkbox' name='insulation-garage-walls-ceiling'  />
               Garage walls/Ceiling (included)
             </label>
 
-            <label class="insulation installation"for="insulation-installation">
-              <input class="checkbox" type="checkbox" name="insulation-installation"  />
+            <label class='insulation installation'for='insulation-installation'>
+              <input class='checkbox' type='checkbox' name='insulation-installation'  />
               Installation
             </label>
-            <label class="insulation additional"for="insulation-additional">
+            <label class='insulation additional'for='insulation-additional'>
               Additional Information
-              <textarea class="textbox estimationAdditional" type="textbox" name="insulation-additional" ></textarea>
+              <textarea class='textbox estimationAdditional' type='textbox' name='insulation-additional' ></textarea>
             </label>
 
           </main>
         </div>
 
-        <div class="toggle-section interior-linings">
-          <header id="toggle-section-header-interior-linings" class="toggle-section-header">
+        <div class='toggle-section interior-linings'>
+          <header id='toggle-section-header-interior-linings' class='toggle-section-header'>
             Interior Linings
-            <label id="label-as-plan-interior-linings" class="as-plan-toggle interior-linings" for="as-plan-interior-linings">
+            <label id='label-as-plan-interior-linings' class='as-plan-toggle interior-linings' for='as-plan-interior-linings'>
               As per Plan
-              <input type="checkbox"  id="as-plan-interior-linings" name='as-plan-interior-linings' onclick="toggleAll('interior-linings')"/>
+              <input type='checkbox'  id='as-plan-interior-linings' name='as-plan-interior-linings' onclick='toggleAll('interior-linings')'/>
             </label>
 
-            <label id="label-toggle-as-selected-interior-linings" class="toggle-as-selected interior-linings" for="toggle-as-selected-interior-linings">
+            <label id='label-toggle-as-selected-interior-linings' class='toggle-as-selected interior-linings' for='toggle-as-selected-interior-linings'>
               As Selected
-              <input type="checkbox" id="toggle-as-selected-interior-linings" name='toggle-as-selected-interior-linings' onclick="toggleAsSelected('interior-linings')"/>
+              <input type='checkbox' id='toggle-as-selected-interior-linings' name='toggle-as-selected-interior-linings' onclick='toggleAsSelected('interior-linings')'/>
             </label>
 
-            <label id="label-toggle-none-interior-linings" class="hide-section-toggle interior-linings" for="toggle-none-interior-linings">
+            <label id='label-toggle-none-interior-linings' class='hide-section-toggle interior-linings' for='toggle-none-interior-linings'>
               Not required
-              <input type="checkbox" id="toggle-none-interior-linings" name='toggle-none-interior-linings' onclick="toggleNone('interior-linings')"/>
+              <input type='checkbox' id='toggle-none-interior-linings' name='toggle-none-interior-linings' onclick='toggleNone('interior-linings')'/>
             </label>
 
           </header>
-          <main class="toggle-section-questions" id="toggle-section-questions-interior-linings">
+          <main class='toggle-section-questions' id='toggle-section-questions-interior-linings'>
 
-            <label class="interior-linings wall"for="interior-linings-wall">
-              <input class="checkbox" type="checkbox" name="interior-linings-wall"  />
+            <label class='interior-linings wall'for='interior-linings-wall'>
+              <input class='checkbox' type='checkbox' name='interior-linings-wall'  />
               Wall
             </label>
 
-            <label class="interior-linings wet-wall"for="interior-linings-wet-wall">
-              <input class="checkbox" type="checkbox" name="interior-linings-wet-wall"  />
+            <label class='interior-linings wet-wall'for='interior-linings-wet-wall'>
+              <input class='checkbox' type='checkbox' name='interior-linings-wet-wall'  />
               Wet Wall
             </label>
 
-            <label class="interior-linings bathroom"for="interior-linings-bathroom">
-              <input class="checkbox" type="checkbox" name="interior-linings-bathroom"  />
+            <label class='interior-linings bathroom'for='interior-linings-bathroom'>
+              <input class='checkbox' type='checkbox' name='interior-linings-bathroom'  />
               Bathroom
             </label>
 
-            <label class="interior-linings wc"for="interior-linings-wc">
-              <input class="checkbox" type="checkbox" name="interior-linings-wc"  />
+            <label class='interior-linings wc'for='interior-linings-wc'>
+              <input class='checkbox' type='checkbox' name='interior-linings-wc'  />
               WC
             </label>
 
-            <label class="interior-linings ceiling"for="interior-linings-ceiling">
-              <input class="checkbox" type="checkbox" name="interior-linings-ceiling"  />
+            <label class='interior-linings ceiling'for='interior-linings-ceiling'>
+              <input class='checkbox' type='checkbox' name='interior-linings-ceiling'  />
               Ceiling
             </label>
 
-            <label class="interior-linings wet-ceiling"for="interior-linings-wet-ceiling">
-              <input class="checkbox" type="checkbox" name="interior-linings-wet-ceiling"  />
+            <label class='interior-linings wet-ceiling'for='interior-linings-wet-ceiling'>
+              <input class='checkbox' type='checkbox' name='interior-linings-wet-ceiling'  />
               Wet Ceiling
             </label>
 
-            <label class="interior-linings ensuite"for="interior-linings-ensuite">
-              <input class="checkbox" type="checkbox" name="interior-linings-ensuite"  />
+            <label class='interior-linings ensuite'for='interior-linings-ensuite'>
+              <input class='checkbox' type='checkbox' name='interior-linings-ensuite'  />
               Ensuite
             </label>
 
-            <label class="interior-linings laundry"for="interior-linings-laundry">
-              <input class="checkbox" type="checkbox" name="interior-linings-laundry"  />
+            <label class='interior-linings laundry'for='interior-linings-laundry'>
+              <input class='checkbox' type='checkbox' name='interior-linings-laundry'  />
               Laundry
             </label>
 
-            <label class="interior-linings additional"for="interior-linings-additional">
+            <label class='interior-linings additional'for='interior-linings-additional'>
               Additional Information
-              <textarea class="textbox estimationAdditional" type="textbox" name="interior-linings-additional" ></textarea>
+              <textarea class='textbox estimationAdditional' type='textbox' name='interior-linings-additional' ></textarea>
             </label>
 
           </main>
         </div>
 
-        <div class="toggle-section interior-doors">
-          <header id="toggle-section-header-interior-doors" class="toggle-section-header">
+        <div class='toggle-section interior-doors'>
+          <header id='toggle-section-header-interior-doors' class='toggle-section-header'>
             Interior Doors
-            <label  id="label-as-plan-interior-doors" class="as-plan-toggle interior-doors" for="as-plan-interior-doors">
+            <label  id='label-as-plan-interior-doors' class='as-plan-toggle interior-doors' for='as-plan-interior-doors'>
               As per Plan
-              <input type="checkbox"  id="as-plan-interior-doors" name='as-plan-interior-doors' onclick="toggleAll('interior-doors')"/>
+              <input type='checkbox'  id='as-plan-interior-doors' name='as-plan-interior-doors' onclick='toggleAll('interior-doors')'/>
             </label>
-            <label  id="label-toggle-as-selected-interior-doors" class="hide-section-toggle interior-doors" for="toggle-as-selected-interior-doors">
+            <label  id='label-toggle-as-selected-interior-doors' class='hide-section-toggle interior-doors' for='toggle-as-selected-interior-doors'>
               As Selected
-              <input type="checkbox" id="toggle-as-selected-interior-doors" name='toggle-as-selected-interior-doors' onclick="toggleAsSelected('interior-doors')"/>
+              <input type='checkbox' id='toggle-as-selected-interior-doors' name='toggle-as-selected-interior-doors' onclick='toggleAsSelected('interior-doors')'/>
             </label>
-            <label  id="label-toggle-none-interior-doors" class="hide-section-toggle interior-doors" for="toggle-none-interior-doors">
+            <label  id='label-toggle-none-interior-doors' class='hide-section-toggle interior-doors' for='toggle-none-interior-doors'>
               Not required
-              <input type="checkbox" id="toggle-none-interior-doors" name='toggle-none-interior-doors' onclick="toggleNone('interior-doors')"/>
+              <input type='checkbox' id='toggle-none-interior-doors' name='toggle-none-interior-doors' onclick='toggleNone('interior-doors')'/>
             </label>
           </header>
-          <main class="toggle-section-questions" id="toggle-section-questions-interior-doors">
+          <main class='toggle-section-questions' id='toggle-section-questions-interior-doors'>
 
-            <label class="interior-doors door-type"for="interior-doors-door-type">
-              <input class="checkbox" type="checkbox" name="interior-doors-door-type"  />
+            <label class='interior-doors door-type'for='interior-doors-door-type'>
+              <input class='checkbox' type='checkbox' name='interior-doors-door-type'  />
               MDF HC PQ FJ FLAT JAMB
             </label>
 
-            <label class="interior-doors door-hardware"for="interior-doors-door-hardware">
-              <input class="checkbox" type="checkbox" name="interior-doors-door-hardware"  />
+            <label class='interior-doors door-hardware'for='interior-doors-door-hardware'>
+              <input class='checkbox' type='checkbox' name='interior-doors-door-hardware'  />
               Door Hardware
             </label>
-            <label class="interior-doors additional"for="interior-doors-additional">
+            <label class='interior-doors additional'for='interior-doors-additional'>
               Additional Information
-              <textarea class="textbox estimationAdditional" type="textbox" name="interior-doors-additional" ></textarea>
+              <textarea class='textbox estimationAdditional' type='textbox' name='interior-doors-additional' ></textarea>
             </label>
 
           </main>
         </div>
 
-        <div class="toggle-section interior-finishings">
-          <header id="toggle-section-header-interior-finishings" class="toggle-section-header">
+        <div class='toggle-section interior-finishings'>
+          <header id='toggle-section-header-interior-finishings' class='toggle-section-header'>
             Interior Finishings
-            <label  id="label-as-plan-interior-finishings" class="as-plan-toggle interior-finishings" for="as-plan-interior-finishings">
+            <label  id='label-as-plan-interior-finishings' class='as-plan-toggle interior-finishings' for='as-plan-interior-finishings'>
               As per Plan
-              <input type="checkbox"  id="as-plan-interior-finishings" name='as-plan-interior-finishings' onclick="toggleAll('interior-finishings')"/>
+              <input type='checkbox'  id='as-plan-interior-finishings' name='as-plan-interior-finishings' onclick='toggleAll('interior-finishings')'/>
             </label>
-            <label  id="label-toggle-as-selected-interior-finishings" class="hide-section-toggle interior-finishings" for="toggle-as-selected-interior-finishings">
+            <label  id='label-toggle-as-selected-interior-finishings' class='hide-section-toggle interior-finishings' for='toggle-as-selected-interior-finishings'>
               As Selected
-              <input type="checkbox" id="toggle-as-selected-interior-finishings" name='toggle-as-selected-interior-finishings' onclick="toggleAsSelected('interior-finishings')"/>
+              <input type='checkbox' id='toggle-as-selected-interior-finishings' name='toggle-as-selected-interior-finishings' onclick='toggleAsSelected('interior-finishings')'/>
             </label>
-            <label  id="label-toggle-none-interior-finishings" class="hide-section-toggle interior-finishings" for="toggle-none-interior-finishings">
+            <label  id='label-toggle-none-interior-finishings' class='hide-section-toggle interior-finishings' for='toggle-none-interior-finishings'>
               Not required
-              <input type="checkbox" id="toggle-none-interior-finishings" name='toggle-none-interior-finishings' onclick="toggleNone('interior-finishings')"/>
+              <input type='checkbox' id='toggle-none-interior-finishings' name='toggle-none-interior-finishings' onclick='toggleNone('interior-finishings')'/>
             </label>
           </header>
-          <main class="toggle-section-questions" id="toggle-section-questions-interior-finishings">
+          <main class='toggle-section-questions' id='toggle-section-questions-interior-finishings'>
 
-            <label class="interior-finishings mdf"for="interior-finishings-mdf">
+            <label class='interior-finishings mdf'for='interior-finishings-mdf'>
               MDF
-              <input class="checkbox" type="checkbox" name="interior-finishings-mdf"  />
+              <input class='checkbox' type='checkbox' name='interior-finishings-mdf'  />
             </label>
-            <label class="interior-finishings f-j"for="interior-finishings-f-j">
+            <label class='interior-finishings f-j'for='interior-finishings-f-j'>
               F/J
-              <input class="checkbox" type="checkbox" name="interior-finishings-f-j"  />
+              <input class='checkbox' type='checkbox' name='interior-finishings-f-j'  />
             </label>
-            <label class="interior-finishings clears"for="interior-finishings-clears">
+            <label class='interior-finishings clears'for='interior-finishings-clears'>
               Clears
-              <input class="checkbox" type="checkbox" name="interior-finishings-clears"  />
+              <input class='checkbox' type='checkbox' name='interior-finishings-clears'  />
             </label>
-            <label class="interior-finishings timber-cornice"for="interior-finishings-timber-cornice">
+            <label class='interior-finishings timber-cornice'for='interior-finishings-timber-cornice'>
               Timber Cornice
-              <input class="checkbox" type="checkbox" name="interior-finishings-timber-cornice"  />
+              <input class='checkbox' type='checkbox' name='interior-finishings-timber-cornice'  />
             </label>
-            <label class="interior-finishings gib-cove"for="interior-finishings-gib-cove">
+            <label class='interior-finishings gib-cove'for='interior-finishings-gib-cove'>
               Gib Cove
-              <input class="checkbox" type="checkbox" name="interior-finishings-gib-cove"  />
+              <input class='checkbox' type='checkbox' name='interior-finishings-gib-cove'  />
             </label>
-            <label class="interior-finishings skirting"for="interior-finishings-skirting">
+            <label class='interior-finishings skirting'for='interior-finishings-skirting'>
               Skirting
-              <input class="checkbox" type="checkbox" name="interior-finishings-skirting"  />
+              <input class='checkbox' type='checkbox' name='interior-finishings-skirting'  />
             </label>
-            <label class="interior-finishings architrave"for="interior-finishings-architrave">
+            <label class='interior-finishings architrave'for='interior-finishings-architrave'>
               Architrave
-              <input class="checkbox" type="checkbox" name="interior-finishings-architrave"  />
+              <input class='checkbox' type='checkbox' name='interior-finishings-architrave'  />
             </label>
-            <label class="interior-finishings wet-areas"for="interior-finishings-wet-areas">
+            <label class='interior-finishings wet-areas'for='interior-finishings-wet-areas'>
               Wet Areas
-              <input class="checkbox" type="checkbox" name="interior-finishings-wet-areas"  />
+              <input class='checkbox' type='checkbox' name='interior-finishings-wet-areas'  />
             </label>
-            <label class="interior-finishings shelving"for="interior-finishings-shelving">
+            <label class='interior-finishings shelving'for='interior-finishings-shelving'>
               Shelving
-              <input class="checkbox" type="checkbox" name="interior-finishings-shelving"  />
+              <input class='checkbox' type='checkbox' name='interior-finishings-shelving'  />
             </label>
-            <label class="interior-finishings additional"for="interior-finishings-additional">
+            <label class='interior-finishings additional'for='interior-finishings-additional'>
               Additional Information
-              <textarea class="textbox estimationAdditional" type="textbox" name="interior-finishings-additional" ></textarea>
+              <textarea class='textbox estimationAdditional' type='textbox' name='interior-finishings-additional' ></textarea>
             </label>
 
           </main>
 
         </div>
 
-        <div class="toggle-section landscaping">
-          <header id="toggle-section-header-landscaping" class="toggle-section-header">
+        <div class='toggle-section landscaping'>
+          <header id='toggle-section-header-landscaping' class='toggle-section-header'>
             Landscaping
-          <label id="label-as-plan-landscaping" class="as-plan-toggle landscaping" for="as-plan-landscaping">
+          <label id='label-as-plan-landscaping' class='as-plan-toggle landscaping' for='as-plan-landscaping'>
             As per Plan
-            <input type="checkbox"  id="as-plan-landscaping" name='as-plan-landscaping' onclick="toggleAll('landscaping')"/>
+            <input type='checkbox'  id='as-plan-landscaping' name='as-plan-landscaping' onclick='toggleAll('landscaping')'/>
           </label>
-          <label id="label-as-selected-landscaping" class="hide-section-toggle landscaping" for="toggle-as-selected-landscaping">
+          <label id='label-as-selected-landscaping' class='hide-section-toggle landscaping' for='toggle-as-selected-landscaping'>
             As Selected
-            <input type="checkbox" id="toggle-as-selected-landscaping" name='toggle-as-selected-landscaping' onclick="toggleAsSelected('landscaping')"/>
+            <input type='checkbox' id='toggle-as-selected-landscaping' name='toggle-as-selected-landscaping' onclick='toggleAsSelected('landscaping')'/>
           </label>
-          <label id="label-toggle-none-landscaping" class="hide-section-toggle landscaping" for="toggle-none-landscaping">
+          <label id='label-toggle-none-landscaping' class='hide-section-toggle landscaping' for='toggle-none-landscaping'>
             Not required
-            <input type="checkbox" id="toggle-none-landscaping" name='toggle-none-landscaping' onclick="toggleNone('landscaping')"/>
+            <input type='checkbox' id='toggle-none-landscaping' name='toggle-none-landscaping' onclick='toggleNone('landscaping')'/>
           </label>
         </header>
-        <main class="toggle-section-questions" id="toggle-section-questions-landscaping">
-          <label class="landscaping concrete-patios"for="landscaping-concrete-patios">
-            <input class="checkbox" type="checkbox" name="landscaping-concrete-patios"  />
+        <main class='toggle-section-questions' id='toggle-section-questions-landscaping'>
+          <label class='landscaping concrete-patios'for='landscaping-concrete-patios'>
+            <input class='checkbox' type='checkbox' name='landscaping-concrete-patios'  />
             Concrete Patios
           </label>
-          <label class="landscaping ply-deck"for="landscaping-ply-deck">
-            <input class="checkbox" type="checkbox" name="landscaping-ply-deck-check"  />
+          <label class='landscaping ply-deck'for='landscaping-ply-deck'>
+            <input class='checkbox' type='checkbox' name='landscaping-ply-deck-check'  />
             Ply Deck
-            <input class="single-input" type="text" name="landscaping-ply-deck-text"  />
+            <input class='single-input' type='text' name='landscaping-ply-deck-text'  />
           </label>
-          <label class="landscaping decking"for="landscaping-decking">
-            <input class="checkbox" type="checkbox" name="landscaping-decking"  />
+          <label class='landscaping decking'for='landscaping-decking'>
+            <input class='checkbox' type='checkbox' name='landscaping-decking'  />
             Decking
           </label>
-          <label class="landscaping car-port"for="landscaping-car-port">
-            <input class="checkbox" type="checkbox" name="landscaping-car-port"  />
+          <label class='landscaping car-port'for='landscaping-car-port'>
+            <input class='checkbox' type='checkbox' name='landscaping-car-port'  />
             Carport
           </label>
-          <label class="landscaping pergola"for="landscaping-pergola">
-            <input class="checkbox" type="checkbox" name="landscaping-pergola"  />
+          <label class='landscaping pergola'for='landscaping-pergola'>
+            <input class='checkbox' type='checkbox' name='landscaping-pergola'  />
             Pergola
           </label>
-          <label class="landscaping timber-retaining-wall"for="landscaping-timber-retaining-wall">
-            <input class="checkbox" type="checkbox" name="landscaping-timber-retaining-wall"  />
+          <label class='landscaping timber-retaining-wall'for='landscaping-timber-retaining-wall'>
+            <input class='checkbox' type='checkbox' name='landscaping-timber-retaining-wall'  />
             Timber Retaining Wall
           </label>
 
-          <label class="landscaping additional"for="landscaping-additional">
+          <label class='landscaping additional'for='landscaping-additional'>
             Additional Information
-            <textarea class="textbox estimationAdditional" type="textbox" name="landscaping-additional" ></textarea>
+            <textarea class='textbox estimationAdditional' type='textbox' name='landscaping-additional' ></textarea>
           </label>
 
         </main>
@@ -1289,20 +1278,20 @@
   </div>
 
 
-  <div id="prenail-questions" class="" style="display:none">
+  <div id='prenail-questions' class='' style='display:none'>
     <header class='fullWidthContainer'>
       <h1>
         Dayle Prenail questions
       </h1>
     </header>
-    <div class="checkboxContainer">
+    <div class='checkboxContainer'>
       <h3>Wind zone</h3>
-      <p class="row"><input class="wind" name="prenailMediumWind" type="checkbox">Medium Wind</p>
-      <p class="row"><input class="wind" name="prenailHighWind" type="checkbox">High Wind</p>
-      <p class="row"><input class="wind" name="prenailVeryWind" type="checkbox">Very High Wind</p>
-      <p class="row"><input class="wind" name="prenailExtraWind" type="checkbox">Extra High Wind</p>
+      <p class='row'><input class='wind' name='prenailMediumWind' type='checkbox'>Medium Wind</p>
+      <p class='row'><input class='wind' name='prenailHighWind' type='checkbox'>High Wind</p>
+      <p class='row'><input class='wind' name='prenailVeryWind' type='checkbox'>Very High Wind</p>
+      <p class='row'><input class='wind' name='prenailExtraWind' type='checkbox'>Extra High Wind</p>
     </div>
-    <div class="checkboxContainer">
+    <div class='checkboxContainer'>
       <h3>Framing Treatment</h3>
 
       <table class='prenail-table'>
@@ -1318,13 +1307,13 @@
             Interior
           </td>
           <td class='prenail-table-cells'>
-            <input type="checkbox" name='daylePrenailInteriorH1' />
+            <input type='checkbox' name='daylePrenailInteriorH1' />
           </td>
           <td class='prenail-table-cells'>
-            <input type="checkbox" name='daylePrenailInteriorH3' />
+            <input type='checkbox' name='daylePrenailInteriorH3' />
           </td>
           <td class='prenail-table-cells'>
-            <input type="checkbox" name='daylePrenailInteriorBPlate' />
+            <input type='checkbox' name='daylePrenailInteriorBPlate' />
           </td>
         </tr>
         <tr>
@@ -1332,13 +1321,13 @@
             Exterior
           </td>
           <td class='prenail-table-cells'>
-            <input type="checkbox" name='daylePrenailExteriorH1' />
+            <input type='checkbox' name='daylePrenailExteriorH1' />
           </td>
           <td class='prenail-table-cells'>
-            <input type="checkbox" name='daylePrenailExteriorH3' />
+            <input type='checkbox' name='daylePrenailExteriorH3' />
           </td>
           <td class='prenail-table-cells'>
-            <input type="checkbox" name='daylePrenailExteriorBPlate' />
+            <input type='checkbox' name='daylePrenailExteriorBPlate' />
           </td>
 
         </tr>
@@ -1348,13 +1337,13 @@
             Wet Areas
           </td>
           <td class='prenail-table-cells'>
-            <input type="checkbox" name='daylePrenailWetH1' />
+            <input type='checkbox' name='daylePrenailWetH1' />
           </td>
           <td class='prenail-table-cells'>
-            <input type="checkbox" name='daylePrenailWetH3' />
+            <input type='checkbox' name='daylePrenailWetH3' />
           </td>
           <td class='prenail-table-cells'>
-            <input type="checkbox" name='daylePrenailWetBPlate' />
+            <input type='checkbox' name='daylePrenailWetBPlate' />
           </td>
 
         </tr>
@@ -1370,20 +1359,20 @@
         <tr>
           <td class='prenail-table-cells'>Trusses</td>
           <td class='prenail-table-cells'>
-            <input type="checkbox" name='daylePrenailTrussesH1' />
+            <input type='checkbox' name='daylePrenailTrussesH1' />
           </td>
           <td class='prenail-table-cells'>
-            <input type="checkbox" name='daylePrenailTrussesH3' />
+            <input type='checkbox' name='daylePrenailTrussesH3' />
           </td>
 
         </tr>
         <tr>
           <td class='prenail-table-cells'>Rafters</td>
           <td class='prenail-table-cells'>
-            <input type="checkbox" name='daylePrenailRaftersH1' />
+            <input type='checkbox' name='daylePrenailRaftersH1' />
           </td>
           <td class='prenail-table-cells'>
-            <input type="checkbox" name='daylePrenailRaftersH3' />
+            <input type='checkbox' name='daylePrenailRaftersH3' />
           </td>
 
         </tr>
@@ -1393,59 +1382,59 @@
 
 
 
-    <div class="checkboxContainer">
+    <div class='checkboxContainer'>
       <h3>Prenail Extras</h3>
       <label>
-        <input class="checkbox" type="checkbox" name="prenailFramesCheck"  />
+        <input class='checkbox' type='checkbox' name='prenailFramesCheck'  />
         Prenail Wall Frames
-        <input class="single-input" type="text" name="prenailFramesText"  />
+        <input class='single-input' type='text' name='prenailFramesText'  />
       </label>
 
       <label>
-        <input class="checkbox" type="checkbox" name="prenailTrussesCheck"  />
+        <input class='checkbox' type='checkbox' name='prenailTrussesCheck'  />
         Trusses
-        <input class="single-input" type="text" name="prenailTrussesText"  />
+        <input class='single-input' type='text' name='prenailTrussesText'  />
       </label>
       <label>
-        <input class="checkbox" type="checkbox" name="prenailPrecutRaftersCheck"  />
+        <input class='checkbox' type='checkbox' name='prenailPrecutRaftersCheck'  />
         Precut Rafters
-        <input class="single-input" type="text" name="prenailPrecutRaftersText"  />
+        <input class='single-input' type='text' name='prenailPrecutRaftersText'  />
       </label>
       <label>
-        <input class="checkbox" type="checkbox" name="prenailPrecutRoofCheck"  />
+        <input class='checkbox' type='checkbox' name='prenailPrecutRoofCheck'  />
         Precut balance of Roof
-        <input class="single-input" type="text" name="prenailPrecutRoofText"  />
+        <input class='single-input' type='text' name='prenailPrecutRoofText'  />
       </label>
     </div>
-    <div class="checkboxContainer">
+    <div class='checkboxContainer'>
       <header>
         <h4>Other : TBC by Prenail Supplier, must be detailed</h4>
       </header>
       <label>
         LVL Beams
-        <input class="single-input" type="checkbox" name="daylesPrenailLVLBeams"  />
+        <input class='single-input' type='checkbox' name='daylesPrenailLVLBeams'  />
         eg in Mid floor / roof, lintels as per prenail/ engineer
       </label>
       <label>
         Glulam Beams
-        <input class="single-input" type="checkbox" name="daylesPrenailGulamBeams"  />
+        <input class='single-input' type='checkbox' name='daylesPrenailGulamBeams'  />
         eg in Mid floor / roof, lintels as per prenail/ engineer
       </label>
       <label>
         Flitch Beams
-        <input class="single-input" type="checkbox" name="daylesPrenailFlitchBeams"  />
+        <input class='single-input' type='checkbox' name='daylesPrenailFlitchBeams'  />
         eg in Mid floor / roof, lintels as per prenail/ engineer
       </label>
 
       <label>
         Double top plate loose
-        <input class="single-input" type="checkbox" name="daylesPrenailDoubleTop"  />
+        <input class='single-input' type='checkbox' name='daylesPrenailDoubleTop'  />
         double top plates will come nailed by default
       </label>
 
       <label>
         Studlok / lintel lok
-        <input class="single-input" type="checkbox" name="daylesPrenailStudlok"  />
+        <input class='single-input' type='checkbox' name='daylesPrenailStudlok'  />
         premium service, additional charges apply
       </label>
 
@@ -1454,49 +1443,49 @@
     </div>
   </div>
 
-  <div class="uploadSection">
+  <div class='uploadSection'>
     <br>
     <h3>Upload your plan files here. If you're not uploading a file, tick the box.</h3>
     <table>
       <tr>
         <td class='firstCol'>Plans:  </td>
-        <td><input id='plansFile' type="file" name="myFile1" class="plans" required></td>
-        <td id='plansFileResults' class="results">result</td>
-        <td style="text-align: right; min-width: 90px;">No File:<input name="myFile1checkbox" type="checkbox" class="plans" required></td>
+        <td><input id='plansFile' type='file' name='myFile1' class='plans' required></td>
+        <td id='plansFileResults' class='results'>result</td>
+        <td style='text-align: right; min-width: 90px;'>No File:<input name='myFile1checkbox' type='checkbox' class='plans' required></td>
       </tr>
       <tr>
         <td class='firstCol'>Engineer Plans: </td>
-        <td><input id='eng1' type="file" name="myFile2" class="engineer" required></td>
-        <td id='eng1Results' class="results">result</td>
-        <td style="text-align: right; min-width: 90px;">No File:<input name="myFile2checkbox" type="checkbox" class="engineer" required></td>
+        <td><input id='eng1' type='file' name='myFile2' class='engineer' required></td>
+        <td id='eng1Results' class='results'>result</td>
+        <td style='text-align: right; min-width: 90px;'>No File:<input name='myFile2checkbox' type='checkbox' class='engineer' required></td>
       </tr>
       <tr>
         <td class='firstCol'>Window & Door Plans:</td>
-        <td><input id='wndPlansFile' type="file" name="myFile3" class="wndPlans" required></td>
-        <td id='wndPlansFileResults' class="results">result</td>
-        <td style="text-align: right; min-width: 90px;">No File:<input name="myFile3checkbox" type="checkbox" class="wndPlans" required></td>
+        <td><input id='wndPlansFile' type='file' name='myFile3' class='wndPlans' required></td>
+        <td id='wndPlansFileResults' class='results'>result</td>
+        <td style='text-align: right; min-width: 90px;'>No File:<input name='myFile3checkbox' type='checkbox' class='wndPlans' required></td>
       </tr>
       <tr>
         <td class='firstCol'>Specifications:</td>
-        <td><input id='specsFile' type="file" name="myFile4" class="specs" required></td>
-        <td id='specsFileResults' class="results">result</td>
-        <td style="text-align: right; min-width: 90px;">No File:<input name="myFile4checkbox" type="checkbox" class="specs" required></td>
+        <td><input id='specsFile' type='file' name='myFile4' class='specs' required></td>
+        <td id='specsFileResults' class='results'>result</td>
+        <td style='text-align: right; min-width: 90px;'>No File:<input name='myFile4checkbox' type='checkbox' class='specs' required></td>
       </tr>
       <tr>
         <td class='firstCol'>DWG floor plan:</td>
-        <td><input id='dwgFile' type="file" name="dwgFile" class="dwg" required></td>
-        <td id='dwgFileResults' class="results">result</td>
-        <td style="text-align: right; min-width: 90px;">No File:<input name="dwgcheckbox" type="checkbox" class="dwg" required></td>
+        <td><input id='dwgFile' type='file' name='dwgFile' class='dwg' required></td>
+        <td id='dwgFileResults' class='results'>result</td>
+        <td style='text-align: right; min-width: 90px;'>No File:<input name='dwgcheckbox' type='checkbox' class='dwg' required></td>
       </tr>
 
     </table>
   </div>
   <br>
 
-  <input class="submission" type="submit" value="Submit form and upload">
+  <input class='submission' type='submit' value='Submit form and upload'>
 
 </form>
-<div id="output">
+<div id='output'>
   <h3>&nbsp;</h3>
   <p>&nbsp;</p>
 </div>

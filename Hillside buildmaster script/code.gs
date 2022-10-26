@@ -508,7 +508,7 @@ function processForm(form) {
     estimationContent+="<header id='toggle-section-header-landscaping' class='toggle-section-header'>Landscaping"
     estimationContent+="<label id='label-as-plan-landscaping' class='as-plan-toggle landscaping' "+(form['as-plan-landscaping']?'':"style='visibility:none;'")+">As per Plan"
     estimationContent+="<input type='checkbox'  id='as-plan-landscaping' "+(form['as-plan-landscaping']?'checked':'')+" /></label>"
-    estimationContent+="<label id='label-as-selected-landscaping' class='hide-section-toggle landscaping' "+(form['toggle-as-selected-landscaping']?'':"style='visibility:none;'")+">As Selected"
+    estimationContent+="<label id='label-toggle-as-selected-landscaping' class='hide-section-toggle landscaping' "+(form['toggle-as-selected-landscaping']?'':"style='visibility:none;'")+">As Selected"
     estimationContent+="<input type='checkbox' id='toggle-as-selected-landscaping' "+(form['toggle-as-selected-landscaping']?'checked':'')+" /></label>"
     estimationContent+="<label id='label-toggle-none-landscaping' class='hide-section-toggle landscaping' "+(form['toggle-none-landscaping']?'':"style='visibility:none;'")+">Not required"
     estimationContent+="<input type='checkbox' id='toggle-none-landscaping' "+(form['toggle-none-landscaping']?'checked':'')+" /></label>"
@@ -524,7 +524,7 @@ function processForm(form) {
     estimationContent+="<label class='landscaping additional'for='landscaping-additional'>Additional Information"
     estimationContent+="<textarea class='textbox estimationAdditional' type='textbox' name='landscaping-additional' ></textarea></label>"
     estimationContent+="</main></div></div></div>"
-
+    content+= estimationContent
 
     prenailContentSubmitted+= "<div id='prenail-questions' class=''>"
     prenailContentSubmitted+= "<header class='fullWidthContainer'><h1>Prenail questions</h1></header>"
@@ -587,12 +587,14 @@ function processForm(form) {
     var prenailContent = ''+head+styles+headEnd+clientDetails+prenailContentSubmitted+formFoot
     var estCompleteContent = "" + head+styles+headEnd+clientDetails+estimationContent+formFoot
 
-    var generalOutsourcingBody = "A new Job has been submitted by "+form['quote-info-sales-rep']+"' from ITM "+form['template-selection'].
-    generalOutsourcingBody += "<br>This job requires some estimation, When you receive this email, please Click this"
-    generalOutsourcingBody+="<a href='"
-    generalOutsourcingBody+="mailto:shaun@hillsideitm.co.nz?subject=Recepient%20Received%20Job%20"
-    generalOutsourcingBody+=jobNumber+"&body=Just%20letting%20you%20know%20we%20receivedVthe%20job'>link</a>"
-    generalOutsourcingBody+= "to confirm you have received the job. Jobs that haven't been confirmed will expire in 3 Business Days. "
+    var generalOutsourcingBody = ""
+    generalOutsourcingBody += "A new Job has been submitted by " +form['quote-info-sales-rep']
+    generalOutsourcingBody += " from ITM " +form['template-selection']
+    generalOutsourcingBody += ".<br>This job requires some estimation, When you receive this email, please Click this"
+    generalOutsourcingBody += "<a href='"
+    generalOutsourcingBody += "mailto:shaun@hillsideitm.co.nz?subject=Recepient%20Received%20Job%20"
+    generalOutsourcingBody += jobNumber+"&body=Just%20letting%20you%20know%20we%20receivedVthe%20job'>link</a>"
+    generalOutsourcingBody += "to confirm you have received the job. Jobs that haven't been confirmed will expire in 3 Business Days. "
 
     generalOutsourcingBody+= "<br>Please see the bellow links to the plan files uploaded for this job"
 
@@ -602,10 +604,10 @@ function processForm(form) {
     var prenailOutput = "A new Job has been submitted by "+form['quote-info-sales-rep']+"' For "+form['template-selection']
 
     if(!form['cancel-outsourcing']) {
-      var outsourcedBlob = Utilities.newBlob(outsourcedContent, "text/html", "text.html");
+      var outsourcedBlob = Utilities.newBlob(generalOutsourcingContent, "text/html", "text.html");
       var outsourcedPdf = outsourcedBlob.getAs("application/pdf");
       uploadedOutsourcedPDF = JobFolder.createFile(outsourcedPdf).setName("pdf Outsource request "+form['job-info-address']+".pdf");
-      uploadedOutsourcedHTML = JobFolder.createFile("html Outsource request "+form['job-info-address']+".html", outsourcedContent, MimeType.HTML);
+      uploadedOutsourcedHTML = JobFolder.createFile("html Outsource request "+form['job-info-address']+".html", generalOutsourcingContent, MimeType.HTML);
       uploadedOutsourcedPDF.setSharing(DriveApp.Access.ANYONE, DriveApp.Permission.EDIT);
       uploadedOutsourcedPDF.setSharing(DriveApp.Access.ANYONE_WITH_LINK, DriveApp.Permission.VIEW);
       uploadedOutsourcedHTML.setSharing(DriveApp.Access.ANYONE, DriveApp.Permission.EDIT);

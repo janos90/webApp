@@ -118,7 +118,7 @@ function processForm(form) {
     styles+=".fullWidthContainer { width: 100%;  }"
     styles+="#heading { display:flex; height:100%; padding: 0em 20em 2em 20em;  }"
     styles+=".store-logo { width: 15em;  }"
-    styles+="#heading .title { color:red; width: 15em;  }"
+    styles+="#heading .title { color:red; width: 15em; padding-left: 50px; }"
     styles+=".section { width: 100%; border: solid black 2px; padding: 0em 0em 0em 0em; margin: 1em 0 1em 0;  }"
     styles+=".split-box { display: flex;  }"
     styles+=".split-box div { border: solid black 1px; margin: 1em;  }"

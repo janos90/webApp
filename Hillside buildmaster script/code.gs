@@ -306,7 +306,7 @@ function processForm(form) {
     estimationContent +="<input type='checkbox' id='toggle-none-foundations' "+(form['toggle-none-foundations']?'checked':'')+" /></label>"
     estimationContent +="</header>"
 
-    estimationContent +="<main "+(form['toggle-as-selected-foundations']?'':"style='display:none;'")+"  class='toggle-section-questions' id='toggle-section-questions-foundations'>"
+    estimationContent +="<main "+(form['toggle-as-selected-foundations']?"style='display:flex;":"style='display:none;'")+"  class='toggle-section-questions' id='toggle-section-questions-foundations'>"
     estimationContent+= "<label class='foundations reinforcing-steel'for='foundations-reinforcing-steel'><input class='checkbox' type='checkbox' "+(form['foundations-reinforcing-steel']?'checked':'')+"/>Reinforcing Steel</label>"
     estimationContent+= "<label class='foundations blocks'for='foundations-blocks'><input class='checkbox' type='checkbox' "+(form['foundations-blocks']?'checked':'')+" />Blocks</label>"
     estimationContent+= "<label class='foundations pod-system'for='foundations-pod-system'><input class='checkbox' type='checkbox' "+(form['foundations-pod-system']?'checked':'')+" />Pod System</label>"
@@ -325,7 +325,7 @@ function processForm(form) {
     estimationContent+= "<input type='checkbox' id='toggle-none-timber-floor' "+(form['toggle-none-timber-floor']?'checked':'')+"/></label>"
     estimationContent+= "</header>"
 
-    estimationContent+= "<main "+(form['toggle-as-selected-timber-floor']?'':"style='display:none;'")+" class='toggle-section-questions' id='toggle-section-questions-timber-floor'>"
+    estimationContent+= "<main "+(form['toggle-as-selected-timber-floor']?"style='display:flex;":"style='display:none;'")+" class='toggle-section-questions' id='toggle-section-questions-timber-floor'>"
     estimationContent+= "<label class='timber-floor bearers'for='timber-floor-bearers'><input class='checkbox' type='checkbox' "+(form['timber-floor-bearers-check']?'checked':'')+" />"
     estimationContent+= "Bearers /></label>"
     estimationContent+= "<label class='timber-floor Joists'for='timber-floor-Joists'><input class='checkbox' type='checkbox' "+(form['timber-floor-Joists-check']?'checked':'')+" />"
@@ -349,7 +349,7 @@ function processForm(form) {
     estimationContent+="<label id='label-toggle-none-wall-framing' class='hide-section-toggle wall-framing' "+(form['toggle-none-wall-framing']?'':"style='visibility:none;'")+">Not required"
     estimationContent+="<input type='checkbox' id='toggle-none-wall-framing' "+(form['toggle-none-wall-framing']?'checked':'')+" onclick='toggleNone('wall-framing')'/></label></header>"
 
-    estimationContent+="<main "+(form['toggle-as-selected-wall-framing']?'':"style='display:none;'")+" class='toggle-section-questions' id='toggle-section-questions-wall-framing' >"
+    estimationContent+="<main "+(form['toggle-as-selected-wall-framing']?"style='display:flex;":"style='display:none;'")+" class='toggle-section-questions' id='toggle-section-questions-wall-framing' >"
     estimationContent+="<label class='wall-framing prenailer-supplied'for='wall-framing-prenailer-supplied'>"
     estimationContent+="<input class='checkbox' type='checkbox' name='wall-framing-prenailer-supplied' />Supplied by Prenailer - Do not allow</label>"
     estimationContent+="<label class='wall-framing random'for='wall-framing-random'><input class='checkbox' type='checkbox' "+(form['wall-framing-random']?'checked':'')+" />Random</label>"
@@ -375,7 +375,7 @@ function processForm(form) {
     estimationContent+="<input type='checkbox' id='toggle-none-roof-framing' "+(form['toggle-none-roof-framing']?'checked':'')+" onclick='toggleNone('roof-framing')'/></label>"
     estimationContent+="</header>"
 
-    estimationContent+="<main "+(form['toggle-as-selected-roof-framing']?'':"style='display:none;'")+" class='toggle-section-questions' id='toggle-section-questions-roof-framing'>"
+    estimationContent+="<main "+(form['toggle-as-selected-roof-framing']?"style='display:flex;":"style='display:none;'")+" class='toggle-section-questions' id='toggle-section-questions-roof-framing'>"
     estimationContent+="<label class='roof-framing prenailer-supplied'for='roof-framing-prenailer-supplied'>"
     estimationContent+="<input class='checkbox' type='checkbox' "+(form['roof-framing-prenailer-supplied']?'checked':'')+"Supplied by Prenailer - Do not allow</label>"
     estimationContent+="<label class='roof-framing bor-pack'for='roof-framing-bor-pack'>"
@@ -400,7 +400,7 @@ function processForm(form) {
     estimationContent+="<input type='checkbox' id='toggle-none-exterior-finishing' "+(form['toggle-none-exterior-finishing']?'checked':'')+" onclick='toggleNone('exterior-finishing')'/></label>"
     estimationContent+="</header>"
 
-    estimationContent+="<main "+(form['toggle-as-selected-exterior-finishing']?'':"style='display:none;'")+" class='toggle-section-questions' id='toggle-section-questions-exterior-finishing'>"
+    estimationContent+="<main "+(form['toggle-as-selected-exterior-finishing']?"style='display:flex;":"style='display:none;'")+" class='toggle-section-questions' id='toggle-section-questions-exterior-finishing'>"
     estimationContent+="<label class='exterior-finishing building-wrap'for='exterior-finishing-building-wrap'>"
     estimationContent+="<input class='checkbox' type='checkbox' "+(form['exterior-finishing-building-wrap']?'checked':'')+" />Building Wrap</label>"
     estimationContent+="<label class='exterior-finishing timber-fascia'for='exterior-finishing-timber-fascia'>"
@@ -429,7 +429,7 @@ function processForm(form) {
     estimationContent+="<input type='checkbox' id='toggle-none-cladding' "+(form['toggle-none-cladding']?'checked':'')+" onclick='toggleNone('cladding')'/></label>"
     estimationContent+="</header>"
 
-    estimationContent+="<main "+(form['toggle-as-selected-cladding']?'':"style='display:none;'")+" class='toggle-section-questions' id='toggle-section-questions-cladding'><label class='cladding brick'for='cladding-brick'>"
+    estimationContent+="<main "+(form['toggle-as-selected-cladding']?"style='display:flex;":"style='display:none;'")+" class='toggle-section-questions' id='toggle-section-questions-cladding'><label class='cladding brick'for='cladding-brick'>"
     estimationContent+="<input class='checkbox' type='checkbox' "+(form['cladding-brick-check']?'checked':'')+" />Brick</label>"
     estimationContent+="<label class='cladding sheet'for='cladding-sheet'><input class='checkbox' type='checkbox' "+(form['cladding-sheet-check']?'checked':'')+" />Sheet</label>"
     estimationContent+="<label class='cladding w-board'for='cladding-w-board'><input class='checkbox' type='checkbox' "+(form['cladding-w-board-check']?'checked':'')+" />W/Board</label>"
@@ -449,7 +449,7 @@ function processForm(form) {
     estimationContent+="<input type='checkbox' id='toggle-none-insulation' "+(form['toggle-none-insulation']?'checked':'')+" onclick='toggleNone('insulation')'/></label>"
     estimationContent+="</header>"
 
-    estimationContent+="<main "+(form['toggle-as-selected-insulation']?'':"style='display:none;'")+" class='toggle-section-questions' id='toggle-section-questions-insulation'>"
+    estimationContent+="<main "+(form['toggle-as-selected-insulation']?"style='display:flex;":"style='display:none;'")+" class='toggle-section-questions' id='toggle-section-questions-insulation'>"
     estimationContent+="<label class='insulation sub-floor'for='insulation-sub-floor'><input class='check' type='checkbox' "+(form['insulation-sub-floor-check']?'checked':'')+" />Sub Floor</label>"
     estimationContent+="<label class='insulation mid-floor'for='insulation-mid-floor'><input class='check' type='checkbox' "+(form['insulation-mid-floor-check']?'checked':'')+" />Mid Floor</label>"
     estimationContent+="<label class='insulation walls'for='insulation-walls'><input class='check' type='checkbox' "+(form['insulation-walls-check']?'checked':'')+" />Walls</label>"
@@ -472,7 +472,7 @@ function processForm(form) {
     estimationContent+="<input type='checkbox' id='toggle-none-interior-linings' "+(form['toggle-none-interior-linings']?'checked':'')+" onclick='toggleNone('interior-linings')'/></label>"
     estimationContent+="</header>"
 
-    estimationContent+="<main "+(form['toggle-as-selected-interior-linings']?'':"style='display:none;'")+" class='toggle-section-questions' id='toggle-section-questions-interior-linings'>"
+    estimationContent+="<main "+(form['toggle-as-selected-interior-linings']?"style='display:flex;":"style='display:none;'")+" class='toggle-section-questions' id='toggle-section-questions-interior-linings'>"
     estimationContent+="<label class='interior-linings wall'for='interior-linings-wall'><input class='checkbox' type='checkbox' "+(form['interior-linings-wall']?'checked':'')+" />Wall</label>"
     estimationContent+="<label class='interior-linings wet-wall'for='interior-linings-wet-wall'><input class='checkbox' type='checkbox' "+(form['interior-linings-wet-wall']?'checked':'')+" />Wet Wall</label>"
     estimationContent+="<label class='interior-linings bathroom'for='interior-linings-bathroom'><input class='checkbox' type='checkbox' "+(form['interior-linings-bathroom']?'checked':'')+" />Bathroom</label>"
@@ -495,7 +495,7 @@ function processForm(form) {
     estimationContent+="<input type='checkbox' id='toggle-none-interior-doors' "+(form['toggle-none-interior-doors']?'checked':'')+" onclick='toggleNone('interior-doors')'/></label>"
     estimationContent+="</header>"
 
-    estimationContent+="<main "+(form['toggle-as-selected-interior-doors']?'':"style='display:none;'")+" class='toggle-section-questions' id='toggle-section-questions-interior-doors'>"
+    estimationContent+="<main "+(form['toggle-as-selected-interior-doors']?"style='display:flex;":"style='display:none;'")+" class='toggle-section-questions' id='toggle-section-questions-interior-doors'>"
     estimationContent+="<label class='interior-doors door-type'for='interior-doors-door-type'><input class='checkbox' type='checkbox' "+(form['interior-doors-door-type']?'checked':'')+" />MDF HC PQ FJ FLAT JAMB</label>"
     estimationContent+="<label class='interior-doors door-hardware'for='interior-doors-door-hardware'><input class='checkbox' type='checkbox' "+(form['interior-doors-door-hardware']?'checked':'')+" />Door Hardware</label>"
     estimationContent+="<label class='interior-doors additional'for='interior-doors-additional'>Additional Information"
@@ -512,7 +512,7 @@ function processForm(form) {
     estimationContent+="<input type='checkbox' id='toggle-none-interior-finishings' "+(form['toggle-none-interior-finishings']?'checked':'')+" /></label>"
     estimationContent+="</header>"
 
-    estimationContent+="<main "+(form['toggle-as-selected-interior-finishings']?'':"style='display:none;'")+" class='toggle-section-questions' id='toggle-section-questions-interior-finishings'>"
+    estimationContent+="<main "+(form['toggle-as-selected-interior-finishings']?"style='display:flex;":"style='display:none;'")+" class='toggle-section-questions' id='toggle-section-questions-interior-finishings'>"
     estimationContent+="<label class='interior-finishings mdf'for='interior-finishings-mdf'>MDF<input class='checkbox' type='checkbox' "+(form['interior-finishings-mdf']?'checked':'')+" /></label>"
     estimationContent+="<label class='interior-finishings f-j'for='interior-finishings-f-j'>F/J<input class='checkbox' type='checkbox' "+(form['interior-finishings-f-j']?'checked':'')+" /></label>"
     estimationContent+="<label class='interior-finishings clears'for='interior-finishings-clears'>Clears<input class='checkbox' type='checkbox' "+(form['interior-finishings-clears']?'checked':'')+" /></label>"
@@ -536,7 +536,7 @@ function processForm(form) {
     estimationContent+="<input type='checkbox' id='toggle-none-landscaping' "+(form['toggle-none-landscaping']?'checked':'')+" /></label>"
     estimationContent+="</header>"
 
-    estimationContent+="<main "+(form['toggle-as-selected-landscaping']?'':"style='display:none;'")+" class='toggle-section-questions' id='toggle-section-questions-landscaping'>"
+    estimationContent+="<main "+(form['toggle-as-selected-landscaping']?"style='display:flex;":"style='display:none;'")+" class='toggle-section-questions' id='toggle-section-questions-landscaping'>"
     estimationContent+="<label class='landscaping concrete-patios'for='landscaping-concrete-patios'><input class='checkbox' type='checkbox' "+(form['landscaping-concrete-patios']?'checked':'')+" />Concrete Patios</label>"
     estimationContent+="<label class='landscaping ply-deck'for='landscaping-ply-deck'><input class='checkbox' type='checkbox' "+(form['landscaping-ply-deck-check']?'checked':'')+" />Ply Deck</label>"
     estimationContent+="<label class='landscaping decking'for='landscaping-decking'><input class='checkbox' type='checkbox' "+(form['landscaping-decking']?'checked':'')+" />Decking</label>"

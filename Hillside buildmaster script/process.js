@@ -13,7 +13,7 @@ var prenailContentSubmitted = ''
   head+="<!doctype html><head>"
   styles+="<style type='text/css'>"
   styles+="body { text-align: -webkit-center; background-color: #FFfFFF; font-family: Sans-serif;  }"
-  styles+="form { width:80em;  }"
+  styles+="form { width:800px;  }"
   styles+=".checkboxContainer { width: 45%; margin-top: 2%; border: black solid 1px;"
   styles+="border-radius: 5px; margin-left: auto; margin-right: auto; padding: 20px;  }"
   styles+="#prenail-questions { flex-wrap: wrap;  }"

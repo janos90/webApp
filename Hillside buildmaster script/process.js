@@ -79,7 +79,7 @@ var prenailContentSubmitted = ''
   clientDetails+= "</label>"
 
   clientDetails+= "<label for='tickbox-preliminary-plan'>Preliminary plan<input class='planType' type='checkbox' "+(form['tickbox-preliminary-plan']?'checked':'')+" ></label>"
-  clientDetails+= "<label for='tickbox-preliminary-plan'>Consented plan<input class='planType' type='checkbox' "+(form['tickbox-preliminary-plan']?'checked':'')+" ></label>"
+  clientDetails+= "<label for='tickbox-consented-plan'>Consented plan<input class='planType' type='checkbox' "+(form['tickbox-consented-plan']?'checked':'')+" ></label>"
   clientDetails+= "<label for='quote-info-plan-version'>Plan Version Number<input class='single-input' type='text' "+(form['quote-info-plan-version']?'checked':'')+" /></label>"
   clientDetails+= "</div>"
 

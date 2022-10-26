@@ -72,17 +72,21 @@ function processForm(form) {
 
     var jobNumerical = getIterator()
     var jobNumber =  jobNumerical
-    if(form['template-selection'].value === 'Hillside') {
+    if(form['template-selection'] === 'Hillside') {
       jobNumber = '524-' + jobNumerical
-    } else if (form['template-selection'].value === 'Matakana') {
+    } else if (form['template-selection'] === 'Matakana') {
       jobNumber = '489' + jobNumerical
-    } else if (form['template-selection'].value === 'Mahia') {
+    } else if (form['template-selection'] === 'Mahia') {
       jobNumber = '537' + jobNumerical
-    } else if (form['template-selection'].value === 'Turangi') {
+    } else if (form['template-selection'] === 'Turangi') {
       jobNumber = '507' + jobNumerical
-    } else if (form['template-selection'].value === 'Taupo') {
+    } else if (form['template-selection'] === 'Taupo') {
       jobNumber = '539' + jobNumerical
     } else {
+      console.log("form['template-selection']", form['template-selection']);
+      console.log(form['template-selection'] === 'Taupo');
+      console.log(form['template-selection'] == 'Taupo');
+      console.log(form['template-selection'] == 'Turangi');
       jobNumber = '000' + jobNumerical
     }
     var parentFolderId = "1ZrbjfZe6Iol1yOmFPeDEwt53CscY4hOk"
@@ -271,10 +275,11 @@ function processForm(form) {
 
     estimationContent += "<div class='section' >"
     estimationContent += "<header class='toggle-section-header'> Estimation - "
-    estimationContent += (form['cancel-estimation']?'not Required':'Tick sections or Items') +"</header>"
+    estimationContent += form['cancel-estimation']?'not Required':'Tick sections or Items' +"</header>"
 
 
     estimationContent +="<div class='toggle-section-wrapper' id='toggle-section-wrapper'>"
+
     estimationContent +="<div class='toggle-section foundations'><header id='toggle-section-header-foundations' class='toggle-section-header'>Foundations"
     estimationContent +="<label id='label-as-plan-foundations' class='as-plan-toggle foundations' "+(form['as-plan-foundations']?'':"style='visibility:none;'")+"> As per Plan"
     estimationContent +="<input type='checkbox' id='as-plan-foundations' "+(form['as-plan-foundations']?'checked':'')+" /></label>"
@@ -285,7 +290,6 @@ function processForm(form) {
     estimationContent +="</header>"
 
     estimationContent +="<main "+(form['toggle-as-selected-foundations']?'':"style='display:none;'")+"  class='toggle-section-questions' id='toggle-section-questions-foundations'>"
-
     estimationContent+= "<label class='foundations reinforcing-steel'for='foundations-reinforcing-steel'><input class='checkbox' type='checkbox' "+(form['foundations-reinforcing-steel']?'checked':'')+"/>Reinforcing Steel</label>"
     estimationContent+= "<label class='foundations blocks'for='foundations-blocks'><input class='checkbox' type='checkbox' "+(form['foundations-blocks']?'checked':'')+" />Blocks</label>"
     estimationContent+= "<label class='foundations pod-system'for='foundations-pod-system'><input class='checkbox' type='checkbox' "+(form['foundations-pod-system']?'checked':'')+" />Pod System</label>"
@@ -293,8 +297,9 @@ function processForm(form) {
     estimationContent+= "<label class='foundations additional'for='foundations-additional'>Additional Information<textarea class='textbox estimationAdditional' type='textbox' value='"+(form['foundations-additional'])+" >"
     estimationContent+= "</textarea></label></main></div>"
 
-
     estimationContent+= "<div class='toggle-section timber-floor'><header id='toggle-section-header-timber-floor' class='toggle-section-header'>Timber Floor"
+    estimationContent+= "<h1>2</h1>"
+
     estimationContent+= "<label id='label-as-plan-timber-floor' class='as-plan-toggle timber-floor' "+(form['as-plan-timber-floor']?'':"style='visibility:none;'")+">As per Plan"
     estimationContent+= "<input type='checkbox'  id='as-plan-timber-floor' "+(form['as-plan-timber-floor']?'checked':'')+"/></label>"
     estimationContent+= "<label id='label-toggle-as-selected-timber-floor' class='hide-section-toggle timber-floor'"+(form['toggle-as-selected-timber-floor']?'':"style='visibility:none;'")+">As Selected"
@@ -581,8 +586,10 @@ function processForm(form) {
     prenailContentSubmitted+= "<label>Studlok / lintel lok<input class='single-input' type='checkbox' "+(form['daylesPrenailStudlok']?'checked':'')+"  />"
     prenailContentSubmitted+= "premium service, additional charges apply</label>"
     prenailContentSubmitted+= "</div></div>"
-
-    content+= prenailContentSubmitted + formFoot
+    if(form['outsourcing-selection-prenail-turangi'] ||form['outsourcing-selection-prenail-ntml'] ||form['outsourcing-selection-prenail-dayles']) {
+      content += prenailContentSubmitted
+    }
+     content += formFoot
     generalOutsourcingContent+= head + styles + headEnd + clientDetails + formFoot
     var prenailContent = ''+head+styles+headEnd+clientDetails+prenailContentSubmitted+formFoot
     var estCompleteContent = "" + head+styles+headEnd+clientDetails+estimationContent+formFoot
@@ -708,12 +715,12 @@ function processForm(form) {
 
 
     }
-
+    if(!form['cancel-outsourcing']) {
     generalOutsourcingBody += fileLinks
     generalOutsourcingBody += "<br /> Please see included link to Original Quote request information"
     generalOutsourcingBody += "<br> <a href='" + "http://drive.google.com/uc?export=download&id="+ uploadedOutsourcedHTML.getId() + "'>Link to quote request as HTML </a>";
     generalOutsourcingBody += "<br> <a href='" + "http://drive.google.com/uc?export=download&id="+ uploadedOutsourcedPDF.getId() + "'>Link to quote request as PDF </a>";
-
+}
 
 
     if(form['outsourcing-selection-prenail-turangi']) {

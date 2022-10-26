@@ -95,10 +95,9 @@ function processForm(form) {
 
     detailingSubject+= 'Uploaded by: ' + form['quote-info-sales-rep'] + ', '
     detailingSubject+= 'For Client: ' + form['customer-info-name'] + ', '
-    var generalOutsourcing
+    var generalOutsourcingContent
 
     var content = ""
-    var formHeader = ""
     var formFoot = "</form>"
     var styles = ""
     var head = ""
@@ -584,18 +583,36 @@ function processForm(form) {
     prenailContentSubmitted+= "</div></div>"
 
     content+= prenailContentSubmitted + formFoot
-    generalOutsourcing+= head + styles + headEnd + clientDetails + formFoot
-    generalOutsourcing+="When you receive this email, please Click this"
-    generalOutsourcing+="<a href='"
-    generalOutsourcing+="mailto:shaun@hillsideitm.co.nz?subject=Recepient%20Received%20Job%20"
-    generalOutsourcing+=jobNumber+"&body=Just%20letting%20you%20know%20we%20receivedVthe%20job'>link</a>"
-    generalOutsourcing+= "to confirm you have received the job. Jobs that haven't been confirmed will expire in 3 Business Days. "
+    generalOutsourcingContent+= head + styles + headEnd + clientDetails + formFoot
+    var prenailContent = ''+head+styles+headEnd+clientDetails+prenailContentSubmitted+formFoot
+    var estCompleteContent = "" + head+styles+headEnd+clientDetails+estimationContent+formFoot
+
+    var generalOutsourcingBody = "A new Job has been submitted by "+form['quote-info-sales-rep']+"' from ITM "+form['template-selection'].
+    generalOutsourcingBody += "<br>This job requires some estimation, When you receive this email, please Click this"
+    generalOutsourcingBody+="<a href='"
+    generalOutsourcingBody+="mailto:shaun@hillsideitm.co.nz?subject=Recepient%20Received%20Job%20"
+    generalOutsourcingBody+=jobNumber+"&body=Just%20letting%20you%20know%20we%20receivedVthe%20job'>link</a>"
+    generalOutsourcingBody+= "to confirm you have received the job. Jobs that haven't been confirmed will expire in 3 Business Days. "
+
+    generalOutsourcingBody+= "<br>Please see the bellow links to the plan files uploaded for this job"
 
 
     var uploadedPrenailPDF
     var uploadedPrenailHTML
     var prenailOutput = "A new Job has been submitted by "+form['quote-info-sales-rep']+"' For "+form['template-selection']
-    var prenailContent = ''+head+styles+headEnd+clientDetails+prenailContentSubmitted+formFoot
+
+    if(!form['cancel-outsourcing']) {
+      var outsourcedBlob = Utilities.newBlob(outsourcedContent, "text/html", "text.html");
+      var outsourcedPdf = outsourcedBlob.getAs("application/pdf");
+      uploadedOutsourcedPDF = JobFolder.createFile(outsourcedPdf).setName("pdf Outsource request "+form['job-info-address']+".pdf");
+      uploadedOutsourcedHTML = JobFolder.createFile("html Outsource request "+form['job-info-address']+".html", outsourcedContent, MimeType.HTML);
+      uploadedOutsourcedPDF.setSharing(DriveApp.Access.ANYONE, DriveApp.Permission.EDIT);
+      uploadedOutsourcedPDF.setSharing(DriveApp.Access.ANYONE_WITH_LINK, DriveApp.Permission.VIEW);
+      uploadedOutsourcedHTML.setSharing(DriveApp.Access.ANYONE, DriveApp.Permission.EDIT);
+      uploadedOutsourcedHTML.setSharing(DriveApp.Access.ANYONE_WITH_LINK, DriveApp.Permission.VIEW);
+    }
+
+
 
     if(form['outsourcing-selection-prenail-turangi'] ||form['outsourcing-selection-prenail-ntml'] ||form['outsourcing-selection-prenail-dayles']) {
       var prenailBlob = Utilities.newBlob(prenailContent, "text/html", "text.html");
@@ -606,8 +623,6 @@ function processForm(form) {
       uploadedPrenailPDF.setSharing(DriveApp.Access.ANYONE_WITH_LINK, DriveApp.Permission.VIEW);
       uploadedPrenailHTML.setSharing(DriveApp.Access.ANYONE, DriveApp.Permission.EDIT);
       uploadedPrenailHTML.setSharing(DriveApp.Access.ANYONE_WITH_LINK, DriveApp.Permission.VIEW);
-
-
     }
 
     var uploadedEstimationPDF
@@ -615,9 +630,6 @@ function processForm(form) {
     var estimationOutput = "A new Job has been submitted by "+form['quote-info-sales-rep']+"' For "+form['template-selection']
 
     if(!form['cancel-estimation']) {
-      var estCompleteContent = "" + styles+formHeader+clientDetails+estimationContent+'</form>'
-
-
       var estimationBlob = Utilities.newBlob(estCompleteContent, "text/html", "text.html");
       var estimationPdf = estimationBlob.getAs("application/pdf");
       uploadedEstimationPDF = JobFolder.createFile(estimationPdf).setName("pdf Estimation request "+form['job-info-address']+".pdf");
@@ -627,9 +639,6 @@ function processForm(form) {
       uploadedEstimationPDF.setSharing(DriveApp.Access.ANYONE_WITH_LINK, DriveApp.Permission.VIEW);
       uploadedEstimationHTML.setSharing(DriveApp.Access.ANYONE, DriveApp.Permission.EDIT);
       uploadedEstimationHTML.setSharing(DriveApp.Access.ANYONE_WITH_LINK, DriveApp.Permission.VIEW);
-
-
-
     }
 
     var blob = Utilities.newBlob(content, "text/html", "text.html");
@@ -690,13 +699,19 @@ function processForm(form) {
       output += "<br> <h3>Prenail</h3>"
       output += "<br> <a href='" + "http://drive.google.com/uc?export=download&id="+ uploadedPrenailHTML.getId() + "'>Link to Prenail file as HTML </a>";
       output += "<br> <a href='" + "http://drive.google.com/uc?export=download&id="+ uploadedPrenailPDF.getId() + "'>Link to Prenail file as PDF </a>";
-      prenailOutput += "<br /> Please see attatched included link to Request Sheet"
+      prenailOutput += "<br /> Please see included link to Request Sheet"
       prenailOutput += "<br> <a href='" + "http://drive.google.com/uc?export=download&id="+ uploadedPrenailHTML.getId() + "'>Link to Prenail request as HTML </a>";
       prenailOutput += "<br> <a href='" + "http://drive.google.com/uc?export=download&id="+ uploadedPrenailPDF.getId() + "'>Link to Prenail request as PDF </a>";
       prenailOutput+= fileLinks
 
 
     }
+
+    generalOutsourcingBody += fileLinks
+    generalOutsourcingBody += "<br /> Please see included link to Original Quote request information"
+    generalOutsourcingBody += "<br> <a href='" + "http://drive.google.com/uc?export=download&id="+ uploadedOutsourcedHTML.getId() + "'>Link to quote request as HTML </a>";
+    generalOutsourcingBody += "<br> <a href='" + "http://drive.google.com/uc?export=download&id="+ uploadedOutsourcedPDF.getId() + "'>Link to quote request as PDF </a>";
+
 
 
     if(form['outsourcing-selection-prenail-turangi']) {
@@ -718,17 +733,17 @@ function processForm(form) {
 
     if(form['outsourcing-selection-reinforcing-united-steel']) {
       output += "<br>Sent to United Steel for estimation"
-      sendEmail(unitedSteelConstEmail, generalOutsourcing+' steel', detailingSubject+' steel') // email the additional
+      sendEmail(unitedSteelConstEmail, "Hi there United steel, <br>" + generalOutsourcingBody, detailingSubject+' United steel') // email the additional
     }
 
     if(form['outsourcing-selection-reinforcing-Summit']) {
       output += "<br>Sent to Summit for estimation"
-      sendEmail(summitConstEmail, generalOutsourcing+' Summit', detailingSubject+' Summit') // email the additional
+      sendEmail(summitConstEmail, "Hi there Summit, <br>" + generalOutsourcingBody, detailingSubject+' Summit') // email the additional
     }
 
     if(form['outsourcing-selection-reinforcing-Freo']) {
       output += "<br>Sent to FREO for estimation"
-      sendEmail(freoConstEmail, generalOutsourcing+' Freo', detailingSubject+' Freo') // email the additional
+      sendEmail(freoConstEmail, "Hi there Freo, <br>" + generalOutsourcingBody, detailingSubject+' Freo') // email the additional
     }
 
     // Ribraft
@@ -738,27 +753,27 @@ function processForm(form) {
 
     if(form['outsourcing-selection-ribraft-rfl']) {
       output += "<br>Sent to RFL for estimation"
-      sendEmail(rFLConstEmail, generalOutsourcing+' rfl', detailingSubject+' rfl') // email the additional
+      sendEmail(rFLConstEmail, "Hi there RFL, <br>" + generalOutsourcingBody, detailingSubject+' RFL') // email the additional
     }
 
     if(form['outsourcing-selection-ribraft-russel-gordon']) {
       output += "<br>Sent to Russel Gordon for estimation"
-      sendEmail(russelGordonConstEmail, generalOutsourcing+' gordon', detailingSubject+' gordon') // email the additional
+      sendEmail(russelGordonConstEmail, "Hi there Russel Gordon, <br>" + generalOutsourcingBody, detailingSubject+' Russel Gordon') // email the additional
     }
 
     // Joinery
     if(form['outsourcing-selection-joinery-vision'] || form['outsourcing-selection-joinery-tbc']) {
-      output += "<br> <h3>Ribraft</h3>"
+      output += "<br> <h3>Joinery</h3>"
     }
 
     if(form['outsourcing-selection-joinery-vision']) {
       output += "<br>Sent to Vision for estimation"
-      sendEmail(visionConstEmail, generalOutsourcing+' vision', detailingSubject+' vision') // email the additional
+      sendEmail(visionConstEmail, "Hi there Vision, <br>" + generalOutsourcingBody, detailingSubject+' Vision') // email the additional
     }
 
     if(form['outsourcing-selection-joinery-tbc']) {
       output += "<br>Sent to TBC for estimation"
-      sendEmail(tBC, generalOutsourcing+' tbc', detailingSubject+' tbc') // email the additional
+      sendEmail(tBC, "Hi there TBC, <br>" + generalOutsourcingBody, detailingSubject+' TBC') // email the additional
     }
 
     // Garage Doors
@@ -767,7 +782,7 @@ function processForm(form) {
     }
     if(form['outsourcing-selection-garage-doors-dominator']) {
       output += "<br>Sent to Dominator for estimation"
-      sendEmail(dominatorConstEmail, generalOutsourcing+' dominator', detailingSubject+' dominator') // email the additional
+      sendEmail(dominatorConstEmail, "Hi there Dominator, <br>" + generalOutsourcingBody, detailingSubject+' Dominator') // email the additional
     }
 
     //
@@ -780,27 +795,27 @@ function processForm(form) {
     }
     if(form['outsourcing-selection-doors-internal-mahurangi']) {
       output += "<br>Sent to Mahurangi for estimation"
-      sendEmail(mahurangiConstEmail, generalOutsourcing+' mahurangi', detailingSubject+' mahurangi') // email the additional
+      sendEmail(mahurangiConstEmail, "Hi there Mahurangi, <br>" + generalOutsourcingBody, detailingSubject+' Mahurangi') // email the additional
     }
 
     if(form['outsourcing-selection-doors-internal-doorways']) {
       output += "<br>Sent to Doorways for estimation"
-      sendEmail(doorwaysConstEmail, generalOutsourcing+' doorways', detailingSubject+' doorways') // email the additional
+      sendEmail(doorwaysConstEmail, "Hi there Doorways, <br>" + generalOutsourcingBody, detailingSubject+' Doorways') // email the additional
     }
 
     if(form['outsourcing-selection-doors-internal-elite']) {
       output += "<br>Sent to Elite for estimation"
-      sendEmail(eliteConstEmail, generalOutsourcing+' elite', detailingSubject+' elite') // email the additional
+      sendEmail(eliteConstEmail, "Hi there Elite, <br>" + generalOutsourcingBody, detailingSubject+' Elite') // email the additional
     }
 
     if(form['outsourcing-selection-doors-internal-nationwide']) {
       output += "<br>Sent to Nationwide for estimation"
-      sendEmail(nationwideConstEmail, generalOutsourcing+' nationwide', detailingSubject+' nationwide') // email the additional
+      sendEmail(nationwideConstEmail, "Hi there Nationwide, <br>" + generalOutsourcingBody, detailingSubject+' Nationwide') // email the additional
     }
 
     if(form['outsourcing-selection-doors-internal-bennett-doors']) {
       output += "<br>Sent to Bennett Doors for estimation"
-      sendEmail(bennettDoorsConstEmail, generalOutsourcing+' doors', detailingSubject+' doors') // email the additional
+      sendEmail(bennettDoorsConstEmail, "Hi there Bennett Doors, <br>" + generalOutsourcingBody, detailingSubject+' Bennett Doors') // email the additional
     }
 
     // Insulation
@@ -812,22 +827,22 @@ function processForm(form) {
 
     if(form['outsourcing-selection-outsourcing-insualtion-pinkfit']) {
       output += "<br>Sent to Pinkfit for estimation"
-      sendEmail(pinkfitConstEmail, generalOutsourcing+' pinkfit', detailingSubject+' pinkfit') // email the additional
+      sendEmail(pinkfitConstEmail, "Hi there Pinkfit, <br>" + generalOutsourcingBody, detailingSubject+' Pinkfit') // email the additional
     }
 
     if(form['outsourcing-selection-outsourcing-insualtion-natural']) {
       output += "<br>Sent to Natural for estimation"
-      sendEmail(naturalConstEmail, generalOutsourcing+' natural', detailingSubject+' natural') // email the additional
+      sendEmail(naturalConstEmail, "Hi there Natural, <br>" + generalOutsourcingBody, detailingSubject+' Natural') // email the additional
     }
 
     if(form['outsourcing-selection-outsourcing-insualtion-adl-insulation']) {
       output += "<br>Sent to ADL Insulation for estimation"
-      sendEmail(aDLInsulationConstEmail, generalOutsourcing+' insulation', detailingSubject+' insulation') // email the additional
+      sendEmail(aDLInsulationConstEmail, "Hi there ADL Insulation, <br>" + generalOutsourcingBody, detailingSubject+' ADL Insulation') // email the additional
     }
 
     if(form['outsourcing-selection-outsourcing-insualtion-smart-energy']) {
       output += "<br>Sent to Smart Energy for estimation"
-      sendEmail(smartEnergyConstEmail, generalOutsourcing+' energy', detailingSubject+' energy') // email the additional
+      sendEmail(smartEnergyConstEmail, "Hi there Smart Energy, <br>" + generalOutsourcingBody, detailingSubject+' Smart Energy') // email the additional
     }
 
 
@@ -837,12 +852,12 @@ function processForm(form) {
     }
     if(form['outsourcing-selection-structural-steel-allwin']) {
       output += "<br>Sent to Allwin for estimation"
-      sendEmail(allwinConstEmail, generalOutsourcing+' allwin', detailingSubject+' allwin') // email the additional
+      sendEmail(allwinConstEmail, "Hi there Allwin, <br>" + generalOutsourcingBody, detailingSubject+' Allwin') // email the additional
     }
 
     if(form['outsourcing-selection-structural-steel-Ecb']) {
       output += "<br>Sent to ECB for estimation"
-      sendEmail(eCBConstEmail, generalOutsourcing+' Ecb', detailingSubject+' Ecb') // email the additional
+      sendEmail(eCBConstEmail, "Hi there ECB, <br>" + generalOutsourcingBody, detailingSubject+' ECB') // email the additional
     }
 
 
@@ -853,22 +868,22 @@ function processForm(form) {
 
     if(form['outsourcing-selection-cladding-rosenfield']) {
       output += "<br>Sent to Rosenfield for estimation"
-      sendEmail(rosenfieldConstEmail, generalOutsourcing+' rosenfield', detailingSubject+' rosenfield') // email the additional
+      sendEmail(rosenfieldConstEmail, "Hi there Rosenfield, <br>" + generalOutsourcingBody, detailingSubject+' Rosenfield') // email the additional
     }
 
     if(form['outsourcing-selection-cladding-abodo']) {
       output += "<br>Sent to Abodo for estimation"
-      sendEmail(abodoConstEmail, generalOutsourcing+' abodo', detailingSubject+' abodo') // email the additional
+      sendEmail(abodoConstEmail, "Hi there Abodo, <br>" + generalOutsourcingBody, detailingSubject+' Abodo') // email the additional
     }
 
     if(form['outsourcing-selection-cladding-jsc']) {
       output += "<br>Sent to JSC for estimation"
-      sendEmail(jSCConstEmail, generalOutsourcing+' jsc', detailingSubject+' jsc') // email the additional
+      sendEmail(jSCConstEmail, "Hi there JSC, <br>" + generalOutsourcingBody, detailingSubject+' JSC') // email the additional
     }
 
     if(form['outsourcing-selection-cladding-iti-timspec']) {
       output += "<br>Sent to ITI Timspec for estimation"
-      sendEmail(iTITimspecConstEmail, generalOutsourcing+' timspec', detailingSubject+' timspec') // email the additional
+      sendEmail(iTITimspecConstEmail, "Hi there ITI Timspec, <br>" + generalOutsourcingBody, detailingSubject+' ITI Timspec') // email the additional
     }
 
 
@@ -881,27 +896,27 @@ function processForm(form) {
     }
     if(form['outsourcing-selection-roofing-new-era-sfi']) {
       output += "<br>Sent to New Era SFI for estimation"
-      sendEmail(newEraSFIConstEmail, generalOutsourcing+' sfi', detailingSubject+' sfi') // email the additional
+      sendEmail(newEraSFIConstEmail, "Hi there New Era SFI, <br>" + generalOutsourcingBody, detailingSubject+' New Era SFI') // email the additional
     }
 
     if(form['outsourcing-selection-roofing-johnson-roofing-sfi']) {
       output += "<br>Sent to Johnson Roofing SFI for estimation"
-      sendEmail(johnsonRoofingSFIConstEmail, generalOutsourcing+' sfi', detailingSubject+' sfi') // email the additional
+      sendEmail(johnsonRoofingSFIConstEmail, "Hi there Johnson Roofing, <br>" + generalOutsourcingBody, detailingSubject+' Johnson Roofing') // email the additional
     }
 
     if(form['outsourcing-selection-roofing-roofing-industries-supply-only']) {
       output += "<br>Sent to Roofing Industries Supply Only for estimation"
-      sendEmail(roofingIndustriesSupplyOnlyConstEmail, generalOutsourcing+' only', detailingSubject+' only') // email the additional
+      sendEmail(roofingIndustriesSupplyOnlyConstEmail, "Hi there Roofing Industries, <br>" + generalOutsourcingBody, detailingSubject+' Roofing Industries') // email the additional
     }
 
     if(form['outsourcing-selection-roofing-sps-shingles']) {
       output += "<br>Sent to SPS Shingles for estimation"
-      sendEmail(sPSShinglesConstEmail, generalOutsourcing+' shingles', detailingSubject+' shingles') // email the additional
+      sendEmail(sPSShinglesConstEmail, "Hi there SPS Shingles, <br>" + generalOutsourcingBody, detailingSubject+' SPS Shingles') // email the additional
     }
 
     if(form['outsourcing-selection-roofing-metalcraft']) {
       output += "<br>Sent to Metalcraft for estimation"
-      sendEmail(metalcraftConstEmail, generalOutsourcing+' metalcraft', detailingSubject+' metalcraft') // email the additional
+      sendEmail(metalcraftConstEmail, "Hi there Metalcraft, <br>" + generalOutsourcingBody, detailingSubject+' Metalcraft') // email the additional
     }
 
 

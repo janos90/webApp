@@ -311,8 +311,8 @@ function processForm(form) {
     estimationContent+= "<label class='foundations blocks'for='foundations-blocks'><input class='checkbox' type='checkbox' "+(form['foundations-blocks']?'checked':'')+" />Blocks</label>"
     estimationContent+= "<label class='foundations pod-system'for='foundations-pod-system'><input class='checkbox' type='checkbox' "+(form['foundations-pod-system']?'checked':'')+" />Pod System</label>"
     estimationContent+= "<label class='foundations piles'for='foundations-piles'><input class='checkbox' type='checkbox' "+(form['foundations-piles']?'checked':'')+" />Piles</label>"
-    estimationContent+= "<label class='foundations additional'for='foundations-additional'>Additional Information<textarea class='textbox estimationAdditional' type='textbox' value='"+(form['foundations-additional'])+" >"
-    estimationContent+= "</textarea></label></main></div>"
+    estimationContent+= "<label class='foundations additional'for='foundations-additional'>Additional Information"
+    estimationContent+= "<textarea class='textbox estimationAdditional' type='textbox' value='"+(form['foundations-additional'])+" ></textarea></label></main></div>"
 
     estimationContent+= "<div class='toggle-section timber-floor'><header id='toggle-section-header-timber-floor' class='toggle-section-header'>Timber Floor"
     estimationContent+= "<h1>2</h1>"

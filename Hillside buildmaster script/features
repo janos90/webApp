@@ -1,15 +1,13 @@
-Job number made by their store number + XXX
-
-
-Formatting email outsource
-
-tidy textboxes and test
-Branch owner
-email outsourcing
-Please send all pricing to XXX
-Mail to link <a href="mailto:shaun@hillsideitm.co.nz?subject=Recepient%20Received%20Job%20"+jobNumber+"&body=Just%20letting%20you%20know%20we%20receivedVthe%20job">Email Us</a>
-When you receive this email, please Click this <a href="mailto:shaun@hillsideitm.co.nz?subject=Recepient%20Received%20Job%20"+jobNumber+"&body=Just%20letting%20you%20know%20we%20receivedVthe%20job">link</a>
- to confirm you have received the job. Jobs that haven't been confirmed will expire in 3 Business Days.
-Additional information
+1.	Template selected is showing wrong value and quote number may be off on submitted form Tick
+2.	Plan types are both highlighted on submitted form Tick
+3.	“As selected” not showing the options in the estimation selection on submitted form Tick
+4.	Landscaping options not ticking/unticking properly   Tick
+5.	Timber framing not shown on the estimate for some reason.....
+6.	Mailto link hasn’t been tested yet just added quickly.  Tick
+7.	Final form has prenail questions even if prenail not ticked
+8.	Some weirdness happening with borders on submitted file
+9.	Currently it takes about 20secs to upload a job, might be able to get this down to  15 secs
+10.	Images not loading on Any submitted form, may need to get an SVG or build one to fix this so probably not tonight, but placeholder is there
+11.	All communication in the emails sent out is not finalised and partially just there as a stand in.
 
 shaun@hillsideitm.co.nz

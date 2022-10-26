@@ -152,7 +152,6 @@ function processForm(form) {
     clientDetails+= "<h2 class='title'> Estimate request <br /> ITM "+form['template-selection']+"</h2> </header>"
     clientDetails+= "<div class='section' id='quote-info'>   <header>Quote Information   </header>"
     clientDetails+= "<label for='quote-info-reference'>Quote Reference<input class='single-input' type='text' value='"+form['quote-info-reference']+"' /></label>"
-    console.log(form['quote-info-reference']);
     clientDetails+= "<label for='quote-info-sales-rep'>Sales Rep<input class='single-input' type='text' value='"+form['quote-info-sales-rep']+"' /></label>"
     clientDetails+= "<label for='quote-info-date-received'>Date Received<input class='single-input' type='text' value='"+form['quote-info-date-received']+"' /></label>"
     clientDetails+= "<label for='template-selection'>Select Template<select value='"+form['template-selection']+"' id='template-selection'>"
@@ -166,13 +165,14 @@ function processForm(form) {
     clientDetails+= "<div class='section split-box'>"
     clientDetails+= "<div class='half-section' id='customer-info'>"
     clientDetails+= "<header>Customer Information</header>"
-    clientDetails+= "<label for='customer-info-name'>Customer Name<input class='single-input' type='text' value='"+form['customer-info-name']+" /></label>"
-    clientDetails+= "<label for='customer-info-email'>Contact Email<input class='single-input' type='text' value='"+form['customer-info-email']+" /></label>"
-    clientDetails+= "<label for='customer-info-phone'>Phone Number<input class='single-input' type='text' value='"+form['customer-info-phone']+" /></label>"
+    console.log(form['customer-info-name']);
+    clientDetails+= "<label for='customer-info-name'>Customer Name<input type='text' value='"+form['customer-info-name']+"' class='single-input' /> </label>"
+    clientDetails+= "<label for='customer-info-email'>Contact Email<input type='text' value='"+form['customer-info-email']+"' class='single-input' /> </label>"
+    clientDetails+= "<label for='customer-info-phone'>Phone Number<input type='text' value='"+form['customer-info-phone']+"' class='single-input' /> </label>"
     clientDetails+= "</div>"
     clientDetails+= "<div class='half-section' id='job-info'>"
     clientDetails+= "<header>Job Information</header>"
-    clientDetails+= "<label for='job-info-address'>Site Address<input class='textbox-input' type='text' value='"+form['job-info-address']+" /></label>   "
+    clientDetails+= "<label for='job-info-address'>Site Address<input class='textbox-input' type='text' value='"+form['job-info-address']+"' /></label>   "
     clientDetails+= "</div></div>"
 
     content+=clientDetails
@@ -587,7 +587,9 @@ function processForm(form) {
     content+= prenailContentSubmitted + formFoot
     generalOutsourcing+= head + styles + headEnd + clientDetails + formFoot
     generalOutsourcing+="When you receive this email, please Click this"
-    generalOutsourcing+="<a href='mailto:shaun@hillsideitm.co.nz?subject=Recepient%20Received%20Job%20"+jobNumber+"&body=Just%20letting%20you%20know%20we%20receivedVthe%20job'">link</a>
+    generalOutsourcing+="<a href='"
+    generalOutsourcing+="mailto:shaun@hillsideitm.co.nz?subject=Recepient%20Received%20Job%20"
+    generalOutsourcing+=jobNumber+"&body=Just%20letting%20you%20know%20we%20receivedVthe%20job'>link</a>"
     generalOutsourcing+= "to confirm you have received the job. Jobs that haven't been confirmed will expire in 3 Business Days. "
 
 

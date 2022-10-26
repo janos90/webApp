@@ -56,9 +56,28 @@ var prenailContentSubmitted = ''
   clientDetails+= "<label for='quote-info-reference'>Quote Reference<input class='single-input' type='text' value='"+form['quote-info-reference']+"' /></label>"
   clientDetails+= "<label for='quote-info-sales-rep'>Sales Rep<input class='single-input' type='text' value='"+form['quote-info-sales-rep']+"' /></label>"
   clientDetails+= "<label for='quote-info-date-received'>Date Received<input class='single-input' type='text' value='"+form['quote-info-date-received']+"' /></label>"
+
   clientDetails+= "<label for='template-selection'>Select Template<select value='"+form['template-selection']+"' id='template-selection'>"
-  clientDetails+= "<option value='Hillside'>Hillside</option><option value='Matakana'>Matakana</option><option value='Mahia'>Mahia</option>"
-  clientDetails+= "<option value='Turangi'>Turangi</option><option value='Taupo'>Taupo</option></select></label>"
+  switch(form['template-selection']) {
+      case 'Hillside':
+      clientDetails+= "<option value='Hillside' selected>Hillside</option>"
+            break;
+            case 'Matakana':
+      clientDetails+= "<option value='Matakana' selected>Matakana</option>"
+            break;
+            case 'Mahia':
+      clientDetails+= "<option value='Mahia' selected>Mahia</option>"
+            break;
+            case 'Turangi':
+      clientDetails+= "<option value='Turangi' selected>Turangi</option>"
+            break;
+            case 'Taupo':
+      clientDetails+= "<option value='Taupo' selected>Taupo</option>"
+            break;
+
+        }
+  clientDetails+= "</label>"
+
   clientDetails+= "<label for='tickbox-preliminary-plan'>Preliminary plan<input class='planType' type='checkbox' "+(form['tickbox-preliminary-plan']?'checked':'')+" ></label>"
   clientDetails+= "<label for='tickbox-preliminary-plan'>Consented plan<input class='planType' type='checkbox' "+(form['tickbox-preliminary-plan']?'checked':'')+" ></label>"
   clientDetails+= "<label for='quote-info-plan-version'>Plan Version Number<input class='single-input' type='text' "+(form['quote-info-plan-version']?'checked':'')+" /></label>"

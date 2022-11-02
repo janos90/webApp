@@ -138,6 +138,8 @@ var prenailContentSubmitted = ''
   outsourcingSelection+="<ul class='outsourcing-selection-ul garage-doors'>  <header>Garage Doors</header>"
   outsourcingSelection+="<li class='outsourcing-selection-li'><label for='outsourcing-selection-garage-doors-dominator'>Dominator"
   outsourcingSelection+="<input class='checkbox' type='checkbox' "+(form['outsourcing-selection-garage-doors-dominator']?'checked':'')+" /></label></li>"
+  outsourcingSelection+="<li class='outsourcing-selection-li'><label for='outsourcing-selection-garage-doors-dominator-rodney'>Dominator Rodney"
+  outsourcingSelection+="<input class='checkbox' type='checkbox' "+(form['outsourcing-selection-garage-doors-dominator-rodney']?'checked':'')+" /></label></li>"
   outsourcingSelection+="</ul>"
   outsourcingSelection+="<ul class='outsourcing-selection-ul doors-internal'>  <header>Doors - Internal</header>"
   outsourcingSelection+="<li class='outsourcing-selection-li'><label for='outsourcing-selection-doors-internal-mahurangi'>Mahurangi"

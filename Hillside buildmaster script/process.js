@@ -108,6 +108,12 @@ var prenailContentSubmitted = ''
   outsourcingSelection+="<input class='checkbox' type='checkbox' "+(form['outsourcing-selection-prenail-ntml']?'checked':'')+"  id='outsourcePrenailNTMLid' /></label></li>"
   outsourcingSelection+="<li class='outsourcing-selection-li'><label for='outsourcing-selection-prenail-dayles'>Dayles"
   outsourcingSelection+="<input class='checkbox' type='checkbox' "+(form['outsourcing-selection-prenail-dayles']?'checked':'')+"  id='outsourcePrenailDayleid' /></label></li>"
+  outsourcingSelection+="<li class='outsourcing-selection-li'><label for='outsourcing-selection-prenail-vip'>VIP"
+  outsourcingSelection+="<input class='checkbox' type='checkbox' "+(form['outsourcing-selection-prenail-vip']?'checked':'')+"  id='outsourcePrenailVipid' /></label></li>"
+  outsourcingSelection+="<li class='outsourcing-selection-li'><label for='outsourcing-selection-prenail-ift'>IFT"
+  outsourcingSelection+="<input class='checkbox' type='checkbox' "+(form['outsourcing-selection-prenail-ift']?'checked':'')+"  id='outsourcePrenailIftid' /></label></li>"
+
+
   outsourcingSelection+="</ul>"
   outsourcingSelection+="<ul class='outsourcing-selection-ul reinforcing'>  <header>Reinforcing</header>"
   outsourcingSelection+="<li class='outsourcing-selection-li'><label for='outsourcing-selection-reinforcing-united-steel'>United Steel"

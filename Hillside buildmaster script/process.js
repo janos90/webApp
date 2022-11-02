@@ -93,6 +93,7 @@ var prenailContentSubmitted = ''
   clientDetails+= "<div class='half-section' id='job-info'>"
   clientDetails+= "<header>Job Information</header>"
   clientDetails+= "<label for='job-info-address'>Site Address<input class='textbox-input' type='text' value='"+form['job-info-address']+"' /></label>   "
+  clientDetails+= "<label for='job-info-dropbox-links'>DropBox Links<textarea class='textbox-input' type='text' value='"+form['job-info-dropbox-links']+"' /></textarea> </label>"
   clientDetails+= "</div></div>"
 
   content+=clientDetails

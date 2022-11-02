@@ -329,10 +329,13 @@
     var checkbox1 = document.getElementById("outsourcing-selection-prenail-turangi");
     var checkbox2 = document.getElementById("outsourcePrenailNTMLid");
     var checkbox3 = document.getElementById("outsourcePrenailDayleid");
+    var checkbox4 = document.getElementById("outsourcePrenailVipid");
+    var checkbox5 = document.getElementById("outsourcePrenailIftid");
+    
 
     var questions = document.getElementById('prenail-questions');
 
-    if(checkbox1.checked || checkbox2.checked || checkbox3.checked) {
+    if(checkbox1.checked || checkbox2.checked || checkbox3.checked || checkbox4.checked || checkbox5.checked) {
       questions.style.display = "flex"
     } else {
       questions.style.display = "none"
@@ -473,6 +476,19 @@
               <input class="checkbox" type="checkbox" name="outsourcing-selection-prenail-dayles"  id='outsourcePrenailDayleid' onclick="outsourcePrenail()"/>
             </label>
           </li>
+          <li class="outsourcing-selection-li">
+            <label for="outsourcing-selection-prenail-vip">
+              VIP
+              <input class="checkbox" type="checkbox" name="outsourcing-selection-prenail-vip"  id='outsourcePrenailVipid' onclick="outsourcePrenail()"/>
+            </label>
+          </li>
+          <li class="outsourcing-selection-li">
+            <label for="outsourcing-selection-prenail-ift">
+              IFT
+              <input class="checkbox" type="checkbox" name="outsourcing-selection-prenail-ift"  id='outsourcePrenailIftid' onclick="outsourcePrenail()"/>
+            </label>
+          </li>
+
         </ul>
         <ul class="outsourcing-selection-ul reinforcing">
           <header>Reinforcing</header>

@@ -18,55 +18,56 @@ function processForm(form) {
     var quantifierConstEmail = form['estimateEmailTest']
     var outsourceConstEmail = form['outsourceEmailTest']
     // Temporary constants
-    var turangiConstEmail = outsourceConstEmail//'juan@jpgnco.com';
-    var ntmlConstEmail = outsourceConstEmail//'juan@jpgnco.com';
-    var dayleConstEmail = outsourceConstEmail//'juan@jpgnco.com';
+    var turangiConstEmail = outsourceConstEmail
+    var ntmlConstEmail = outsourceConstEmail
+    var dayleConstEmail = outsourceConstEmail
+    var vipConstEmail = outsourceConstEmail
+    var iftConstEmail = outsourceConstEmail
 
-
-    var  unitedSteelConstEmail = outsourceConstEmail//'juan@jpgnco.com';		//		akl.cutandbend@unitedsteel.co.nz
-    var 	summitConstEmail = outsourceConstEmail//'juan@jpgnco.com';			//	QS@summitsteel.co.nz
-    var 	freoConstEmail = outsourceConstEmail//'juan@jpgnco.com';			//	TBC
+    var  unitedSteelConstEmail = outsourceConstEmail		//		akl.cutandbend@unitedsteel.co.nz
+    var 	summitConstEmail = outsourceConstEmail			//	QS@summitsteel.co.nz
+    var 	freoConstEmail = outsourceConstEmail			//	TBC
 
     // Ribraft
-    var 	rFLConstEmail = outsourceConstEmail//'juan@jpgnco.com';		//		TBC
-    var 	russelGordonConstEmail = outsourceConstEmail//'juan@jpgnco.com';		//		TBC
+    var 	rFLConstEmail = outsourceConstEmail		//		TBC
+    var 	russelGordonConstEmail = outsourceConstEmail		//		TBC
 
     // Joinery
-    var 	visionConstEmail = outsourceConstEmail//'juan@jpgnco.com';		//		ash@visionwindows.co.nz
-    var					tBC = '';
+    var 	visionConstEmail = outsourceConstEmail		//		ash@visionwindows.co.nz
+    var		tBC = outsourceConstEmail;
 
     // Garage Doors
-    var 	dominatorConstEmail = outsourceConstEmail//'juan@jpgnco.com';		//		sales@domnorthshore.co.nz
+    var 	dominatorConstEmail = outsourceConstEmail		//		sales@domnorthshore.co.nz
     //
     // Doors - Internal
-    var 	mahurangiConstEmail = outsourceConstEmail//'juan@jpgnco.com';		//		info@mahurangijoinery.co.nz
-    var 	doorwaysConstEmail = outsourceConstEmail//'juan@jpgnco.com';		//		trish.shirley@doorways.co.nz
-    var 	eliteConstEmail = outsourceConstEmail//'juan@jpgnco.com';			//	sales@elitedoors.net.nz
-    var 	nationwideConstEmail = outsourceConstEmail//'juan@jpgnco.com';		//		jo@nationwideprehung.co.nz
-    var 	bennettDoorsConstEmail = outsourceConstEmail//'juan@jpgnco.com'; 		//		craig@bennettdoors.co.nz
+    var 	mahurangiConstEmail = outsourceConstEmail		//		info@mahurangijoinery.co.nz
+    var 	doorwaysConstEmail = outsourceConstEmail		//		trish.shirley@doorways.co.nz
+    var 	eliteConstEmail = outsourceConstEmail			//	sales@elitedoors.net.nz
+    var 	nationwideConstEmail = outsourceConstEmail		//		jo@nationwideprehung.co.nz
+    var 	bennettDoorsConstEmail = outsourceConstEmail 		//		craig@bennettdoors.co.nz
 
     // Insulation
-    var 	pinkfitConstEmail = outsourceConstEmail//'juan@jpgnco.com';		//		John.Coogan@pinkfit.co.nz
-    var 	naturalConstEmail = outsourceConstEmail//'juan@jpgnco.com'; 	//			jon@naturalinsulation.co.nz
-    var 	aDLInsulationConstEmail = outsourceConstEmail//'juan@jpgnco.com';	//			David.morris@adlgroup.co.nz
-    var 	smartEnergyConstEmail = outsourceConstEmail//'juan@jpgnco.com';		//		scarter@brightr.co.nz
+    var 	pinkfitConstEmail = outsourceConstEmail		//		John.Coogan@pinkfit.co.nz
+    var 	naturalConstEmail = outsourceConstEmail 	//			jon@naturalinsulation.co.nz
+    var 	aDLInsulationConstEmail = outsourceConstEmail	//			David.morris@adlgroup.co.nz
+    var 	smartEnergyConstEmail = outsourceConstEmail		//		scarter@brightr.co.nz
 
     // Structural SteelConstEmail
-    var 	allwinConstEmail = outsourceConstEmail//'juan@jpgnco.com';	//			sales@allwin.co.nz
-    var 	eCBConstEmail = outsourceConstEmail//'juan@jpgnco.com';			//	thomas@ecbeng.co.nz
+    var 	allwinConstEmail = outsourceConstEmail	//			sales@allwin.co.nz
+    var 	eCBConstEmail = outsourceConstEmail			//	thomas@ecbeng.co.nz
 
     // Cladding
-    var 	rosenfieldConstEmail = outsourceConstEmail//'juan@jpgnco.com';		//		dan@rosenfeldkidson.co.nz
-    var 	abodoConstEmail = outsourceConstEmail//'juan@jpgnco.com';		//		lewis.marshall@abodo.co.nz
-    var 	jSCConstEmail = outsourceConstEmail//'juan@jpgnco.com';			//	seanh@jsctimber.co.nz
-    var 	iTITimspecConstEmail = outsourceConstEmail//'juan@jpgnco.com';			//	davidh@ititimspec.co.nz
+    var 	rosenfieldConstEmail = outsourceConstEmail		//		dan@rosenfeldkidson.co.nz
+    var 	abodoConstEmail = outsourceConstEmail		//		lewis.marshall@abodo.co.nz
+    var 	jSCConstEmail = outsourceConstEmail			//	seanh@jsctimber.co.nz
+    var 	iTITimspecConstEmail = outsourceConstEmail			//	davidh@ititimspec.co.nz
 
     // Roofing
-    var 	newEraSFIConstEmail = outsourceConstEmail//'juan@jpgnco.com';						//		nikhil@neweraroofing.co.nz
-    var 	johnsonRoofingSFIConstEmail = outsourceConstEmail//'juan@jpgnco.com';			//					info@johnsonroofingltd.co.nz
-    var 	roofingIndustriesSupplyOnlyConstEmail = outsourceConstEmail//'juan@jpgnco.com';		//						marcust@roof.co.nz
-    var 	sPSShinglesConstEmail = outsourceConstEmail//'juan@jpgnco.com';						//		info@spsbuilding.co.nz
-    var 	metalcraftConstEmail = outsourceConstEmail//'juan@jpgnco.com';						//
+    var 	newEraSFIConstEmail = outsourceConstEmail						//		nikhil@neweraroofing.co.nz
+    var 	johnsonRoofingSFIConstEmail = outsourceConstEmail			//					info@johnsonroofingltd.co.nz
+    var 	roofingIndustriesSupplyOnlyConstEmail = outsourceConstEmail		//						marcust@roof.co.nz
+    var 	sPSShinglesConstEmail = outsourceConstEmail						//		info@spsbuilding.co.nz
+    var 	metalcraftConstEmail = outsourceConstEmail						//
 
 
 
@@ -110,6 +111,25 @@ function processForm(form) {
     var outsourcingSelection = ''
     var estimationContent = ''
     var prenailContentSubmitted = ''
+    var textContent = ""
+
+    textContent+="Quote Reference;" + form['quote-info-reference'] + ";\n"
+    textContent+="Sales Rep;" + form['quote-info-sales-rep'] + ";\n"
+    textContent+="Date Received;" + form['quote-info-date-received'] + ";\n"
+    textContent+="Template;" + form['template-selection'] + ";\n"
+    textContent+="Preliminary plan;" + form['tickbox-preliminary-plan'] + ";\n"
+    textContent+="Consented plan;" + form['tickbox-consented-plan'] + ";\n"
+    textContent+="Plan Version Number;" + form['quote-info-plan-version'] + ";\n"
+    textContent+="Email to;" + form['emailTo'] + ";\n"
+    textContent+="Customer Name;" + form['customer-info-name'] + ";\n"
+    textContent+="Contact Email;" + form['customer-info-email'] + ";\n"
+    textContent+="Phone Number;" + form['customer-info-phone'] + ";\n"
+    textContent+="Site Address;" + form['job-info-address'] + ";\n"
+    textContent+="DropBox Links;" + form['job-info-dropbox-links'] + ";\n"
+    textContent+="Turangi ITM;" + form['outsourcing-selection-prenail-turangi'] + ";\n"
+    textContent+="NTML;" + form['outsourcing-selection-prenail-ntml'] + ";\n"
+    textContent+="Dayles;" + form['outsourcing-selection-prenail-dayles'] + ";\n"
+    textContent+="VIP;" + form['outsourcing-selection-prenail-vip'] + ";\n"
 
     head+="<!doctype html><head>"
     styles+="<style type='text/css'>"
@@ -176,10 +196,10 @@ function processForm(form) {
       break;
 
     }
-    clientDetails+= "</label>"
+    clientDetails+= "</select></label>"
     clientDetails+= "<label for='tickbox-preliminary-plan'>Preliminary plan<input class='planType' type='checkbox' "+(form['tickbox-preliminary-plan']?'checked':'')+" ></label>"
     clientDetails+= "<label for='tickbox-consented-plan'>Consented plan<input class='planType' type='checkbox' "+(form['tickbox-consented-plan']?'checked':'')+" ></label>"
-    clientDetails+= "<label for='quote-info-plan-version'>Plan Version Number<input class='single-input' type='text' "+(form['quote-info-plan-version']?'checked':'')+" /></label>"
+    clientDetails+= "<label for='quote-info-plan-version'>Plan Version Number<input class='single-input' type='text' value='"+form['quote-info-plan-version']+"' /></label>"
     clientDetails+= "</div>"
 
     clientDetails+= "<div class='section split-box'>"
@@ -192,8 +212,8 @@ function processForm(form) {
     clientDetails+= "<div class='half-section' id='job-info'>"
     clientDetails+= "<header>Job Information</header>"
     clientDetails+= "<label for='job-info-address'>Site Address<input class='textbox-input' type='text' value='"+form['job-info-address']+"' /></label>   "
-    clientDetails+= "<label for='job-info-dropbox-links'>DropBox Links<textarea class='textbox-input' type='text' value='"+form['job-info-dropbox-links']+"' /></textarea> </label>"
     clientDetails+= "</div></div>"
+
 
     content+=clientDetails
 
@@ -306,54 +326,64 @@ function processForm(form) {
 
     estimationContent +="<div class='toggle-section-wrapper' id='toggle-section-wrapper'>"
     estimationContent +="<div class='toggle-section foundations'><header id='toggle-section-header-foundations' class='toggle-section-header'>Foundations"
-    estimationContent +="<label id='label-as-plan-foundations' class='as-plan-toggle foundations' "+(form['as-plan-foundations']?'':"style='visibility:none;'")+"> As per Plan"
+    estimationContent +="<label id='label-as-plan-foundations' class='as-plan-toggle foundations' "+(form['as-plan-foundations']?'':"style='visibility:hidden;'")+"> As per Plan"
     estimationContent +="<input type='checkbox' id='as-plan-foundations' "+(form['as-plan-foundations']?'checked':'')+" /></label>"
-    estimationContent +="<label id='label-toggle-as-selected-foundations' class='hide-section-toggle foundations' "+(form['toggle-as-selected-foundations']?'':"style='visibility:none;'")+"> As Selected"
+    estimationContent +="<label id='label-toggle-as-selected-foundations' class='hide-section-toggle foundations' "+(form['toggle-as-selected-foundations']?'':"style='visibility:hidden;'")+"> As Selected"
     estimationContent +="<input type='checkbox' id='toggle-as-selected-foundations' "+(form['toggle-as-selected-foundations']?'checked':'')+" /></label>"
-    estimationContent +="<label id='label-toggle-none-foundations' class='hide-section-toggle foundations' "+(form['toggle-none-foundations']?'':"style='visibility:none;'")+"> Not required"
+    estimationContent +="<label id='label-toggle-none-foundations' class='hide-section-toggle foundations' "+(form['toggle-none-foundations']?'':"style='visibility:hidden;'")+"> Not required"
     estimationContent +="<input type='checkbox' id='toggle-none-foundations' "+(form['toggle-none-foundations']?'checked':'')+" /></label>"
     estimationContent +="</header>"
 
     estimationContent +="<main "+(form['toggle-as-selected-foundations']?"style='display:flex;'":"style='display:none;'")+"  class='toggle-section-questions' id='toggle-section-questions-foundations'>"
-    estimationContent+= "<label class='foundations reinforcing-steel'for='foundations-reinforcing-steel'><input class='checkbox' type='checkbox' "+(form['foundations-reinforcing-steel']?'checked':'')+"/>Reinforcing Steel</label>"
-    estimationContent+= "<label class='foundations blocks'for='foundations-blocks'><input class='checkbox' type='checkbox' "+(form['foundations-blocks']?'checked':'')+" />Blocks</label>"
-    estimationContent+= "<label class='foundations pod-system'for='foundations-pod-system'><input class='checkbox' type='checkbox' "+(form['foundations-pod-system']?'checked':'')+" />Pod System</label>"
-    estimationContent+= "<label class='foundations piles'for='foundations-piles'><input class='checkbox' type='checkbox' "+(form['foundations-piles']?'checked':'')+" />Piles</label>"
+    estimationContent+="<label class='foundations reinforcing-steel' for='foundations-reinforcing-steel'>"
+    estimationContent+= "<input class='checkbox' type='checkbox' "+(form['foundations-reinforcing-steel']?'checked':'')+" />Reinforcing Steel</label>"
+    estimationContent+= "<label class='foundations blocks'for='foundations-blocks'>"
+    estimationContent += "<input class='checkbox' type='checkbox' "+(form['foundations-blocks']?'checked':'')+" />Blocks</label>"
+    estimationContent+= "<label class='foundations pod-system'for='foundations-pod-system'>"
+    estimationContent += "<input class='checkbox' type='checkbox' "+(form['foundations-pod-system']?'checked':'')+" />Pod System</label>"
+    estimationContent+= "<label class='foundations piles'for='foundations-piles'>"
+    estimationContent += "<input class='checkbox' type='checkbox' "+(form['foundations-piles']?'checked':'')+" />Piles</label>"
     estimationContent+= "<label class='foundations additional'for='foundations-additional'>Additional Information"
-    estimationContent+= "<textarea class='textbox estimationAdditional' type='textbox' value='"+(form['foundations-additional'])+"' ></textarea></label></main></div>"
+    estimationContent+= "<textarea class='textbox estimationAdditional' type='textbox' > "+(form['foundations-additional'])+" </textarea></label></main></div>"
 
 
     estimationContent+= "<div class='toggle-section timber-floor'><header id='toggle-section-header-timber-floor' class='toggle-section-header'>Timber Floor"
-    estimationContent+= "<label id='label-as-plan-timber-floor' class='as-plan-toggle timber-floor' "+(form['as-plan-timber-floor']?'':"style='visibility:none;'")+">As per Plan"
+    estimationContent+= "<label id='label-as-plan-timber-floor' class='as-plan-toggle timber-floor' "+(form['as-plan-timber-floor']?'':"style='visibility:hidden;'")+">As per Plan"
     estimationContent+= "<input type='checkbox'  id='as-plan-timber-floor' "+(form['as-plan-timber-floor']?'checked':'')+"/></label>"
-    estimationContent+= "<label id='label-toggle-as-selected-timber-floor' class='hide-section-toggle timber-floor'"+(form['toggle-as-selected-timber-floor']?'':"style='visibility:none;'")+">As Selected"
+    estimationContent+= "<label id='label-toggle-as-selected-timber-floor' class='hide-section-toggle timber-floor'"+(form['toggle-as-selected-timber-floor']?'':"style='visibility:hidden;'")+">As Selected"
     estimationContent+= "<input type='checkbox' id='toggle-as-selected-timber-floor' "+(form['toggle-as-selected-timber-floor']?'checked':'')+"/></label>"
-    estimationContent+= "<label id='label-toggle-none-timber-floor' class='hide-section-toggle timber-floor' "+(form['toggle-none-timber-floor']?'':"style='visibility:none;'")+">Not required"
+    estimationContent+= "<label id='label-toggle-none-timber-floor' class='hide-section-toggle timber-floor' "+(form['toggle-none-timber-floor']?'':"style='visibility:hidden;'")+">Not required"
     estimationContent+= "<input type='checkbox' id='toggle-none-timber-floor' "+(form['toggle-none-timber-floor']?'checked':'')+"/></label>"
     estimationContent+= "</header>"
 
     estimationContent+= "<main "+(form['toggle-as-selected-timber-floor']?"style='display:flex;'":"style='display:none;'")+" class='toggle-section-questions' id='toggle-section-questions-timber-floor'>"
-    estimationContent+= "<label class='timber-floor bearers'for='timber-floor-bearers'><input class='checkbox' type='checkbox' "+(form['timber-floor-bearers-check']?'checked':'')+" />Bearers /></label>"
-    estimationContent+= "<label class='timber-floor Joists'for='timber-floor-Joists'><input class='checkbox' type='checkbox' "+(form['timber-floor-Joists-check']?'checked':'')+" />Joists /></label>"
-    estimationContent+= "<label class='timber-floor flooring'for='timber-floor-flooring'><input class='checkbox' type='checkbox' "+(form['timber-floor-flooring-check']?'checked':'')+" />Flooring /></label>"
-    estimationContent+= "<label class='timber-floor wet-area-flooring'for='timber-floor-wet-area-flooring'><input class='checkbox' type='checkbox' "+(form['timber-floor-wet-area-flooring-check']?'checked':'')+" />Wet Area Flooring /></label>"
-    estimationContent+= "<label class='timber-floor tile-slate-underlay'for='timber-floor-tile-slate-underlay'><input class='checkbox' type='checkbox' "+(form['timber-floor-tile-slate-underlay-check']?'checked':'')+" />Tile & Slate Underlay /></label>"
+    estimationContent+= "<label class='timber-floor bearers'for='timber-floor-bearers'>"
+    estimationContent+= "<input class='checkbox' type='checkbox' "+(form['timber-floor-bearers-check']?'checked':'')+" />Bearers </label>"
+    estimationContent+= "<label class='timber-floor Joists'for='timber-floor-Joists'>"
+    estimationContent+= "<input class='checkbox' type='checkbox' "+(form['timber-floor-Joists-check']?'checked':'')+" />Joists </label>"
+    estimationContent+= "<label class='timber-floor flooring'for='timber-floor-flooring'>"
+    estimationContent+= "<input class='checkbox' type='checkbox' "+(form['timber-floor-flooring-check']?'checked':'')+" />Flooring </label>"
+    estimationContent+= "<label class='timber-floor wet-area-flooring'for='timber-floor-wet-area-flooring'>"
+    estimationContent+= "<input class='checkbox' type='checkbox' "+(form['timber-floor-wet-area-flooring-check']?'checked':'')+" />Wet Area Flooring </label>"
+    estimationContent+= "<label class='timber-floor tile-slate-underlay'for='timber-floor-tile-slate-underlay'>"
+    estimationContent+= "<input class='checkbox' type='checkbox' "+(form['timber-floor-tile-slate-underlay-check']?'checked':'')+" />Tile & Slate Underlay </label>"
     estimationContent+= "<label class='timber-floor additional'for='timber-floor-additional'>Additional Information"
-    estimationContent+= "<textarea class='textbox estimationAdditional' type='textbox' name='timber-floor-additional' ></textarea></label>"
+    estimationContent+= "<textarea class='textbox estimationAdditional' type='textbox' > "+(form['timber-floor-additional'])+" </textarea></label>"
     estimationContent+= "</main></div>"
 
     estimationContent+="<div class='toggle-section wall-framing'>"
     estimationContent+="<header class='toggle-section-header' id='toggle-section-header-wall-framing'>Wall Framing"
-    estimationContent+="<label id='label-as-plan-wall-framing' class='as-plan-toggle wall-framing' "+(form['as-plan-wall-framing']?'':"style='visibility:none;'")+">As per Plan"
+    estimationContent+="<label id='label-as-plan-wall-framing' class='as-plan-toggle wall-framing' "+(form['as-plan-wall-framing']?'':"style='visibility:hidden;'")+">As per Plan"
     estimationContent+="<input type='checkbox' id='as-plan-wall-framing' "+(form['as-plan-wall-framing']?'checked':'')+" onclick='toggleAll('wall-framing')'/></label>"
-    estimationContent+="<label id='label-toggle-as-selected-wall-framing' class='hide-section-toggle wall-framing' "+(form['toggle-as-selected-wall-framing']?'':"style='visibility:none;'")+">As Selected"
+    estimationContent+="<label id='label-toggle-as-selected-wall-framing' class='hide-section-toggle wall-framing' "+(form['toggle-as-selected-wall-framing']?'':"style='visibility:hidden;'")+">As Selected"
     estimationContent+="<input type='checkbox' id='toggle-as-selected-wall-framing' "+(form['toggle-as-selected-wall-framing']?'checked':'')+" onclick='toggleAsSelected('wall-framing')'/></label>"
-    estimationContent+="<label id='label-toggle-none-wall-framing' class='hide-section-toggle wall-framing' "+(form['toggle-none-wall-framing']?'':"style='visibility:none;'")+">Not required"
+    estimationContent+="<label id='label-toggle-none-wall-framing' class='hide-section-toggle wall-framing' "+(form['toggle-none-wall-framing']?'':"style='visibility:hidden;'")+">Not required"
     estimationContent+="<input type='checkbox' id='toggle-none-wall-framing' "+(form['toggle-none-wall-framing']?'checked':'')+" onclick='toggleNone('wall-framing')'/></label></header>"
 
     estimationContent+="<main "+(form['toggle-as-selected-wall-framing']?"style='display:flex;'":"style='display:none;'")+" class='toggle-section-questions' id='toggle-section-questions-wall-framing' >"
     estimationContent+="<label class='wall-framing prenailer-supplied'for='wall-framing-prenailer-supplied'>"
-    estimationContent+="<input class='checkbox' type='checkbox' name='wall-framing-prenailer-supplied' />Supplied by Prenailer - Do not allow</label>"
+    estimationContent+="<input class='checkbox' type='checkbox' "+(form['wall-framing-prenailer-supplied']?'checked':'')+" />"
+    estimationContent+="Supplied by Prenailer - Do not allow</label>"
     estimationContent+="<label class='wall-framing random'for='wall-framing-random'><input class='checkbox' type='checkbox' "+(form['wall-framing-random']?'checked':'')+" />Random</label>"
     estimationContent+="<label class='wall-framing capping'for='wall-framing-capping'><input class='checkbox' type='checkbox' "+(form['wall-framing-capping']?'checked':'')+" />Capping</label>"
     estimationContent+="<label class='wall-framing beams'for='wall-framing-beams'><input class='checkbox' type='checkbox' "+(form['wall-framing-beams']?'checked':'')+" />External Beams</label>"
@@ -365,15 +395,16 @@ function processForm(form) {
     estimationContent+="<label class='wall-framing metal'for='wall-framing-metal'><input class='checkbox' type='checkbox' "+(form['wall-framing-metal']?'checked':'')+" />Metal</label>"
     estimationContent+="<label class='wall-framing timber'for='wall-framing-timber'><input class='checkbox' type='checkbox' "+(form['wall-framing-timber']?'checked':'')+" />Timber</label>"
     estimationContent+="<label class='wall-framing additional'for='wall-framing-additional'>Additional Information"
-    estimationContent+="<textarea class='textbox estimationAdditional' type='textbox' name='wall-framing-additional' ></textarea></label>"
+    estimationContent+="<textarea class='textbox estimationAdditional' type='textbox' >"+(form['wall-framing-additional'])+"</textarea></label>"
+
     estimationContent+="</main></div>"
 
     estimationContent+="<div class='toggle-section roof-framing'><header class='toggle-section-header' id='toggle-section-header-roof-framing'>Roof Framing"
-    estimationContent+="<label id='label-as-plan-roof-framing' class='as-plan-toggle roof-framing' "+(form['as-plan-roof-framing']?'':"style='visibility:none;'")+">As per Plan"
+    estimationContent+="<label id='label-as-plan-roof-framing' class='as-plan-toggle roof-framing' "+(form['as-plan-roof-framing']?'':"style='visibility:hidden;'")+">As per Plan"
     estimationContent+="<input type='checkbox'  id='as-plan-roof-framing' "+(form['as-plan-roof-framing']?'checked':'')+" onclick='toggleAll('roof-framing')'/></label>"
-    estimationContent+="<label id='label-toggle-as-selected-roof-framing' class='hide-section-toggle roof-framing' "+(form['toggle-as-selected-roof-framing']?'':"style='visibility:none;'")+">As Selected"
+    estimationContent+="<label id='label-toggle-as-selected-roof-framing' class='hide-section-toggle roof-framing' "+(form['toggle-as-selected-roof-framing']?'':"style='visibility:hidden;'")+">As Selected"
     estimationContent+="<input type='checkbox' id='toggle-as-selected-roof-framing' "+(form['toggle-as-selected-roof-framing']?'checked':'')+" onclick='toggleAsSelected('roof-framing')'/></label>"
-    estimationContent+="<label id='label-toggle-none-roof-framing' class='hide-section-toggle roof-framing' "+(form['toggle-none-roof-framing']?'':"style='visibility:none;'")+">Not required"
+    estimationContent+="<label id='label-toggle-none-roof-framing' class='hide-section-toggle roof-framing' "+(form['toggle-none-roof-framing']?'':"style='visibility:hidden;'")+">Not required"
     estimationContent+="<input type='checkbox' id='toggle-none-roof-framing' "+(form['toggle-none-roof-framing']?'checked':'')+" onclick='toggleNone('roof-framing')'/></label>"
     estimationContent+="</header>"
 
@@ -381,24 +412,24 @@ function processForm(form) {
     estimationContent+="<label class='roof-framing prenailer-supplied'for='roof-framing-prenailer-supplied'>"
     estimationContent+="<input class='checkbox' type='checkbox' "+(form['roof-framing-prenailer-supplied']?'checked':'')+"Supplied by Prenailer - Do not allow</label>"
     estimationContent+="<label class='roof-framing bor-pack'for='roof-framing-bor-pack'>"
-    estimationContent+="<input class='checkbox' type='checkbox' "+(form['roof-framing-bor-pack']?'checked':'')+"BOR Pack (as Agreed)</label>"
+    estimationContent+="<input class='checkbox' type='checkbox' "+(form['roof-framing-bor-pack']?'checked':'')+" />BOR Pack (as Agreed)</label>"
     estimationContent+="<label class='roof-framing ply-membrane'for='roof-framing-ply-membrane'>"
-    estimationContent+="<input class='checkbox' type='checkbox' "+(form['roof-framing-ply-membrane']?'checked':'')+"Ply to Membrane Roof</label>"
+    estimationContent+="<input class='checkbox' type='checkbox' "+(form['roof-framing-ply-membrane']?'checked':'')+" />Ply to Membrane Roof</label>"
     estimationContent+="<label class='roof-framing ply-shingle'for='roof-framing-ply-shingle'>"
-    estimationContent+="<input class='checkbox' type='checkbox' "+(form['roof-framing-ply-shingle']?'checked':'')+"Ply to Shingle Roof</label>"
+    estimationContent+="<input class='checkbox' type='checkbox' "+(form['roof-framing-ply-shingle']?'checked':'')+" />Ply to Shingle Roof</label>"
     estimationContent+="<label class='roof-framing purlins-only'for='roof-framing-purlins-only'>"
-    estimationContent+="<input class='checkbox' type='checkbox' "+(form['roof-framing-purlins-only']?'checked':'')+"Purlins only</label>"
+    estimationContent+="<input class='checkbox' type='checkbox' "+(form['roof-framing-purlins-only']?'checked':'')+" />Purlins only</label>"
     estimationContent+="<label class='roof-framing additional'for='roof-framing-additional'>Additional Information"
-    estimationContent+="<textarea class='textbox estimationAdditional' type='textbox' name='roof-framing-additional' ></textarea></label>"
+    estimationContent+="<textarea class='textbox estimationAdditional' type='textbox'>"+(form['roof-framing-additional'])+"</textarea></label>"
     estimationContent+="</main> </div>"
 
     estimationContent+="<div class='toggle-section exterior-finishing'>"
     estimationContent+="<header id='toggle-section-header-exterior-finishing' class='toggle-section-header'>Exterior Finishings"
-    estimationContent+="<label id='label-as-plan-exterior-finishing' class='as-plan-toggle exterior-finishing'"+(form['as-plan-exterior-finishing']?'':"style='visibility:none;'")+">As per Plan"
+    estimationContent+="<label id='label-as-plan-exterior-finishing' class='as-plan-toggle exterior-finishing'"+(form['as-plan-exterior-finishing']?'':"style='visibility:hidden;'")+">As per Plan"
     estimationContent+="<input type='checkbox'  id='as-plan-exterior-finishing' "+(form['as-plan-exterior-finishing']?'checked':'')+" onclick='toggleAll('exterior-finishing')'/></label>"
-    estimationContent+="<label id='label-toggle-as-selected-exterior-finishing' class='hide-section-toggle exterior-finishing'"+(form['toggle-as-selected-exterior-finishing']?'':"style='visibility:none;'")+">As Selected"
+    estimationContent+="<label id='label-toggle-as-selected-exterior-finishing' class='hide-section-toggle exterior-finishing'"+(form['toggle-as-selected-exterior-finishing']?'':"style='visibility:hidden;'")+">As Selected"
     estimationContent+="<input type='checkbox' id='toggle-as-selected-exterior-finishing' "+(form['toggle-as-selected-exterior-finishing']?'checked':'')+" onclick='toggleAsSelected('exterior-finishing')'/></label>"
-    estimationContent+="<label id='label-toggle-none-exterior-finishing' class='hide-section-toggle exterior-finishing'"+(form['toggle-none-exterior-finishing']?'':"style='visibility:none;'")+">Not required"
+    estimationContent+="<label id='label-toggle-none-exterior-finishing' class='hide-section-toggle exterior-finishing'"+(form['toggle-none-exterior-finishing']?'':"style='visibility:hidden;'")+">Not required"
     estimationContent+="<input type='checkbox' id='toggle-none-exterior-finishing' "+(form['toggle-none-exterior-finishing']?'checked':'')+" onclick='toggleNone('exterior-finishing')'/></label>"
     estimationContent+="</header>"
 
@@ -418,16 +449,17 @@ function processForm(form) {
     estimationContent+="<label class='exterior-finishing eaves-mould'for='exterior-finishing-eaves-mould'>"
     estimationContent+="<input class='checkbox' type='checkbox' "+(form['exterior-finishing-eaves-mould']?'checked':'')+" />Eaves Mould</label>"
     estimationContent+="<label class='exterior-finishing additional'for='exterior-finishing-additional'>Additional Information"
-    estimationContent+="<textarea class='textbox estimationAdditional' type='textbox' name='exterior-finishing-additional' ></textarea></label>"
+    estimationContent+="<textarea class='textbox estimationAdditional' type='textbox' >"+(form['exterior-finishing-additional'])+"</textarea></label>"
+
     estimationContent+="</main></div>"
 
     estimationContent+="<div class='toggle-section cladding'>"
     estimationContent+="<header id='toggle-section-header-cladding' class='toggle-section-header'>Cladding"
-    estimationContent+="<label id='label-as-plan-cladding' class='as-plan-toggle cladding' "+(form['as-plan-cladding']?'':"style='visibility:none;'")+">As per Plan"
+    estimationContent+="<label id='label-as-plan-cladding' class='as-plan-toggle cladding' "+(form['as-plan-cladding']?'':"style='visibility:hidden;'")+">As per Plan"
     estimationContent+="<input type='checkbox'  id='as-plan-cladding' "+(form['as-plan-cladding']?'checked':'')+" onclick='toggleAll('cladding')'/></label>"
-    estimationContent+="<label id='label-toggle-as-selected-cladding' class='hide-section-toggle cladding' "+(form['toggle-as-selected-cladding']?'':"style='visibility:none;'")+">As Selected"
+    estimationContent+="<label id='label-toggle-as-selected-cladding' class='hide-section-toggle cladding' "+(form['toggle-as-selected-cladding']?'':"style='visibility:hidden;'")+">As Selected"
     estimationContent+="<input type='checkbox' id='toggle-as-selected-cladding' "+(form['toggle-as-selected-cladding']?'checked':'')+" onclick='toggleAsSelected('cladding')'/></label>"
-    estimationContent+="<label id='label-toggle-none-cladding' class='hide-section-toggle cladding' "+(form['toggle-none-cladding']?'':"style='visibility:none;'")+">Not required"
+    estimationContent+="<label id='label-toggle-none-cladding' class='hide-section-toggle cladding' "+(form['toggle-none-cladding']?'':"style='visibility:hidden;'")+">Not required"
     estimationContent+="<input type='checkbox' id='toggle-none-cladding' "+(form['toggle-none-cladding']?'checked':'')+" onclick='toggleNone('cladding')'/></label>"
     estimationContent+="</header>"
 
@@ -438,16 +470,16 @@ function processForm(form) {
     estimationContent+="<label class='cladding stone-cladding-substrate'for='cladding-stone-cladding-substrate'>"
     estimationContent+="<input class='checkbox' type='checkbox' "+(form['cladding-stone-cladding-substrate']?'checked':'')+" />Stone Cladding Substrate</label>"
     estimationContent+="<label class='cladding additional'for='cladding-additional'>Additional Information"
-    estimationContent+="<textarea class='textbox estimationAdditional' type='textbox' name='cladding-additional' ></textarea></label>"
+    estimationContent+="<textarea class='textbox estimationAdditional' type='textbox' name='cladding-additional' >"+(form['cladding-additional'])+"</textarea></label>"
     estimationContent+="</main></div>"
 
     estimationContent+="<div class='toggle-section insulation'>"
     estimationContent+="<header id='toggle-section-header-insulation' class='toggle-section-header'>Insulation"
-    estimationContent+="<label id='label-as-plan-insulation' class='as-plan-toggle insulation' "+(form['as-plan-insulation']?'':"style='visibility:none;'")+">As per Plan"
+    estimationContent+="<label id='label-as-plan-insulation' class='as-plan-toggle insulation' "+(form['as-plan-insulation']?'':"style='visibility:hidden;'")+">As per Plan"
     estimationContent+="<input type='checkbox'  id='as-plan-insulation' "+(form['as-plan-insulation']?'checked':'')+" onclick='toggleAll('insulation')'/></label>"
-    estimationContent+="<label id='label-toggle-as-selected-insulation' class='hide-section-toggle insulation' "+(form['toggle-as-selected-insulation']?'':"style='visibility:none;'")+">As Selected"
+    estimationContent+="<label id='label-toggle-as-selected-insulation' class='hide-section-toggle insulation' "+(form['toggle-as-selected-insulation']?'':"style='visibility:hidden;'")+">As Selected"
     estimationContent+="<input type='checkbox' id='toggle-as-selected-insulation' "+(form['toggle-as-selected-insulation']?'checked':'')+" onclick='toggleAsSelected('insulation')'/></label>"
-    estimationContent+="<label id='label-toggle-none-insulation' class='hide-section-toggle insulation' "+(form['toggle-none-insulation']?'':"style='visibility:none;'")+">Not required"
+    estimationContent+="<label id='label-toggle-none-insulation' class='hide-section-toggle insulation' "+(form['toggle-none-insulation']?'':"style='visibility:hidden;'")+">Not required"
     estimationContent+="<input type='checkbox' id='toggle-none-insulation' "+(form['toggle-none-insulation']?'checked':'')+" onclick='toggleNone('insulation')'/></label>"
     estimationContent+="</header>"
 
@@ -461,16 +493,16 @@ function processForm(form) {
     estimationContent+="<input class='checkbox' type='checkbox' "+(form['insulation-garage-walls-ceiling']?'checked':'')+" />Garage walls/Ceiling (included)</label>"
     estimationContent+="<label class='insulation installation'for='insulation-installation'><input class='checkbox' type='checkbox' "+(form['insulation-installation']?'checked':'')+" />Installation</label>"
     estimationContent+="<label class='insulation additional'for='insulation-additional'>Additional Information"
-    estimationContent+="<textarea class='textbox estimationAdditional' type='textbox' name='insulation-additional' ></textarea></label>"
+    estimationContent+="<textarea class='textbox estimationAdditional' type='textbox' name='insulation-additional' >"+(form['insulation-additional'])+"</textarea></label>"
     estimationContent+="</main></div>"
 
     estimationContent+="<div class='toggle-section interior-linings'>"
     estimationContent+="<header id='toggle-section-header-interior-linings' class='toggle-section-header'>Interior Linings"
-    estimationContent+="<label id='label-as-plan-interior-linings' class='as-plan-toggle interior-linings' "+(form['as-plan-interior-linings']?'':"style='visibility:none;'")+">As per Plan"
+    estimationContent+="<label id='label-as-plan-interior-linings' class='as-plan-toggle interior-linings' "+(form['as-plan-interior-linings']?'':"style='visibility:hidden;'")+">As per Plan"
     estimationContent+="<input type='checkbox'  id='as-plan-interior-linings' "+(form['as-plan-interior-linings']?'checked':'')+" onclick='toggleAll('interior-linings')'/></label>"
-    estimationContent+="<label id='label-toggle-as-selected-interior-linings' class='toggle-as-selected interior-linings' "+(form['toggle-as-selected-interior-linings']?'':"style='visibility:none;'")+">As Selected"
+    estimationContent+="<label id='label-toggle-as-selected-interior-linings' class='toggle-as-selected interior-linings' "+(form['toggle-as-selected-interior-linings']?'':"style='visibility:hidden;'")+">As Selected"
     estimationContent+="<input type='checkbox' id='toggle-as-selected-interior-linings' "+(form['toggle-as-selected-interior-linings']?'checked':'')+" onclick='toggleAsSelected('interior-linings')'/></label>"
-    estimationContent+="<label id='label-toggle-none-interior-linings' class='hide-section-toggle interior-linings' "+(form['toggle-none-interior-linings']?'':"style='visibility:none;'")+">Not required"
+    estimationContent+="<label id='label-toggle-none-interior-linings' class='hide-section-toggle interior-linings' "+(form['toggle-none-interior-linings']?'':"style='visibility:hidden;'")+">Not required"
     estimationContent+="<input type='checkbox' id='toggle-none-interior-linings' "+(form['toggle-none-interior-linings']?'checked':'')+" onclick='toggleNone('interior-linings')'/></label>"
     estimationContent+="</header>"
 
@@ -484,16 +516,16 @@ function processForm(form) {
     estimationContent+="<label class='interior-linings ensuite'for='interior-linings-ensuite'><input class='checkbox' type='checkbox' "+(form['interior-linings-ensuite']?'checked':'')+" />Ensuite</label>"
     estimationContent+="<label class='interior-linings laundry'for='interior-linings-laundry'><input class='checkbox' type='checkbox' "+(form['interior-linings-laundry']?'checked':'')+" />Laundry</label>"
     estimationContent+="<label class='interior-linings additional'for='interior-linings-additional'>Additional Information"
-    estimationContent+="<textarea class='textbox estimationAdditional' type='textbox' name='interior-linings-additional' ></textarea></label>"
+    estimationContent+="<textarea class='textbox estimationAdditional' type='textbox' name='interior-linings-additional' >"+(form['interior-linings-additional'])+"</textarea></label>"
     estimationContent+="</main></div>"
 
     estimationContent+="<div class='toggle-section interior-doors'>"
     estimationContent+="<header id='toggle-section-header-interior-doors' class='toggle-section-header'>Interior Doors"
-    estimationContent+="<label  id='label-as-plan-interior-doors' class='as-plan-toggle interior-doors' "+(form['as-plan-interior-doors']?'':"style='visibility:none;'")+">As per Plan"
+    estimationContent+="<label  id='label-as-plan-interior-doors' class='as-plan-toggle interior-doors' "+(form['as-plan-interior-doors']?'':"style='visibility:hidden;'")+">As per Plan"
     estimationContent+="<input type='checkbox'  id='as-plan-interior-doors' "+(form['as-plan-interior-doors']?'checked':'')+" onclick='toggleAll('interior-doors')'/></label>"
-    estimationContent+="<label  id='label-toggle-as-selected-interior-doors' class='hide-section-toggle interior-doors' "+(form['toggle-as-selected-interior-doors']?'':"style='visibility:none;'")+">As Selected"
+    estimationContent+="<label  id='label-toggle-as-selected-interior-doors' class='hide-section-toggle interior-doors' "+(form['toggle-as-selected-interior-doors']?'':"style='visibility:hidden;'")+">As Selected"
     estimationContent+="<input type='checkbox' id='toggle-as-selected-interior-doors' "+(form['toggle-as-selected-interior-doors']?'checked':'')+" onclick='toggleAsSelected('interior-doors')'/></label>"
-    estimationContent+="<label  id='label-toggle-none-interior-doors' class='hide-section-toggle interior-doors' "+(form['toggle-none-interior-doors']?'':"style='visibility:none;'")+">Not required"
+    estimationContent+="<label  id='label-toggle-none-interior-doors' class='hide-section-toggle interior-doors' "+(form['toggle-none-interior-doors']?'':"style='visibility:hidden;'")+">Not required"
     estimationContent+="<input type='checkbox' id='toggle-none-interior-doors' "+(form['toggle-none-interior-doors']?'checked':'')+" onclick='toggleNone('interior-doors')'/></label>"
     estimationContent+="</header>"
 
@@ -501,16 +533,16 @@ function processForm(form) {
     estimationContent+="<label class='interior-doors door-type'for='interior-doors-door-type'><input class='checkbox' type='checkbox' "+(form['interior-doors-door-type']?'checked':'')+" />MDF HC PQ FJ FLAT JAMB</label>"
     estimationContent+="<label class='interior-doors door-hardware'for='interior-doors-door-hardware'><input class='checkbox' type='checkbox' "+(form['interior-doors-door-hardware']?'checked':'')+" />Door Hardware</label>"
     estimationContent+="<label class='interior-doors additional'for='interior-doors-additional'>Additional Information"
-    estimationContent+="<textarea class='textbox estimationAdditional' type='textbox' name='interior-doors-additional' ></textarea></label>"
+    estimationContent+="<textarea class='textbox estimationAdditional' type='textbox' name='interior-doors-additional' >"+(form['interior-doors-additional'])+"</textarea></label>"
     estimationContent+="</main></div>"
 
     estimationContent+="<div class='toggle-section interior-finishings'>"
     estimationContent+="<header id='toggle-section-header-interior-finishings' class='toggle-section-header'>Interior Finishings"
-    estimationContent+="<label  id='label-as-plan-interior-finishings' class='as-plan-toggle interior-finishings' "+(form['as-plan-interior-finishings']?'':"style='visibility:none;'")+">As per Plan"
+    estimationContent+="<label  id='label-as-plan-interior-finishings' class='as-plan-toggle interior-finishings' "+(form['as-plan-interior-finishings']?'':"style='visibility:hidden;'")+">As per Plan"
     estimationContent+="<input type='checkbox'  id='as-plan-interior-finishings' "+(form['as-plan-interior-finishings']?'checked':'')+" /></label>"
-    estimationContent+="<label  id='label-toggle-as-selected-interior-finishings' class='hide-section-toggle interior-finishings' "+(form['toggle-as-selected-interior-finishings']?'':"style='visibility:none;'")+">As Selected"
+    estimationContent+="<label  id='label-toggle-as-selected-interior-finishings' class='hide-section-toggle interior-finishings' "+(form['toggle-as-selected-interior-finishings']?'':"style='visibility:hidden;'")+">As Selected"
     estimationContent+="<input type='checkbox' id='toggle-as-selected-interior-finishings' "+(form['toggle-as-selected-interior-finishings']?'checked':'')+" /></label>"
-    estimationContent+="<label  id='label-toggle-none-interior-finishings' class='hide-section-toggle interior-finishings' "+(form['toggle-none-interior-finishings']?'':"style='visibility:none;'")+">Not required"
+    estimationContent+="<label  id='label-toggle-none-interior-finishings' class='hide-section-toggle interior-finishings' "+(form['toggle-none-interior-finishings']?'':"style='visibility:hidden;'")+">Not required"
     estimationContent+="<input type='checkbox' id='toggle-none-interior-finishings' "+(form['toggle-none-interior-finishings']?'checked':'')+" /></label>"
     estimationContent+="</header>"
 
@@ -525,16 +557,16 @@ function processForm(form) {
     estimationContent+="<label class='interior-finishings wet-areas'for='interior-finishings-wet-areas'>Wet Areas<input class='checkbox' type='checkbox' "+(form['interior-finishings-wet-areas']?'checked':'')+" /></label>"
     estimationContent+="<label class='interior-finishings shelving'for='interior-finishings-shelving'>Shelving<input class='checkbox' type='checkbox' "+(form['interior-finishings-shelving']?'checked':'')+" /></label>"
     estimationContent+="<label class='interior-finishings additional'for='interior-finishings-additional'>Additional Information"
-    estimationContent+="<textarea class='textbox estimationAdditional' type='textbox' name='interior-finishings-additional' ></textarea></label>"
+    estimationContent+="<textarea class='textbox estimationAdditional' type='textbox' name='interior-finishings-additional' >"+(form['interior-finishings-additional'])+"</textarea></label>"
     estimationContent+="</main></div>"
 
     estimationContent+="<div class='toggle-section landscaping'>"
     estimationContent+="<header id='toggle-section-header-landscaping' class='toggle-section-header'>Landscaping"
-    estimationContent+="<label id='label-as-plan-landscaping' class='as-plan-toggle landscaping' "+(form['as-plan-landscaping']?'':"style='visibility:none;'")+">As per Plan"
+    estimationContent+="<label id='label-as-plan-landscaping' class='as-plan-toggle landscaping' "+(form['as-plan-landscaping']?'':"style='visibility:hidden;'")+">As per Plan"
     estimationContent+="<input type='checkbox'  id='as-plan-landscaping' "+(form['as-plan-landscaping']?'checked':'')+" /></label>"
-    estimationContent+="<label id='label-toggle-as-selected-landscaping' class='hide-section-toggle landscaping' "+(form['toggle-as-selected-landscaping']?'':"style='visibility:none;'")+">As Selected"
+    estimationContent+="<label id='label-toggle-as-selected-landscaping' class='hide-section-toggle landscaping' "+(form['toggle-as-selected-landscaping']?'':"style='visibility:hidden;'")+">As Selected"
     estimationContent+="<input type='checkbox' id='toggle-as-selected-landscaping' "+(form['toggle-as-selected-landscaping']?'checked':'')+" /></label>"
-    estimationContent+="<label id='label-toggle-none-landscaping' class='hide-section-toggle landscaping' "+(form['toggle-none-landscaping']?'':"style='visibility:none;'")+">Not required"
+    estimationContent+="<label id='label-toggle-none-landscaping' class='hide-section-toggle landscaping' "+(form['toggle-none-landscaping']?'':"style='visibility:hidden;'")+">Not required"
     estimationContent+="<input type='checkbox' id='toggle-none-landscaping' "+(form['toggle-none-landscaping']?'checked':'')+" /></label>"
     estimationContent+="</header>"
 
@@ -546,9 +578,11 @@ function processForm(form) {
     estimationContent+="<label class='landscaping pergola'for='landscaping-pergola'><input class='checkbox' type='checkbox' "+(form['landscaping-pergola']?'checked':'')+" />Pergola</label>"
     estimationContent+="<label class='landscaping timber-retaining-wall'for='landscaping-timber-retaining-wall'><input class='checkbox' type='checkbox' "+(form['landscaping-timber-retaining-wall']?'checked':'')+" />Timber Retaining Wall</label>"
     estimationContent+="<label class='landscaping additional'for='landscaping-additional'>Additional Information"
-    estimationContent+="<textarea class='textbox estimationAdditional' type='textbox' name='landscaping-additional' ></textarea></label>"
+    estimationContent+="<textarea class='textbox estimationAdditional' type='textbox' name='landscaping-additional' >"+(form['landscaping-additional'])+"</textarea></label>"
     estimationContent+="</main></div></div></div>"
-
+    if(!form['cancel-estimation']) {
+      content += estimationContent
+    }
 
     prenailContentSubmitted+= "<div id='prenail-questions' class=''>"
     prenailContentSubmitted+= "<header class='fullWidthContainer'><h1>Prenail questions</h1></header>"
@@ -605,9 +639,8 @@ function processForm(form) {
     prenailContentSubmitted+= "<label>Studlok / lintel lok<input class='single-input' type='checkbox' "+(form['daylesPrenailStudlok']?'checked':'')+"  />"
     prenailContentSubmitted+= "premium service, additional charges apply</label>"
     prenailContentSubmitted+= "</div></div>"
-    if(form['outsourcing-selection-prenail-turangi'] ||form['outsourcing-selection-prenail-ntml'] ||form['outsourcing-selection-prenail-dayles']) {
-      content += prenailContentSubmitted
-    }
+    content += prenailContentSubmitted
+
     content += formFoot
     generalOutsourcingContent+= head + styles + headEnd + clientDetails + formFoot
     var prenailContent = ''+head+styles+headEnd+clientDetails+prenailContentSubmitted+formFoot
@@ -642,7 +675,7 @@ function processForm(form) {
 
 
 
-    if(form['outsourcing-selection-prenail-turangi'] ||form['outsourcing-selection-prenail-ntml'] ||form['outsourcing-selection-prenail-dayles']) {
+    if(form['outsourcing-selection-prenail-turangi'] ||form['outsourcing-selection-prenail-ntml'] ||form['outsourcing-selection-prenail-dayles'] || form['outsourcing-selection-prenail-vip'] || form['outsourcing-selection-prenail-ift']) {
       var prenailBlob = Utilities.newBlob(prenailContent, "text/html", "text.html");
       var prenailPdf = prenailBlob.getAs("application/pdf");
       uploadedPrenailPDF = JobFolder.createFile(prenailPdf).setName("pdf Prenail request "+form['job-info-address']+".pdf");
@@ -674,11 +707,16 @@ function processForm(form) {
     var uploadedPDF = JobFolder.createFile(pdf).setName("pdf "+form['job-info-address']+".pdf");
     var uploadedHTML = JobFolder.createFile("html "+form['job-info-address']+".html", content, MimeType.HTML);
 
+    var jobInfoTextFile = JobFolder.createFile("csv "+form['job-info-address']+".csv", textContent);
+
     uploadedHTML.setSharing(DriveApp.Access.ANYONE, DriveApp.Permission.EDIT);
     uploadedHTML.setSharing(DriveApp.Access.ANYONE_WITH_LINK, DriveApp.Permission.VIEW);
 
     uploadedPDF.setSharing(DriveApp.Access.ANYONE, DriveApp.Permission.EDIT);
     uploadedPDF.setSharing(DriveApp.Access.ANYONE_WITH_LINK, DriveApp.Permission.VIEW);
+
+    jobInfoTextFile.setSharing(DriveApp.Access.ANYONE, DriveApp.Permission.EDIT);
+    jobInfoTextFile.setSharing(DriveApp.Access.ANYONE_WITH_LINK, DriveApp.Permission.VIEW);
 
     var uploadableFiles = []
     var uploadedFiles = []
@@ -710,241 +748,269 @@ function processForm(form) {
     output +=fileLinks
     output += "<br> <a href='" + "http://drive.google.com/uc?export=download&id="+ uploadedHTML.getId() + "'>Link to form as HTML </a>";
     output += "<br> <a href='" + "http://drive.google.com/uc?export=download&id="+ uploadedPDF.getId() + "'>Link to form as PDF </a>";
+    output += "<br> <a href='" + "http://drive.google.com/uc?export=download&id="+ jobInfoTextFile.getId() + "'>Link to CSV </a>";
+    if(form['job-info-dropbox-links']) {
+      output += "<br>DropBox Links <br> " + form['job-info-dropbox-links']
+    }
+
 
     // output += "<br> <strong>PDF File is currently experiencing difficulties. Please download HTML file, open in new window, and print as PDF for pdf copy.</strong>"
     output += "<br> This is the job number "+ jobNumber;
-    output += "<br> Job Client is "+ form.cClient;
+    output += "<br> Job Client is "+ form['customer-info-name'];
     prenailOutput += "<br> This is the job number "+ jobNumber;
-    prenailOutput += "<br> Job Client is "+ form.cClient;
+    prenailOutput += "<br> Job Client is "+ form['customer-info-name'];
 
     // email subjects
-    var genericSubject = 'New job, number '+ jobNumber + ', has been submitted to the quotes portal by: ' + form.cRep + ' for client ' + form.cClient
+    var genericSubject = 'New job, number '+ jobNumber + ', has been submitted to the quotes portal by: ' + form['quote-info-sales-rep'] + ' for client ' + form['customer-info-name']
 
     var quotesOutput = "<br>This email was sent to: <br><ul>"
 
-    // PreNail
-    if(form['outsourcing-selection-prenail-turangi'] ||form['outsourcing-selection-prenail-ntml'] ||form['outsourcing-selection-prenail-dayles'] ) {
-      output += "<br> <h3>Prenail</h3>"
-      output += "<br> <a href='" + "http://drive.google.com/uc?export=download&id="+ uploadedPrenailHTML.getId() + "'>Link to Prenail file as HTML </a>";
-      output += "<br> <a href='" + "http://drive.google.com/uc?export=download&id="+ uploadedPrenailPDF.getId() + "'>Link to Prenail file as PDF </a>";
-      prenailOutput += "<br /> Please see included link to Request Sheet"
-      prenailOutput += "<br> <a href='" + "http://drive.google.com/uc?export=download&id="+ uploadedPrenailHTML.getId() + "'>Link to Prenail request as HTML </a>";
-      prenailOutput += "<br> <a href='" + "http://drive.google.com/uc?export=download&id="+ uploadedPrenailPDF.getId() + "'>Link to Prenail request as PDF </a>";
-      prenailOutput+= fileLinks
-
-
-    }
     if(!form['cancel-outsourcing']) {
+      output += "<br> <h2>Outsourcing</h2>"
+
+      output += "<br> <a href='" + "http://drive.google.com/uc?export=download&id="+ uploadedOutsourcedHTML.getId() + "'>Link to General Outsourcing file as HTML </a>";
+      output += "<br> <a href='" + "http://drive.google.com/uc?export=download&id="+ uploadedOutsourcedPDF.getId() + "'>Link to General Outsourcing file as PDF </a>";
+
       generalOutsourcingBody += fileLinks
       generalOutsourcingBody += "<br /> Please see included link to Original Quote request information"
       generalOutsourcingBody += "<br> <a href='" + "http://drive.google.com/uc?export=download&id="+ uploadedOutsourcedHTML.getId() + "'>Link to quote request as HTML </a>";
       generalOutsourcingBody += "<br> <a href='" + "http://drive.google.com/uc?export=download&id="+ uploadedOutsourcedPDF.getId() + "'>Link to quote request as PDF </a>";
-    }
+      if(form['job-info-dropbox-links']) {
+        generalOutsourcingBody += "<br>DropBox Links <br> " + form['job-info-dropbox-links']
+      }
 
 
-    if(form['outsourcing-selection-prenail-turangi']) {
-      output += "<br>Sent to turangi for estimation"
-      sendEmail(turangiConstEmail, prenailOutput+"turangi", detailingSubject) // email the additional
-    }
-    if(form['outsourcing-selection-prenail-ntml']) {
-      output += "<br>Sent to ntml for estimation"
-      sendEmail(ntmlConstEmail, prenailOutput+"ntml", detailingSubject) // email the additional
-    }
-    if(form['outsourcing-selection-prenail-dayles']) {
-      output += "<br>Sent to dayles for estimation"
-      sendEmail(dayleConstEmail, prenailOutput+"dayles", detailingSubject) // email the additional
-    }
+      // PreNail
+      if(form['outsourcing-selection-prenail-turangi'] ||form['outsourcing-selection-prenail-ntml'] ||form['outsourcing-selection-prenail-dayles'] || form['outsourcing-selection-prenail-vip'] || form['outsourcing-selection-prenail-ift']) {
+        output += "<br> <h3>Prenail</h3>"
+        output += "<br> <a href='" + "http://drive.google.com/uc?export=download&id="+ uploadedPrenailHTML.getId() + "'>Link to Prenail file as HTML </a>";
+        output += "<br> <a href='" + "http://drive.google.com/uc?export=download&id="+ uploadedPrenailPDF.getId() + "'>Link to Prenail file as PDF </a>";
+        prenailOutput += "<br /> Please see included link to Request Sheet"
+        prenailOutput += "<br> <a href='" + "http://drive.google.com/uc?export=download&id="+ uploadedPrenailHTML.getId() + "'>Link to Prenail request as HTML </a>";
+        prenailOutput += "<br> <a href='" + "http://drive.google.com/uc?export=download&id="+ uploadedPrenailPDF.getId() + "'>Link to Prenail request as PDF </a>";
+        prenailOutput+= fileLinks
+        if(form['job-info-dropbox-links']) {
+          prenailOutput += "<br>DropBox Links <br> " + form['job-info-dropbox-links']
+        }
 
-    if(form['outsourcing-selection-reinforcing-united-steel']||form['outsourcing-selection-reinforcing-Summit'] ||form['outsourcing-selection-reinforcing-Freo'] ) {
-      output += "<br> <h3>Reinforcing</h3>"
-    }
-
-    if(form['outsourcing-selection-reinforcing-united-steel']) {
-      output += "<br>Sent to United Steel for estimation"
-      sendEmail(unitedSteelConstEmail, "Hi there United steel, <br>" + generalOutsourcingBody, detailingSubject+' United steel') // email the additional
-    }
-
-    if(form['outsourcing-selection-reinforcing-Summit']) {
-      output += "<br>Sent to Summit for estimation"
-      sendEmail(summitConstEmail, "Hi there Summit, <br>" + generalOutsourcingBody, detailingSubject+' Summit') // email the additional
-    }
-
-    if(form['outsourcing-selection-reinforcing-Freo']) {
-      output += "<br>Sent to FREO for estimation"
-      sendEmail(freoConstEmail, "Hi there Freo, <br>" + generalOutsourcingBody, detailingSubject+' Freo') // email the additional
-    }
-
-    // Ribraft
-    if(form['outsourcing-selection-ribraft-rfl'] || form['outsourcing-selection-ribraft-russel-gordon']) {
-      output += "<br> <h3>Ribraft</h3>"
-    }
-
-    if(form['outsourcing-selection-ribraft-rfl']) {
-      output += "<br>Sent to RFL for estimation"
-      sendEmail(rFLConstEmail, "Hi there RFL, <br>" + generalOutsourcingBody, detailingSubject+' RFL') // email the additional
-    }
-
-    if(form['outsourcing-selection-ribraft-russel-gordon']) {
-      output += "<br>Sent to Russel Gordon for estimation"
-      sendEmail(russelGordonConstEmail, "Hi there Russel Gordon, <br>" + generalOutsourcingBody, detailingSubject+' Russel Gordon') // email the additional
-    }
-
-    // Joinery
-    if(form['outsourcing-selection-joinery-vision'] || form['outsourcing-selection-joinery-tbc']) {
-      output += "<br> <h3>Joinery</h3>"
-    }
-
-    if(form['outsourcing-selection-joinery-vision']) {
-      output += "<br>Sent to Vision for estimation"
-      sendEmail(visionConstEmail, "Hi there Vision, <br>" + generalOutsourcingBody, detailingSubject+' Vision') // email the additional
-    }
-
-    if(form['outsourcing-selection-joinery-tbc']) {
-      output += "<br>Sent to TBC for estimation"
-      sendEmail(tBC, "Hi there TBC, <br>" + generalOutsourcingBody, detailingSubject+' TBC') // email the additional
-    }
-
-    // Garage Doors
-    if(form['outsourcing-selection-garage-doors-dominator']) {
-      output += "<br> <h3>Garage Doors</h3>"
-    }
-    if(form['outsourcing-selection-garage-doors-dominator']) {
-      output += "<br>Sent to Dominator for estimation"
-      sendEmail(dominatorConstEmail, "Hi there Dominator, <br>" + generalOutsourcingBody, detailingSubject+' Dominator') // email the additional
-    }
-
-    //
-    // Doors - Internal
-    let dia = (form['outsourcing-selection-doors-internal-mahurangi'] || form['outsourcing-selection-doors-internal-doorways'])
-    let dib = (form['outsourcing-selection-doors-internal-elite'] || form['outsourcing-selection-doors-internal-nationwide'])
-    let dic = (form['outsourcing-selection-doors-internal-bennett-doors'])
-    if(dia || dib || dic) {
-      output += "<br> <h3>Doors - Internal</h3>"
-    }
-    if(form['outsourcing-selection-doors-internal-mahurangi']) {
-      output += "<br>Sent to Mahurangi for estimation"
-      sendEmail(mahurangiConstEmail, "Hi there Mahurangi, <br>" + generalOutsourcingBody, detailingSubject+' Mahurangi') // email the additional
-    }
-
-    if(form['outsourcing-selection-doors-internal-doorways']) {
-      output += "<br>Sent to Doorways for estimation"
-      sendEmail(doorwaysConstEmail, "Hi there Doorways, <br>" + generalOutsourcingBody, detailingSubject+' Doorways') // email the additional
-    }
-
-    if(form['outsourcing-selection-doors-internal-elite']) {
-      output += "<br>Sent to Elite for estimation"
-      sendEmail(eliteConstEmail, "Hi there Elite, <br>" + generalOutsourcingBody, detailingSubject+' Elite') // email the additional
-    }
-
-    if(form['outsourcing-selection-doors-internal-nationwide']) {
-      output += "<br>Sent to Nationwide for estimation"
-      sendEmail(nationwideConstEmail, "Hi there Nationwide, <br>" + generalOutsourcingBody, detailingSubject+' Nationwide') // email the additional
-    }
-
-    if(form['outsourcing-selection-doors-internal-bennett-doors']) {
-      output += "<br>Sent to Bennett Doors for estimation"
-      sendEmail(bennettDoorsConstEmail, "Hi there Bennett Doors, <br>" + generalOutsourcingBody, detailingSubject+' Bennett Doors') // email the additional
-    }
-
-    // Insulation
-    let insa = form['outsourcing-selection-outsourcing-insualtion-pinkfit'] || form['outsourcing-selection-outsourcing-insualtion-natural']
-    let insb = form['outsourcing-selection-outsourcing-insualtion-adl-insulation'] || form['outsourcing-selection-outsourcing-insualtion-smart-energy']
-    if(insa || insb) {
-      output += "<br> <h3>Insulation</h3>"
-    }
-
-    if(form['outsourcing-selection-outsourcing-insualtion-pinkfit']) {
-      output += "<br>Sent to Pinkfit for estimation"
-      sendEmail(pinkfitConstEmail, "Hi there Pinkfit, <br>" + generalOutsourcingBody, detailingSubject+' Pinkfit') // email the additional
-    }
-
-    if(form['outsourcing-selection-outsourcing-insualtion-natural']) {
-      output += "<br>Sent to Natural for estimation"
-      sendEmail(naturalConstEmail, "Hi there Natural, <br>" + generalOutsourcingBody, detailingSubject+' Natural') // email the additional
-    }
-
-    if(form['outsourcing-selection-outsourcing-insualtion-adl-insulation']) {
-      output += "<br>Sent to ADL Insulation for estimation"
-      sendEmail(aDLInsulationConstEmail, "Hi there ADL Insulation, <br>" + generalOutsourcingBody, detailingSubject+' ADL Insulation') // email the additional
-    }
-
-    if(form['outsourcing-selection-outsourcing-insualtion-smart-energy']) {
-      output += "<br>Sent to Smart Energy for estimation"
-      sendEmail(smartEnergyConstEmail, "Hi there Smart Energy, <br>" + generalOutsourcingBody, detailingSubject+' Smart Energy') // email the additional
-    }
+      }
 
 
-    // Structural Steel
-    if(form['outsourcing-selection-structural-steel-allwin'] || form['outsourcing-selection-structural-steel-Ecb']) {
-      output += "<br> <h3>Structural Steel</h3>"
-    }
-    if(form['outsourcing-selection-structural-steel-allwin']) {
-      output += "<br>Sent to Allwin for estimation"
-      sendEmail(allwinConstEmail, "Hi there Allwin, <br>" + generalOutsourcingBody, detailingSubject+' Allwin') // email the additional
-    }
+      if(form['outsourcing-selection-prenail-turangi']) {
+        output += "<br>Sent to turangi for estimation"
+        sendEmail(turangiConstEmail, prenailOutput+"turangi", detailingSubject) // email the additional
+      }
+      if(form['outsourcing-selection-prenail-ntml']) {
+        output += "<br>Sent to ntml for estimation"
+        sendEmail(ntmlConstEmail, prenailOutput+"ntml", detailingSubject) // email the additional
+      }
+      if(form['outsourcing-selection-prenail-dayles']) {
+        output += "<br>Sent to dayles for estimation"
+        sendEmail(dayleConstEmail, prenailOutput+"dayles", detailingSubject) // email the additional
+      }
 
-    if(form['outsourcing-selection-structural-steel-Ecb']) {
-      output += "<br>Sent to ECB for estimation"
-      sendEmail(eCBConstEmail, "Hi there ECB, <br>" + generalOutsourcingBody, detailingSubject+' ECB') // email the additional
-    }
+      if(form['outsourcing-selection-prenail-vip']) {
+        output += "<br>Sent to VIP for estimation"
+        sendEmail(vipConstEmail, prenailOutput+"VIP", detailingSubject) // email the additional
+      }
 
-
-    // Cladding
-    if(form['outsourcing-selection-cladding-rosenfield'] || form['outsourcing-selection-cladding-abodo'] || form['outsourcing-selection-cladding-jsc'] || form['outsourcing-selection-cladding-iti-timspec']) {
-      output += "<br> <h3>Cladding</h3>"
-    }
-
-    if(form['outsourcing-selection-cladding-rosenfield']) {
-      output += "<br>Sent to Rosenfield for estimation"
-      sendEmail(rosenfieldConstEmail, "Hi there Rosenfield, <br>" + generalOutsourcingBody, detailingSubject+' Rosenfield') // email the additional
-    }
-
-    if(form['outsourcing-selection-cladding-abodo']) {
-      output += "<br>Sent to Abodo for estimation"
-      sendEmail(abodoConstEmail, "Hi there Abodo, <br>" + generalOutsourcingBody, detailingSubject+' Abodo') // email the additional
-    }
-
-    if(form['outsourcing-selection-cladding-jsc']) {
-      output += "<br>Sent to JSC for estimation"
-      sendEmail(jSCConstEmail, "Hi there JSC, <br>" + generalOutsourcingBody, detailingSubject+' JSC') // email the additional
-    }
-
-    if(form['outsourcing-selection-cladding-iti-timspec']) {
-      output += "<br>Sent to ITI Timspec for estimation"
-      sendEmail(iTITimspecConstEmail, "Hi there ITI Timspec, <br>" + generalOutsourcingBody, detailingSubject+' ITI Timspec') // email the additional
-    }
+      if(form['outsourcing-selection-prenail-ift']) {
+        output += "<br>Sent to IFT for estimation"
+        sendEmail(iftConstEmail, prenailOutput+"IFT", detailingSubject) // email the additional
+      }
 
 
-    // Roofing
-    let roofa = (form['outsourcing-selection-roofing-new-era-sfi'] || form['outsourcing-selection-roofing-johnson-roofing-sfi'])
-    let roofb = (form['outsourcing-selection-roofing-roofing-industries-supply-only'] || form['outsourcing-selection-roofing-sps-shingles'])
+      if(form['outsourcing-selection-reinforcing-united-steel']||form['outsourcing-selection-reinforcing-Summit'] ||form['outsourcing-selection-reinforcing-Freo'] ) {
+        output += "<br> <h3>Reinforcing</h3>"
+      }
 
-    if(roofa || roofb || form['outsourcing-selection-roofing-metalcraft']) {
-      output += "<br> <h3>Roofing</h3>"
-    }
-    if(form['outsourcing-selection-roofing-new-era-sfi']) {
-      output += "<br>Sent to New Era SFI for estimation"
-      sendEmail(newEraSFIConstEmail, "Hi there New Era SFI, <br>" + generalOutsourcingBody, detailingSubject+' New Era SFI') // email the additional
-    }
+      if(form['outsourcing-selection-reinforcing-united-steel']) {
+        output += "<br>Sent to United Steel for estimation"
+        sendEmail(unitedSteelConstEmail, "Hi there United steel, <br>" + generalOutsourcingBody, detailingSubject+' United steel') // email the additional
+      }
 
-    if(form['outsourcing-selection-roofing-johnson-roofing-sfi']) {
-      output += "<br>Sent to Johnson Roofing SFI for estimation"
-      sendEmail(johnsonRoofingSFIConstEmail, "Hi there Johnson Roofing, <br>" + generalOutsourcingBody, detailingSubject+' Johnson Roofing') // email the additional
-    }
+      if(form['outsourcing-selection-reinforcing-Summit']) {
+        output += "<br>Sent to Summit for estimation"
+        sendEmail(summitConstEmail, "Hi there Summit, <br>" + generalOutsourcingBody, detailingSubject+' Summit') // email the additional
+      }
 
-    if(form['outsourcing-selection-roofing-roofing-industries-supply-only']) {
-      output += "<br>Sent to Roofing Industries Supply Only for estimation"
-      sendEmail(roofingIndustriesSupplyOnlyConstEmail, "Hi there Roofing Industries, <br>" + generalOutsourcingBody, detailingSubject+' Roofing Industries') // email the additional
-    }
+      if(form['outsourcing-selection-reinforcing-Freo']) {
+        output += "<br>Sent to FREO for estimation"
+        sendEmail(freoConstEmail, "Hi there Freo, <br>" + generalOutsourcingBody, detailingSubject+' Freo') // email the additional
+      }
 
-    if(form['outsourcing-selection-roofing-sps-shingles']) {
-      output += "<br>Sent to SPS Shingles for estimation"
-      sendEmail(sPSShinglesConstEmail, "Hi there SPS Shingles, <br>" + generalOutsourcingBody, detailingSubject+' SPS Shingles') // email the additional
-    }
+      // Ribraft
+      if(form['outsourcing-selection-ribraft-rfl'] || form['outsourcing-selection-ribraft-russel-gordon']) {
+        output += "<br> <h3>Ribraft</h3>"
+      }
 
-    if(form['outsourcing-selection-roofing-metalcraft']) {
-      output += "<br>Sent to Metalcraft for estimation"
-      sendEmail(metalcraftConstEmail, "Hi there Metalcraft, <br>" + generalOutsourcingBody, detailingSubject+' Metalcraft') // email the additional
+      if(form['outsourcing-selection-ribraft-rfl']) {
+        output += "<br>Sent to RFL for estimation"
+        sendEmail(rFLConstEmail, "Hi there RFL, <br>" + generalOutsourcingBody, detailingSubject+' RFL') // email the additional
+      }
+
+      if(form['outsourcing-selection-ribraft-russel-gordon']) {
+        output += "<br>Sent to Russel Gordon for estimation"
+        sendEmail(russelGordonConstEmail, "Hi there Russel Gordon, <br>" + generalOutsourcingBody, detailingSubject+' Russel Gordon') // email the additional
+      }
+
+      // Joinery
+      if(form['outsourcing-selection-joinery-vision'] || form['outsourcing-selection-joinery-tbc']) {
+        output += "<br> <h3>Joinery</h3>"
+      }
+
+      if(form['outsourcing-selection-joinery-vision']) {
+        output += "<br>Sent to Vision for estimation"
+        sendEmail(visionConstEmail, "Hi there Vision, <br>" + generalOutsourcingBody, detailingSubject+' Vision') // email the additional
+      }
+
+      if(form['outsourcing-selection-joinery-tbc']) {
+        output += "<br>Sent to TBC for estimation"
+        sendEmail(tBC, "Hi there TBC, <br>" + generalOutsourcingBody, detailingSubject+' TBC') // email the additional
+      }
+
+      // Garage Doors
+      if(form['outsourcing-selection-garage-doors-dominator']) {
+        output += "<br> <h3>Garage Doors</h3>"
+      }
+      if(form['outsourcing-selection-garage-doors-dominator']) {
+        output += "<br>Sent to Dominator for estimation"
+        sendEmail(dominatorConstEmail, "Hi there Dominator, <br>" + generalOutsourcingBody, detailingSubject+' Dominator') // email the additional
+      }
+
+      //
+      // Doors - Internal
+      let dia = (form['outsourcing-selection-doors-internal-mahurangi'] || form['outsourcing-selection-doors-internal-doorways'])
+      let dib = (form['outsourcing-selection-doors-internal-elite'] || form['outsourcing-selection-doors-internal-nationwide'])
+      let dic = (form['outsourcing-selection-doors-internal-bennett-doors'])
+      if(dia || dib || dic) {
+        output += "<br> <h3>Doors - Internal</h3>"
+      }
+      if(form['outsourcing-selection-doors-internal-mahurangi']) {
+        output += "<br>Sent to Mahurangi for estimation"
+        sendEmail(mahurangiConstEmail, "Hi there Mahurangi, <br>" + generalOutsourcingBody, detailingSubject+' Mahurangi') // email the additional
+      }
+
+      if(form['outsourcing-selection-doors-internal-doorways']) {
+        output += "<br>Sent to Doorways for estimation"
+        sendEmail(doorwaysConstEmail, "Hi there Doorways, <br>" + generalOutsourcingBody, detailingSubject+' Doorways') // email the additional
+      }
+
+      if(form['outsourcing-selection-doors-internal-elite']) {
+        output += "<br>Sent to Elite for estimation"
+        sendEmail(eliteConstEmail, "Hi there Elite, <br>" + generalOutsourcingBody, detailingSubject+' Elite') // email the additional
+      }
+
+      if(form['outsourcing-selection-doors-internal-nationwide']) {
+        output += "<br>Sent to Nationwide for estimation"
+        sendEmail(nationwideConstEmail, "Hi there Nationwide, <br>" + generalOutsourcingBody, detailingSubject+' Nationwide') // email the additional
+      }
+
+      if(form['outsourcing-selection-doors-internal-bennett-doors']) {
+        output += "<br>Sent to Bennett Doors for estimation"
+        sendEmail(bennettDoorsConstEmail, "Hi there Bennett Doors, <br>" + generalOutsourcingBody, detailingSubject+' Bennett Doors') // email the additional
+      }
+
+      // Insulation
+      let insa = form['outsourcing-selection-outsourcing-insualtion-pinkfit'] || form['outsourcing-selection-outsourcing-insualtion-natural']
+      let insb = form['outsourcing-selection-outsourcing-insualtion-adl-insulation'] || form['outsourcing-selection-outsourcing-insualtion-smart-energy']
+      if(insa || insb) {
+        output += "<br> <h3>Insulation</h3>"
+      }
+
+      if(form['outsourcing-selection-outsourcing-insualtion-pinkfit']) {
+        output += "<br>Sent to Pinkfit for estimation"
+        sendEmail(pinkfitConstEmail, "Hi there Pinkfit, <br>" + generalOutsourcingBody, detailingSubject+' Pinkfit') // email the additional
+      }
+
+      if(form['outsourcing-selection-outsourcing-insualtion-natural']) {
+        output += "<br>Sent to Natural for estimation"
+        sendEmail(naturalConstEmail, "Hi there Natural, <br>" + generalOutsourcingBody, detailingSubject+' Natural') // email the additional
+      }
+
+      if(form['outsourcing-selection-outsourcing-insualtion-adl-insulation']) {
+        output += "<br>Sent to ADL Insulation for estimation"
+        sendEmail(aDLInsulationConstEmail, "Hi there ADL Insulation, <br>" + generalOutsourcingBody, detailingSubject+' ADL Insulation') // email the additional
+      }
+
+      if(form['outsourcing-selection-outsourcing-insualtion-smart-energy']) {
+        output += "<br>Sent to Smart Energy for estimation"
+        sendEmail(smartEnergyConstEmail, "Hi there Smart Energy, <br>" + generalOutsourcingBody, detailingSubject+' Smart Energy') // email the additional
+      }
+
+
+      // Structural Steel
+      if(form['outsourcing-selection-structural-steel-allwin'] || form['outsourcing-selection-structural-steel-Ecb']) {
+        output += "<br> <h3>Structural Steel</h3>"
+      }
+      if(form['outsourcing-selection-structural-steel-allwin']) {
+        output += "<br>Sent to Allwin for estimation"
+        sendEmail(allwinConstEmail, "Hi there Allwin, <br>" + generalOutsourcingBody, detailingSubject+' Allwin') // email the additional
+      }
+
+      if(form['outsourcing-selection-structural-steel-Ecb']) {
+        output += "<br>Sent to ECB for estimation"
+        sendEmail(eCBConstEmail, "Hi there ECB, <br>" + generalOutsourcingBody, detailingSubject+' ECB') // email the additional
+      }
+
+
+      // Cladding
+      if(form['outsourcing-selection-cladding-rosenfield'] || form['outsourcing-selection-cladding-abodo'] || form['outsourcing-selection-cladding-jsc'] || form['outsourcing-selection-cladding-iti-timspec']) {
+        output += "<br> <h3>Cladding</h3>"
+      }
+
+      if(form['outsourcing-selection-cladding-rosenfield']) {
+        output += "<br>Sent to Rosenfield for estimation"
+        sendEmail(rosenfieldConstEmail, "Hi there Rosenfield, <br>" + generalOutsourcingBody, detailingSubject+' Rosenfield') // email the additional
+      }
+
+      if(form['outsourcing-selection-cladding-abodo']) {
+        output += "<br>Sent to Abodo for estimation"
+        sendEmail(abodoConstEmail, "Hi there Abodo, <br>" + generalOutsourcingBody, detailingSubject+' Abodo') // email the additional
+      }
+
+      if(form['outsourcing-selection-cladding-jsc']) {
+        output += "<br>Sent to JSC for estimation"
+        sendEmail(jSCConstEmail, "Hi there JSC, <br>" + generalOutsourcingBody, detailingSubject+' JSC') // email the additional
+      }
+
+      if(form['outsourcing-selection-cladding-iti-timspec']) {
+        output += "<br>Sent to ITI Timspec for estimation"
+        sendEmail(iTITimspecConstEmail, "Hi there ITI Timspec, <br>" + generalOutsourcingBody, detailingSubject+' ITI Timspec') // email the additional
+      }
+
+
+      // Roofing
+      let roofa = (form['outsourcing-selection-roofing-new-era-sfi'] || form['outsourcing-selection-roofing-johnson-roofing-sfi'])
+      let roofb = (form['outsourcing-selection-roofing-roofing-industries-supply-only'] || form['outsourcing-selection-roofing-sps-shingles'])
+
+      if(roofa || roofb || form['outsourcing-selection-roofing-metalcraft']) {
+        output += "<br> <h3>Roofing</h3>"
+      }
+      if(form['outsourcing-selection-roofing-new-era-sfi']) {
+        output += "<br>Sent to New Era SFI for estimation"
+        sendEmail(newEraSFIConstEmail, "Hi there New Era SFI, <br>" + generalOutsourcingBody, detailingSubject+' New Era SFI') // email the additional
+      }
+
+      if(form['outsourcing-selection-roofing-johnson-roofing-sfi']) {
+        output += "<br>Sent to Johnson Roofing SFI for estimation"
+        sendEmail(johnsonRoofingSFIConstEmail, "Hi there Johnson Roofing, <br>" + generalOutsourcingBody, detailingSubject+' Johnson Roofing') // email the additional
+      }
+
+      if(form['outsourcing-selection-roofing-roofing-industries-supply-only']) {
+        output += "<br>Sent to Roofing Industries Supply Only for estimation"
+        sendEmail(roofingIndustriesSupplyOnlyConstEmail, "Hi there Roofing Industries, <br>" + generalOutsourcingBody, detailingSubject+' Roofing Industries') // email the additional
+      }
+
+      if(form['outsourcing-selection-roofing-sps-shingles']) {
+        output += "<br>Sent to SPS Shingles for estimation"
+        sendEmail(sPSShinglesConstEmail, "Hi there SPS Shingles, <br>" + generalOutsourcingBody, detailingSubject+' SPS Shingles') // email the additional
+      }
+
+      if(form['outsourcing-selection-roofing-metalcraft']) {
+        output += "<br>Sent to Metalcraft for estimation"
+        sendEmail(metalcraftConstEmail, "Hi there Metalcraft, <br>" + generalOutsourcingBody, detailingSubject+' Metalcraft') // email the additional
+      }
     }
 
 

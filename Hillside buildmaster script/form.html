@@ -10,9 +10,42 @@
     width:850px;
   }
 
-  .plate {
-    width: 30%;
+  .flex {
+    display: flex;
   }
+
+  .bold {
+    font-weight: bold;
+  }
+
+  .plate {
+    font-weight: normal;
+  }
+
+  .as-plan-toggle {
+    background-color: #888;
+    border-radius: 5px;
+text-align: center;
+margin-left: 2px;
+margin-right: 2px;
+  }
+
+.hide-section-toggle {
+  background-color: #888;
+  border-radius: 5px;
+text-align: center;
+margin-left: 2px;
+margin-right: 2px;
+}
+
+.toggle-as-selected {
+  background-color: #888;
+  border-radius: 5px;
+text-align: center;
+margin-left: 2px;
+margin-right: 2px;
+}
+
 
   .checkboxContainer {
     width: 45%;
@@ -788,7 +821,7 @@
 
     <div class="toggle-section timber-floor">
       <header id="toggle-section-header-timber-floor" class="toggle-section-header">
-        Timber Floor
+        Timber Floor & Mid Floor
         <label id="label-as-plan-timber-floor" class="as-plan-toggle timber-floor" for="as-plan-timber-floor">
           As per Plan
           <input type="checkbox"  id="as-plan-timber-floor" name='as-plan-timber-floor' onclick="toggleAll('timber-floor')"/>
@@ -855,11 +888,11 @@
       <main class="toggle-section-questions" id="toggle-section-questions-wall-framing" >
         <label class="wall-framing prenailer-supplied" for="wall-framing-prenailer-supplied">
           <input class="checkbox" type="checkbox" name="wall-framing-prenailer-supplied"  />
-          Supplied by Prenailer - Do not allow
+          Prenailer Supplied - Do not allow
         </label>
         <label class="wall-framing random" for="wall-framing-random">
           <input class="checkbox" type="checkbox" name="wall-framing-random"  />
-          Random
+          50lm Random
         </label>
         <br/>
         <label class="wall-framing capping" for="wall-framing-capping">
@@ -877,6 +910,9 @@
           External Posts
         </label>
         <br/>
+        <label class="flex bold" for="">
+          Frame Treatment
+
         <label class="plate wall-framing h-one-two" for="wall-framing-h-one-two">
           <input class="checkbox" type="checkbox" name="wall-framing-h-one-two"  />
           H1.2
@@ -889,6 +925,8 @@
           <input class="checkbox" type="checkbox" name="wall-framing-h-three-plates"  />
           H3 Plates
         </label>
+      </label>
+
 
         <label class="wall-framing strapping" for="wall-framing-strapping">
           <input class="checkbox" type="checkbox" name="wall-framing-strapping"  />

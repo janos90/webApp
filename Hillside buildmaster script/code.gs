@@ -111,7 +111,7 @@ function processForm(form) {
     var outsourcingSelection = ''
     var estimationContent = ''
     var prenailContentSubmitted = ''
-    var textContent = ""
+    var textContent = "SEP=;\n"
 
     textContent+="Quote Reference;" + form['quote-info-reference'] + ";\n"
     textContent+="Sales Rep;" + form['quote-info-sales-rep'] + ";\n"

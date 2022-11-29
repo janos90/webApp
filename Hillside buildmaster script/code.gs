@@ -96,10 +96,10 @@ function processForm(form) {
     var folder, folders = parentFolder.getFoldersByName(clientFolderName);
     if (folders.hasNext()) {folder = folders.next();} else {folder = parentFolder.createFolder(clientFolderName);}
     var JobFolder = folder.createFolder("jobNumber: " + jobNumber)
-    var detailingSubject = 'New job, number ' + jobNumber + ', issued for: '
-
+    var detailingSubject = 'New job, number ' + jobNumber + ','
+    detailingSubject += 'from ITM Estimations Coop ' + form['template-selection'] + ', '
     detailingSubject+= 'Uploaded by: ' + form['quote-info-sales-rep'] + ', '
-    detailingSubject+= 'For Client: ' + form['customer-info-name'] + ', '
+    detailingSubject+= 'For Client: ' + form['customer-info-name'] + '.'
     var generalOutsourcingContent
 
     var content = ""

@@ -113,6 +113,7 @@ function processForm(form) {
     var prenailContentSubmitted = ''
     var textContent = "SEP=;\n"
 
+    textContent+="Job Number;" + jobNumber + ";\n"
     textContent+="Quote Reference;" + form['quote-info-reference'] + ";\n"
     textContent+="Sales Rep;" + form['quote-info-sales-rep'] + ";\n"
     textContent+="Date Received;" + form['quote-info-date-received'] + ";\n"

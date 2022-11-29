@@ -61,6 +61,8 @@ function processForm(form) {
     var 	abodoConstEmail = outsourceConstEmail		//		lewis.marshall@abodo.co.nz
     var 	jSCConstEmail = outsourceConstEmail			//	seanh@jsctimber.co.nz
     var 	iTITimspecConstEmail = outsourceConstEmail			//	davidh@ititimspec.co.nz
+    var 	ulrichConstEmail = outsourceConstEmail			//	tgribble@uacl.co.nz
+    var 	symoniteConstEmail = outsourceConstEmail			//	info@symonite.co.nz
 
     // Roofing
     var 	newEraSFIConstEmail = outsourceConstEmail						//		nikhil@neweraroofing.co.nz
@@ -671,6 +673,13 @@ function processForm(form) {
     generalOutsourcingBody += "mailto:shaun@hillsideitm.co.nz?subject=Recepient%20Received%20Job%20"
     generalOutsourcingBody += jobNumber+"&body=Just%20letting%20you%20know%20we%20receivedVthe%20job'>link</a>"
     generalOutsourcingBody += "to confirm you have received the job. Jobs that haven't been confirmed will expire in 3 Business Days. "
+    generalOutsourcingBody += "<br>Please provide your quote for the job mentioned in this email."
+    generalOutsourcingBody += "<br>Our ITM Coop group including Matakana, Mahia Rd, Hillside, Turangi & Taupo are moving to an automated job management system, please do not reply to this email."
+    generalOutsourcingBody += "<br>Although automated, you have been hand chosen by us, on an ad-hoc basis to provide a quote from plan for the supply of Materials and/or Service.  "
+    generalOutsourcingBody += "<br>All pricing, queries and RFI to go to estimations@itmhillside.co.nz"
+    generalOutsourcingBody += "<br>We appreciate your effort to supply us a quote, If you are unable to price for any reason let me know at your earliest convenience, "
+    generalOutsourcingBody += "<br>we have a service promise to our customers that we will return our pricing within 10 working days, however…we do realise sometimes this is not practicable so please notify us of any delays so we can communicate this to our customer. "
+    generalOutsourcingBody += "<br>On behalf of our ITM group, Thank you for your consideration. "
 
     generalOutsourcingBody+= "<br>Please see the bellow links to the plan files uploaded for this job"
 
@@ -979,7 +988,9 @@ function processForm(form) {
 
 
       // Cladding
-      if(form['outsourcing-selection-cladding-rosenfield'] || form['outsourcing-selection-cladding-abodo'] || form['outsourcing-selection-cladding-jsc'] || form['outsourcing-selection-cladding-iti-timspec']) {
+      let claddingA = form['outsourcing-selection-cladding-rosenfield'] || form['outsourcing-selection-cladding-abodo'] || form['outsourcing-selection-cladding-jsc'] )
+      let claddingB form['outsourcing-selection-cladding-iti-timspec'] || form['outsourcing-selection-cladding-ullrich'] || form['outsourcing-selection-cladding-simonite']
+        if(claddingA || claddingB) {
         output += "<br> <h3>Cladding</h3>"
       }
 
@@ -1002,6 +1013,16 @@ function processForm(form) {
         output += "<br>Sent to ITI Timspec for estimation"
         sendEmail(iTITimspecConstEmail, "Hi there ITI Timspec, <br>" + generalOutsourcingBody, detailingSubject+' ITI Timspec') // email the additional
       }
+      if(form['outsourcing-selection-cladding-ullrich']) {
+        output += "<br>Sent to Ulrich Aluminium for estimation"
+        sendEmail(ulrichConstEmail, "Hi there Ulrich Aluminium, <br>" + generalOutsourcingBody, detailingSubject+' Ulrich Aluminium') // email the additional
+      }
+
+      if(form['outsourcing-selection-cladding-simonite']) {
+        output += "<br>Sent to Symonite Alucobond for estimation"
+        sendEmail(symoniteConstEmail, "Hi there Symonite Alucobond, <br>" + generalOutsourcingBody, detailingSubject+' Symonite Alucobond') // email the additional
+      }
+
 
 
       // Roofing

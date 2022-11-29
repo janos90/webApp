@@ -988,8 +988,8 @@ function processForm(form) {
 
 
       // Cladding
-      let claddingA = form['outsourcing-selection-cladding-rosenfield'] || form['outsourcing-selection-cladding-abodo'] || form['outsourcing-selection-cladding-jsc'] )
-      let claddingB form['outsourcing-selection-cladding-iti-timspec'] || form['outsourcing-selection-cladding-ullrich'] || form['outsourcing-selection-cladding-simonite']
+      let claddingA = form['outsourcing-selection-cladding-rosenfield'] || form['outsourcing-selection-cladding-abodo'] || form['outsourcing-selection-cladding-jsc']
+      let claddingB = form['outsourcing-selection-cladding-iti-timspec'] || form['outsourcing-selection-cladding-ullrich'] || form['outsourcing-selection-cladding-simonite']
         if(claddingA || claddingB) {
         output += "<br> <h3>Cladding</h3>"
       }

@@ -851,13 +851,20 @@ function processForm(form) {
       }
 
       // Ribraft
-      if(form['outsourcing-selection-ribraft-rfl'] || form['outsourcing-selection-ribraft-russel-gordon']) {
-        output += "<br> <h3>Ribraft</h3>"
-      }
+      // if(form['outsourcing-selection-ribraft-rfl'] || form['outsourcing-selection-ribraft-russel-gordon']) {
+      //   output += "<br> <h3>Ribraft</h3>"
+      // }
+      //
+      // if(form['outsourcing-selection-ribraft-rfl']) {
+      //   output += "<br>Sent to RFL for estimation"
+      //   sendEmail(rFLConstEmail, "Hi there RFL, <br>" + generalOutsourcingBody, detailingSubject+' RFL') // email the additional
+      // }
 
-      if(form['outsourcing-selection-ribraft-rfl']) {
-        output += "<br>Sent to RFL for estimation"
-        sendEmail(rFLConstEmail, "Hi there RFL, <br>" + generalOutsourcingBody, detailingSubject+' RFL') // email the additional
+
+      // Miscellaneous
+      if(form['outsourcing-selection-miscellaneous-email']) {
+        output += "<br>Sent to Outsourcing Email for estimation"
+        sendEmail(form['outsourcing-selection-miscellaneous-email'], "Hi there, <br>" + generalOutsourcingBody, detailingSubject+' RFL') // email the additional
       }
 
       if(form['outsourcing-selection-ribraft-russel-gordon']) {

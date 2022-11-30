@@ -12,6 +12,14 @@ function incrementIterator(jobNumber) {
   var file = DriveApp.getFileById(id)
   file.setName(jobNumber + 1)
 }
+function imgToHtmlTag(fileId) {
+  let file = DriveApp.getFileById(fileId)
+  let fileBlob = file.getBlob()
+  let imgData = fileBlob.getContentType() + ';base64,' + Utilities.base64Encode(fileBlob.getBytes())
+
+  return "<img src='data:" + imgData + "' />"
+}
+
 function processForm(form) {
   try {
 
@@ -76,14 +84,19 @@ function processForm(form) {
     var jobNumerical = getIterator()
     var jobNumber =  jobNumerical
     if(form['template-selection'] === 'Hillside') {
-      jobNumber = '524-' + jobNumerical
+      var fileID = "1Vgrupz5g5Qv-Lf4gcmmgUP12CZUWJba6"
+      jobNumber = '524' + jobNumerical
     } else if (form['template-selection'] === 'Matakana') {
+      var fileID = "1KgVraz3OwzNmK543QH7GgcTih2Zs0yo0"
       jobNumber = '489' + jobNumerical
     } else if (form['template-selection'] === 'Mahia') {
+      var fileID = "1nXYgrkUQBWp3hAplWkja1dEsA_CTlv0b"
       jobNumber = '537' + jobNumerical
     } else if (form['template-selection'] === 'Turangi') {
+      var fileID = "1nwayNE-XpDbPWDCm3jCY_NOI-I7wWYra"
       jobNumber = '507' + jobNumerical
     } else if (form['template-selection'] === 'Taupo') {
+      var fileID = "1dN8DypqoDDhvnq8fS85ELWSS2uXl2b-K"
       jobNumber = '539' + jobNumerical
     } else {
       console.log("form['template-selection']", form['template-selection']);
@@ -145,7 +158,7 @@ function processForm(form) {
     styles+="border-radius: 5px; margin-left: auto; margin-right: auto; padding: 20px;  }"
     styles+="#prenail-questions { flex-wrap: wrap;  }"
     styles+=".fullWidthContainer { width: 100%;  }"
-    styles+="#heading { display:flex; height:100%; padding: 0em 20em 2em 20em;  }"
+    styles+="#heading { display:flex; height:100%; padding: 1em; background-color: #000; }"
     styles+=".store-logo { width: 15em;  }"
     styles+="#heading .title { color:red; width: 15em; padding-left: 50px; }"
     styles+=".section { width: 100%; border: solid black 2px; padding: 0em 0em 0em 0em; margin: 1em 0 1em 0;  }"
@@ -177,7 +190,8 @@ function processForm(form) {
     content+=headEnd
 
     clientDetails+= "<body><form id='myForm' align='center'><header class='' id='heading'>"
-    clientDetails+= "<image class='store-logo' src='https://westernitm.co.nz/wp-content/uploads/2014/10/ITM-Logo-square-200px-web.jpg'/>"
+    // clientDetails+= "<image class='store-logo' src='https://westernitm.co.nz/wp-content/uploads/2014/10/ITM-Logo-square-200px-web.jpg'/>"
+    clientDetails+= imgToHtmlTag(fileID)
     clientDetails+= "<h2 class='title'> Estimate request <br /> ITM "+form['template-selection']+"</h2> </header>"
     clientDetails+= "<div class='section' id='quote-info'>   <header>Quote Information   </header>"
     clientDetails+= "<label for='quote-info-reference'>Quote Reference<input class='single-input' type='text' value='"+form['quote-info-reference']+"' /></label>"

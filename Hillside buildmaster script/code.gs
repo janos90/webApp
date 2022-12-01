@@ -23,8 +23,8 @@ function imgToHtmlTag(fileId) {
 function processForm(form) {
   try {
 
-    var quantifierConstEmail = form['estimateEmailTest']
-    var outsourceConstEmail = form['outsourceEmailTest']
+    var quantifierConstEmail = "shaun@hillsideitm.co.nz"   //  form['estimateEmailTest']
+    var outsourceConstEmail = "shaun@hillsideitm.co.nz"  //  form['outsourceEmailTest']
     // Temporary constants
     var turangiConstEmail = outsourceConstEmail
     var ntmlConstEmail = outsourceConstEmail

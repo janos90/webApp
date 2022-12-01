@@ -154,8 +154,8 @@ function processForm(form) {
     styles+=" .as-plan-toggle { background-color: #888; border-radius: 5px; text-align: center; margin-left: 2px; margin-right: 2px;}"
     styles+=" .hide-section-toggle { background-color: #888; border-radius: 5px; text-align: center; margin-left: 2px; margin-right: 2px;}"
     styles+=" .toggle-as-selected { background-color: #888; border-radius: 5px; text-align: center; margin-left: 2px; margin-right: 2px;}"
-    styles+=".checkboxContainer { width: 45%; margin-top: 2%; border: black solid 1px;"
-    styles+="border-radius: 5px; margin-left: auto; margin-right: auto; padding: 20px;  }"
+    styles+=".checkboxContainer { width: 45%; margin-top: 1%; border: black solid 1px;"
+    styles+="border-radius: 5px; margin-left: auto; margin-right: auto; padding: 10px;  }"
     styles+="#prenail-questions { flex-wrap: wrap;  }"
     styles+=".fullWidthContainer { width: 100%;  }"
     styles+="#heading { display:flex; height:100%; padding: 1em; background-color: #000; }"
@@ -167,7 +167,7 @@ function processForm(form) {
     styles+=".split-box .half-section { width: 50%;  }"
     styles+=".split-box .third-section { width: 33.33%;  }"
     styles+=".prenail-table, .prenail-table-headers, .prenail-table-cells { border: solid black 1px;  }"
-    styles+=".prenail-table { border-collapse: collapse; margin: 5px;  }"
+    styles+=".prenail-table { border-collapse: collapse; margin: 5px; display: flex; align-items: center; }"
     styles+="label { display: block; margin: 2px; padding: 5px; text-align: justify;  }"
     styles+=".section header{ background-color: gray; font-weight: bold; font-size: 20px;"
     styles+="padding-top: 2px; padding-bottom: 2px; margin-bottom: 3px;  }"
@@ -617,7 +617,7 @@ function processForm(form) {
       content += estimationContent
     }
 
-    prenailContentSubmitted+= "<div id='prenail-questions' class=''>"
+    prenailContentSubmitted+= "<div id='prenail-questions' style='display: flex;' class=''>"
     prenailContentSubmitted+= "<header class='fullWidthContainer'><h1>Prenail questions</h1></header>"
     prenailContentSubmitted+= "<div class='checkboxContainer'><h3>Wind zone</h3>"
     prenailContentSubmitted+= "<p class='row'><input class='wind' "+(form['prenailMediumWind']?'checked':'')+" type='checkbox'>Medium Wind</p>"
@@ -672,7 +672,9 @@ function processForm(form) {
     prenailContentSubmitted+= "<label>Studlok / lintel lok<input class='single-input' type='checkbox' "+(form['daylesPrenailStudlok']?'checked':'')+"  />"
     prenailContentSubmitted+= "premium service, additional charges apply</label>"
     prenailContentSubmitted+= "</div></div>"
-    content += prenailContentSubmitted
+    if(!form['cancel-outsourcing']) {
+      content += prenailContentSubmitted
+    }
 
     content += formFoot
     generalOutsourcingContent+= head + styles + headEnd + clientDetails + formFoot

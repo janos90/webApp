@@ -69,7 +69,8 @@
   #heading {
     display:flex;
     height:100%;
-    padding: 0em 20em 2em 20em;
+    padding: 1em 2em 1em 2em;
+    background-color: black;
   }
 
   .store-logo {
@@ -179,6 +180,19 @@
     display: none;
     width: 100%;
     flex-wrap: wrap;
+  }
+
+  #branchName {
+    margin: 0;
+    color: #fff200;
+    font-size: 60px;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    line-height: normal;
+    text-transform: uppercase;
+    font-family: Eurostile-CondensedBold,Helvetica,Arial,sans-serif;
+    padding: 10px;
   }
 
   </style>
@@ -378,16 +392,26 @@
     }
   }
 
+  function setStore() {
+    var select = document.getElementById("template-selection");
+    var branchName = document.getElementById("branchName");
+    var store = select.options[select.selectedIndex].value;
+    console.log(store);
+    console.log(branchName);
+    branchName.innerHTML = store;
+  }
+
 
   </script>
 </head>
 <body>
   <form id="myForm" align="center" onsubmit="handleFormSubmit(this)">
     <header class="" id="heading">
+      <h1 id="branchName"></h1>
       <image class="store-logo" src="https://westernitm.co.nz/wp-content/uploads/2014/10/ITM-Logo-square-200px-web.jpg"/>
 
       <h2 class="title">
-        Estimate request <br /> ITM
+        Estimate Request Form
       </h2>
     </header>
 
@@ -412,7 +436,7 @@
       </label>
 
       <label for="template-selection">Select Template
-        <select class="" required name="template-selection" id="template-selection">
+        <select class="" required name="template-selection" id="template-selection" onchange="setStore()">
           <option value="Hillside">Hillside</option>
           <option value="Matakana">Matakana</option>
           <option value="Mahia">Mahia</option>

@@ -343,12 +343,6 @@ function processForm(form) {
 
     content+= outsourcingSelection
 
-
-    outsourcingSelection+="<div class='outsourcing-selection section'>"
-    outsourcingSelection+="<header>Out Sourcing"+ (form['cancel-outsourcing']?'- not Required':'- send Plans for measure and quote') +"</header>"
-    outsourcingSelection+="<main class='outsourcing-selection-body' id='outsourcing-selection-body' style='"+ (form['cancel-outsourcing']?'display:none;':'') +"'> "
-
-
     estimationContent += "<div class='section' >"
     estimationContent += "<header class='toggle-section-header'> Estimation - "
     estimationContent += (form['cancel-estimation']?'not Required':'Tick sections or Items') +"</header>"
@@ -679,8 +673,12 @@ function processForm(form) {
     content += formFoot
     generalOutsourcingContent+= head + styles + headEnd + clientDetails + formFoot
     var prenailContent = ''+head+styles+headEnd+clientDetails+prenailContentSubmitted+formFoot
-    var estCompleteContent = "" + head+styles+headEnd+clientDetails+estimationContent+formFoot
-
+    var estCompleteContent = "" + head+styles+headEnd+clientDetails+estimationContent
+    if(!form['cancel-outsourcing']) {
+      estCompleteContent=+outsourcingSelection+formFoot
+    } else {
+      estCompleteContent=+formFoot
+    }
     var generalOutsourcingBody = ""
     generalOutsourcingBody += "A new Job has been submitted by " +form['quote-info-sales-rep']
     generalOutsourcingBody += " from ITM " +form['template-selection']

@@ -115,7 +115,6 @@ function processForm(form) {
     detailingSubject += 'from ITM Estimations Coop ' + form['template-selection'] + ', '
     detailingSubject+= 'Uploaded by: ' + form['quote-info-sales-rep'] + ', '
     detailingSubject+= 'For Client: ' + form['customer-info-name'] + '.'
-    var generalOutsourcingContent
 
     var content = ""
     var formFoot = "</form>"
@@ -158,7 +157,7 @@ function processForm(form) {
     styles+="border-radius: 5px; margin-left: auto; margin-right: auto; padding: 10px;  }"
     styles+="#prenail-questions { flex-wrap: wrap;  }"
     styles+=".fullWidthContainer { width: 100%;  }"
-    styles+="#heading { display:flex; height:100%; padding: 1em; background-color: #000; }"
+    styles+="#heading { display:flex; height:100px; padding: 1em; background-color: #000; }"
     styles+=".store-logo { width: 15em;  }"
     styles+="#heading .title { color:red; width: 15em; padding-left: 50px; }"
     styles+=".section { width: 100%; border: solid black 2px; padding: 0em 0em 0em 0em; margin: 1em 0 1em 0;  }"
@@ -673,7 +672,7 @@ function processForm(form) {
     }
 
     content += formFoot
-    generalOutsourcingContent+= head + styles + headEnd + clientDetails + formFoot
+    var generalOutsourcingContent = ''+ head + styles + headEnd + clientDetails + formFoot
     var prenailContent = ''+head+styles+headEnd+clientDetails+prenailContentSubmitted+formFoot
     var estCompleteContent = "" + head+styles+headEnd+clientDetails+estimationContent
     if(!form['cancel-outsourcing']) {

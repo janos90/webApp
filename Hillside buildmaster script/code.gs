@@ -239,7 +239,7 @@ function processForm(form) {
     content+=clientDetails
 
 
-    outsourcingSelection+="<div class='outsourcing-selection section'>"
+    outsourcingSelection+="<div class='outsourcing-selection section' style='" +  (form['cancel-outsourcing']?'':'page-break-before: always;') + "' >"
     outsourcingSelection+="<header>Out Sourcing"+ (form['cancel-outsourcing']?'- not Required':'- send Plans for measure and quote') +"</header>"
     outsourcingSelection+="<main class='outsourcing-selection-body' id='outsourcing-selection-body' style='"+ (form['cancel-outsourcing']?'display:none;':'') +"'> "
     outsourcingSelection+="<ul class='outsourcing-selection-ul prenail'><header>PreNail</header>"
@@ -344,7 +344,7 @@ function processForm(form) {
 
     content+= outsourcingSelection
 
-    estimationContent += "<div class='section' >"
+    estimationContent += "<div class='section' style='" +  (form['cancel-estimation']?'':'page-break-before: always;') + "' >"
     estimationContent += "<header class='toggle-section-header'> Estimation - "
     estimationContent += (form['cancel-estimation']?'not Required':'Tick sections or Items') +"</header>"
 
@@ -612,7 +612,7 @@ function processForm(form) {
       content += estimationContent
     }
 
-    prenailContentSubmitted+= "<div id='prenail-questions' style='display: flex;' class=''>"
+    prenailContentSubmitted+= "<div id='prenail-questions' style='display: flex; page-break-before: always;' class=''>"
     prenailContentSubmitted+= "<header class='fullWidthContainer'><h1>Prenail questions</h1></header>"
     prenailContentSubmitted+= "<div class='checkboxContainer'><h3>Wind zone</h3>"
     prenailContentSubmitted+= "<p class='row'><input class='wind' "+(form['prenailMediumWind']?'checked':'')+" type='checkbox'>Medium Wind</p>"
@@ -676,9 +676,9 @@ function processForm(form) {
     var prenailContent = ''+head+styles+headEnd+clientDetails+prenailContentSubmitted+formFoot
     var estCompleteContent = '' + head+styles+headEnd+clientDetails+estimationContent
     if(!form['cancel-outsourcing']) {
-      estCompleteContent=+outsourcingSelection+formFoot
+      estCompleteContent+=outsourcingSelection+formFoot
     } else {
-      estCompleteContent=+formFoot
+      estCompleteContent+=formFoot
     }
     var generalOutsourcingBody = ""
     generalOutsourcingBody += "A new Job has been submitted by " +form['quote-info-sales-rep']

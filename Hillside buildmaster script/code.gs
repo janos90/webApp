@@ -674,7 +674,7 @@ function processForm(form) {
     content += formFoot
     var generalOutsourcingContent = ''+ head + styles + headEnd + clientDetails + formFoot
     var prenailContent = ''+head+styles+headEnd+clientDetails+prenailContentSubmitted+formFoot
-    var estCompleteContent = "" + head+styles+headEnd+clientDetails+estimationContent
+    var estCompleteContent = '' + head+styles+headEnd+clientDetails+estimationContent
     if(!form['cancel-outsourcing']) {
       estCompleteContent=+outsourcingSelection+formFoot
     } else {

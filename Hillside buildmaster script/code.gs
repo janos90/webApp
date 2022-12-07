@@ -74,6 +74,7 @@ function processForm(form) {
     var 	jSCConstEmail = outsourceConstEmail			//	seanh@jsctimber.co.nz
     var 	iTITimspecConstEmail = outsourceConstEmail			//	davidh@ititimspec.co.nz
     var 	ulrichConstEmail = outsourceConstEmail			//	tgribble@uacl.co.nz
+    var 	nuwallConstEmail = outsourceConstEmail			//	info@Nuwall.co.nz
     var 	symoniteConstEmail = outsourceConstEmail			//	info@symonite.co.nz
 
     // Roofing
@@ -320,6 +321,8 @@ function processForm(form) {
     outsourcingSelection+="<input class='checkbox' type='checkbox' "+(form['outsourcing-selection-cladding-iti-timspec']?'checked':'')+" /></label></li>"
     outsourcingSelection+="<li class='outsourcing-selection-li'><label for='outsourcing-selection-cladding-ullrich'>Ullrich - Supply only"
     outsourcingSelection+="<input class='checkbox' type='checkbox' "+(form['outsourcing-selection-cladding-ullrich']?'checked':'')+" /></label></li>"
+    outsourcingSelection+="<li class='outsourcing-selection-li'><label for='outsourcing-selection-cladding-nuwall'>Nuwall - Supply only"
+    outsourcingSelection+="<input class='checkbox' type='checkbox' "+(form['outsourcing-selection-cladding-nuwall']?'checked':'')+" /></label></li>"
     outsourcingSelection+="<li class='outsourcing-selection-li'><label for='outsourcing-selection-cladding-simonite'>Simonite"
     outsourcingSelection+="<input class='checkbox' type='checkbox' "+(form['outsourcing-selection-cladding-simonite']?'checked':'')+" /></label></li></ul>"
     outsourcingSelection+="<ul class='outsourcing-selection-ul roofing'><header>Roofing</header>"
@@ -1006,7 +1009,7 @@ function processForm(form) {
 
       // Cladding
       let claddingA = form['outsourcing-selection-cladding-rosenfield'] || form['outsourcing-selection-cladding-abodo'] || form['outsourcing-selection-cladding-jsc']
-      let claddingB = form['outsourcing-selection-cladding-iti-timspec'] || form['outsourcing-selection-cladding-ullrich'] || form['outsourcing-selection-cladding-simonite']
+      let claddingB = form['outsourcing-selection-cladding-iti-timspec'] || form['outsourcing-selection-cladding-ullrich'] || form['outsourcing-selection-cladding-simonite']  || form['outsourcing-selection-cladding-nuwall']
         if(claddingA || claddingB) {
         output += "<br> <h3>Cladding</h3>"
       }
@@ -1034,6 +1037,12 @@ function processForm(form) {
         output += "<br>Sent to Ulrich Aluminium for estimation"
         sendEmail(ulrichConstEmail, "Hi there Ulrich Aluminium, <br>" + generalOutsourcingBody, ' Ulrich Aluminium ' + detailingSubject) // email the additional
       }
+
+      if(form['outsourcing-selection-cladding-nuwall']) {
+        output += "<br>Sent to Ulrich Aluminium for estimation"
+        sendEmail(nuwallConstEmail, "Hi there Nuwall, <br>" + generalOutsourcingBody, ' Nuwall ' + detailingSubject) // email the additional
+      }
+
 
       if(form['outsourcing-selection-cladding-simonite']) {
         output += "<br>Sent to Symonite Alucobond for estimation"

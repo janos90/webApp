@@ -181,6 +181,7 @@ function processForm(form) {
     styles+=".toggle-section-wrapper { display: flex; flex-wrap: wrap;  }"
     styles+=".toggle-section { width: 49.5%; margin: 2px; border: solid 1px black; margin-right:auto; margin-left:auto;}"
     styles+=".outsourcing-selection-body { display: flex; flex-wrap: wrap;  }"
+    styles+="#prenail-selection-body { display: flex; flex-wrap: wrap; } #prenail-selection-body label { flex-grow: 1; }"
     styles+=".outsourcing-selection-ul { list-style: none; border: 2px solid black;"
     styles+="margin: 4px; padding: 2px; width: 48%; border-radius: 5px; flex-grow: 1;  }"
     styles+=".toggle-section-questions { display: none; width: 100%; flex-wrap: wrap;  }"
@@ -248,20 +249,6 @@ function processForm(form) {
     outsourcingSelection+="<div class='outsourcing-selection section' style='" +  (form['cancel-outsourcing']?'':'page-break-before: always;') + "' >"
     outsourcingSelection+="<header>Out Sourcing"+ (form['cancel-outsourcing']?'- not Required':'- send Plans for measure and quote') +"</header>"
     outsourcingSelection+="<main class='outsourcing-selection-body' id='outsourcing-selection-body' style='"+ (form['cancel-outsourcing']?'display:none;':'') +"'> "
-    outsourcingSelection+="<ul class='outsourcing-selection-ul prenail'><header>PreNail</header>"
-    outsourcingSelection+="<li class='outsourcing-selection-li'><label for='outsourcing-selection-prenail-turangi'>Turangi ITM"
-    outsourcingSelection+="<input class='checkbox' type='checkbox' "+(form['outsourcing-selection-prenail-turangi']?'checked':'')+" id='outsourcing-selection-prenail-turangi' /></label></li>"
-    outsourcingSelection+="<li class='outsourcing-selection-li'><label for='outsourcing-selection-prenail-ntml'>NTML"
-    outsourcingSelection+="<input class='checkbox' type='checkbox' "+(form['outsourcing-selection-prenail-ntml']?'checked':'')+"  id='outsourcePrenailNTMLid' /></label></li>"
-    outsourcingSelection+="<li class='outsourcing-selection-li'><label for='outsourcing-selection-prenail-dayles'>Dayles"
-    outsourcingSelection+="<input class='checkbox' type='checkbox' "+(form['outsourcing-selection-prenail-dayles']?'checked':'')+"  id='outsourcePrenailDayleid' /></label></li>"
-    outsourcingSelection+="<li class='outsourcing-selection-li'><label for='outsourcing-selection-prenail-vip'>VIP"
-    outsourcingSelection+="<input class='checkbox' type='checkbox' "+(form['outsourcing-selection-prenail-vip']?'checked':'')+"  id='outsourcePrenailVipid' /></label></li>"
-    outsourcingSelection+="<li class='outsourcing-selection-li'><label for='outsourcing-selection-prenail-ift'>IFT"
-    outsourcingSelection+="<input class='checkbox' type='checkbox' "+(form['outsourcing-selection-prenail-ift']?'checked':'')+"  id='outsourcePrenailIftid' /></label></li>"
-
-
-    outsourcingSelection+="</ul>"
     outsourcingSelection+="<ul class='outsourcing-selection-ul reinforcing'>  <header>Reinforcing</header>"
     outsourcingSelection+="<li class='outsourcing-selection-li'><label for='outsourcing-selection-reinforcing-united-steel'>United Steel"
     outsourcingSelection+="<input class='checkbox' type='checkbox' "+(form['outsourcing-selection-reinforcing-united-steel']?'checked':'')+" /></label></li>"
@@ -349,6 +336,22 @@ function processForm(form) {
     outsourcingSelection+="</ul>"
 
     outsourcingSelection+="</main></div>"
+
+    outsourcingSelection+="<div class='prenail-selection section'> <header>Prenail <br /> "
+    outsourcingSelection+="Prenail not Required <input type='checkbox' class='checkbox' "+(form['cancel-prenail']?'checked':'')+"/></header>"
+    outsourcingSelection+="<main id='prenail-selection-body' style='"+(form['cancel-prenail']?'display: none;':'')+"'>"
+    outsourcingSelection+="<label for='outsourcing-selection-prenail-turangi'>Turangi ITM"
+    outsourcingSelection+="<input class='checkbox' type='checkbox' "+(form['outsourcing-selection-prenail-turangi']?'checked':'')+" id='outsourcing-selection-prenail-turangi' /></label>"
+    outsourcingSelection+="<label for='outsourcing-selection-prenail-ntml'>NTML"
+    outsourcingSelection+="<input class='checkbox' type='checkbox' "+(form['outsourcing-selection-prenail-ntml']?'checked':'')+"  id='outsourcePrenailNTMLid' /></label>"
+    outsourcingSelection+="<label for='outsourcing-selection-prenail-dayles'>Dayles"
+    outsourcingSelection+="<input class='checkbox' type='checkbox' "+(form['outsourcing-selection-prenail-dayles']?'checked':'')+"  id='outsourcePrenailDayleid' /></label>"
+    outsourcingSelection+="<label for='outsourcing-selection-prenail-vip'>VIP"
+    outsourcingSelection+="<input class='checkbox' type='checkbox' "+(form['outsourcing-selection-prenail-vip']?'checked':'')+"  id='outsourcePrenailVipid' /></label>"
+    outsourcingSelection+="<label for='outsourcing-selection-prenail-ift'>IFT"
+    outsourcingSelection+="<input class='checkbox' type='checkbox' "+(form['outsourcing-selection-prenail-ift']?'checked':'')+"  id='outsourcePrenailIftid' /></label>"
+    outsourcingSelection+="</ul>"
+
 
     content+= outsourcingSelection
 

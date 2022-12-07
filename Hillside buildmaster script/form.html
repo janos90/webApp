@@ -166,6 +166,14 @@
     flex-wrap: wrap;
   }
 
+  #prenail-selection-body {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  #prenail-selection-body label {
+    flex-grow: 1;
+ }
+
   .outsourcing-selection-ul {
     list-style: none;
     border: 2px solid black;
@@ -374,6 +382,19 @@
     }
   }
 
+  function togglePrenail() {
+    var toggleCheckbox = document.getElementById("cancel-prenail");
+    var sectionWrapper = document.getElementById("prenail-selection-body");
+    if(toggleCheckbox.checked) {
+      sectionWrapper.style.display = 'none';
+    } else {
+      sectionWrapper.style.display = 'flex';
+    }
+  }
+
+
+
+
 
   function outsourcePrenail() {
     var checkbox1 = document.getElementById("outsourcing-selection-prenail-turangi");
@@ -465,347 +486,326 @@
         <input class="single-input" type="text" name="emailTo" id='emailTo'  />
       </label>
       <!-- <label for="outsourceEmailTest">
-        Outsource test email
-        <input required class="single-input" type="text" name="outsourceEmailTest" id='outsourceEmailTest'  />
-      </label>
-      <label for="estimateEmailTest">
-        Estimation test email
-        <input required class="single-input" type="text" name="estimateEmailTest" id='estimateEmailTest'  />
-      </label> -->
+      Outsource test email
+      <input required class="single-input" type="text" name="outsourceEmailTest" id='outsourceEmailTest'  />
+    </label>
+    <label for="estimateEmailTest">
+    Estimation test email
+    <input required class="single-input" type="text" name="estimateEmailTest" id='estimateEmailTest'  />
+  </label> -->
 
 
 
-    </div>
-    <div class="section split-box">
-      <div class="half-section" id='customer-info'>
-        <header>
-          Customer Information
-        </header>
-        <label for="customer-info-name">
-          Customer Name
-          <input class="single-input" type="text" name="customer-info-name"  />
+</div>
+<div class="section split-box">
+  <div class="half-section" id='customer-info'>
+    <header>
+      Customer Information
+    </header>
+    <label for="customer-info-name">
+      Customer Name
+      <input class="single-input" type="text" name="customer-info-name"  />
+    </label>
+
+    <label for="customer-info-email">
+      Contact Email
+      <input class="single-input" type="text" name="customer-info-email"  />
+    </label>
+
+    <label for="customer-info-phone">
+      Phone Number
+      <input class="single-input" type="text" name="customer-info-phone"  />
+    </label>
+
+  </div>
+  <div class="half-section" id='job-info'>
+    <header>
+      Job Information
+    </header>
+    <label for="job-info-address">
+      Site Address
+      <input class="textbox-input" type="text" name="job-info-address"  />
+    </label>
+
+    <label for="job-info-dropbox-links">
+      DropBox Links
+      <textarea class="textbox-input" type="text" name="job-info-dropbox-links"  > </textarea>
+    </label>
+
+
+  </div>
+</div>
+<div class="outsourcing-selection section">
+  <header>Out Sourcing - send Plans for measure and quote <br />
+    Outsourcing not Required <input type="checkbox" class="checkbox" id="cancel-outsourcing" name='cancel-outsourcing' onclick="toggleOutsourcing()"/>
+
+  </header>
+  <main class="outsourcing-selection-body" id="outsourcing-selection-body">
+    <ul class="outsourcing-selection-ul reinforcing">
+      <header>Reinforcing</header>
+      <li class="outsourcing-selection-li">
+        <label for="outsourcing-selection-reinforcing-united-steel">
+          United Steel
+          <input class="checkbox" type="checkbox" name="outsourcing-selection-reinforcing-united-steel"  />
         </label>
 
-        <label for="customer-info-email">
-          Contact Email
-          <input class="single-input" type="text" name="customer-info-email"  />
+      </li>
+      <li class="outsourcing-selection-li">
+        <label for="outsourcing-selection-reinforcing-Summit">
+          Summit
+          <input class="checkbox" type="checkbox" name="outsourcing-selection-reinforcing-Summit"  />
         </label>
 
-        <label for="customer-info-phone">
-          Phone Number
-          <input class="single-input" type="text" name="customer-info-phone"  />
+      </li>
+      <li class="outsourcing-selection-li">
+        <label for="outsourcing-selection-reinforcing-Freo">
+          FREO
+          <input class="checkbox" type="checkbox" name="outsourcing-selection-reinforcing-Freo"  />
         </label>
 
-      </div>
-      <div class="half-section" id='job-info'>
-        <header>
-          Job Information
-        </header>
-        <label for="job-info-address">
-          Site Address
-          <input class="textbox-input" type="text" name="job-info-address"  />
+      </li>
+    </ul>
+
+
+    <ul class="outsourcing-selection-ul joinery">
+      <header>Joinery</header>
+      <li class="outsourcing-selection-li">
+        <label for="outsourcing-selection-joinery-vision">
+          Vision
+          <input class="checkbox" type="checkbox" name="outsourcing-selection-joinery-vision"  />
         </label>
-
-        <label for="job-info-dropbox-links">
-          DropBox Links
-          <textarea class="textbox-input" type="text" name="job-info-dropbox-links"  > </textarea>
+      </li>
+      <li class="outsourcing-selection-li">
+        <label for="outsourcing-selection-joinery-tbc">
+          TBC
+          <input class="checkbox" type="checkbox" name="outsourcing-selection-joinery-tbc"  />
         </label>
+      </li>
+    </ul>
+
+    <ul class="outsourcing-selection-ul garage-doors">
+      <header>Garage Doors</header>
+      <li class="outsourcing-selection-li">
+        <label for="outsourcing-selection-garage-doors-dominator">
+          Dominator
+          <input class="checkbox" type="checkbox" name="outsourcing-selection-garage-doors-dominator"  />
+        </label>
+      </li>
+      <li class="outsourcing-selection-li">
+        <label for="outsourcing-selection-garage-doors-dominator-rodney">
+          Dominator Rodney
+          <input class="checkbox" type="checkbox" name="outsourcing-selection-garage-doors-dominator-rodney"  />
+        </label>
+      </li>
+
+    </ul>
+    <ul class="outsourcing-selection-ul doors-internal">
+      <header>Doors - Internal</header>
+      <li class="outsourcing-selection-li">
+        <label for="outsourcing-selection-doors-internal-mahurangi">
+          Mahurangi
+          <input class="checkbox" type="checkbox" name="outsourcing-selection-doors-internal-mahurangi"  />
+        </label>
+      </li>
+      <li class="outsourcing-selection-li">
+        <label for="outsourcing-selection-doors-internal-doorways">
+          Doorways
+          <input class="checkbox" type="checkbox" name="outsourcing-selection-doors-internal-doorways"  />
+        </label>
+      </li>
+      <li class="outsourcing-selection-li">
+        <label for="outsourcing-selection-doors-internal-elite">
+          Elite
+          <input class="checkbox" type="checkbox" name="outsourcing-selection-doors-internal-elite"  />
+        </label>
+      </li>
+      <li class="outsourcing-selection-li">
+        <label for="outsourcing-selection-doors-internal-nationwide">
+          Nationwide
+          <input class="checkbox" type="checkbox" name="outsourcing-selection-doors-internal-nationwide"  />
+        </label>
+      </li>
+      <li class="outsourcing-selection-li">
+        <label for="outsourcing-selection-doors-internal-bennett-doors">
+          Bennett Doors
+          <input class="checkbox" type="checkbox" name="outsourcing-selection-doors-internal-bennett-doors"  />
+        </label>
+      </li>
+    </ul>
+
+    <ul class="outsourcing-selection-ul outsourcing-insualtion">
+      <header>Insulation</header>
+      <li class="outsourcing-selection-li">
+        <label for="outsourcing-selection-outsourcing-insualtion-pinkfit">
+          Pinkfit
+          <input class="checkbox" type="checkbox" name="outsourcing-selection-outsourcing-insualtion-pinkfit"  />
+        </label>
+      </li>
+      <li class="outsourcing-selection-li">
+        <label for="outsourcing-selection-outsourcing-insualtion-natural">
+          Natural
+          <input class="checkbox" type="checkbox" name="outsourcing-selection-outsourcing-insualtion-natural"  />
+        </label>
+      </li>
+      <li class="outsourcing-selection-li">
+        <label for="outsourcing-selection-outsourcing-insualtion-adl-insulation">
+          ADL Insulation
+          <input class="checkbox" type="checkbox" name="outsourcing-selection-outsourcing-insualtion-adl-insulation"  />
+        </label>
+      </li>
+      <li class="outsourcing-selection-li">
+        <label for="outsourcing-selection-outsourcing-insualtion-smart-energy">
+          Smart Energy
+          <input class="checkbox" type="checkbox" name="outsourcing-selection-outsourcing-insualtion-smart-energy"  />
+        </label>
+      </li>
+    </ul>
+
+    <ul class="outsourcing-selection-ul cladding">
+      <header>Cladding</header>
+      <li class="outsourcing-selection-li">
+        <label for="outsourcing-selection-cladding-rosenfield">
+          Rosenfield
+          <input class="checkbox" type="checkbox" name="outsourcing-selection-cladding-rosenfield"  />
+        </label>
+      </li>
+      <li class="outsourcing-selection-li">
+        <label for="outsourcing-selection-cladding-abodo">
+          Abodo
+          <input class="checkbox" type="checkbox" name="outsourcing-selection-cladding-abodo"  />
+        </label>
+      </li>
+      <li class="outsourcing-selection-li">
+        <label for="outsourcing-selection-cladding-jsc">
+          JSC
+          <input class="checkbox" type="checkbox" name="outsourcing-selection-cladding-jsc"  />
+        </label>
+      </li>
+      <li class="outsourcing-selection-li">
+        <label for="outsourcing-selection-cladding-iti-timspec">
+          ITI Timspec
+          <input class="checkbox" type="checkbox" name="outsourcing-selection-cladding-iti-timspec"  />
+        </label>
+      </li>
+
+      <li class="outsourcing-selection-li">
+        <label for="outsourcing-selection-cladding-ullrich">
+          Ullrich - Supply only
+          <input class="checkbox" type="checkbox" name="outsourcing-selection-cladding-ullrich"  />
+        </label>
+      </li>
+
+      <li class="outsourcing-selection-li">
+        <label for="outsourcing-selection-cladding-nuwall">
+          Nuwall - Supply only
+          <input class="checkbox" type="checkbox" name="outsourcing-selection-cladding-nuwall"  />
+        </label>
+      </li>
 
 
-      </div>
-    </div>
-    <div class="outsourcing-selection section">
-      <header>Out Sourcing - send Plans for measure and quote <br />
-        Outsourcing not Required <input type="checkbox" class="checkbox" id="cancel-outsourcing" name='cancel-outsourcing' onclick="toggleOutsourcing()"/>
-
-      </header>
-      <main class="outsourcing-selection-body" id="outsourcing-selection-body">
-        <ul class="outsourcing-selection-ul prenail">
-          <header>PreNail</header>
-          <li class="outsourcing-selection-li">
-            <label for="outsourcing-selection-prenail-turangi">
-              Turangi ITM
-              <input class="checkbox" type="checkbox" name="outsourcing-selection-prenail-turangi" id='outsourcing-selection-prenail-turangi' onclick="outsourcePrenail()" />
-            </label>
-
-          </li>
-          <li class="outsourcing-selection-li">
-            <label for="outsourcing-selection-prenail-ntml">
-              NTML
-              <input class="checkbox" type="checkbox" name="outsourcing-selection-prenail-ntml"  id='outsourcePrenailNTMLid' onclick="outsourcePrenail()" />
-            </label>
-
-          </li>
-          <li class="outsourcing-selection-li">
-            <label for="outsourcing-selection-prenail-dayles">
-              Dayles
-              <input class="checkbox" type="checkbox" name="outsourcing-selection-prenail-dayles"  id='outsourcePrenailDayleid' onclick="outsourcePrenail()"/>
-            </label>
-          </li>
-          <li class="outsourcing-selection-li">
-            <label for="outsourcing-selection-prenail-vip">
-              VIP
-              <input class="checkbox" type="checkbox" name="outsourcing-selection-prenail-vip"  id='outsourcePrenailVipid' onclick="outsourcePrenail()"/>
-            </label>
-          </li>
-          <li class="outsourcing-selection-li">
-            <label for="outsourcing-selection-prenail-ift">
-              IFT
-              <input class="checkbox" type="checkbox" name="outsourcing-selection-prenail-ift"  id='outsourcePrenailIftid' onclick="outsourcePrenail()"/>
-            </label>
-          </li>
-
-        </ul>
-        <ul class="outsourcing-selection-ul reinforcing">
-          <header>Reinforcing</header>
-          <li class="outsourcing-selection-li">
-            <label for="outsourcing-selection-reinforcing-united-steel">
-              United Steel
-              <input class="checkbox" type="checkbox" name="outsourcing-selection-reinforcing-united-steel"  />
-            </label>
-
-          </li>
-          <li class="outsourcing-selection-li">
-            <label for="outsourcing-selection-reinforcing-Summit">
-              Summit
-              <input class="checkbox" type="checkbox" name="outsourcing-selection-reinforcing-Summit"  />
-            </label>
-
-          </li>
-          <li class="outsourcing-selection-li">
-            <label for="outsourcing-selection-reinforcing-Freo">
-              FREO
-              <input class="checkbox" type="checkbox" name="outsourcing-selection-reinforcing-Freo"  />
-            </label>
-
-          </li>
-        </ul>
-
-        <!-- <ul class="outsourcing-selection-ul ribraft">
-        <header>Ribraft</header>
-        <li class="outsourcing-selection-li">
-        <label for="outsourcing-selection-ribraft-rfl">
-        RFL
-        <input class="checkbox" type="checkbox" name="outsourcing-selection-ribraft-rfl"  />
-      </label>
-    </li>
-    <li class="outsourcing-selection-li">
-    <label for="outsourcing-selection-ribraft-russel-gordon">
-    Russel Gordon
-    <input class="checkbox" type="checkbox" name="outsourcing-selection-ribraft-russel-gordon"  />
-  </label>
-</li>
-</ul> -->
+      <li class="outsourcing-selection-li">
+        <label for="outsourcing-selection-cladding-simonite">
+          Simonite
+          <input class="checkbox" type="checkbox" name="outsourcing-selection-cladding-simonite"  />
+        </label>
+      </li>
 
 
-<ul class="outsourcing-selection-ul joinery">
-  <header>Joinery</header>
-  <li class="outsourcing-selection-li">
-    <label for="outsourcing-selection-joinery-vision">
-      Vision
-      <input class="checkbox" type="checkbox" name="outsourcing-selection-joinery-vision"  />
-    </label>
-  </li>
-  <li class="outsourcing-selection-li">
-    <label for="outsourcing-selection-joinery-tbc">
-      TBC
-      <input class="checkbox" type="checkbox" name="outsourcing-selection-joinery-tbc"  />
-    </label>
-  </li>
-</ul>
+    </ul>
+    <ul class="outsourcing-selection-ul roofing">
+      <header>Roofing</header>
+      <li class="outsourcing-selection-li">
+        <label for="outsourcing-selection-roofing-new-era-sfi">
+          New Era SFI
+          <input class="checkbox" type="checkbox" name="outsourcing-selection-roofing-new-era-sfi"  />
+        </label>
+      </li>
+      <li class="outsourcing-selection-li">
+        <label for="outsourcing-selection-roofing-johnson-roofing-sfi">
+          Johnson Roofing SFI
+          <input class="checkbox" type="checkbox" name="outsourcing-selection-roofing-johnson-roofing-sfi"  />
+        </label>
+      </li>
+      <li class="outsourcing-selection-li">
+        <label for="outsourcing-selection-roofing-roofing-industries-supply-only">
+          Roofing Industries Supply Only
+          <input class="checkbox" type="checkbox" name="outsourcing-selection-roofing-roofing-industries-supply-only"  />
+        </label>
+      </li>
+      <li class="outsourcing-selection-li">
+        <label for="outsourcing-selection-roofing-sps-shingles">
+          SPS Shingles
+          <input class="checkbox" type="checkbox" name="outsourcing-selection-roofing-sps-shingles"  />
+        </label>
+      </li>
+      <li class="outsourcing-selection-li">
+        <label for="outsourcing-selection-roofing-metalcraft">
+          Metalcraft
+          <input class="checkbox" type="checkbox" name="outsourcing-selection-roofing-metalcraft"  />
+        </label>
+      </li>
+    </ul>
 
-<ul class="outsourcing-selection-ul garage-doors">
-  <header>Garage Doors</header>
-  <li class="outsourcing-selection-li">
-    <label for="outsourcing-selection-garage-doors-dominator">
-      Dominator
-      <input class="checkbox" type="checkbox" name="outsourcing-selection-garage-doors-dominator"  />
-    </label>
-  </li>
-  <li class="outsourcing-selection-li">
-    <label for="outsourcing-selection-garage-doors-dominator-rodney">
-      Dominator Rodney
-      <input class="checkbox" type="checkbox" name="outsourcing-selection-garage-doors-dominator-rodney"  />
-    </label>
-  </li>
+    <ul class="outsourcing-selection-ul structural-steel">
+      <header>Structural Steel</header>
+      <li class="outsourcing-selection-li">
+        <label for="outsourcing-selection-structural-steel-allwin">
+          Allwin
+          <input class="checkbox" type="checkbox" name="outsourcing-selection-structural-steel-allwin"  />
+        </label>
+      </li>
+      <li class="outsourcing-selection-li">
+        <label for="outsourcing-selection-structural-steel-Ecb">
+          ECB
+          <input class="checkbox" type="checkbox" name="outsourcing-selection-structural-steel-Ecb"  />
+        </label>
+      </li>
+    </ul>
 
-</ul>
-<ul class="outsourcing-selection-ul doors-internal">
-  <header>Doors - Internal</header>
-  <li class="outsourcing-selection-li">
-    <label for="outsourcing-selection-doors-internal-mahurangi">
-      Mahurangi
-      <input class="checkbox" type="checkbox" name="outsourcing-selection-doors-internal-mahurangi"  />
-    </label>
-  </li>
-  <li class="outsourcing-selection-li">
-    <label for="outsourcing-selection-doors-internal-doorways">
-      Doorways
-      <input class="checkbox" type="checkbox" name="outsourcing-selection-doors-internal-doorways"  />
-    </label>
-  </li>
-  <li class="outsourcing-selection-li">
-    <label for="outsourcing-selection-doors-internal-elite">
-      Elite
-      <input class="checkbox" type="checkbox" name="outsourcing-selection-doors-internal-elite"  />
-    </label>
-  </li>
-  <li class="outsourcing-selection-li">
-    <label for="outsourcing-selection-doors-internal-nationwide">
-      Nationwide
-      <input class="checkbox" type="checkbox" name="outsourcing-selection-doors-internal-nationwide"  />
-    </label>
-  </li>
-  <li class="outsourcing-selection-li">
-    <label for="outsourcing-selection-doors-internal-bennett-doors">
-      Bennett Doors
-      <input class="checkbox" type="checkbox" name="outsourcing-selection-doors-internal-bennett-doors"  />
-    </label>
-  </li>
-</ul>
+    <ul class="outsourcing-selection-ul miscellaneous">
+      <header>Miscellaneous</header>
+      <li class="outsourcing-selection-li">
+        <label for="outsourcing-selection-miscellaneous-rfl">
+          Extra Outsourcing Email
+          <input class="text" type="text" name="outsourcing-selection-miscellaneous-email"  />
+        </label>
+      </li>
+    </ul>
+  </main>
 
-<ul class="outsourcing-selection-ul outsourcing-insualtion">
-  <header>Insulation</header>
-  <li class="outsourcing-selection-li">
-    <label for="outsourcing-selection-outsourcing-insualtion-pinkfit">
-      Pinkfit
-      <input class="checkbox" type="checkbox" name="outsourcing-selection-outsourcing-insualtion-pinkfit"  />
-    </label>
-  </li>
-  <li class="outsourcing-selection-li">
-    <label for="outsourcing-selection-outsourcing-insualtion-natural">
-      Natural
-      <input class="checkbox" type="checkbox" name="outsourcing-selection-outsourcing-insualtion-natural"  />
-    </label>
-  </li>
-  <li class="outsourcing-selection-li">
-    <label for="outsourcing-selection-outsourcing-insualtion-adl-insulation">
-      ADL Insulation
-      <input class="checkbox" type="checkbox" name="outsourcing-selection-outsourcing-insualtion-adl-insulation"  />
-    </label>
-  </li>
-  <li class="outsourcing-selection-li">
-    <label for="outsourcing-selection-outsourcing-insualtion-smart-energy">
-      Smart Energy
-      <input class="checkbox" type="checkbox" name="outsourcing-selection-outsourcing-insualtion-smart-energy"  />
-    </label>
-  </li>
-</ul>
+</div>
+<div class="prenail-selection section">
+  <header>Prenail <br />
+    Prenail not Required <input type="checkbox" class="checkbox" id="cancel-prenail" name='cancel-prenail' onclick="togglePrenail()"/>
 
-<ul class="outsourcing-selection-ul cladding">
-  <header>Cladding</header>
-  <li class="outsourcing-selection-li">
-    <label for="outsourcing-selection-cladding-rosenfield">
-      Rosenfield
-      <input class="checkbox" type="checkbox" name="outsourcing-selection-cladding-rosenfield"  />
+  </header>
+<main id='prenail-selection-body'>
+    <label for="outsourcing-selection-prenail-turangi">
+      Turangi ITM
+      <input class="checkbox" type="checkbox" name="outsourcing-selection-prenail-turangi" id='outsourcing-selection-prenail-turangi' onclick="outsourcePrenail()" />
     </label>
-  </li>
-  <li class="outsourcing-selection-li">
-    <label for="outsourcing-selection-cladding-abodo">
-      Abodo
-      <input class="checkbox" type="checkbox" name="outsourcing-selection-cladding-abodo"  />
-    </label>
-  </li>
-  <li class="outsourcing-selection-li">
-    <label for="outsourcing-selection-cladding-jsc">
-      JSC
-      <input class="checkbox" type="checkbox" name="outsourcing-selection-cladding-jsc"  />
-    </label>
-  </li>
-  <li class="outsourcing-selection-li">
-    <label for="outsourcing-selection-cladding-iti-timspec">
-      ITI Timspec
-      <input class="checkbox" type="checkbox" name="outsourcing-selection-cladding-iti-timspec"  />
-    </label>
-  </li>
 
-  <li class="outsourcing-selection-li">
-    <label for="outsourcing-selection-cladding-ullrich">
-      Ullrich - Supply only
-      <input class="checkbox" type="checkbox" name="outsourcing-selection-cladding-ullrich"  />
+    <label for="outsourcing-selection-prenail-ntml">
+      NTML
+      <input class="checkbox" type="checkbox" name="outsourcing-selection-prenail-ntml"  id='outsourcePrenailNTMLid' onclick="outsourcePrenail()" />
     </label>
-  </li>
 
-  <li class="outsourcing-selection-li">
-    <label for="outsourcing-selection-cladding-nuwall">
-      Nuwall - Supply only
-      <input class="checkbox" type="checkbox" name="outsourcing-selection-cladding-nuwall"  />
+    <label for="outsourcing-selection-prenail-dayles">
+      Dayles
+      <input class="checkbox" type="checkbox" name="outsourcing-selection-prenail-dayles"  id='outsourcePrenailDayleid' onclick="outsourcePrenail()"/>
     </label>
-  </li>
-
-
-  <li class="outsourcing-selection-li">
-    <label for="outsourcing-selection-cladding-simonite">
-      Simonite
-      <input class="checkbox" type="checkbox" name="outsourcing-selection-cladding-simonite"  />
+    <label for="outsourcing-selection-prenail-vip">
+      VIP
+      <input class="checkbox" type="checkbox" name="outsourcing-selection-prenail-vip"  id='outsourcePrenailVipid' onclick="outsourcePrenail()"/>
     </label>
-  </li>
-
-
-</ul>
-<ul class="outsourcing-selection-ul roofing">
-  <header>Roofing</header>
-  <li class="outsourcing-selection-li">
-    <label for="outsourcing-selection-roofing-new-era-sfi">
-      New Era SFI
-      <input class="checkbox" type="checkbox" name="outsourcing-selection-roofing-new-era-sfi"  />
+    <label for="outsourcing-selection-prenail-ift">
+      IFT
+      <input class="checkbox" type="checkbox" name="outsourcing-selection-prenail-ift"  id='outsourcePrenailIftid' onclick="outsourcePrenail()"/>
     </label>
-  </li>
-  <li class="outsourcing-selection-li">
-    <label for="outsourcing-selection-roofing-johnson-roofing-sfi">
-      Johnson Roofing SFI
-      <input class="checkbox" type="checkbox" name="outsourcing-selection-roofing-johnson-roofing-sfi"  />
-    </label>
-  </li>
-  <li class="outsourcing-selection-li">
-    <label for="outsourcing-selection-roofing-roofing-industries-supply-only">
-      Roofing Industries Supply Only
-      <input class="checkbox" type="checkbox" name="outsourcing-selection-roofing-roofing-industries-supply-only"  />
-    </label>
-  </li>
-  <li class="outsourcing-selection-li">
-    <label for="outsourcing-selection-roofing-sps-shingles">
-      SPS Shingles
-      <input class="checkbox" type="checkbox" name="outsourcing-selection-roofing-sps-shingles"  />
-    </label>
-  </li>
-  <li class="outsourcing-selection-li">
-    <label for="outsourcing-selection-roofing-metalcraft">
-      Metalcraft
-      <input class="checkbox" type="checkbox" name="outsourcing-selection-roofing-metalcraft"  />
-    </label>
-  </li>
-</ul>
-
-<ul class="outsourcing-selection-ul structural-steel">
-  <header>Structural Steel</header>
-  <li class="outsourcing-selection-li">
-    <label for="outsourcing-selection-structural-steel-allwin">
-      Allwin
-      <input class="checkbox" type="checkbox" name="outsourcing-selection-structural-steel-allwin"  />
-    </label>
-  </li>
-  <li class="outsourcing-selection-li">
-    <label for="outsourcing-selection-structural-steel-Ecb">
-      ECB
-      <input class="checkbox" type="checkbox" name="outsourcing-selection-structural-steel-Ecb"  />
-    </label>
-  </li>
-</ul>
-
-<ul class="outsourcing-selection-ul miscellaneous">
-  <header>Miscellaneous</header>
-  <li class="outsourcing-selection-li">
-    <label for="outsourcing-selection-miscellaneous-rfl">
-      Extra Outsourcing Email
-      <input class="text" type="text" name="outsourcing-selection-miscellaneous-email"  />
-    </label>
-  </li>
-</ul>
-
-
 </main>
 </div>
+
+
 <div class="section" >
   <header class="toggle-section-header">
     TICK THE ALL ITEMS BOX OR INDIVIDUAL ITEMS AS REQUIRED <br/>

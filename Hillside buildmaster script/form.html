@@ -172,7 +172,7 @@
   }
   #prenail-selection-body label {
     flex-grow: 1;
- }
+  }
 
   .outsourcing-selection-ul {
     list-style: none;
@@ -189,6 +189,11 @@
     width: 100%;
     flex-wrap: wrap;
   }
+
+  .prenail-q-label {
+    display: flex;
+  }
+
 
   #branchName {
     margin: 0;
@@ -779,7 +784,7 @@
     Prenail not Required <input type="checkbox" class="checkbox" id="cancel-prenail" name='cancel-prenail' onclick="togglePrenail()"/>
 
   </header>
-<main id='prenail-selection-body'>
+  <main id='prenail-selection-body'>
     <label for="outsourcing-selection-prenail-turangi">
       Turangi ITM
       <input class="checkbox" type="checkbox" name="outsourcing-selection-prenail-turangi" id='outsourcing-selection-prenail-turangi' onclick="outsourcePrenail()" />
@@ -802,7 +807,7 @@
       IFT
       <input class="checkbox" type="checkbox" name="outsourcing-selection-prenail-ift"  id='outsourcePrenailIftid' onclick="outsourcePrenail()"/>
     </label>
-</main>
+  </main>
 </div>
 
 
@@ -1528,27 +1533,32 @@
 
   <div class="checkboxContainer">
     <h3>Prenail</h3>
-    <label>
+    <label class='prenail-q-label'>
       <input class="checkbox" type="checkbox" name="prenailFramesCheck"  />
       Prenail Wall Frames
       <input class="single-input" type="text" name="prenailFramesText"  />
     </label>
 
-    <label>
+    <label class='prenail-q-label'>
       <input class="checkbox" type="checkbox" name="prenailTrussesCheck"  />
       Trusses
       <input class="single-input" type="text" name="prenailTrussesText"  />
     </label>
-    <label>
+    <label class='prenail-q-label'>
       <input class="checkbox" type="checkbox" name="prenailPrecutRaftersCheck"  />
       Precut Rafters
       <input class="single-input" type="text" name="prenailPrecutRaftersText"  />
     </label>
-    <label>
+    <label class='prenail-q-label'>
       <input class="checkbox" type="checkbox" name="prenailPrecutRoofCheck"  />
       Precut balance of Roof
       <input class="single-input" type="text" name="prenailPrecutRoofText"  />
     </label>
+    <label class='prenail-q-label'>
+      Additional notes
+      <textarea style="width: 250px; height: 150px;" name="prenailAdditionalNotes" ></textarea>
+    </label>
+
   </div>
   <div class="checkboxContainer">
     <header>

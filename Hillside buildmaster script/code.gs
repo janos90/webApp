@@ -118,7 +118,7 @@ function processForm(form) {
     if (folders.hasNext()) {folder = folders.next();} else {folder = parentFolder.createFolder(clientFolderName);}
     var JobFolder = folder.createFolder("jobNumber: " + jobNumber)
     var detailingSubject = 'New job, number ' + jobNumber + ', '
-    detailingSubject += 'from ITM Estimations Coop ' + form['template-selection'] + ', '
+    detailingSubject += 'from ITM Estimations Coop ' + form['template-selection'] + ' ITM, '
     detailingSubject+= 'Uploaded by: ' + form['quote-info-sales-rep'] + ', '
     detailingSubject+= 'For Client: ' + form['customer-info-name'] + '.'
 
@@ -697,7 +697,7 @@ function processForm(form) {
     }
     var generalOutsourcingBody = ""
     generalOutsourcingBody += "A new Job has been submitted by " +form['quote-info-sales-rep']
-    generalOutsourcingBody += " from ITM " +form['template-selection']
+    generalOutsourcingBody += " from " +form['template-selection'] + " ITM"
     generalOutsourcingBody += ".<br>This job requires some estimation, When you receive this email, please Click this"
     generalOutsourcingBody += "<a href='"
     generalOutsourcingBody += "mailto:shaun@hillsideitm.co.nz?subject=Recepient%20Received%20Job%20"

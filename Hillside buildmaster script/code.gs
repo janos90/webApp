@@ -1101,7 +1101,12 @@ function processForm(form) {
       estimationOutput += "<br> <a href='" + "http://drive.google.com/uc?export=download&id="+ uploadedEstimationHTML.getId() + "'>Link to estimate request as HTML </a>";
       estimationOutput += "<br> <a href='" + "http://drive.google.com/uc?export=download&id="+ uploadedEstimationPDF.getId() + "'>Link to estimate request as PDF </a>";
       estimationOutput+= fileLinks
-      sendEmail(quantifierConstEmail, estimationOutput, detailingSubject) // email the additional
+
+
+      estimationOutput += "<br>DropBox Links <br> " + form['job-info-dropbox-links']
+
+
+      sendEmail(quantifierConstEmail, "Hi there Quantifier, <br>" +estimationOutput, ' Quantifier ' + detailingSubject) // email the additional
 
     }
 

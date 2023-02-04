@@ -1096,7 +1096,7 @@ function processForm(form) {
       output += "<br/><h3>Sent to Quantifying</h3>"
       output += "<br> <a href='" + "http://drive.google.com/uc?export=download&id="+ uploadedEstimationHTML.getId() + "'>Link to estimate request as HTML </a>";
       output += "<br> <a href='" + "http://drive.google.com/uc?export=download&id="+ uploadedEstimationPDF.getId() + "'>Link to estimate request as PDF </a>";
-      estimationOutput += "<br /> Please see attatched included link to Request Sheet"
+      estimationOutput += "<br /> Please see attached included link to Request Sheet"
       estimationOutput += "<br> <a href='" + "http://drive.google.com/uc?export=download&id="+ uploadedEstimationHTML.getId() + "'>Link to estimate request as HTML </a>";
       estimationOutput += "<br> <a href='" + "http://drive.google.com/uc?export=download&id="+ uploadedEstimationPDF.getId() + "'>Link to estimate request as PDF </a>";
       estimationOutput+= fileLinks

@@ -363,6 +363,8 @@ function processForm(form) {
 
 
     estimationContent +="<div class='toggle-section-wrapper' id='toggle-section-wrapper'>"
+
+
     estimationContent +="<div class='toggle-section foundations'><header id='toggle-section-header-foundations' class='toggle-section-header'>Foundations"
     estimationContent +="<label id='label-as-plan-foundations' class='as-plan-toggle foundations' "+(form['as-plan-foundations']?'':"style='visibility:hidden;'")+"> As per Plan"
     estimationContent +="<input type='checkbox' id='as-plan-foundations' "+(form['as-plan-foundations']?'checked':'')+" /></label>"
@@ -846,6 +848,9 @@ function processForm(form) {
         prenailOutput += "<br> <a href='" + "http://drive.google.com/uc?export=download&id="+ uploadedPrenailHTML.getId() + "'>Link to Prenail request as HTML </a>";
         prenailOutput += "<br> <a href='" + "http://drive.google.com/uc?export=download&id="+ uploadedPrenailPDF.getId() + "'>Link to Prenail request as PDF </a>";
         prenailOutput += fileLinks
+
+        prenailOutput += "<br>DropBox Links <br> " + form['job-info-dropbox-links']
+
 
       }
 

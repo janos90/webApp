@@ -667,7 +667,8 @@ function processForm(form) {
     prenailContentSubmitted+= "Precut Rafters<input type='text' value='"+(form['prenailPrecutRaftersText'])+"' class='single-input' /></label>"
     prenailContentSubmitted+= "<label class='prenail-q-label'><input class='checkbox' type='checkbox' "+(form['prenailPrecutRoofCheck']?'checked':'')+"  />"
     prenailContentSubmitted+= "Precut balance of Roof<input type='text' value='"+(form['prenailPrecutRoofText'])+"' class='single-input' /></label>"
-    prenailContentSubmitted+= "<label class='prenail-q-label'> Additional notes <textarea style='width: 250px; height: 150px;' name='prenailAdditionalNotes' ></textarea></label>"
+    prenailContentSubmitted+= "<label class='prenail-q-label'> Additional notes "
+    prenailContentSubmitted+= "<textarea style='width: 250px; height: 150px;' name='prenailAdditionalNotes' >"+(form['prenailAdditionalNotes'])+"</textarea></label>"
 
     prenailContentSubmitted+= "</div>"
     prenailContentSubmitted+= "<div class='checkboxContainer'><header><h3>Extras / Other</h3><h4>TBC by Prenail Supplier, must be detailed</h4></header>"

@@ -239,9 +239,12 @@ function processForm(form) {
     clientDetails+= "</div>"
     clientDetails+= "<div class='half-section' id='job-info'>"
     clientDetails+= "<header>Job Information</header>"
-    clientDetails+= "<label for='job-info-address'>Site Address<input class='textbox-input' type='text' value='"+form['job-info-address']+"' /></label>   "
+    clientDetails+= "<label >Site Address<div style='border:black solid 1px;'>"+form['job-info-address']+"</div></label>"
     clientDetails+= "<label>ITM Job Number<input class='textbox-input' type='text' value='" +jobNumber + "'  /></label>   "
     clientDetails+= "<label>External Job Number Offlice use only<input class='textbox-input' type='text'  /></label>   "
+    clientDetails+= "<label >Notes<div style='border:black solid 1px;'>"+form['job-info-notes']+"</div></label>"
+
+
     clientDetails+= "</div></div>"
 
 

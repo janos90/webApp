@@ -714,12 +714,27 @@ function processForm(form) {
     generalOutsourcingBody += "<br>We have a service promise to our customers that we will return our pricing within 10 working days, however…we do realise sometimes this is not practicable so please notify us of any delays so we can communicate this to our customer. "
     generalOutsourcingBody += "<br>On behalf of our ITM group, Thank you for your consideration. "
 
-    generalOutsourcingBody+= "<br>Please see the bellow links to the plan files uploaded for this job"
+    generalOutsourcingBody+= "<br>Please see the below links to the plan files uploaded for this job"
 
 
     var uploadedPrenailPDF
     var uploadedPrenailHTML
-    var prenailOutput = "A new Job has been submitted by "+form['quote-info-sales-rep']+"' For "+form['template-selection']
+
+    var prenailOutput = ""
+    prenailOutput += "A new Job has been submitted by " +form['quote-info-sales-rep']
+    prenailOutput += " from " +form['template-selection'] + " ITM"
+    prenailOutput += ".<br>This job requires some estimation, When you receive this email, please Click this"
+    prenailOutput += "<a href='"
+    prenailOutput += "mailto:shaun@hillsideitm.co.nz?subject=Recepient%20Received%20Job%20"
+    prenailOutput += jobNumber+"&body=Just%20letting%20you%20know%20we%20received%20the%20job'>link</a>"
+    prenailOutput += "to confirm you have received the job. Jobs that haven't been confirmed will expire in 3 Business Days. "
+    prenailOutput += "<br>Please provide your quote for the job mentioned in this email."
+    prenailOutput += "<br>Our ITM Coop group including Matakana, Mahia Rd, Hillside, Turangi & Taupo are moving to an automated job management system, please do not reply to this email."
+    prenailOutput += "<br>Although automated, you have been hand chosen by us, on an ad-hoc basis to provide a quote from plan for the supply of Materials and/or Service.  "
+    prenailOutput += "<br>All pricing, queries and RFI to go to estimations@hillsideitm.co.nz"
+    prenailOutput += "<br>We appreciate your effort to supply us a quote, If you are unable to price for any reason let me know at your earliest convenience."
+    prenailOutput += "<br>We have a service promise to our customers that we will return our pricing within 10 working days, however…we do realise sometimes this is not practicable so please notify us of any delays so we can communicate this to our customer. "
+    prenailOutput += "<br>On behalf of our ITM group, Thank you for your consideration. "
 
     if(!form['cancel-outsourcing']) {
       var outsourcedBlob = Utilities.newBlob(generalOutsourcingContent, "text/html", "text.html");
@@ -816,8 +831,6 @@ function processForm(form) {
     // output += "<br> <strong>PDF File is currently experiencing difficulties. Please download HTML file, open in new window, and print as PDF for pdf copy.</strong>"
     output += "<br> This is the job number "+ jobNumber;
     output += "<br> Job Client is "+ form['customer-info-name'];
-    prenailOutput += "<br> This is the job number "+ jobNumber;
-    prenailOutput += "<br> Job Client is "+ form['customer-info-name'];
 
     // email subjects
     var genericSubject = 'New job, number '+ jobNumber + ', has been submitted to the quotes portal by: ' + form['quote-info-sales-rep'] + ' for client ' + form['customer-info-name']
@@ -844,7 +857,6 @@ function processForm(form) {
         output += "<br> <h3>Prenail</h3>"
         output += "<br> <a href='" + "http://drive.google.com/uc?export=download&id="+ uploadedPrenailHTML.getId() + "'>Link to Prenail file as HTML </a>";
         output += "<br> <a href='" + "http://drive.google.com/uc?export=download&id="+ uploadedPrenailPDF.getId() + "'>Link to Prenail file as PDF </a>";
-        prenailOutput += "<br /> Please see included link to Request Sheet"
         prenailOutput += "<br> <a href='" + "http://drive.google.com/uc?export=download&id="+ uploadedPrenailHTML.getId() + "'>Link to Prenail request as HTML </a>";
         prenailOutput += "<br> <a href='" + "http://drive.google.com/uc?export=download&id="+ uploadedPrenailPDF.getId() + "'>Link to Prenail request as PDF </a>";
         prenailOutput += fileLinks
@@ -857,25 +869,25 @@ function processForm(form) {
 
       if(form['outsourcing-selection-prenail-turangi']) {
         output += "<br>Sent to turangi for estimation"
-        sendEmail(turangiConstEmail, generalOutsourcingBody + prenailOutput+"turangi", detailingSubject) // email the additional
+        sendEmail(turangiConstEmail, "Hi there turangi, <br>" + prenailOutput, ' turangi Prenail ' + detailingSubject) // email the additional
       }
       if(form['outsourcing-selection-prenail-ntml']) {
         output += "<br>Sent to ntml for estimation"
-        sendEmail(ntmlConstEmail, generalOutsourcingBody + prenailOutput+"ntml", detailingSubject) // email the additional
+        sendEmail(ntmlConstEmail, "Hi there ntml, <br>" + prenailOutput, ' ntml Prenail ' + detailingSubject) // email the additional
       }
       if(form['outsourcing-selection-prenail-dayles']) {
         output += "<br>Sent to dayles for estimation"
-        sendEmail(dayleConstEmail, generalOutsourcingBody + prenailOutput+"dayles", detailingSubject) // email the additional
+        sendEmail(dayleConstEmail, "Hi there dayles, <br>" + prenailOutput, ' dayles Prenail ' + detailingSubject) // email the additional
       }
 
       if(form['outsourcing-selection-prenail-vip']) {
         output += "<br>Sent to VIP for estimation"
-        sendEmail(vipConstEmail, generalOutsourcingBody + prenailOutput+"VIP", detailingSubject) // email the additional
+        sendEmail(vipConstEmail, "Hi there VIP, <br>" + prenailOutput, ' VIP Prenail ' + detailingSubject) // email the additional
       }
 
       if(form['outsourcing-selection-prenail-ift']) {
         output += "<br>Sent to IFT for estimation"
-        sendEmail(iftConstEmail, generalOutsourcingBody + prenailOutput+"IFT", detailingSubject) // email the additional
+        sendEmail(iftConstEmail, "Hi there IFT, <br>" + prenailOutput, ' IFT Prenail ' + detailingSubject) // email the additional
       }
 
 

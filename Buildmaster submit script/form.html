@@ -242,18 +242,9 @@
   <div class="wrapper">
     <div class="main">
       <div class="headingWrapper">
-        <div class="imagePair">
           <p style="padding: 10px">
-            <img src="https://www.thomsonsitm.co.nz/themes/ThomsonsITM/images/logo.png" style="background-color: #000000; padding: 20px;">
-            <br>
-            <br>Thomsons Timbers Supplies Limited
+            <img src="https://www.buildapricegroup.com/wp-content/uploads/2022/01/1.7-quantifier-e1643082642763.png" style="width: 90%; padding: 20px;">
           </p>
-          <div class="checkboxContainer">
-            <p style="color: red; text-align: left; padding-left: 9px">Office Use only:</p>
-            <p>Frame/Trusses <span style="color: red">MARGIN</span>: <input id='ftmarginInput' class="textbox right" name="officeFrames" type="text" style="width: 45%;"></p>
-            <p>Discount Group: <input id='discountInput' class="textbox right" name="officeDiscount" type="text" style="width: 45%;"></p>
-          </div>
-        </div>
       </div>
       <header>
         <h3>Estimate Request</h3>
@@ -279,14 +270,7 @@
             <header>
               Job Location
             </header>
-            <p class="row">
-              <input class="location" id="jobLocAuckland" name="jobLocAuckland" type="checkbox" required>
-              Auckland
-            </p>
-            <p class="row">
-              <input class="location" id="jobLocWaikato" name="jobLocWaikato" type="checkbox" required>
-              Waikato
-            </p>
+            <textarea class="textbox address" required name="jobAddress" type="text" placeholder="Job Address"></textarea>
           </div>
         </div>
         <div class="checkboxContainer">
@@ -295,23 +279,13 @@
           <input class="textbox" name="jobCompany" type="text" placeholder="Company/Branch Name">
           <input class="textbox" style='width: 91%' name="jobPrenail" type="text" placeholder="Requested return date if less than standard">
           <p class="row">
-            <textarea class="textbox address" required name="jobAddress" type="text" placeholder="Delivery Address"></textarea>
+            <textarea class="textbox address" required name="deliveryAddress" type="text" placeholder="Delivery Address"></textarea>
           </p>
           <div class="email-box">
-            <div class="row">
-              <input name="emailSkip" type="checkbox" />Email to Skip
-            </div>
-            <div class="row">
-              <input name="emailVIP" type="checkbox" />Email to VIP
-            </div>
-
-            <div class="row">
-              <input name="emailArie" type="checkbox" />Email to Arie
-            </div>
-            <div class="row">
-              <input name="emailGavin" type="checkbox" />Email to Gavin
-            </div>
-            <p class="row emailto">Email a copy to:<input class="textbox right" name="emailTo" type="email" placeholder="email a copy to" style="width: 60%; margin-left: 10px;"></p>
+            <p class="row emailto">Return email:<input class="textbox right" required name="returnEmail" type="email" placeholder="Enter your email" style="width: 60%; margin-left: 27px;"></p>
+            <p class="row emailto">Email a copy to:<input class="textbox right" name="emailTo1" type="email" placeholder="email" style="width: 60%; margin-left: 10px;"></p>
+            <p class="row emailto">Email a copy to:<input class="textbox right" name="emailTo2" type="email" placeholder="email" style="width: 60%; margin-left: 10px;"></p>
+            <p class="row emailto">Email a copy to:<input class="textbox right" name="emailTo3" type="email" placeholder="email" style="width: 60%; margin-left: 10px;"></p>
           </div>
         </div>
       </div>

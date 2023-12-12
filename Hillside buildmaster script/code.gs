@@ -70,19 +70,14 @@ function processForm(form) {
 
     // Cladding
     var 	rosenfieldConstEmail = outsourceConstEmail		//		dan@rosenfeldkidson.co.nz
-    var 	abodoConstEmail = outsourceConstEmail		//		lewis.marshall@abodo.co.nz
-    var 	jSCConstEmail = outsourceConstEmail			//	seanh@jsctimber.co.nz
     var 	iTITimspecConstEmail = outsourceConstEmail			//	davidh@ititimspec.co.nz
     var 	ulrichConstEmail = outsourceConstEmail			//	tgribble@uacl.co.nz
     var 	nuwallConstEmail = outsourceConstEmail			//	info@Nuwall.co.nz
     var 	symoniteConstEmail = outsourceConstEmail			//	info@symonite.co.nz
 
     // Roofing
-    var 	newEraSFIConstEmail = outsourceConstEmail						//		nikhil@neweraroofing.co.nz
     var 	johnsonRoofingSFIConstEmail = outsourceConstEmail			//					info@johnsonroofingltd.co.nz
     var 	roofingIndustriesSupplyOnlyConstEmail = outsourceConstEmail		//						marcust@roof.co.nz
-    var 	sPSShinglesConstEmail = outsourceConstEmail						//		info@spsbuilding.co.nz
-    var 	metalcraftConstEmail = outsourceConstEmail						//
 
 
 
@@ -299,16 +294,12 @@ function processForm(form) {
     outsourcingSelection+="<input class='checkbox' type='checkbox' "+(form['outsourcing-selection-outsourcing-insualtion-natural']?'checked':'')+" /></label></li>"
     outsourcingSelection+="<li class='outsourcing-selection-li'><label for='outsourcing-selection-outsourcing-insualtion-adl-insulation'>ADL Insulation"
     outsourcingSelection+="<input class='checkbox' type='checkbox' "+(form['outsourcing-selection-outsourcing-insualtion-adl-insulation']?'checked':'')+" /></label></li>"
-    outsourcingSelection+="<li class='outsourcing-selection-li'><label for='outsourcing-selection-outsourcing-insualtion-smart-energy'>Smart Energy"
+    outsourcingSelection+="<li class='outsourcing-selection-li'><label for='outsourcing-selection-outsourcing-insualtion-smart-energy'>BrightR"
     outsourcingSelection+="<input class='checkbox' type='checkbox' "+(form['outsourcing-selection-outsourcing-insualtion-smart-energy']?'checked':'')+" />  </label></li>"
     outsourcingSelection+="</ul>"
     outsourcingSelection+="<ul class='outsourcing-selection-ul cladding'>  <header>Cladding</header>"
     outsourcingSelection+="<li class='outsourcing-selection-li'><label for='outsourcing-selection-cladding-rosenfield'>Rosenfield"
     outsourcingSelection+="<input class='checkbox' type='checkbox' "+(form['outsourcing-selection-cladding-rosenfield']?'checked':'')+" /></label></li>"
-    outsourcingSelection+="<li class='outsourcing-selection-li'><label for='outsourcing-selection-cladding-abodo'>Abodo"
-    outsourcingSelection+="<input class='checkbox' type='checkbox' "+(form['outsourcing-selection-cladding-abodo']?'checked':'')+" /></label></li>"
-    outsourcingSelection+="<li class='outsourcing-selection-li'><label for='outsourcing-selection-cladding-jsc'>JSC"
-    outsourcingSelection+="<input class='checkbox' type='checkbox' "+(form['outsourcing-selection-cladding-jsc']?'checked':'')+" /></label></li>"
     outsourcingSelection+="<li class='outsourcing-selection-li'><label for='outsourcing-selection-cladding-iti-timspec'>ITI Timspec"
     outsourcingSelection+="<input class='checkbox' type='checkbox' "+(form['outsourcing-selection-cladding-iti-timspec']?'checked':'')+" /></label></li>"
     outsourcingSelection+="<li class='outsourcing-selection-li'><label for='outsourcing-selection-cladding-ullrich'>Ullrich - Supply only"
@@ -318,16 +309,10 @@ function processForm(form) {
     outsourcingSelection+="<li class='outsourcing-selection-li'><label for='outsourcing-selection-cladding-simonite'>Simonite"
     outsourcingSelection+="<input class='checkbox' type='checkbox' "+(form['outsourcing-selection-cladding-simonite']?'checked':'')+" /></label></li></ul>"
     outsourcingSelection+="<ul class='outsourcing-selection-ul roofing'><header>Roofing</header>"
-    outsourcingSelection+="<li class='outsourcing-selection-li'><label for='outsourcing-selection-roofing-new-era-sfi'>New Era SFI"
-    outsourcingSelection+="<input class='checkbox' type='checkbox' "+(form['outsourcing-selection-roofing-new-era-sfi']?'checked':'')+" /></label></li>"
     outsourcingSelection+="<li class='outsourcing-selection-li'><label for='outsourcing-selection-roofing-johnson-roofing-sfi'>Johnson Roofing SFI"
     outsourcingSelection+="<input class='checkbox' type='checkbox' "+(form['outsourcing-selection-roofing-johnson-roofing-sfi']?'checked':'')+" /></label></li>"
     outsourcingSelection+="<li class='outsourcing-selection-li'><label for='outsourcing-selection-roofing-roofing-industries-supply-only'>Roofing Industries Supply Only"
     outsourcingSelection+="<input class='checkbox' type='checkbox' "+(form['outsourcing-selection-roofing-roofing-industries-supply-only']?'checked':'')+" /></label></li>"
-    outsourcingSelection+="<li class='outsourcing-selection-li'><label for='outsourcing-selection-roofing-sps-shingles'>SPS Shingles"
-    outsourcingSelection+="<input class='checkbox' type='checkbox' "+(form['outsourcing-selection-roofing-sps-shingles']?'checked':'')+" /></label></li>"
-    outsourcingSelection+="<li class='outsourcing-selection-li'><label for='outsourcing-selection-roofing-metalcraft'>Metalcraft"
-    outsourcingSelection+="<input class='checkbox' type='checkbox' "+(form['outsourcing-selection-roofing-metalcraft']?'checked':'')+" /></label></li>"
     outsourcingSelection+="</ul>"
     outsourcingSelection+="<ul class='outsourcing-selection-ul structural-steel'>  <header>Structural Steel</header>"
     outsourcingSelection+="<li class='outsourcing-selection-li'><label for='outsourcing-selection-structural-steel-allwin'>Allwin"
@@ -1021,7 +1006,7 @@ function processForm(form) {
 
     if(form['outsourcing-selection-outsourcing-insualtion-smart-energy']) {
       output += "<br>Sent to Smart Energy for estimation"
-      sendEmail(smartEnergyConstEmail, "Hi there Smart Energy, <br>" + generalOutsourcingBody, ' Smart Energy ' + detailingSubject) // email the additional
+      sendEmail(smartEnergyConstEmail, "Hi there BrightR, <br>" + generalOutsourcingBody, ' Smart Energy ' + detailingSubject) // email the additional
     }
 
 
@@ -1041,7 +1026,7 @@ function processForm(form) {
 
 
     // Cladding
-    let claddingA = form['outsourcing-selection-cladding-rosenfield'] || form['outsourcing-selection-cladding-abodo'] || form['outsourcing-selection-cladding-jsc']
+    let claddingA = form['outsourcing-selection-cladding-rosenfield']
     let claddingB = form['outsourcing-selection-cladding-iti-timspec'] || form['outsourcing-selection-cladding-ullrich'] || form['outsourcing-selection-cladding-simonite']  || form['outsourcing-selection-cladding-nuwall']
     if(claddingA || claddingB) {
       output += "<br> <h3>Cladding</h3>"
@@ -1050,16 +1035,6 @@ function processForm(form) {
     if(form['outsourcing-selection-cladding-rosenfield']) {
       output += "<br>Sent to Rosenfield for estimation"
       sendEmail(rosenfieldConstEmail, "Hi there Rosenfield, <br>" + generalOutsourcingBody, ' Rosenfield ' + detailingSubject) // email the additional
-    }
-
-    if(form['outsourcing-selection-cladding-abodo']) {
-      output += "<br>Sent to Abodo for estimation"
-      sendEmail(abodoConstEmail, "Hi there Abodo, <br>" + generalOutsourcingBody, ' Abodo ' + detailingSubject) // email the additional
-    }
-
-    if(form['outsourcing-selection-cladding-jsc']) {
-      output += "<br>Sent to JSC for estimation"
-      sendEmail(jSCConstEmail, "Hi there JSC, <br>" + generalOutsourcingBody, ' JSC ' + detailingSubject) // email the additional
     }
 
     if(form['outsourcing-selection-cladding-iti-timspec']) {
@@ -1085,15 +1060,8 @@ function processForm(form) {
 
 
     // Roofing
-    let roofa = (form['outsourcing-selection-roofing-new-era-sfi'] || form['outsourcing-selection-roofing-johnson-roofing-sfi'])
-    let roofb = (form['outsourcing-selection-roofing-roofing-industries-supply-only'] || form['outsourcing-selection-roofing-sps-shingles'])
-
-    if(roofa || roofb || form['outsourcing-selection-roofing-metalcraft']) {
+    if(form['outsourcing-selection-roofing-johnson-roofing-sfi'] || form['outsourcing-selection-roofing-roofing-industries-supply-only']) {
       output += "<br> <h3>Roofing</h3>"
-    }
-    if(form['outsourcing-selection-roofing-new-era-sfi']) {
-      output += "<br>Sent to New Era SFI for estimation"
-      sendEmail(newEraSFIConstEmail, "Hi there New Era SFI, <br>" + generalOutsourcingBody, ' New Era SFI ' + detailingSubject) // email the additional
     }
 
     if(form['outsourcing-selection-roofing-johnson-roofing-sfi']) {
@@ -1105,17 +1073,6 @@ function processForm(form) {
       output += "<br>Sent to Roofing Industries Supply Only for estimation"
       sendEmail(roofingIndustriesSupplyOnlyConstEmail, "Hi there Roofing Industries, <br>" + generalOutsourcingBody, ' Roofing Industries ' + detailingSubject) // email the additional
     }
-
-    if(form['outsourcing-selection-roofing-sps-shingles']) {
-      output += "<br>Sent to SPS Shingles for estimation"
-      sendEmail(sPSShinglesConstEmail, "Hi there SPS Shingles, <br>" + generalOutsourcingBody, ' SPS Shingles ' + detailingSubject) // email the additional
-    }
-
-    if(form['outsourcing-selection-roofing-metalcraft']) {
-      output += "<br>Sent to Metalcraft for estimation"
-      sendEmail(metalcraftConstEmail, "Hi there Metalcraft, <br>" + generalOutsourcingBody, ' Metalcraft ' + detailingSubject) // email the additional
-    }
-
 
     if(!form['cancel-estimation']) {
       output += "<br/><h3>Sent to Quantifying</h3>"
@@ -1132,7 +1089,7 @@ function processForm(form) {
     }
 
 
-    
+
     if(form.emailTo){
       sendEmail(form.emailTo, output, detailingSubject) // email the additional
       quotesOutput += "<li>Additional "+form.emailTo+"</li>"

@@ -139,13 +139,13 @@ Wall Framing and Roof framing is often lazily ticked "as per plan" when what the
   a) not sure what is meant here, if prenail supplied switched off all options maybe put it instead of as selected?
 Force the user to make a tick in all sections, so its very clear to the estimator and not just blank…
   a) Can do, this was upsetting people but will add back in
-some supplier don’t measure anymore, Delete Abodo, JSC, New Era, SPS Shingles &  Metalcraft
+2 some supplier don’t measure anymore, Delete Abodo, JSC, New Era, SPS Shingles &  Metalcraft
   a) Can do
-Smart Energy has rebranded to BrightR
+3 Smart Energy has rebranded to BrightR
   a) Can do
-Please check the generic emails, Company names are correct and in capitals…eg.Dayles ITM, NTML, Mahurangi Doors
+4 Please check the generic emails, Company names are correct and in capitals…eg.Dayles ITM, NTML, Mahurangi Doors
   a) Can do
-Change Smart Energy Email to BrightR
+5 Change Smart Energy Email to BrightR
   a) Can do
 Update email addresses
   a) Can do

@@ -114,3 +114,43 @@ Put in “Framing treatment” H1.2, H3.2 , H3 Btm Plates ( this tells the estim
 3.	Dropbox link field missing from some emails
 4.	Add intro as above & Delete repetitive info eg.
 5. Check additional notes all pulling through
+
+
+19/11/2023 - Hillside
+File loading indicator, Currently none, files sometimes take a while so the reps close the screen thinking its done etc
+  a) Can be done, what takes time is not the files uploading but the form completing, maybe need to move files to second page and add a load in between and a third page for finished
+Move Waikato suppliers to the right for clarity as the auckland ones are unavailable to Waikato, or when they select their Branch make the selections unavailable other than their own
+  a) Can be done, need to confirm which suppliers are which, selecting branch will hide/show options
+Make Branch selection Blank, and alert user to select prior to moving on etc.
+  a) Can be done, will prevent form being submitted (make the field required)
+Force user to select Branch, can a rep names be added to a dropdown box? According to Branch….maybe have 1 generic eg.' Tradesales" if a user is not in the selection etc
+  a) Definitely, this wasnt done as to reduce maintenance. Would need a list of all Reps, maybe divided by branch?
+Add Oregon Prenail, quotes@oregonitm.co.nz
+  a) No Problem
+Hide option to fill out "full copy" and make "estimations@hillsideitm.co.nz" the default email address
+  a) This option was for reps to send a full copy of the form to themselves, can send a copy and keep option there or remove it
+Some Jobs requiring prenail only have not been coming through the email ( NTML & IFT ) check…
+  a) Will check
+Prenail only also creates a blank email request for quantifier which isnt required, maybe they forget to tick the "estimation not required box" make this compulsary with rules etc ?
+  a) I can make two checkboxs for Outsourcing/Prenail/Estimation (one for yes, one for no, And make it required to pick one)
+Wall Framing and Roof framing is often lazily ticked "as per plan" when what they actually want is prenail, pehaps delete the "as per plan" option and force the "as Selected" which has
+  a) this would be true for all options, do you want all options to have just (As selected / Not required) ? if not can remove from these two
+"Prenail Selected - Do not allow Random Walls " &  "Prenail by others, allow for full Random OPTION" ( or refer notes for Alterations )
+  a) not sure what is meant here, if prenail supplied switched off all options maybe put it instead of as selected?
+Force the user to make a tick in all sections, so its very clear to the estimator and not just blank…
+  a) Can do, this was upsetting people but will add back in
+some supplier don’t measure anymore, Delete Abodo, JSC, New Era, SPS Shingles &  Metalcraft
+  a) Can do
+Smart Energy has rebranded to BrightR
+  a) Can do
+Please check the generic emails, Company names are correct and in capitals…eg.Dayles ITM, NTML, Mahurangi Doors
+  a) Can do
+Change Smart Energy Email to BrightR
+  a) Can do
+Update email addresses
+  a) Can do
+
+19/11/2023 - Thomsons
+  Steve O'Brien jobs not working maybe?
+    a) Can see no evidence of any issues, no email for error log, can see emails sent for 10+ jobs that day with no issues
+Password vFe9vwAG|44KDZj|3}pu".@$W]!Z;,

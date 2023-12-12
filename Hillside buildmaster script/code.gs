@@ -862,15 +862,15 @@ function processForm(form) {
 
     if(form['outsourcing-selection-prenail-turangi']) {
       output += "<br>Sent to turangi for estimation"
-      sendEmail(turangiConstEmail, "Hi there turangi, <br>" + prenailOutput, ' turangi Prenail ' + detailingSubject) // email the additional
+      sendEmail(turangiConstEmail, "Hi there Turangi ITM, <br>" + prenailOutput, ' Turangi ITM Prenail ' + detailingSubject) // email the additional
     }
     if(form['outsourcing-selection-prenail-ntml']) {
       output += "<br>Sent to ntml for estimation"
-      sendEmail(ntmlConstEmail, "Hi there ntml, <br>" + prenailOutput, ' ntml Prenail ' + detailingSubject) // email the additional
+      sendEmail(ntmlConstEmail, "Hi there NTML, <br>" + prenailOutput, ' NTML Prenail ' + detailingSubject) // email the additional
     }
     if(form['outsourcing-selection-prenail-dayles']) {
       output += "<br>Sent to dayles for estimation"
-      sendEmail(dayleConstEmail, "Hi there dayles, <br>" + prenailOutput, ' dayles Prenail ' + detailingSubject) // email the additional
+      sendEmail(dayleConstEmail, "Hi there Dayles ITM, <br>" + prenailOutput, ' Dayles ITM Prenail ' + detailingSubject) // email the additional
     }
 
     if(form['outsourcing-selection-prenail-vip']) {
@@ -959,7 +959,7 @@ function processForm(form) {
     }
     if(form['outsourcing-selection-doors-internal-mahurangi']) {
       output += "<br>Sent to Mahurangi for estimation"
-      sendEmail(mahurangiConstEmail, "Hi there Mahurangi, <br>" + generalOutsourcingBody, ' Mahurangi ' + detailingSubject) // email the additional
+      sendEmail(mahurangiConstEmail, "Hi there Mahurangi Doors, <br>" + generalOutsourcingBody, ' Mahurangi Doors ' + detailingSubject) // email the additional
     }
 
     if(form['outsourcing-selection-doors-internal-doorways']) {

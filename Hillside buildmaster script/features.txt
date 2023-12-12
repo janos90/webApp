@@ -121,7 +121,7 @@ File loading indicator, Currently none, files sometimes take a while so the reps
   a) Can be done, what takes time is not the files uploading but the form completing, maybe need to move files to second page and add a load in between and a third page for finished
 Move Waikato suppliers to the right for clarity as the auckland ones are unavailable to Waikato, or when they select their Branch make the selections unavailable other than their own
   a) Can be done, need to confirm which suppliers are which, selecting branch will hide/show options
-Make Branch selection Blank, and alert user to select prior to moving on etc.
+1.) Make Branch selection Blank, and alert user to select prior to moving on etc.
   a) Can be done, will prevent form being submitted (make the field required)
 Force user to select Branch, can a rep names be added to a dropdown box? According to Branch….maybe have 1 generic eg.' Tradesales" if a user is not in the selection etc
   a) Definitely, this wasnt done as to reduce maintenance. Would need a list of all Reps, maybe divided by branch?
